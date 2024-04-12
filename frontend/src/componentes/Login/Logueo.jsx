@@ -1,15 +1,12 @@
-import React from 'react';
-import './css/Logueo.css';
-import { FaUser } from "react-icons/fa";
+// rfce para la estructura
 
+import React from 'react'
+import './css/Logueo.css';
 
 function Logueo() {
   return (
     <div>
-        <form>
-            <label>Ingresa texto: <FaUser className='icon-user'/></label>
-            <input type="text" />
-        </form>
+        <h1>Logueo</h1>
     </div>
   )
 }
