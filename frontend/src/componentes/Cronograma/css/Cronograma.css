@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@media screen and (min-width: 1024px) {
+    .cronograma-main-container{
+        width: 80%;
+        position: relative;
+        top: 90px;
+    }
+    .Cronograma-box__calendar-container{
+        max-width: 76%;
+        height: 80vh;
+    }
+    .calendar{
+        position: relative;
+        left: 40%;
+    }
+
+    /* Estilos para la vista mensual del calendario */
+    .rbc-month-view {
+        border-radius: 10px; /* Radio de borde */
+        overflow: hidden; /* Asegura que los bordes redondeados se apliquen correctamente */
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Sombra */
+    }
+
+}
+
+
