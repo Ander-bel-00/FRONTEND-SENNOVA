@@ -1,16 +1,15 @@
-import {} from './Componentes/visualizar actividad/VisualizarActividad.css'
 import { BiSolidReport } from "react-icons/bi";
 import { CiCalendar } from "react-icons/ci";
 import { FaSearch } from "react-icons/fa";
 import { IoAdd } from "react-icons/io5";
 import { FaEdit } from "react-icons/fa";
 import { RiDeleteBin5Line } from "react-icons/ri";
+import './css/Visualizar_Actividad.css';
 
-function App() {
-
+function Visualizar_Actividad() {
   return (
-    <>
-    {/* Dashboard */}
+    <div>
+        {/* Dashboard */}
     <div >
         <ul>
         <h2> TEINNOVA </h2>
@@ -58,8 +57,8 @@ function App() {
       <button> <FaEdit /> </button>
       <button> <RiDeleteBin5Line /> </button>
       </div>
-    </>
+    </div>
   )
 }
 
-export default VisualizarActividad;
+export default Visualizar_Actividad;
