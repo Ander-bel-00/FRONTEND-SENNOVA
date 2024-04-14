@@ -1,5 +1,6 @@
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
-import Visualizar_Actividad from './Componentes/visualizar_actividad/VisualizarActividad/Visualizar_Actividad';
+import Visualizar_Actividad from './Componentes/visualizar_actividad/Visualizar_Actividad';
+
 
 function App () {
   return(
