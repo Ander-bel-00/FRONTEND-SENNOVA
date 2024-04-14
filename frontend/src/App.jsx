@@ -1,6 +1,9 @@
 import Cronograma from "./componentes/Cronograma/Cronograma";
 import ListarUsuarios from "./componentes/ListarUsuarios/ListarUsuarios";
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
+import Sidenav from "./componentes/layouts/Sidenav/Sidenav";
+import { Fragment } from "react";
+import Header from "./componentes/layouts/Header/Header";
 
 function App() {
 
@@ -12,9 +15,13 @@ function App() {
           <Route 
             path="/cronograma"
             element={
-              <main className="cronograma-main-container">
-                <Cronograma />
-              </main>
+              <Fragment>
+                <Header />
+                <Sidenav />
+                <main className="cronograma-main-container">
+                  <Cronograma />
+                </main>
+              </Fragment>
             }
           />
 
