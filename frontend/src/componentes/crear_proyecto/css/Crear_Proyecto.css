@@ -1,0 +1,25 @@
+:root{
+    --boton-color: #FFFFFF;
+    --fuente: 'Work Sans', sans-serif;
+    --line-color: #A5A5A5;
+}
+
+.icon-return-create{
+    display: inline-block;
+    margin-top: 100px;
+    position: relative;
+    left: 370px;
+    font-size: 28px;
+}
+
+.create-project-box{
+    background-color: var(--boton-color);
+    width: 900px;
+    height: 475px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 11px 1px rgba(129,122,122,0.73);
+    margin-top: 35px;
+    position: relative;
+    left: 350px;
+}
+
