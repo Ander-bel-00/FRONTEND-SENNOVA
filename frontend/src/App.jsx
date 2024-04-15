@@ -1,42 +1,49 @@
 import Cronograma from "./componentes/Cronograma/Cronograma";
 import ListarUsuarios from "./componentes/ListarUsuarios/ListarUsuarios";
-import {BrowserRouter, Routes, Route} from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Sidenav from "./componentes/layouts/Sidenav/Sidenav";
 import { Fragment } from "react";
 import Header from "./componentes/layouts/Header/Header";
 
 function App() {
-
   return (
     <>
-
       <BrowserRouter>
         <Routes>
-          <Route 
-            path="/cronograma"
+          <Route
+            path="/lider-semillero/*"
             element={
               <Fragment>
                 <Header />
                 <Sidenav />
-                <main className="cronograma-main-container">
-                  <Cronograma />
-                </main>
-              </Fragment>
-            }
-          />
+                <Routes>
+                  <Route
+                    path="/cronograma"
+                    element={
+                      <Fragment>
+                        <main className="cronograma-main-container">
+                          <Cronograma />
+                        </main>
+                      </Fragment>
+                    }
+                  />
 
-          <Route 
-            path="/listar-usuarios"
-            element={
-              <main>
-                <ListarUsuarios />
-              </main>
+                  <Route
+                    path="/listar-usuarios"
+                    element={
+                      <main>
+                        <ListarUsuarios />
+                      </main>
+                    }
+                  />
+                </Routes>
+              </Fragment>
             }
           />
         </Routes>
       </BrowserRouter>
     </>
-  )
+  );
 }
 
 export default App;

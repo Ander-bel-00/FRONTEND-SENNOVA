@@ -16,12 +16,12 @@ function Sidenav() {
               <img src={LogoTeinnovaHome} alt="Logo Teinnova" />
             </div>
           </li>
-          <Link to={"/actividades"}>
+          <Link to={"/lider-semillero/actividades"}>
             <li className="Sidenav-content__menu-content__menu-options">
               <FaCalendarCheck className="inline-block mr-2" /> Actividades
             </li>
           </Link>
-          <Link to={"/cronograma"}>
+          <Link to={"/lider-semillero/cronograma"}>
             <li className="Sidenav-content__menu-content__menu-options">
               <GiNotebook className="inline-block" /> Cronograma
             </li>
