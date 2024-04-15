@@ -5,7 +5,7 @@
         position: fixed; /* Cambia la posición a fija para que el menú se mantenga visible al desplazar la página */
         top: 0; /* Alinea el menú en la parte superior */
         left: 0; /* Alinea el menú en la parte izquierda */
-        padding: 30px; /* Añade relleno al menú */
+        padding: 20px; /* Añade relleno al menú */
         background: #04324D;
         overflow-y: auto; /* Añade desplazamiento vertical si el contenido es más grande que el menú */
         z-index: 1000; /* Ajusta el índice z para que el menú aparezca encima del contenido */
@@ -13,7 +13,7 @@
     }
 
     .Sidenav-content__menu-content{
-        padding: 10px;
+        padding: 0px;
         margin: 0;
         list-style: none;
         position: relative;
@@ -38,7 +38,7 @@
     .Sidenav-content__menu-content__menu-options{
         width: 170px;
         color: #fff;
-        padding: 20px;
+        padding: 18px;
         font-size: 20px;
     }
 

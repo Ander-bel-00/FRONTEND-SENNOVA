@@ -4,17 +4,18 @@
         padding-top: 20px;
         width: 80%;
         position: relative;
-        top: 90px;
+        top: 98px;
     }
     .Cronograma-box__calendar-container{
-        max-width: 76%;
-        height: 80vh;
+        max-width: 80%;
+        height: 70vh;
     }
     .calendar{
         position: relative;
-        left: 40%;
+        left: 35%;
+        top: 50px;
     }
-
+    
     /* Estilos para la vista mensual del calendario */
     .rbc-month-view {
         border-radius: 10px; /* Radio de borde */
