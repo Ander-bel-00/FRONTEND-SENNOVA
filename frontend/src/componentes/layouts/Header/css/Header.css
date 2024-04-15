@@ -1,0 +1,61 @@
+@media screen and (min-width: 1024px) {
+    .Header-general {
+        background-color: #fff;
+        width: 100%;
+        position: fixed;
+        top: 0;
+        padding: 30px;
+        height: 90px;
+        z-index: 1000; /* Asegura que el encabezado esté por encima del resto del contenido */
+        display: flex;
+        justify-content: space-between; /* Alinea los elementos al principio y al final */
+        align-items: center; /* Centra verticalmente los elementos */
+    }
+
+    .Header-general__Search-box {
+        width: 80px;
+        order: 0; /* Cambia el orden del elemento */
+        position: relative;
+        left: 15%;
+        bottom: 9px;
+    }
+
+    .Header-general__Search-box input{
+        border-radius: 10px;
+        width: 105px;
+        height: 30px;
+        background-color: #f5f5f5;
+    }
+
+    .Header-general__Search-box input::placeholder{
+        position: relative;
+        left: 25px;
+        color: #04324D;
+        font-weight: bold;
+    }
+
+    .Header-general__Search-box_icon{
+        position: relative;
+        top: 25px;
+        left: 5px;
+    }
+
+    .Header-general__logout-link {
+        order: 2; /* Cambia el orden del elemento */
+    }
+
+    .Header-general__logout-link__icon{
+        font-size: 20px;
+    }
+
+    .Header-general__user_name {
+        order: 1; /* Cambia el orden del elemento */
+        padding-right: 10px;
+        position: relative;
+        left: 35%;
+    }
+
+    .Header-general__user_name__icon{
+        font-size: 40px;
+    }
+}
