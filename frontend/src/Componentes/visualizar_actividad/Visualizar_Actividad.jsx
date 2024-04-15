@@ -9,55 +9,51 @@ import './css/Visualizar_Actividad.css';
 function Visualizar_Actividad() {
   return (
     <div>
-        {/* Dashboard */}
-    <div >
-        <ul>
-        <h2> TEINNOVA </h2>
-          <li><a href=""></a>Semillero</li>
-          <li><a href=""></a>Proyectos</li>
-          <li><a href=""></a>Actividades</li>
-          <li><a href=""></a>Eventos CTI</li>
-          <li><a href=""></a>Programa</li>
-          <li><a href=""></a>Usuarios</li>
-        </ul>
-      </div>
+      {/* Dashboard */}
+      <h2 className="dashBoard"> DASHBOARD </h2>
+          
 
       {/* Cuadro donde irá hubicado el perfil */}
-      <h6 className='perfil'>cuadro perfil</h6>
+      <h5 className='perfil'>cuadro perfil</h5>
+          
 
-      {/* Barra horizontal funcional donde se interactua */}
-      <div className='horizontalBusqueda'> 
-        <button> <BiSolidReport /> Reporte</button>
-        <button> <CiCalendar    /> Ir a Cronograma</button>
-        <button> <FaSearch      /> Buscar Actividades</button>
-        <button className='butonGreen'> <IoAdd /> Crear Actividades</button>
-      </div>  
-
-      {/* Titulos donde se le indica al lector qué irá en ese campo */}
-      <div className='mainPage'>
-        <h4 className='nombre'>Nombre Actividad</h4>
-        <h4 className='tarea'>Tarea</h4>
-        <h4 className='fecha'>Fecha</h4>
-        <h4 className='resultado'>Resultado</h4>
-        <h4 className='producto'>Producto</h4>
-        <h4 className='responsable'>Responsable de la Actividad</h4>
+      {/* Botones principales */}
+      <div className="funcionales">
+        <button className="funcionales__1"> <BiSolidReport  /> Reporte</button>
+        <button className="funcionales__2"> <CiCalendar     /> Ir a Cronograma</button>
+        <button className="funcionales__3"> <FaSearch       /> Buscar Actividades</button>
+        <button className='funcionales__4--green'> <IoAdd   /> Crear Actividades</button>
       </div>
 
-      {/* Inforcacíon de los campos */}
-      <div className='contentCampos'>
-        <p className='d'>Diseño</p>
-        <p className='c'>Color</p>
-        <p className='f'>9 de febrero de 2024</p>
-        <p className='r'>Aprobado</p>
-        <p className='p'>Página web</p>
-        <p className='re'>Karol Andre Montoya Rendón </p>
+      {/* Títulos de la informacion del contenido */}
+      <div className='mainPage'> 
+        <h4 className='mainPage__nombre'      >Nombre Actividad</h4>
+        <h4 className='mainPage__tarea'       >Tarea</h4>
+        <h4 className='mainPage__fecha'       >Fecha</h4>
+        <h4 className='mainPage__resultado'   >Resultado</h4>
+        <h4 className='mainPage__producto'    >Producto</h4>
+        <h4 className='mainPage__responsable' >Responsable de la Actividad</h4>
+      <div/> 
+
+      <p className="row"></p>
+      
+      {/* Contenido de la pagina web como tal */}
+      <div className="content">
+        <p className='content__diseño'      >Diseño</p>
+        <p className='content__tarea'       >Color</p>
+        <p className='content__resultado'   >9 de febrero de 2024</p>
+        <p className='content__aprobado'    >Aprobado</p>
+        <p className='content__pagina'      >Página web</p>
+        <p className='content__karol andrea'>Karol Andrea Montoya Rendón </p>
       </div>
 
-      <div className='twoButtons'>
-      <button> <FaEdit /> </button>
-      <button> <RiDeleteBin5Line /> </button>
+      <div className='funcionales2'>
+        <button className="funcionales2__edit"> <FaEdit /> </button>
+        <button className="funcionales2__delete"> <RiDeleteBin5Line /> </button>
       </div>
+
     </div>
+  </div>
   )
 }
 
