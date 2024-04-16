@@ -25,6 +25,12 @@ function Visualizar_Actividad() {
         <button className='funcionales__4--green'> <IoAdd   /> Crear Actividades</button>
       </div>
 
+      {/* Botones secundarios */}
+      <div className='funcionales2'>
+        <button className="funcionales2__edit"> <FaEdit /> </button>
+        <button className="funcionales2__delete"> <RiDeleteBin5Line /> </button>
+      </div>
+
       {/* Títulos de la informacion del contenido */}
       <div className='mainPage'> 
         <h4 className='mainPage__nombre'      >Nombre Actividad</h4>
@@ -35,22 +41,19 @@ function Visualizar_Actividad() {
         <h4 className='mainPage__responsable' >Responsable de la Actividad</h4>
       <div/> 
 
-      <p className="row"></p>
+      <p className="rows"></p>
       
       {/* Contenido de la pagina web como tal */}
-      <div className="content">
-        <p className='content__diseño'      >Diseño</p>
-        <p className='content__tarea'       >Color</p>
-        <p className='content__resultado'   >9 de febrero de 2024</p>
-        <p className='content__aprobado'    >Aprobado</p>
-        <p className='content__pagina'      >Página web</p>
-        <p className='content__karol andrea'>Karol Andrea Montoya Rendón </p>
+      <div className="contents">
+        <p className='contents__box1'>.h</p>
+        <p className='contents__box2'>.h</p>
+        <p className='contents__box3'>.h</p>
+        <p className='contents__box4'>.h</p>
+        <p className='contents__box5'>.h</p>
+        <p className='contents__box6'>.h</p>
       </div>
 
-      <div className='funcionales2'>
-        <button className="funcionales2__edit"> <FaEdit /> </button>
-        <button className="funcionales2__delete"> <RiDeleteBin5Line /> </button>
-      </div>
+      
 
     </div>
   </div>

@@ -1,0 +1,180 @@
+/* :root{
+    
+} */
+
+body {
+    margin: 0;
+    font-family: 'Work sans';
+    background-color: #f5f5f5;
+  }
+
+/* Barra lateral izquierda Dashboard */
+h2{ text-align: center; }
+
+.dashBoard{
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    margin: 5px ;
+    width: 15%;
+    height: 98%;
+    color: white;
+    background-color: #03044d;
+    
+}
+ 
+/* header del perfil */
+.perfil{
+    position: relative; 
+    left: 300px;
+    height: 90px;
+    width: 82%;
+    text-align: center;
+    padding-top: 25px ;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+
+}
+
+/* Botones principales*/
+.funcional__1,
+.funcional__2,
+.funcional__4--green {
+    position: relative;
+    top: 30px;
+    left: 300px;
+    padding: 5px 15px ;
+    margin: 0px 30px 0px 0px;
+    border: none;
+    border-radius: 8px;
+    background-color: white;
+    font-size: small;
+    cursor: pointer;
+    box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.2);
+}
+
+.funcional__3{
+    padding: 5px 80px;
+    position: relative;
+    top: 30px;
+    left: 300px;
+    padding: 5px 70px ;
+    margin: 0px 30px 0px 0px;
+    border: none;
+    border-radius: 8px;
+    background-color: white;
+    font-size: small;
+    cursor: pointer;
+    box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.2);
+}
+
+button:hover{
+    background-color: rgb(126, 129, 145);}
+
+.funcional__4--green{
+    color: white;
+    background-color: #39a900;}
+
+.funcional__4--green:hover{
+    color: black;
+    background-color: #2e8105}
+
+
+/* Botones secundarios */
+.funcionales3__delete,
+.funcionales3__edit,
+.funcionales3__visualize{
+    position: relative;
+    top: 235px;
+    left: 77.7%;
+    float: left;
+    padding: 5px 15px ;
+    margin-left: 5px;
+    border: none;
+    border-radius: 8px;
+    background-color: white;
+    font-size: small;
+    cursor: pointer;
+    z-index: 1;
+}
+
+
+
+/* Títulos de la informacion del contenido*/
+.mainPage{
+    position: absolute;
+    top: 250px;
+    left: 300px;
+    height: 69%;
+    width: 79%;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.mainPage__nombre   { margin-right: 25px; margin-top: 30px; }
+.mainPage__fechaI   { margin-right: 25px; margin-top: 30px; }
+.mainPage__fechaF   {  margin-top: 30px; }
+.mainPage__cantidad { margin-right: 25px; margin-top: 30px; }
+.mainPage__lugar    { margin-right: 25px; margin-top: 30px; }
+.mainPage__tipo     { margin-right: 25px; margin-top: 30px; }
+
+.row{
+    position:relative;
+    left: 40px;
+    width: 90%;
+    border-bottom: 1px solid black;
+}
+
+h4{
+    float: left;
+}
+
+
+/* Contenido de la pagina web como tal */
+
+.content{ float: left; }
+.content__box1{ margin-left: 30px; margin-right: 80px ;}
+.content__box2{ margin-right: 100px;}
+.content__box3{ margin-right: 70px;}
+.content__box4{ margin-right: 185px;}
+.content__box5{ margin-right: 60px;}
+
+.content2{ float: left; }
+.content2__box1{ margin-left: 30px; margin-right: 80px ;}
+.content2__box2{ margin-right: 100px;}
+.content2__box3{ margin-right: 70px;}
+.content2__box4{ margin-right: 185px;}
+.content2__box5{ margin-right: 60px;}
+
+.row2{
+    position:relative;
+    left: 40px;
+    width: 90%;
+    border-bottom: 1px solid black;
+}
+
+p{
+    float: left;
+    font-size: small;
+    padding: 0px 30px;
+}
+
+
+.funcionales2__delete,
+.funcionales2__edit,
+.funcionales2__visualize{
+    position: relative;
+    top: 170px;
+    left: 86%;
+    float: left;
+    padding: 5px 15px ;
+    margin-left: 5px;
+    border: none;
+    border-radius: 8px;
+    background-color: white;
+    font-size: small;
+    cursor: pointer;
+    z-index: 1;
+}

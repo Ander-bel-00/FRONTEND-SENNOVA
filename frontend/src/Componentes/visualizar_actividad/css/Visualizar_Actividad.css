@@ -37,7 +37,7 @@ h2{ text-align: center; }
 
 }
 
-/* Botones principales*/
+/* Botones principales */
 .funcionales__1,
 .funcionales__2,
 .funcionales__3,
@@ -45,7 +45,7 @@ h2{ text-align: center; }
     position: relative;
     top: 30px;
     left: 300px;
-    padding: 5px 15px ;
+    padding: 5px 15px;
     margin: 0px 30px 0px 0px;
     border: none;
     border-radius: 8px;
@@ -67,45 +67,7 @@ button:hover{
     background-color: #2e8105}
 
 
-
-/* Títulos de la informacion del contenido*/
-.mainPage{
-    position: absolute;
-    top: 250px;
-    left: 300px;
-    height: 69%;
-    width: 79%;
-    background-color: white;
-    border-radius: 5px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-}
-
-.row{
-    position:relative;
-    left: 20px;
-    width: 90%;
-    border-bottom: 1px solid black;
-}
-
-h4{
-    float: left;
-    margin-left:  30px;
-    padding: 0px  30px;
-}
-
-
-/* Contenido de la pagina web como tal */
-.content{ float: left; }
-
-
-p{
-    float: left;
-    font-size: small;
-    margin-left: 30px;
-    padding: 0px 30px;
-}
-
-
+/* Botones secundarios */
 .funcionales2__delete,
 .funcionales2__edit{
     position: relative;
@@ -119,4 +81,52 @@ p{
     font-size: small;
     cursor: pointer;
     
+}
+
+
+
+/* Títulos de la informacion del contenido*/
+.mainPage{
+    position: absolute;
+    top: 250px;
+    left: 300px;
+    height: 69%;
+    width: 79%;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.mainPage__nombre       { margin-left: 25px; margin-top: 30px;     }
+.mainPage__tarea        { margin-right: 25px; margin-top: 30px; }
+.mainPage__fecha        { margin-top: 30px; }
+.mainPage__resultado    { margin-right: 25px; margin-top: 30px; }
+.mainPage__producto     { margin-right: 25px; margin-top: 30px; }
+.mainPage__responsable  { margin-right: 25px; margin-top: 30px; }
+
+
+.rows{
+    position:relative;
+    left: 40px;
+    width: 90%;
+    border-bottom: 1px solid black;
+}
+
+h4{
+    float: left;
+    padding: 0px  30px;
+}
+
+
+/* Contenido de la pagina web como tal */
+.contents{ float: left; }
+.contents__box1{ margin-left: 25px; margin-right: 150px ;}
+.contents__box2{ margin-right: 60px;}
+.contents__box3{ margin-right: 40px;}
+.contents__box4{ margin-right: 95px;}
+.contents__box5{ margin-right: 75px;}
+
+p{
+    font-size: small;
+    padding: 0px 30px;
 }
