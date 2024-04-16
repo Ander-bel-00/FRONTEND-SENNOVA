@@ -38,13 +38,13 @@ h2{ text-align: center; }
 }
 
 /* Botones principales */
-.functionales__1,
-.functionales__2,
-.functionales__3,
-.functionales__4--green {
+button:hover{
+    background-color: rgb(126, 129, 145);}
+
+.functional__2{
     position: relative;
     top: 30px;
-    left: 300px;
+    left: 18%;
     padding: 5px 15px;
     margin: 0px 30px 0px 0px;
     border: none;
@@ -55,21 +55,47 @@ h2{ text-align: center; }
     box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.2);
 }
 
-button:hover{
-    background-color: rgb(126, 129, 145);}
+.functional__3{
+    padding: 5px 120px;
+    position: relative;
+    top: 30px;
+    left: 38%;
+    margin: 0px 30px 0px 0px;
+    border: none;
+    border-radius: 8px;
+    background-color: white;
+    font-size: small;
+    cursor: pointer;
+    box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.2);
+}
 
-.functionales__4--green{
+.functional__4--green {
+    position: relative;
+    top: 30px;
+    left: 38%;
+    padding: 5px 15px;
+    margin: 0px 30px 0px 0px;
+    border: none;
+    border-radius: 8px;
+    background-color: white;
+    font-size: small;
+    cursor: pointer;
+    box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.2);
+}
+
+.functional__4--green{
     color: white;
     background-color: #39a900;}
 
-.functionales__4--green:hover{
+.functional__4--green:hover{
     color: black;
     background-color: #2e8105}
 
 
+
 /* Botones secundarios */
-.functionales2__delete,
-.functionales2__edit{
+.functional2__delete,
+.functional2__edit{
     position: relative;
     top: 170px;
     left: 87%;
@@ -86,7 +112,7 @@ button:hover{
 
 
 /* Títulos de la informacion del contenido*/
-.mainPage{
+.mainPart{
     position: absolute;
     top: 250px;
     left: 300px;
@@ -97,15 +123,15 @@ button:hover{
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 
-.mainPage__nombre       { margin-left: 25px; margin-top: 30px;     }
-.mainPage__tarea        { margin-right: 25px; margin-top: 30px; }
-.mainPage__fecha        { margin-top: 30px; }
-.mainPage__resultado    { margin-right: 25px; margin-top: 30px; }
-.mainPage__producto     { margin-right: 25px; margin-top: 30px; }
-.mainPage__responsable  { margin-right: 25px; margin-top: 30px; }
+.mainPart__nombre   { margin-left: 25px; margin-right: 30px; margin-top: 30px;  }
+.mainPart__fechaI   { margin-right: 30px; margin-top: 30px; }
+.mainPart__fechaF   { margin-right: 30px; margin-top: 30px; }
+.mainPart__cantidad { margin-right: 40px; margin-top: 30px; }
+.mainPart__lugar    { margin-right: 40px; margin-top: 30px; }
+.mainPart__tipo     { margin-left: 40px; margin-top: 30px; }
 
 
-.rows{
+.rowes{
     position:relative;
     left: 40px;
     width: 90%;
@@ -119,12 +145,12 @@ h4{
 
 
 /* Contenido de la pagina web como tal */
-.contents{ float: left; }
-.contents__box1{ margin-left: 25px; margin-right: 150px ;}
-.contents__box2{ margin-right: 60px;}
-.contents__box3{ margin-right: 40px;}
-.contents__box4{ margin-right: 95px;}
-.contents__box5{ margin-right: 75px;}
+.contenido{ float: left; }
+.contenido__box1{ margin-left: 25px; margin-right: 80px ;}
+.contenido__box2{ margin-right: 120px;}
+.contenido__box3{ margin-right: 95px;}
+.contenido__box4{ margin-right: 200px;}
+.contenido__box5{ margin-right: 120px;}
 
 p{
     font-size: small;

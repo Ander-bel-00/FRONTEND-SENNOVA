@@ -1,6 +1,7 @@
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import Visualizar_Actividad from './Componentes/visualizar_actividad/Visualizar_Actividad';
 import Listar_Eventos from './Componentes/listar_eventos/Listar_Eventos';
+import Visualizar_Evento from './Componentes/visualizar_evento/Visualizar_Evento';
 
 
 function App () {
@@ -19,6 +20,13 @@ function App () {
             path='/Listar-eventos'
             element={
               <Listar_Eventos />
+            }
+          />
+
+          <Route 
+            path='/Visualizar-evento'
+            element={
+              <Visualizar_Evento/>
             }
           />
 

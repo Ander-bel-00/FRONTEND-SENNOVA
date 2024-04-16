@@ -18,17 +18,17 @@ function Visualizar_Actividad() {
           
 
       {/* Botones principales */}
-      <div className="funcionales">
-        <button className="funcionales__1"> <BiSolidReport  /> Reporte</button>
-        <button className="funcionales__2"> <CiCalendar     /> Ir a Cronograma</button>
-        <button className="funcionales__3"> <FaSearch       /> Buscar Actividades</button>
-        <button className='funcionales__4--green'> <IoAdd   /> Crear Actividades</button>
+      <div className="functionales">
+        <button className="functionales__1"> <BiSolidReport  /> Reporte</button>
+        <button className="functionales__2"> <CiCalendar     /> Ir a Cronograma</button>
+        <button className="functionales__3"> <FaSearch       /> Buscar Actividades</button>
+        <button className='functionales__4--green'> <IoAdd   /> Crear Actividades</button>
       </div>
 
       {/* Botones secundarios */}
-      <div className='funcionales2'>
-        <button className="funcionales2__edit"> <FaEdit /> </button>
-        <button className="funcionales2__delete"> <RiDeleteBin5Line /> </button>
+      <div className='functionales2'>
+        <button className="functionales2__edit"> <FaEdit /> </button>
+        <button className="functionales2__delete"> <RiDeleteBin5Line /> </button>
       </div>
 
       {/* Títulos de la informacion del contenido */}
