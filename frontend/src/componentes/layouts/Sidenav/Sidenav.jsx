@@ -46,7 +46,7 @@ function Sidenav() {
               Semillero
             </li>
           </Link>
-          <Link>
+          <Link to={"/lider-semillero/usuarios-getAll"}>
             <li className="Sidenav-content__menu-content__menu-options">
               <ImUsers className="inline-block" /> Usuarios
             </li>

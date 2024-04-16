@@ -27,11 +27,10 @@ function App() {
                       </Fragment>
                     }
                   />
-
                   <Route
-                    path="/listar-usuarios"
+                    path="/usuarios-getAll"
                     element={
-                      <main>
+                      <main className="main-usuarios-get-container">
                         <ListarUsuarios />
                       </main>
                     }
