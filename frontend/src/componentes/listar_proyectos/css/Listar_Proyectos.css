@@ -4,7 +4,6 @@
     --text-buscar-color: #A5A5A5;
     --boton-crear-color: #39A900;
     --text-crear-color: #FFFFFF;
-    --line-color: #A5A5A5;
 }
 
 @media screen and (min-width: 1024px) {
@@ -13,7 +12,7 @@
         padding-top: 20px;
         height: 90vh;
     }
-    /* Caja de reporte */
+
     .reporte-btn{
         background-color: var(--boton-color);
         width: 110px;
@@ -21,12 +20,13 @@
         border-radius: 8px;
         box-shadow: 0px 4px 11px 1px rgba(129,122,122,0.73);
         position: relative;
-        left: 258px;
-        top: 90px;
+        top: 135px;
+        left: 280px;
     }
 
     .reporte-btn__reporte-text{
         position: relative;
+        top: -22px;
         bottom: 20px;
         text-align: center;
         font-family: var(--fuente);
@@ -35,19 +35,18 @@
     .icon-report{
         display: inline-block;
         position: relative;
+        left: 5px;
     }
 
-    /* Caja de buscar proyecto */
     .busqueda-option{
         background-color: var(--boton-color);
         width: 170px;
         height: 29px;
         border-radius: 8px;
         box-shadow: 0px 4px 11px 1px rgba(129,122,122,0.73);
-        margin-top: -69px;
         position: relative;
-        left: 35%;
-        top: 132px;
+        top: 109px;
+        left: 500px;
     }
 
     .busqueda-option__busqueda-text{
@@ -64,21 +63,21 @@
         left: 5px;
     }
 
-    /* Caja de ir a cronograma */
     .cronograma-link{
         background-color: var(--boton-color);
         width: 170px;
         height: 29px;
         border-radius: 8px;
         box-shadow: 0px 4px 11px 1px rgba(129,122,122,0.73);
-        margin-top: -30px;
+        margin-top: -42px;
         position: relative;
         left: 55%;
-        top: 135px;
+        top: 125px;
     }
 
     .cronograma-link__cronograma-text{
         position: relative;
+        left: 5px;
         bottom: 20px;
         text-align: center;
         font-family: var(--fuente);
@@ -90,7 +89,6 @@
         left: 8px;
     }
 
-    /* Caja de crear */
     .crear-box{
         background-color: var(--boton-crear-color);
         width: 90px;
@@ -99,12 +97,14 @@
         box-shadow: 0px 4px 11px 1px rgba(129,122,122,0.73);
         margin-top: -29px;
         position: relative;
-        left: 1260px;
-        top: 135px;
+        left: 1275px;
+        top: 129px;
     }
 
     .crear-box__crear-text{
         position: relative;
+        top: -23px;
+        left: 5px;
         bottom: 22px;
         text-align: center;
         font-family: var(--fuente);
@@ -114,7 +114,7 @@
     .icon-plus{
         display: inline-block;
         position: relative;
-        left: 0px;
+        left: 4px;
         color: #F3F3F3;
         font-size: 23px;
     }
@@ -124,20 +124,18 @@
         height: 50px;
     }
 
-    /* Caja principal de listar proyectos */
     .list-project-box{
         background-color: var(--boton-color);
         width: 1100px;
         height: 460px;
         border-radius: 8px;
         box-shadow: 0px 4px 11px 1px rgba(129,122,122,0.73);
-        margin-top: 50px;
+        margin-top: 70px;
         position: relative;
         left: 18%;
         top: 100px;
     }
 
-    /* titulo de nombre del proyecto */
     .list-project-box__list-project-title-1{
         width: 150px;
         text-wrap: nowrap;
@@ -148,7 +146,6 @@
         font-weight: 800;
     }
 
-    /* titulo de fecha de inicio del proyecto */
     .list-project-box__list-project-title-2{
         width: 150px;
         text-wrap: nowrap;
@@ -159,7 +156,6 @@
         font-weight: 800;
     }
 
-    /* titulo de fecha fin del proyecto */
     .list-project-box__list-project-title-3{
         width: 150px;
         text-wrap: nowrap;
@@ -170,7 +166,6 @@
         font-weight: 800;
     }
 
-    /* titulo de descripción del proyecto */
     .list-project-box__list-project-title-4{
         text-wrap: nowrap;
         position: relative;

@@ -7,43 +7,47 @@
     --line-color: #A5A5A5;
 }
 
-/* icono de regresar */
-.icon-return-create{
+.icon-return-create-activity{
     display: inline-block;
-    margin-top: 94px;
+    margin-top: 93px;
     position: relative;
-    top: 40px;
+    top: 50px;
     left: 407px;
     font-size: 32px;
 }
 
-/* Caja principal de crear el proyecto*/
-.create-project-box{
+.crear-actividades-titulo{
+    position: relative;
+    top: 08px;
+    left: 65px;
+    font-size: 25px;
+    font-weight: 650;
+}
+
+.create-activity-box{
     background-color: var(--boton-color);
-    width: 900px;
-    height: 490px;
+    width: 58%;
+    height: 67vh;
     border-radius: 8px;
     box-shadow: 0px 4px 11px 1px rgba(129,122,122,0.73);
-    margin-top: 55px;
+    margin-top: 30px;
     position: relative;
     left: 390px;
 }
 
-/* titulo principal del formulario */
-.create-project-title{
+.create-activity-title{
     position: relative;
-    top: 30px;
+    top: 24px;
     font-size: 25px;
 }
 
-/* contener del titulo y caja para ingresar el nombre del proyecto */
-.nombre-project-title{
+.nombre-activity-title{
     position: relative;
     top: 55px;
     left: 125px;
 }
 
-.text-entry-box-nombre-proyecto{
+.text-entry-box-nombre-actividad{
     border: 1px solid #385C57;
     width: 220px;
     height: 30px;
@@ -51,17 +55,16 @@
     box-shadow: 0px 4px 11px 1px rgba(129,122,122,0.73);
     position: relative;
     top: 98px;
-    right: 38px;
+    right: 49px;
 }
 
-/* contener del titulo y caja para ingresar la fecha inio del proyecto*/
-.fecha-inicio-project-title{
+.tarea-activity-title{
     position: relative;
     top: 25px;
     left: 530px;
 }
 
-.text-entry-box-fecha-inicio-proyecto{
+.text-entry-box-tarea-actividad{
     border: 1px solid #385C57;
     width: 220px;
     height: 31px;
@@ -69,63 +72,99 @@
     box-shadow: 0px 4px 11px 1px rgba(129,122,122,0.73);
     position: relative;
     top: 64px;
-    left: 348px;
+    left: 484px;
 }
 
-.descripcion-project-title{
+.fecha-activity-title{
     position: relative;
-    top: -96px;
+    top: 100px;
     left: 126px;
 }
 
-.text-entry-box-descripcion-proyecto{
-    border: 1px solid #385C57;
-    border-radius: 8px;
-    box-shadow: 0px 4px 11px 1px rgba(129,122,122,0.73);
-    position: relative;
-    top: 140px;
-    right: 59px;
-}
-
-.fecha-fin-project-title{
-    position: relative;
-    top: -125px;
-    left: 533px;
-}
-
-.tex-entry-box-fecha-fin-proyecto{
+.text-entry-box-fecha-entrega-actividad{
     border: 1px solid #385C57;
     width: 220px;
     height: 31px;
     border-radius: 8px;
     box-shadow: 0px 4px 11px 1px rgba(129,122,122,0.73);
     position: relative;
-    top: -85px;
-    left: 366px;
+    top: 140px;
+   left: 76px;
 }
 
-.btn-crear-proyecto{
+.resultado-activity-title{
+    position: relative;
+    top: 70px;
+    left: 533px;
+}
+
+.text-entry-box-resultado-actividad{
+    border: 1px solid #385C57;
+    width: 220px;
+    height: 31px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 11px 1px rgba(129,122,122,0.73);
+    position: relative;
+    top: 110px;
+    left: 456px;
+}
+
+.producto-activity-title{
+    position: relative;
+    top: 135px;
+    left: 126px;
+}
+
+.text-entry-box-producto-actividad{
+    border: 1px solid #385C57;
+    width: 220px;
+    height: 31px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 11px 1px rgba(129,122,122,0.73);
+    position: relative;
+    top: 180px;
+   left: 54px;
+}
+
+.responsable-activity-title{
+    position: relative;
+    top: 106px;
+    left: 538px;
+}
+
+.text-entry-box-responsable-actividad{
+    border: 1px solid #385C57;
+    width: 220px;
+    height: 31px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 11px 1px rgba(129,122,122,0.73);
+    position: relative;
+    top: 151px;
+    left: 335px;
+}
+
+.btn-crear-actividad{
     background-color: var(--boton-crear-color);
     width: 220px;
     height: 45px;
     border-radius: 8px;
     box-shadow: 0px 4px 11px 1px rgba(129,122,122,0.73);
     position: relative;
-    top: -50px;
-    left: 533px;
+    top: 190px;
+    left: 542px;
     color: var(--text-btn-color);
     font-size: 21px;
 }
 
-.btn-cancelar-proyecto{
+.btn-cancelar-actividad{
     background-color: var(--boton-cacelar-color);
     width: 220px;
     height: 45px;
     border-radius: 8px;
     box-shadow: 0px 4px 11px 1px rgba(129,122,122,0.73);
     position: relative;
-    top: 30px;
-    left: 315px;
+    top: 190px;
+    right: 94px;
     color: var(--text-btn-color);
     font-size: 21px;
 }

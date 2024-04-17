@@ -1,9 +1,13 @@
 :root{
     --boton-color: #FFFFFF;
     --fuente: 'Work Sans', sans-serif;
-    --line-color: #A5A5A5;
 }
 
+.listar-proyectos-main-container{
+    margin-top: 10px;
+    padding-top: 20px;
+    height: 90vh;
+}
 
 .icon-return{
     display: inline-block;
@@ -16,7 +20,7 @@
 .icon-calendar-2{
     display: inline-block;
     position: relative;
-    top: -6px;
+    top: -1px;
     right: 20px;
 }
 
@@ -26,7 +30,7 @@
     height: 29px;
     border-radius: 8px;
     box-shadow: 0px 4px 11px 1px rgba(129,122,122,0.73);
-    margin-top: 100px;
+    margin-top: 113px;
     position: relative;
     left: 1205px;
 }
@@ -34,15 +38,15 @@
 .cronograma-link-1__cronograma-text{
     text-align: center;
     position: relative;
-    top: -42px;
+    top: -26px;
     left: 9px;
     font-family: var(--fuente);
 }
 
 .visualize-lay-off-project-box{
     background-color: var(--boton-color);
-    width: 1100px;
-    height: 465px;
+    width: 72%;
+    height: 66vh;
     border-radius: 8px;
     box-shadow: 0px 4px 11px 1px rgba(129,122,122,0.73);
     margin-top: 35px;
@@ -60,7 +64,7 @@
 
 .visualize-lay-off-project-box__visualize-lay-off-project-title-2{
     position: relative;
-    top: -10px;
+    top: 4px;
     left: 220px;
     font-family: var(--fuente);
     font-weight: 800;
@@ -68,7 +72,7 @@
 
 .visualize-lay-off-project-box__visualize-lay-off-project-title-3{
     position: relative;
-    top: -48px;
+    top: -19px;
     left: 490px;
     font-family: var(--fuente);
     font-weight: 800;
@@ -76,23 +80,22 @@
 
 .visualize-lay-off-project-box__visualize-lay-off-project-title-4{
     position: relative;
-    top: -86px;
+    top: -42px;
     left: 725px;
     font-family: var(--fuente);
     font-weight: 800;
 }
 
-.my-horizontal-line-title{
-    width: 1070px;
+.visualize-lay-off-project-box__rows{
     position: relative;
-    top: -80px;
-    background-color: var(--line-color);
+    top: -28px;
+    border-bottom: 1px solid #A5A5A5;
 }
 
 .icon-list-visus{
     display: inline-block;
     position: relative;
-    top: -69px;
+    top: -10px;
     left: 1020px;
     font-size: 22px;
 }
@@ -100,35 +103,35 @@
 .icon-transh-visus{
     display: inline-block;
     position: relative;
-    top: -69px;
+    top: -10px;
     left: 1030px;
     font-size: 22px;
 }
 
 .name-project-visus{
     position: relative;
-    top: -115px;
+    top: -35px;
     left: 15px;
     font-family: var(--fuente);
 }
 
 .start-date-project-visus{
     position: relative;
-    top: -149px;
+    top: -62px;
     left: 220px;
     font-family: var(--fuente);
 }
 
 .final-date-project-visus{
     position: relative;
-    top: -182px;
+    top: -85px;
     left: 490px;
     font-family: var(--fuente);
 }
 
 .description-project-visus{
     position: relative;
-    top: -217px;
+    top: -110px;
     left: 725px;
     font-family: var(--fuente);
 }

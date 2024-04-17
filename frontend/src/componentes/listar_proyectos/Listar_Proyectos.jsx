@@ -14,7 +14,7 @@ function Listar_Proyectos() {
     <Fragment>
       <div className="reporte-btn">
         <BiSolidReport className="icon-report" />
-        <p className="reporte-btn__reporte-text">Reporte</p>
+        <p className="reporte-btn__reporte-text">Reporte</p>   
       </div>
       <div className="busqueda-option">
         <FiSearch className="icon-search" />
@@ -26,7 +26,7 @@ function Listar_Proyectos() {
         <p className="cronograma-link__cronograma-text">Ir a Cronograma</p>
       </div>
 
-      <Link to={"/lider-semillero/Crear_Proyecto"}>
+      <Link to={"/lider-semillero/Crear_Proyecto"}>   
         <div className="crear-box">
           <GoPlus className="icon-plus" />
           <p className="crear-box__crear-text">Crear</p>
@@ -49,7 +49,7 @@ function Listar_Proyectos() {
             Descripción del Proyecto
           </p>
         </div>
-        <div className="list-project-box__rows">
+        <div className="list-project-box__rows">  
           <LiaEyeSolid className="icon-eyesolid" />
           <LiaClipboardListSolid className="icon-list" />
           <IoTrashOutline className="icon-transh" />
