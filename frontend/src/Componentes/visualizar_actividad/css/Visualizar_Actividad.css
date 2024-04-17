@@ -1,31 +1,15 @@
 /* :root{
     
 } */
-
 body {
     margin: 0;
     font-family: 'Work sans';
     background-color: #f5f5f5;
   }
-
-/* Barra lateral izquierda Dashboard */
-h2{ text-align: center; }
-
-.dashBoard{
-    position: absolute;
-    top: 0%;
-    left: 0%;
-    margin: 5px ;
-    width: 15%;
-    height: 98%;
-    color: white;
-    background-color: #03044d;
-    
-}
  
 /* header del perfil */
 .perfil{
-    position: relative; 
+    position: absolute; 
     left: 300px;
     height: 90px;
     width: 82%;
@@ -55,8 +39,7 @@ h2{ text-align: center; }
     box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.2);
 }
 
-button:hover{
-    background-color: rgb(126, 129, 145);}
+
 
 .functionales__4--green{
     color: white;
@@ -112,21 +95,14 @@ button:hover{
     border-bottom: 1px solid black;
 }
 
-h4{
-    float: left;
-    padding: 0px  30px;
-}
 
 
 /* Contenido de la pagina web como tal */
 .contents{ float: left; }
-.contents__box1{ margin-left: 25px; margin-right: 150px ;}
+.contents__box1{ margin-left: 25px; margin-right: 165px ;}
 .contents__box2{ margin-right: 60px;}
-.contents__box3{ margin-right: 40px;}
-.contents__box4{ margin-right: 95px;}
-.contents__box5{ margin-right: 75px;}
+.contents__box3{ margin-right: 60px;}
+.contents__box4{ margin-right: 80px;}
+.contents__box5{ margin-right: 95px;}
 
-p{
-    font-size: small;
-    padding: 0px 30px;
-}
+

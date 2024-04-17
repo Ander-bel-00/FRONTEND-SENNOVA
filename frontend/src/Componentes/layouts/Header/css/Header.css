@@ -16,10 +16,12 @@
         width: 80px;
         order: 0; /* Cambia el orden del elemento */
         position: relative;
-        left: 15%;
+        left: 13%;
         bottom: 9px;
     }
 
+
+    
     .Header-general__Search-box input{
         border-radius: 10px;
         width: 105px;
@@ -29,7 +31,7 @@
 
     .Header-general__Search-box input::placeholder{
         position: relative;
-        left: 25px;
+        left: 20px;
         color: #04324D;
         font-weight: bold;
     }
@@ -42,6 +44,8 @@
 
     .Header-general__logout-link {
         order: 2; /* Cambia el orden del elemento */
+        position: relative;
+        right: 5%;
     }
 
     .Header-general__logout-link__icon{
@@ -52,7 +56,7 @@
         order: 1; /* Cambia el orden del elemento */
         padding-right: 10px;
         position: relative;
-        left: 35%;
+        left: 32%;
     }
 
     .Header-general__user_name__icon{

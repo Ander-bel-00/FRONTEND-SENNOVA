@@ -9,23 +9,19 @@ import './css/Listar_Eventos.css';
 
 function Listar_Eventos() {
   return (
-    <div>
-      {/* Dashboard */}
-      <h2 className="dashBoard"> DASHBOARD </h2>
-          
-
-      {/* Cuadro donde irá hubicado el perfil */}
-      <h5 className='perfil'>cuadro perfil</h5>
-          
+    <div >
+ 
 
       {/* Botones principales */}
-      <div className="funcional">
-        <button className="funcional__1"> <BiSolidReport  /> Reporte</button>
-        <button className="funcional__2"> <CiCalendar     /> Ir a Cronograma</button>
-        <button className="funcional__3"> <FaSearch       /> Buscar Eventos</button>
-        <button className='funcional__4--green'> <IoAdd   /> Crear Evento</button>
-      </div>
-
+      
+        <div className="funcional">
+          <button className="funcional__1"> <BiSolidReport  /> Reporte</button>
+          <button className="funcional__2"> <CiCalendar     /> Ir a Cronograma</button>
+          <input type="text" placeholder="Buscar Eventos" className="funcional__3" /> 
+          {/* <button className="funcional__3"> <FaSearch       /> Buscar Eventos</button> */}
+          <button className='funcional__4--green'> <IoAdd   /> Crear Evento</button>
+        </div>
+ 
 
       {/* Botones secundarios */}
       <div className='funcionales2'>
@@ -39,7 +35,7 @@ function Listar_Eventos() {
         <button className="funcionales3__delete"> <RiDeleteBin5Line /> </button>
         <button className="funcionales3__visualize"> <LiaEye /> </button>
       </div>
-
+    
 
       {/* Títulos de la informacion del contenido */}
       <div className='mainPage'> 
@@ -56,23 +52,23 @@ function Listar_Eventos() {
 
       {/* Contenido de la pagina web como tal */}
       <div className="content">
-        <p className='content__box1'>.h </p>
-        <p className='content__box2'>.h </p>
-        <p className='content__box3'>.h </p>
-        <p className='content__box4'>.h </p>
-        <p className='content__box5'>.h </p>
-        <p className='content__box6'>.h </p>
+        <p className='content__box1'>. </p>
+        <p className='content__box2'>. </p>
+        <p className='content__box3'>. </p>
+        <p className='content__box4'>. </p>
+        <p className='content__box5'>. </p>
+        <p className='content__box6'>. </p>
       </div>
 
       <p className="row2"></p>
 
       <div className="content2">
-        <p className='content2__box1'>.h </p>
-        <p className='content2__box2'>.h </p>
-        <p className='content2__box3'>.h </p>
-        <p className='content2__box4'>.h </p>
-        <p className='content2__box5'>.h </p>
-        <p className='content2__box6'>.h </p>
+        <p className='content2__box1'>. </p>
+        <p className='content2__box2'>. </p>
+        <p className='content2__box3'>. </p>
+        <p className='content2__box4'>. </p>
+        <p className='content2__box5'>. </p>
+        <p className='content2__box6'>. </p>
       </div>
 
     </div>

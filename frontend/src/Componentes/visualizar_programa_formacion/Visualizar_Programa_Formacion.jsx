@@ -4,10 +4,7 @@ import './css/Visualizar_Programa_Formacion.css';
 
 function Visualizar_Programa_Formacion() {
   return (
-    <div>
-      {/* Dashboard */}
-      <h2 className='dashBoard'> DASHBOARD </h2>
-          
+    <div>         
 
       {/* Cuadro donde irá hubicado el perfil */}
       <h5 className='perfil'>cuadro perfil</h5>
@@ -30,12 +27,10 @@ function Visualizar_Programa_Formacion() {
       
       {/* Contenido de la pagina web como tal */}
       <div className='contentsBox'>
-        <p className='contentsBox__box1'>.h</p>
-        <p className='contentsBox__box2'>.h</p>
-        <p className='contentsBox__box3'>.h</p>
+        <p className='contentsBox__box1'>.</p>
+        <p className='contentsBox__box2'>.</p>
+        <p className='contentsBox__box3'>.</p>
       </div>
-
-      
 
     </div>
   </div>

@@ -2,14 +2,7 @@ import './css/Crear_Programa_Formacion.css';
 
 function Crear_Programa_Formacion() {
   return (
-    <div>
-      {/* Dashboard */}
-      <h2 className='dashBoard'> DASHBOARD </h2>
-          
-
-      {/* Cuadro donde irá hubicado el perfil */}
-      <h5 className='perfil'>cuadro perfil</h5>
-          
+    <div>          
 
       {/* Titulo general */}
       <h2 class='mainTitle'> Programa de Formación</h2>
@@ -20,17 +13,17 @@ function Crear_Programa_Formacion() {
         <form className="inputBoxes__olderbox">
             <h3>Insertar Información</h3>
                 <div>
-                    <label className="inputBoxes__label1">Código*</label>
+                    <label >Código*</label>
                     <br />
                     <input type='text' className='inputBoxes__codigo'/>
                 </div>
                 <div>
-                    <label className="inputBoxes__label2">Versión*</label>
+                    <label >Versión*</label>
                     <br />
                     <input type='text' className='inputBoxes__version'/>
                 </div>
                 <div>
-                    <label className="inputBoxes__label3">Nombre*</label>
+                    <label >Nombre*</label>
                     <br />
                     <input type='text' className='inputBoxes__nombre'/>
                 </div>

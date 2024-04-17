@@ -10,7 +10,6 @@ function Visualizar_Actividad() {
   return (
     <div>
       {/* Dashboard */}
-      <h2 className="dashBoard"> DASHBOARD </h2>
           
 
       {/* Cuadro donde irá hubicado el perfil */}
@@ -21,7 +20,7 @@ function Visualizar_Actividad() {
       <div className="functionales">
         <button className="functionales__1"> <BiSolidReport  /> Reporte</button>
         <button className="functionales__2"> <CiCalendar     /> Ir a Cronograma</button>
-        <button className="functionales__3"> <FaSearch       /> Buscar Actividades</button>
+        <input type="text" placeholder="Buscar Actividades" className="funcional__3" />
         <button className='functionales__4--green'> <IoAdd   /> Crear Actividades</button>
       </div>
 
@@ -45,15 +44,13 @@ function Visualizar_Actividad() {
       
       {/* Contenido de la pagina web como tal */}
       <div className="contents">
-        <p className='contents__box1'>.h</p>
-        <p className='contents__box2'>.h</p>
-        <p className='contents__box3'>.h</p>
-        <p className='contents__box4'>.h</p>
-        <p className='contents__box5'>.h</p>
-        <p className='contents__box6'>.h</p>
+        <p className='contents__box1'>.</p>
+        <p className='contents__box2'>.</p>
+        <p className='contents__box3'>.</p>
+        <p className='contents__box4'>.</p>
+        <p className='contents__box5'>.</p>
+        <p className='contents__box6'>.</p>
       </div>
-
-      
 
     </div>
   </div>

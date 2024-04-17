@@ -1,23 +1,21 @@
+import { TbArrowBack } from "react-icons/tb";
 import './css/Crear_Eventos.css';
+
 
 function Crear_Eventos() {
   return (
     <div>
-      {/* Dashboard */}
-      <h2 className='dashBoard'> DASHBOARD </h2>
-          
-
-      {/* Cuadro donde irá hubicado el perfil */}
-      <h5 className='perfil'>cuadro perfil</h5>
-          
+              
 
       {/* Titulo general */}
       <h2 className='generalTitle'>Crear Eventos CTI</h2>
-
-
+        <div>
+            <button className="mainBoxes_volver"><TbArrowBack /></button>
+        </div> 
+        
       {/* Formulario y caja */}
       <div className='mainBoxes'> 
-        <h3>Crear Eventos CTI</h3>
+        <h3 className='mainBoxes__tile'>Crear Eventos CTI</h3>
             <form>
                 <div className="firstColumn">
                     <div>
@@ -38,7 +36,7 @@ function Crear_Eventos() {
                 <div/> 
             </div>
         </form>
-
+        
         {/* segunda columna */}
         <form >
             <div className='secondColumn'>

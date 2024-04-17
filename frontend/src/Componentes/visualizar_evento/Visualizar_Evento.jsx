@@ -8,8 +8,6 @@ import './css/Visualizar_Evento.css';
 function Visualizar_Evento() {
   return (
     <div>
-      {/* Dashboard */}
-      <h2 className="dashBoard"> DASHBOARD </h2>
           
 
       {/* Cuadro donde irá hubicado el perfil */}
@@ -19,7 +17,7 @@ function Visualizar_Evento() {
       {/* Botones principales */}
       <div className="functional">
         <button className="functional__2"> <TbArrowBack /> </button>
-        <button className="functional__3"> <FaSearch       /> Buscar Evento</button>
+        <input type="text" className="functional__3" placeholder="Buscar Evento"  />
         <button className='functional__4--green'> <IoAdd   /> Crear Evento</button>
       </div>
 
@@ -43,15 +41,13 @@ function Visualizar_Evento() {
       
       {/* Contenido de la pagina web como tal */}
       <div className="contenido">
-        <p className='contenido__box1'>.h</p>
-        <p className='contenido__box2'>.h</p>
-        <p className='contenido__box3'>.h</p>
-        <p className='contenido__box4'>.h</p>
-        <p className='contenido__box5'>.h</p>
-        <p className='contenido__box6'>.h</p>
+        <p className='contenido__box1'>.</p>
+        <p className='contenido__box2'>.</p>
+        <p className='contenido__box3'>.</p>
+        <p className='contenido__box4'>.</p>
+        <p className='contenido__box5'>.</p>
+        <p className='contenido__box6'>.</p>
       </div>
-
-      
 
     </div>
   </div>
