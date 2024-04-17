@@ -1,0 +1,9 @@
+.boton-verde{
+    background-color: #39A900;
+    display: flex;
+    align-items: center;
+    border-radius: 20px;
+    padding: 1rem;
+    color: #fff;
+    gap: 1rem;
+}

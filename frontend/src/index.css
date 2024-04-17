@@ -2,6 +2,41 @@
 @tailwind components;
 @tailwind utilities;
 
+:root{
+    --list-user-bg: #fff;
+    --color-border-bottom-tr: #ddd;
+    --btn-report-bg: #fff;
+    --box-search-bg: #fff;
+    --fuente: 'Work Sans', sans-serif;
+    --box-shadow-btns: 0px 4px 11px 1px rgba(129,122,122,0.73);
+
+}
+
+*{
+    font-family: var(--fuente);
+}
 body{
     background-color: #F5F5F5;
+}
+
+/* Componentes globales de la estructura del sistema */
+
+/* este estilo es para el contenedor padre, el que se pone en las rutas de App.jsx */
+.main-container{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+}
+
+/* Estos estilos se colocan en el contenedor hijo de la pagina al primero. Recuerden que lo pueden modificar
+pero solo en los estilos de la pagina a usar */
+.main-container__contenedor-hijo{
+    display: flex;
+    /* justify-content: center;
+    align-items: center; */
+    margin-left: 200px;
+    width: 100%;
+    margin-top: 90px;
 }

@@ -4,7 +4,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Sidenav from "./componentes/layouts/Sidenav/Sidenav";
 import { Fragment } from "react";
 import Header from "./componentes/layouts/Header/Header";
-
+import Semillero from "./componentes/pages/Semillero/Semillero";
 function App() {
   return (
     <>
@@ -17,11 +17,21 @@ function App() {
                 <Header />
                 <Sidenav />
                 <Routes>
+                <Route
+                    path="/semillero"
+                    element={
+                      <Fragment>
+                        <main className="main-container">
+                          <Semillero />
+                        </main>
+                      </Fragment>
+                    }
+                  />
                   <Route
                     path="/cronograma"
                     element={
                       <Fragment>
-                        <main className="cronograma-main-container">
+                        <main className="main-container">
                           <Cronograma />
                         </main>
                       </Fragment>
@@ -30,7 +40,7 @@ function App() {
                   <Route
                     path="/usuarios-getAll"
                     element={
-                      <main className="main-usuarios-get-container">
+                      <main className="main-container">
                         <ListarUsuarios />
                       </main>
                     }

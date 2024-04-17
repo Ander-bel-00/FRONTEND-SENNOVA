@@ -44,7 +44,7 @@ function Cronograma() {
   // }, []);
 
   return (
-    <div className="Cronograma-box">
+    <div className="main-container__contenedor-hijo">
       <div className="Cronograma-box__calendar-container">
         <Calendar 
           localizer={localizer}

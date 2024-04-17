@@ -1,57 +1,69 @@
 import React, { Fragment } from "react";
 import "./css/ListarUsuarios.css";
-import { BiSolidReport } from "react-icons/bi";
-import { IoIosSearch } from "react-icons/io";
-import { Link } from "react-router-dom";
+import { FaFileArrowUp } from "react-icons/fa6";
+import { IoPersonAddSharp } from "react-icons/io5";
 
+
+import { Link } from "react-router-dom";
+import BotonBlanco from "../common/BotonReporte";
+import Search from "../common/Search";
+import BotonVerdeAñadir from "../common/BotonVerde";
 function ListarUsuarios() {
+
+  const users = [
+    {
+      nombres: 'Juan',
+      apellidos: 'Perez',
+      tipoDocumento: 'Cédula',
+      numeroDocumento: '123456789',
+      rol: 'Admin',
+    },
+    {
+      nombres: 'María',
+      apellidos: 'Gómez',
+      tipoDocumento: 'Pasaporte',
+      numeroDocumento: '987654321',
+      rol: 'Usuario',
+    },
+  ];
   return (
     <Fragment>
-      <div className="Listar-usuarios-options">
-          <div className="Listar-usuarios-options__report-box">
-            <BiSolidReport className="inline-block Listar-usuarios-options__report-box__icon-report" />
-            <p className="Listar-usuarios-options__report-box__report-text">
-              Reporte
-            </p>
-          </div>
-        <div className="Listar-usuarios-options__search-box">
-          <IoIosSearch className="inline-block"/>
-          <input type="search" placeholder="Buscar usuarios" />
+      <div className="main-container__contenedor-hijo main-container__contenedor-hijo--color">
+        <div className="header-tabla-users">
+          <BotonBlanco icon={<FaFileArrowUp />}text={'Reporte'}/>
+          <Search text={"Buscar usuarios"}/>
+          <BotonVerdeAñadir icon={<IoPersonAddSharp />} text={'Crear Usuario'}/>
         </div>
-        <div></div>
-      </div>
-      <div className="Listar-usuarios-content">
-        <table className="Listar-usuarios-content__table">
-          <thead className="Listar-usuarios-content__table_thead">
-            <tr className="Listar-usuarios-content__table__tr">
-              <th className="Listar-usuarios-content__table__tr__th">
-                Nombres
-              </th>
-              <th className="Listar-usuarios-content__table__tr__th">
-                Apellidos
-              </th>
-              <th className="Listar-usuarios-content__table__tr__th">
-                Tipo documento
-              </th>
-              <th className="Listar-usuarios-content__table__tr__th">
-                Número documento
-              </th>
-              <th className="Listar-usuarios-content__table__tr__th">Rol</th>
+
+       
+       
+        <div className="contenedor-tabla-users">
+        <table className="user-table">
+          <thead>
+            <tr>
+              <th className="user-table__header">Nombres</th>
+              <th className="user-table__header">Apellidos</th>
+              <th className="user-table__header">Tipo documento</th>
+              <th className="user-table__header">Número documento</th>
+              <th className="user-table__header">Rol</th>
             </tr>
           </thead>
           <tbody>
-            {
-              <tr className="Listar-usuarios-content__table__tr">
-                <td className="Listar-usuarios-content__table__tr__td"></td>
-                <td className="Listar-usuarios-content__table__tr__td"></td>
-                <td className="Listar-usuarios-content__table__tr__td"></td>
-                <td className="Listar-usuarios-content__table__tr__td"></td>
-                <td className="Listar-usuarios-content__table__tr__td"></td>
+            {users.map((user, index) => (
+              <tr key={index} className="user-table__row">
+                <td className="user-table__cell">{user.nombres}</td>
+                <td className="user-table__cell">{user.apellidos}</td>
+                <td className="user-table__cell">{user.tipoDocumento}</td>
+                <td className="user-table__cell">{user.numeroDocumento}</td>
+                <td className="user-table__cell">{user.rol}</td>
               </tr>
-            }
+            ))}
           </tbody>
         </table>
+        </div>
       </div>
+
+
     </Fragment>
   );
 }
