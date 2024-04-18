@@ -1,0 +1,114 @@
+:root{
+    --boton-color: #FFFFFF;
+    --boton-crear-color: #39A900;
+    --boton-crear-bg-hover: #329003;
+    --boton-cacelar-color: #D4212C;
+    --boton-cacelar-bg-hover: #c31e29;
+    --text-btn-color: #FFFFFF;
+    --fuente: 'Work Sans', sans-serif;
+    --line-color: #A5A5A5;
+}
+
+.main-container__contenedor-hijo--size{
+    height: 86.3vh;
+}
+.add-proyect-btn-return{
+    width: 5rem;
+}
+
+.add-proyect-btn-return a{
+    position: relative;
+    left: 10%;
+}
+
+.Caja-formularios--add-proyect{
+    position: relative;
+    bottom: 2rem;
+    width: 68%;
+}
+
+.form-add-pryect-container{
+    display: flex;
+    width: 100%;
+    height: 80%;
+    position: relative;
+    top: 0rem;
+}
+
+/* titulo principal del formulario */
+.create-project-title{
+    font-size: 25px;
+}
+
+.form-add-pryect-container__col1{
+    display: flex;
+    flex-direction: column;
+    text-wrap: nowrap;
+    width: 25%;
+    position: relative;
+    left: 10%;
+    top: 10px;
+}
+
+.form-add-pryect-container__col1__label{
+    font-weight: 400;
+    padding-top: 12px;
+}
+
+.form-add-pryect-container__col1__input{
+    width: 15rem;
+    border: 1px solid #000;
+    border-radius: 6px;
+    padding: 8px;
+    margin-top: 8px;
+    margin-bottom: 10px;
+    box-shadow: var(--box-shadow-inputs);
+}
+
+.form-add-pryect-container__col1__textarea{
+    border: 1px solid #385C57;
+    width: 15rem;
+    height: 15rem;
+    border-radius: 8px;
+    box-shadow: 0px 4px 11px 1px rgba(129,122,122,0.73);
+}
+.form-add-pryect-container__column2{
+    display: flex;
+    flex-direction: column;
+    text-wrap: nowrap;
+    width: 25%;
+    position: relative;
+    left: 28%;
+    top: 10px;
+}
+
+.btn-crear-proyecto{
+    background-color: var(--boton-crear-color);
+    width: 15rem;
+    height: 45px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 11px 1px rgba(129,122,122,0.73);
+    position: relative;
+    top: 2rem;
+    color: var(--text-btn-color);
+    font-size: 21px;
+}
+
+.btn-crear-proyecto:hover{
+    background-color: var(--boton-crear-bg-hover);
+}
+.btn-cancelar-proyecto{
+    background-color: var(--boton-cacelar-color);
+    width: 15rem;
+    height: 45px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 11px 1px rgba(129,122,122,0.73);
+    position: relative;
+    top: 4rem;
+    color: var(--text-btn-color);
+    font-size: 21px;
+}
+
+.btn-cancelar-proyecto:hover{
+    background-color: var(--boton-cacelar-bg-hover);
+}

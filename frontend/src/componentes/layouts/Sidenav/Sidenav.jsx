@@ -31,13 +31,13 @@ function Sidenav() {
             </li>
           </Link>
 
-          <Link>
+          <Link to={'/lider-semillero/Listar_Proyectos'}>
             <li className="Sidenav-content__menu-content__menu-options">
               <FaProjectDiagram className="inline-block mr-2 " />
               Proyectos
             </li>
           </Link>
-          <Link to={"/lider-semillero/actividades"}>
+          <Link to={"/lider-semillero/Listar_Actividad"}>
             <li className="Sidenav-content__menu-content__menu-options">
               <FaCalendarCheck className="inline-block mr-2" /> Actividades
             </li>

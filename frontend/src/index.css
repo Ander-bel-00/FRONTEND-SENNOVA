@@ -3,18 +3,31 @@
 @tailwind utilities;
 
 :root{
-    --list-user-bg: #fff;
     --color-border-bottom-tr: #ddd;
     --btn-report-bg: #fff;
     --box-search-bg: #fff;
     --fuente: 'Work Sans', sans-serif;
     --box-shadow-btns: 0px 4px 11px 1px rgba(129,122,122,0.73);
+    --list-user-bg: #fff;
+    --color-border-bottom-tr: #ddd;
+    --btn-report-bg: #fff;
+    --btn-report-bg-hover: #d9d7d7;
+    --fuente: 'Work Sans', sans-serif;
+    --box-shadow-btns: 0px 4px 11px 1px rgba(129,122,122,0.73);
+    --box-shadow-users-box: -1px 3px 5px 6px rgba(0,0,0,0.09);
+    --box-shadow-inputs:  -1px 3px 5px 6px rgba(0,0,0,0.05);
+    --btn-user-add-box-bg: #39a900;
+    --sidenav-bg: #04324D;
+    --update-users-box-bg: #fff;
+    --btn-update-bg: #39a900;
+    --btn-update-bg-hover: #339302;
 
 }
 
 *{
     font-family: var(--fuente);
 }
+  
 body{
     background-color: #F5F5F5;
 }
@@ -34,9 +47,10 @@ body{
 pero solo en los estilos de la pagina a usar */
 .main-container__contenedor-hijo{
     display: flex;
-    /* justify-content: center;
-    align-items: center; */
     margin-left: 200px;
     width: 100%;
     margin-top: 90px;
+    flex-direction: column;
+    padding: 2rem;
+    padding-top: 10px;
 }

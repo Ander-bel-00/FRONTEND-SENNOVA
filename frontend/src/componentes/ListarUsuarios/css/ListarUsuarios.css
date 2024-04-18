@@ -8,28 +8,6 @@
 
 }
 
-.main-container__contenedor-hijo--color{
-    width: 100%;
-    flex-direction: column;
-    height: 100vh;
-    padding: 2rem;
-    padding-top: 10px;
-  
-}
-.contenedor-tabla-users{
-   background-color: #fff;
-   height: 100vh;
-   padding: 1rem;
-   border-radius: 10px;
-}
-.header-tabla-users{
-    display: flex;
-    justify-content: space-around;
-    margin-bottom: 1rem;
-    width: 100%;
-    height: 2.5rem;
-
-}
 .user-table {
     width: 100%;
     border-collapse: collapse;
