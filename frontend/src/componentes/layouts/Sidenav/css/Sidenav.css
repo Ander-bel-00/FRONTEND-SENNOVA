@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+    font-family: "Work Sans", sans-serif;
+}
+
+.Sidenav-content {
+    width: 200px;
+    height: 100vh;
+    /* Establece la altura al 100% de la altura de la ventana */
+    position: fixed;
+    /* Cambia la posición a fija para que el menú se mantenga visible al desplazar la página */
+    top: 0;
+    /* Alinea el menú en la parte superior */
+    left: 0;
+    /* Alinea el menú en la parte izquierda */
+    padding-top: 20px;
+    /* Añade relleno al menú */
+    background: #04324D;
+    overflow-y: auto;
+    /* Añade desplazamiento vertical si el contenido es más grande que el menú */
+    z-index: 1000;
+    /* Ajusta el índice z para que el menú aparezca encima del contenido */
+    font-family: se;
+}
+
+.Sidenav-content__menu-content {
+    padding: 0px;
+    margin: 0;
+    list-style: none;
+    position: relative;
+    top: 40px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.Sidenav-content__menu-content__Logo-Teinnova {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    position: relative;
+    right: 8px;
+    bottom: 50px;
+    border-bottom: 1px solid #f1f1f1;
+}
+
+.Sidenav-content__menu-content__Logo-Teinnova img {
+    
+    align-items: center;
+    width: 100%;
+    height: auto;
+    bottom: 9px;
+}
+
+.Sidenav-content__menu-content__menu-options {
+    width: 100%;
+    color: #fff;
+    font-size: 20px;
+    padding: 20px;
+}
+
+.Sidenav-content__menu-content__menu-options:hover {
+    background: #70B22D;
+    color: #fff;
+    cursor: pointer;
+}
+
+@media screen and (min-width:1272px) {
+    .Sidenav-content__menu-content__menu-options {
+        width: 100%;
+        color: #fff;
+        font-size: 20px;
+        padding: 18px;
+    }
+}
