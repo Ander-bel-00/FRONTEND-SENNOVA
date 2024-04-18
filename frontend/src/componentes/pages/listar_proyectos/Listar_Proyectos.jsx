@@ -40,6 +40,7 @@ function Listar_Proyectos() {
               <BotonBlanco
                 icon={<LuCalendarDays />}
                 text={"Ir al Cronograma"}
+                link={"/lider-semillero/cronograma"}
               />
               <BotonVerdeAñadir
                 icon={<AiOutlinePlus />}
