@@ -1,0 +1,13 @@
+.Caja-formularios{
+    display: block;
+    margin-top: 65px;
+    padding-top: 15px;
+    background-color: var(--update-users-box-bg);
+    position: relative;
+    bottom: 25px;
+    width: 60%;
+    left: 15%;
+    height: 70vh;
+    border-radius: 8px;
+    box-shadow: var(--box-shadow-users-box);
+}

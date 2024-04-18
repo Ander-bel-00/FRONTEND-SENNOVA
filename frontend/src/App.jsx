@@ -1,14 +1,18 @@
-import { Fragment } from "react";
-import Crear_Proyecto from "./componentes/crear_proyecto/Crear_Proyecto";
-import Listar_Proyectos from "./componentes/listar_proyectos/Listar_Proyectos";
-import Visualizar_Suspender_Proyecto from "./componentes/visualizar_suspender_proyecto/Visualizar_Suspender_Proyecto";
+import Cronograma from "./componentes/Cronograma/Cronograma";
+import ListarUsuarios from "./componentes/ListarUsuarios/ListarUsuarios";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Header from "./componentes/layouts/Header/Header";
 import Sidenav from "./componentes/layouts/Sidenav/Sidenav";
-import Actualizar_Proyectos from "./componentes/actualizar_proyectos/Actualizar_Proyectos";
-import Crear_Actividad from "./componentes/crear_actividad/Crear_Actividad";
-import Actualizar_Actividad from "./componentes/actualizar_actividad/Actualizar_Actividad";
-import Listar_Actividad from "./componentes/listar_actividad/Listar_Actividad"
+import { Fragment } from "react";
+import Header from "./componentes/layouts/Header/Header";
+import Semillero from "./componentes/pages/Semillero/Semillero";
+import ModificarUsuario from "./componentes/pages/ModificarUsuario/ModificarUsuario";
+import Visualizar_Suspender_Proyecto from "./componentes/pages/visualizar_suspender_proyecto/Visualizar_Suspender_Proyecto";
+import Listar_Proyectos from "./componentes/pages/listar_proyectos/Listar_Proyectos";
+import Crear_Proyecto from "./componentes/pages/crear_proyecto/Crear_Proyecto";
+import Actualizar_Proyectos from "./componentes/pages/actualizar_proyectos/Actualizar_Proyectos";
+import Listar_Actividad from "./componentes/pages/listar_actividad/Listar_Actividad";
+import Crear_Actividad from "./componentes/pages/crear_actividad/Crear_Actividad";
+import Actualizar_Actividad from "./componentes/pages/actualizar_actividad/Actualizar_Actividad";
 
 function App() {
   return (
@@ -23,9 +27,47 @@ function App() {
                 <Sidenav />
                 <Routes>
                   <Route
+                    path="/semillero"
+                    element={
+                      <Fragment>
+                        <main className="main-container">
+                          <Semillero />
+                        </main>
+                      </Fragment>
+                    }
+                  />
+                  <Route
+                    path="/cronograma"
+                    element={
+                      <Fragment>
+                        <main className="main-container">
+                          <Cronograma />
+                        </main>
+                      </Fragment>
+                    }
+                  />
+                  <Route
+                    path="/usuarios-getAll"
+                    element={
+                      <main className="main-container">
+                        <ListarUsuarios />
+                      </main>
+                    }
+                  />
+
+                  <Route
+                    path="/users-update"
+                    element={
+                      <main className="main-container">
+                        <ModificarUsuario />
+                      </main>
+                    }
+                  />
+
+                  <Route
                     path="/Visualizar_Suspender_Proyecto"
                     element={
-                      <main>
+                      <main className="main-container">
                         <Visualizar_Suspender_Proyecto />
                       </main>
                     }
@@ -33,7 +75,7 @@ function App() {
                   <Route
                     path="/Listar_Proyectos"
                     element={
-                      <main className="listar-proyectos-main-container">
+                      <main className="main-container">
                         <Listar_Proyectos />
                       </main>
                     }
@@ -41,39 +83,39 @@ function App() {
                   <Route
                     path="/Crear_Proyecto"
                     element={
-                      <main>
+                      <main className="main-container">
                         <Crear_Proyecto />
                       </main>
                     }
                   />
-                  <Route 
-                    path="/Actualizar_Proyectos"   
+                  <Route
+                    path="/Actualizar_Proyectos"
                     element={
-                      <main>
+                      <main className="main-container">
                         <Actualizar_Proyectos />
                       </main>
-                    }               
+                    }
                   />
-                  <Route 
+                  <Route
                     path="/Listar_Actividad"
                     element={
-                      <main>
+                      <main className="main-container">
                         <Listar_Actividad />
                       </main>
                     }
                   />
-                  <Route 
-                   path="/Crear_Actividad"
-                   element={
-                     <main>
-                       <Crear_Actividad />
-                     </main>
-                   }
+                  <Route
+                    path="/Crear_Actividad"
+                    element={
+                      <main className="main-container">
+                        <Crear_Actividad />
+                      </main>
+                    }
                   />
-                  <Route 
+                  <Route
                     path="/Actualizar_Actividad"
                     element={
-                      <main>
+                      <main className="main-container">
                         <Actualizar_Actividad />
                       </main>
                     }

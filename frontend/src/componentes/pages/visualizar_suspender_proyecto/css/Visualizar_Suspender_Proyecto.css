@@ -1,0 +1,53 @@
+:root{
+    --boton-color: #FFFFFF;
+    --fuente: 'Work Sans', sans-serif;
+}
+
+.View-off-table{
+    position: relative;
+    left: 1%;
+    width: 98%;
+    border-collapse: collapse;
+}
+
+.View-off-table__tr{
+    border: 1px solid var(--color-border-bottom-tr);
+}
+
+.View-off-table__tr:nth-child(even){
+    background-color: #f9f9f9;
+}
+
+
+.View-off-table__th{
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    text-wrap: nowrap;
+    text-align: left;
+    padding: 8px;
+}
+
+.View-off-table__td{
+    border: 1px solid #dddddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.View-off-table__td__btns{
+    display: flex;
+    padding: 5px;
+}
+
+.View-off-table__td__btn{
+    font-size: 22px;
+    margin-right: 9px;
+}
+
+.View-off-table__td__btn:hover{
+    transform: scale(1.09);
+}
+
+.Header-tool-btn-go-cronograma{
+    position: relative;
+    left: 20%;
+}

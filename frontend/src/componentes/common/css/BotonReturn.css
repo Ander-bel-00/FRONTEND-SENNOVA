@@ -1,0 +1,12 @@
+.btn-return{
+    width: 1rem;
+    text-decoration: none;
+    color: #000;
+    position: relative;
+    right: 20%;
+    top: 15px;
+}
+
+.btn-return__icon{
+    font-size: 28px;
+}
