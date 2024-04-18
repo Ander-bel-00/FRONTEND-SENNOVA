@@ -1,0 +1,136 @@
+.generalsTitle{
+    
+    position: relative;
+    top: 100px;
+    left: 560px;
+    font-size: 25px;
+    font-weight: bold ;
+}
+
+.mainBoxe_volver{
+    position: relative;
+    padding: 5px 15px;
+    margin: 30px;
+    border: none;
+    border-radius: 8px;
+    font-size: 30px;
+    cursor: pointer;    
+}
+
+/* caja mayor */
+.mainBoxe{
+    position: relative;
+    top: 150px;
+    height: 60%;
+    width: 45%;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.mainBoxe__tile{
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+
+/* Primera columna del formulario*/
+.firstsColumn{
+    position: relative;
+    left: 10px;
+    margin: 50px 70px 100px 70px ;
+    width: 30%;
+}
+
+
+.firstsColumn__nombre,
+.firstsColumn__fechaF,
+.firstsColumn__lugar{
+
+    padding: 5px 4px;
+    color: black;
+    background-color: white;
+    border-radius: 5px;
+    margin: 10px 0px;
+    cursor: auto;
+    border: 1px solid black;
+    box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.2);
+}
+
+.firstsColumn__nombre{
+    margin-bottom: 50px;
+}
+.firstsColumn__fechaF{
+    margin-bottom: 50px;
+}
+.firstsColumn__lugar{
+    margin-bottom: 50px;
+}
+
+
+/* segunda columna del formulario*/
+.secondsColumn{
+    position: absolute;
+    top: 50px;
+    left: 60%;
+    width: 120%;
+}
+
+
+.secondsColumn__fechaI,
+.secondsColumn__cantidad,
+.secondsColumn__tipo{
+
+    padding: 5px 4px;
+    color: black;
+    background-color: white;
+    border-radius: 5px;
+    margin: 10px 0px;
+    cursor: auto;
+    border: 1px solid black;
+    box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.2);
+}
+
+
+.secondsColumn__fechaI{
+    margin-bottom: 50px;
+}
+.secondsColumn__cantidad{
+    margin-bottom: 50px;
+}
+.secondsColumn__tipo{
+    margin-bottom: 50px;
+}
+
+
+
+/* Botones principales */
+.buttEvents__cancelar,
+.buttEvents__crear--green{
+    position: absolute;
+    top: 79%;
+    left: 10%;
+    padding: 5px 15px;
+    border: none;
+    border-radius: 8px;
+    font-size: small;
+    cursor: pointer;
+    box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.2);
+}
+
+.buttEvents__cancelar{
+    color: white;
+    background-color: #d4212c;
+    font-size: medium;
+    padding: 20px 80px;
+}
+
+
+.buttEvents__crear--green{
+    color: white;
+    background-color: #39a900;
+    font-size: medium;
+    padding: 20px 80px;
+    left: 61%; 
+}
+

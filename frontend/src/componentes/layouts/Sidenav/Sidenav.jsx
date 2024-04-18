@@ -42,7 +42,7 @@ function Sidenav() {
               <FaCalendarCheck className="inline-block mr-2" /> Actividades
             </li>
           </Link>
-          <Link>
+          <Link to={"/lider-semillero/Listar-eventos"}>
             <li className="Sidenav-content__menu-content__menu-options">
               <FaRegClock className="inline-block mr-2" />
               Eventos
@@ -55,7 +55,7 @@ function Sidenav() {
             </li>
           </Link>
 
-          <Link>
+          <Link to={"/lider-semillero/Visualizar-programa-formacion"}>
             <li className="Sidenav-content__menu-content__menu-options">
               <FaList className="inline-block mr-2" />
               Programa

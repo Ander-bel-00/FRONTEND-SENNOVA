@@ -13,6 +13,13 @@ import Actualizar_Proyectos from "./componentes/pages/actualizar_proyectos/Actua
 import Listar_Actividad from "./componentes/pages/listar_actividad/Listar_Actividad";
 import Crear_Actividad from "./componentes/pages/crear_actividad/Crear_Actividad";
 import Actualizar_Actividad from "./componentes/pages/actualizar_actividad/Actualizar_Actividad";
+import Visualizar_Actividad from "./componentes/pages/visualizar_actividad/Visualizar_Actividad";
+import Listar_Eventos from "./componentes/pages/listar_eventos/Listar_Eventos";
+import Visualizar_Evento from "./componentes/pages/visualizar_evento/Visualizar_Evento";
+import Visualizar_Programa_Formacion from "./componentes/pages/visualizar_programa_formacion/Visualizar_Programa_Formacion";
+import Crear_Programa_Formacion from "./componentes/pages/crear_programa_formacion/Crear_Programa_Formacion";
+import Crear_Eventos from "./componentes/pages/crear_eventos/Crear_Eventos";
+import Actualizar_Eventos from "./componentes/pages/actualizar_eventos/Actualizar_Eventos";
 
 function App() {
   return (
@@ -117,6 +124,69 @@ function App() {
                     element={
                       <main className="main-container">
                         <Actualizar_Actividad />
+                      </main>
+                    }
+                  />
+
+                  <Route
+                    path="/Visualizar-actividad"
+                    element={
+                      <main className="main-container">
+                        <Visualizar_Actividad />
+                      </main>
+                    }
+                  />
+
+                  <Route
+                    path="/Crear-eventos"
+                    element={
+                      <main className="main-container">
+                        <Crear_Eventos />
+                      </main>
+                    }
+                  />
+
+                  <Route
+                    path="/Listar-eventos"
+                    element={
+                      <main className="main-container">
+                        <Listar_Eventos />
+                      </main>
+                    }
+                  />
+
+                  <Route
+                    path="/Visualizar-evento"
+                    element={
+                      <main className="main-container">
+                        <Visualizar_Evento />
+                      </main>
+                    }
+                  />
+
+                  <Route
+                    path="/Visualizar-programa-formacion"
+                    element={
+                      <main className="main-container">
+                        <Visualizar_Programa_Formacion />
+                      </main>
+                    }
+                  />
+
+                  <Route
+                    path="/Crear-programa-formacion"
+                    element={
+                      <main className="main-container">
+                        <Crear_Programa_Formacion />
+                      </main>
+                    }
+                  />
+
+                  <Route
+                    path="/Actualizar-eventos"
+                    element={
+                      <main className="main-container">
+                        <Actualizar_Eventos />
                       </main>
                     }
                   />

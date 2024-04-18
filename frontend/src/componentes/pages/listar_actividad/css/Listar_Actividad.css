@@ -36,3 +36,17 @@
     padding: 8px;
     text-align: left;
 }
+
+.list-activity-content-table__td__btns{
+    display: flex;
+    padding: 5px;
+}
+
+.list-activity-content-table__td__btn{
+    font-size: 22px;
+    margin-right: 9px;
+}
+
+.list-activity-content-table__td__btn:hover{
+    transform: scale(1.09);
+}

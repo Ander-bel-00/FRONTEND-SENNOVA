@@ -11,6 +11,7 @@ import BotonVerdeAñadir from "../../common/BotonVerde";
 import { FaFileArrowUp } from "react-icons/fa6";
 import Header_ToolBar from "../../common/Header_ToolBar";
 import Caja_Blanca from "../../common/Caja_Blanca";
+import { Link } from "react-router-dom";
 
 function Listar_Actividad() {
   const Actividades = [
@@ -77,6 +78,9 @@ function Listar_Actividad() {
                   <th className="list-activity-content__table__tr__th">
                     Responsable de la Actividad
                   </th>
+                  <th className="list-activity-content__table__tr__th">
+                    Acciones
+                  </th>
                 </tr>
               </thead>
               <tbody>
@@ -99,6 +103,21 @@ function Listar_Actividad() {
                     </td>
                     <td className="list-activity-content-table-td">
                       {Actividad.responsable}
+                    </td>
+                    <td className="list-activity-content-table__td">
+                      <div className="list-activity-content-table__td__btns">
+                        <Link
+                          to={"/lider-semillero/Visualizar_Suspender_Proyecto"}
+                        >
+                          <LiaEyeSolid className="list-activity-content-table__td__btn" />
+                        </Link>
+                        <Link to={"/lider-semillero/Actualizar_Proyectos"}>
+                          <FaRegEdit className="list-activity-content-table__td__btn" />
+                        </Link>
+                        <Link>
+                          <IoTrashOutline className="list-activity-content-table__td__btn" />
+                        </Link>
+                      </div>
                     </td>
                   </tr>
                 ))}

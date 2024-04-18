@@ -1,0 +1,77 @@
+.mainPagess{
+    position: relative;
+    top: 230px;
+    left: 280px;
+    height: 70vh;
+    width: 80%;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.mainPagess__tablemain{
+    margin: 20px;
+    width: 80%;
+    height: 15%;
+    text-align: left; 
+     
+}
+
+
+.namePagess__contentMain-title{
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+
+.mainPagess__contentMain{
+    margin: 10px;
+    
+}
+
+
+/* Botones principales
+.functionales__1,
+.functionales__2,
+.functionales__3,
+.functionales__4--green {
+    position: relative;
+    top: 30px;
+    left: 300px;
+    padding: 5px 15px;
+    margin: 0px 30px 0px 0px;
+    border: none;
+    border-radius: 8px;
+    background-color: white;
+    font-size: small;
+    cursor: pointer;
+    box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.2);
+}
+
+
+
+.functionales__4--green{
+    color: white;
+    background-color: #39a900;}
+
+.functionales__4--green:hover{
+    color: black;
+    background-color: #2e8105}
+
+
+Botones secundarios
+.functionales2__delete,
+.functionales2__edit{
+    position: relative;
+    top: 170px;
+    left: 87%;
+    padding: 5px 15px ;
+    margin-left: 5px;
+    border: none;
+    border-radius: 8px;
+    background-color: white;
+    font-size: small;
+    cursor: pointer;
+    z-index: 1;
+} */
