@@ -206,7 +206,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route
-            path="/lider-semillero/*"
+            path="/instructor-investigador/*"
             element={
               <Fragment>
                 <Header />
