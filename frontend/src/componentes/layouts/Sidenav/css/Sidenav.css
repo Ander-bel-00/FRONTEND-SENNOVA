@@ -66,11 +66,20 @@
     cursor: pointer;
 }
 
-@media screen and (min-width:1272px) {
+@media screen and (min-width: 1272px) {
     .Sidenav-content__menu-content__menu-options {
         width: 100%;
         color: #fff;
         font-size: 20px;
         padding: 18px;
+    }
+}
+
+@media screen and (min-width: 1358px) {
+    .Sidenav-content__menu-content__menu-options {
+        width: 100%;
+        color: #fff;
+        font-size: 20px;
+        padding-top: 25px;
     }
 }

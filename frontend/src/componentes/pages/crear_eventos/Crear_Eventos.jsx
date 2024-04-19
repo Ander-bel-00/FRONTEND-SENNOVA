@@ -22,7 +22,7 @@ function Crear_Eventos() {
         info={
           <Fragment>
             {/* Formulario y caja */}
-            <div className="mainsBoxes">
+            
               <h3 className="mainsBoxes__tile">Crear Eventos CTI</h3>
               <form className="form-add-event-container">
                 <div className="firstColumns">
@@ -99,10 +99,6 @@ function Crear_Eventos() {
                   />
                 </div>
               </form>
-
-              {/* Botones principales */}
-              <div className="btnEvents"></div>
-            </div>
           </Fragment>
         }
       />

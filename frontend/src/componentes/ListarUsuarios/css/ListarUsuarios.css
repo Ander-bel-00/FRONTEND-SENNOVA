@@ -9,7 +9,7 @@
 }
 
 .user-table {
-    width: 100%;
+    width: 98%;
     border-collapse: collapse;
     
   }
@@ -26,7 +26,21 @@
   }
   
   .user-table__cell {
-    border: 1px solid #ccc;
+    border: 1px solid #dddddd;
     padding: 8px;
+    text-align: left;
   }
   
+  .user-table__cell__buttons{
+    display: flex;
+    padding: 5px;
+  }
+
+  .user-table__cell__btn{
+    font-size: 22px;
+    margin-right: 9px;
+  }
+
+  .user-table__cell__btn:hover{
+    transform: scale(1.09);
+  }

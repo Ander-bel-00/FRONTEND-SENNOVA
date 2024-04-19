@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 import "./css/Cronograma.css";
 import { Calendar, momentLocalizer } from 'react-big-calendar';
@@ -25,29 +25,57 @@ const messages = {
 
 function Cronograma() {
   moment.locale('es');
-  const [events, setEvents] = useState([]);
+  const [events, setEvents] = useState([
+    {
+      title: 'Evento 1',
+      start: new Date(2024, 3, 15, 10, 0), // Hora de inicio del evento
+      end: new Date(2024, 3, 15, 12, 0), // Hora de finalización del evento
+      fecha: new Date(2024, 3, 15), // Fecha del evento
+      type: 'evento'
+    },
+    {
+      title: 'Actividad 1',
+      start: new Date(2024, 3, 15, 14, 0), // Hora de inicio del evento
+      end: new Date(2024, 3, 15, 16, 0), // Hora de finalización del evento
+      fecha: new Date(2024, 3, 15), // Fecha del evento
+      type: 'actividad'
+    },
+    {
+      title: 'Proyecto 1',
+      start: new Date(2024, 3, 15, 8, 0), // Hora de inicio del evento
+      end: new Date(2024, 3, 15, 18, 0), // Hora de finalización del evento
+      fecha: new Date(2024, 3, 15), // Fecha del evento
+      type: 'proyecto'
+    },
+    // Agrega más eventos aquí
+  ]);
 
-  // Función para ocultar los botones de navegación específicos
-  // const hideNavigationButtons = () => {
-  //   const navigationButtons = document.querySelectorAll('.rbc-toolbar button');
-  //   navigationButtons.forEach(button => {
-  //     const buttonText = button.textContent.toLowerCase();
-  //     if (['mes', 'semana', 'día', 'agenda'].includes(buttonText)) {
-  //       button.style.display = 'none';
-  //     }
-  //   });
-  // };
+  const [filtro, setFiltro] = useState('todo');
 
-  // // Ocultar los botones de navegación al montar el componente
-  // useEffect(() => {
-  //   hideNavigationButtons();
-  // }, []);
+  const handleFiltroChange = (nuevoFiltro) => {
+    setFiltro(nuevoFiltro);
+  };
+
+  const filtrarEventos = () => {
+    if (filtro === 'todo') {
+      return events;
+    } else {
+      return events.filter(evento => evento.type === filtro);
+    }
+  };
 
   return (
     <div className="main-container__contenedor-hijo">
+      <div className="Cronograma-box__filtro">
+        <button onClick={() => handleFiltroChange('todo')}>Todo</button>
+        <button onClick={() => handleFiltroChange('proyecto')}>Proyectos</button>
+        <button onClick={() => handleFiltroChange('actividad')}>Actividades</button>
+        <button onClick={() => handleFiltroChange('evento')}>Eventos</button>
+      </div>
       <div className="Cronograma-box__calendar-container">
         <Calendar 
           localizer={localizer}
+          events={filtrarEventos()}
           startAccessor="start"
           endAccessor="end"
           messages={messages}

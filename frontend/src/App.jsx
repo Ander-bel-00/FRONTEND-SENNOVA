@@ -20,6 +20,7 @@ import Visualizar_Programa_Formacion from "./componentes/pages/visualizar_progra
 import Crear_Programa_Formacion from "./componentes/pages/crear_programa_formacion/Crear_Programa_Formacion";
 import Crear_Eventos from "./componentes/pages/crear_eventos/Crear_Eventos";
 import Actualizar_Eventos from "./componentes/pages/actualizar_eventos/Actualizar_Eventos";
+import Listar_Fichas from "./componentes/pages/listar_fichas/Listar_Fichas";
 
 function App() {
   return (
@@ -190,7 +191,26 @@ function App() {
                       </main>
                     }
                   />
+                  <Route
+                    path="/Listar-fichas"
+                    element={
+                      <main className="main-container">
+                        <Listar_Fichas />
+                      </main>
+                    }
+                  />
                 </Routes>
+              </Fragment>
+            }
+          />
+
+          <Route
+            path="/aprendiz-investigador/*"
+            element={
+              <Fragment>
+                <Header />
+                <Sidenav />
+                <Routes></Routes>
               </Fragment>
             }
           />

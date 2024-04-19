@@ -10,3 +10,7 @@
 .btn-return__icon{
     font-size: 28px;
 }
+
+.btn-return__icon:hover{
+    transform: scale(1.2);
+}

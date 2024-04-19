@@ -2,6 +2,9 @@ import React, { Fragment } from "react";
 import "./css/ListarUsuarios.css";
 import { FaFileArrowUp } from "react-icons/fa6";
 import { IoPersonAddSharp } from "react-icons/io5";
+import { LiaEyeSolid } from "react-icons/lia";
+import { FaRegEdit } from "react-icons/fa";
+import { IoTrashOutline } from "react-icons/io5";
 import { Link } from "react-router-dom";
 import BotonBlanco from "../common/BotonReporte";
 import Search from "../common/Search";
@@ -50,6 +53,7 @@ function ListarUsuarios() {
                   <th className="user-table__header">Tipo documento</th>
                   <th className="user-table__header">Número documento</th>
                   <th className="user-table__header">Rol</th>
+                  <th className="user-table__header">Acciones</th>
                 </tr>
               </thead>
               <tbody>
@@ -60,6 +64,21 @@ function ListarUsuarios() {
                     <td className="user-table__cell">{user.tipoDocumento}</td>
                     <td className="user-table__cell">{user.numeroDocumento}</td>
                     <td className="user-table__cell">{user.rol}</td>
+                    <td className="user-table__cell">
+                      <div className="user-table__cell__buttons">
+                      <Link
+                          to={""}
+                        >
+                          <LiaEyeSolid className="user-table__cell__btn" />
+                        </Link>
+                        <Link to={"/lider-semillero/users-update"}>
+                          <FaRegEdit className="user-table__cell__btn" />
+                        </Link>
+                        <Link>
+                          <IoTrashOutline className="user-table__cell__btn" />
+                        </Link>
+                      </div>
+                    </td>
                   </tr>
                 ))}
               </tbody>

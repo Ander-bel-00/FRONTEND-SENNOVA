@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 import "./css/ModificarUsuario.css";
 import { FaRegEdit } from "react-icons/fa";
 import Caja_formularios from "../../common/Caja_formularios";
@@ -11,7 +11,7 @@ function ModificarUsuario() {
     <div className="main-container__contenedor-hijo">
       <Caja_formularios
         info={
-          <div>
+          <Fragment>
             <h1 className="update-users-box__title">Rol Usuario</h1>
             <form className="update-users-box__form-container">
               <div className="update-users-box__form-container__options-col1">
@@ -115,7 +115,7 @@ function ModificarUsuario() {
                 </button>
               </div>
             </form>
-          </div>
+          </Fragment>
         }
       />
     </div>
