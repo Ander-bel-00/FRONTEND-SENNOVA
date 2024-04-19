@@ -1,0 +1,171 @@
+.mainssTitle{
+    text-align: center;
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.mainsBoxes__tile{
+    margin: 30px;
+    font-size: 20px;
+    text-align: center;
+    position: relative;
+    bottom: 2rem;
+}
+
+.form-add-event-container{
+    display: flex;
+    width: 100%;
+    height: 80%;
+    position: relative;
+    bottom: 3rem;
+}
+
+
+/* Primera columna del formulario*/
+.firstColumns{
+    display: flex;
+    flex-direction: column;
+    text-wrap: nowrap;
+    width: 25%;
+    position: relative;
+    left: 10%;
+    top: 10px;
+}
+
+.form-add-event-container__label{
+    font-weight: 400;
+    padding-top: 12px;
+}
+
+.form-add-event-container__input{
+    width: 15rem;
+    border: 1px solid #000;
+    border-radius: 6px;
+    padding: 8px;
+    margin-top: 8px;
+    margin-bottom: 10px;
+    box-shadow: var(--box-shadow-inputs);
+}
+
+.form-add-event-container__label-select{
+    display: block;
+    font-weight: 400;
+    padding-top: 12px;
+}
+
+
+/* segunda columna del formulario*/
+.secondColumns{
+    display: flex;
+    flex-direction: column;
+    text-wrap: nowrap;
+    width: 25%;
+    position: relative;
+    left: 28%;
+    top: 10px;
+}
+
+
+.secondColumns__fechaI,
+.secondColumns__cantidad,
+.secondColumns__tipo{
+    
+    width: 120%;
+    padding: 5px 4px;
+    margin-bottom: 30px;
+    color: black;
+    background-color: white;
+    border-radius: 5px;
+    margin: 10px 0px;
+    cursor: auto;
+    border: 1px solid black;
+    box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.2);
+
+}
+
+
+.secondColumns__fechaI{
+    margin-bottom: 50px;
+}
+.secondColumns__cantidad{
+    margin-bottom: 50px;
+}
+.secondColumns__tipo{
+    margin-bottom: 50px;
+}
+
+
+.secondColumns__op1,
+.secondColumns__op2{
+    text-align: center;
+}
+
+
+
+/* Botones principales */
+
+.btnEvents__cancelar{
+    background-color: var(--boton-cacelar-color);
+    width: 15rem;
+    height: 45px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 11px 1px rgba(129,122,122,0.73);
+    position: relative;
+    top: 1rem;
+    color: var(--text-btn-color);
+    font-size: 21px;
+}
+
+.btnEvents__cancelar:hover{
+    background-color: var(--boton-cacelar-bg-hover);
+}
+
+
+.btnEvents__crear--green{
+    background-color: var(--boton-crear-color);
+    width: 15rem;
+    height: 45px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 11px 1px rgba(129,122,122,0.73);
+    position: relative;
+    top: 1.2rem;
+    color: var(--text-btn-color);
+    font-size: 21px;
+}
+
+.btnEvents__crear--green:hover{
+    background-color: var(--boton-crear-bg-hover);
+}
+
+.add-creat-btn-return{
+    width: 5rem;
+}
+
+.add-creat-btn-return a{
+    position: relative;
+    left: 10%;
+}
+
+.add-creat-btn-return:hover{
+    transform: scale(1.09);
+}
+
+
+@media screen and (min-width: 1338.18px) {
+    .mainsBoxes__tile{
+        margin: 30px;
+        font-size: 20px;
+        text-align: center;
+        position: relative;
+        top: 2rem;
+    }
+
+    .form-add-event-container{
+        display: flex;
+        width: 100%;
+        height: 80%;
+        position: relative;
+        left: 6%;
+        top: 3rem;
+    }
+}

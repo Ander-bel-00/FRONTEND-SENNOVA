@@ -201,6 +201,95 @@ function App() {
           />
         </Routes>
       </BrowserRouter>
+
+
+      <BrowserRouter>
+        <Routes>
+          <Route
+            path="/lider-semillero/*"
+            element={
+              <Fragment>
+                <Header />
+                <Sidenav />
+                <Routes>
+                  <Route
+                    path="/semillero"
+                    element={
+                      <Fragment>
+                        <main className="main-container">
+                          <Semillero />
+                        </main>
+                      </Fragment>
+                    }
+                  />
+                  <Route
+                    path="/Visualizar-actividad"
+                    element={
+                      <main className="main-container">
+                        <Visualizar_Actividad />
+                      </main>
+                    }
+                  />
+
+                  <Route
+                    path="/Crear-eventos"
+                    element={
+                      <main className="main-container">
+                        <Crear_Eventos />
+                      </main>
+                    }
+                  />
+
+                  <Route
+                    path="/Listar-eventos"
+                    element={
+                      <main className="main-container">
+                        <Listar_Eventos />
+                      </main>
+                    }
+                  />
+
+                  <Route
+                    path="/Visualizar-evento"
+                    element={
+                      <main className="main-container">
+                        <Visualizar_Evento />
+                      </main>
+                    }
+                  />
+
+                  <Route
+                    path="/Visualizar-programa-formacion"
+                    element={
+                      <main className="main-container">
+                        <Visualizar_Programa_Formacion />
+                      </main>
+                    }
+                  />
+
+                  <Route
+                    path="/Crear-programa-formacion"
+                    element={
+                      <main className="main-container">
+                        <Crear_Programa_Formacion />
+                      </main>
+                    }
+                  />
+
+                  <Route
+                    path="/Actualizar-eventos"
+                    element={
+                      <main className="main-container">
+                        <Actualizar_Eventos />
+                      </main>
+                    }
+                  />
+                </Routes>
+              </Fragment>
+            }
+          />
+        </Routes>
+      </BrowserRouter>
     </>
   );
 }
