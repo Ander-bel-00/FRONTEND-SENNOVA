@@ -70,18 +70,15 @@ function Listar_Eventos() {
               {Events.map((evento, index) => (
                 <tr className="list-events-table__tr" key={index}>
                   <td className="list-events-table__td">{evento.nombre}</td>
-                  <td className="list-events-table__td">
-                    {evento.fecha_inicio}
-                  </td>
+                  <td className="list-events-table__td">{evento.fecha_inicio}</td>
                   <td className="list-events-table__td">{evento.fecha_fin}</td>
                   <td className="list-events-table__td">
                     {evento.cantidad_participantes}
                   </td>
                   <td className="list-events-table__td">{evento.lugar}</td>
+                  <td className="list-events-table__td">{evento.tipo_evento}</td>
                   <td className="list-events-table__td">
-                    {evento.tipo_evento}
-                  </td>
-                  <td className="list-events-table__td">
+                    
                     <div className="list-events-table__td__btns">
                       <Link>
                         <LiaEye className="list-events-table__td__btn"/>

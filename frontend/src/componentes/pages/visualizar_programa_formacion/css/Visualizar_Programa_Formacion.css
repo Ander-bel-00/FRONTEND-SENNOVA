@@ -1,47 +1,30 @@
-/* Botones principales
-.mainButtons__reporte,
-.mainButtons__crear--green{
+.list-visualize-table{
     position: relative;
-    top: 30px;
-    left: 25%;
-    padding: 5px 15px;
-    margin: 0px 30px 0px 0px;
-    border: none;
-    border-radius: 8px;
-    background-color: white;
-    font-size: small;
-    cursor: pointer;
-    box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.2);
+    left: 1%;
+    width: 98%;
+    border-collapse: collapse;
 }
 
-.mainButtons__reporte:hover{
-    background-color: rgb(126, 129, 145);}
-
-.mainButtons__crear--green{
-    position:relative;
-    left: 74.8%; 
-    padding: 5px 50px;
+.list-visualize-table__tr{
+    border: 1px solid var(--color-border-bottom-tr);
 }
 
-.mainButtons__crear--green{
-    color: white;
-    background-color: #39a900;}
+.list-visualize-table__tr:nth-child(even){
+    background-color: #f9f9f9;
+}
 
-.mainButtons__crear--green:hover{
-    color: black;
-    background-color: #2e8105} */
+.list-visualize-table__th{
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    text-wrap: nowrap;
+    text-align: left;
+    padding: 8px;
+}
 
-
-/* Títulos de la informacion del contenido*/
-.mainInformation{
-    position: relative;
-    top: 230px;
-    left: 400px;
-    height: 60vh;
-    width: 60%;
-    background-color: white;
-    border-radius: 5px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+.list-visualize-table__td{
+    border: 1px solid #dddddd;
+    padding: 8px;
+    text-align: left;
 }
 
 

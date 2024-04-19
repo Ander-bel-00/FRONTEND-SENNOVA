@@ -8,14 +8,16 @@ import BotonReturn from "../../common/BotonReturn";
 function Crear_Eventos() {
   return (
     <div className="main-container__contenedor-hijo">
+      
       <Link>
-        <div className="add-event-btn-return">
+        <div className="add-creat-btn-return">
           <BotonReturn
             link={"/lider-semillero/Listar-eventos"}
             icon={<IoIosReturnLeft />}
           />
         </div>
       </Link>
+
       <h2 class="mainssTitle"> Nuevos Eventos CTI</h2>
 
       <Caja_formularios
@@ -32,9 +34,9 @@ function Crear_Eventos() {
                     </label>
                     <br />
                     <input
-                      type="text"
-                      className="form-add-event-container__input"
+                      type="text" className="form-add-event-container__input"
                     />
+
                   </div>
                   <div>
                     <label className="form-add-event-container__label">
