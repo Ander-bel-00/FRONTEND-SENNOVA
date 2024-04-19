@@ -1,77 +1,49 @@
-.mainPagess{
+
+.vis-actividad-table{
     position: relative;
-    top: 230px;
-    left: 280px;
-    height: 70vh;
-    width: 80%;
-    background-color: white;
-    border-radius: 5px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    left: 1%;
+    width: 98%;
+    border-collapse: collapse;
 }
 
-.mainPagess__tablemain{
-    margin: 20px;
-    width: 80%;
-    height: 15%;
-    text-align: left; 
-     
+.vis-actividad-table__tr{
+    border: 1px solid var(--color-border-bottom-tr);
 }
 
+.vis-actividad-table__tr:nth-child(even){
+    background-color: #f9f9f9;
+}
 
-.namePagess__contentMain-title{
+.vis-actividad-table__th{
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    text-wrap: nowrap;
+    text-align: left;
+    padding: 8px;
+}
+
+.vis-actividad-table__td{
+    border: 1px solid #dddddd;
     padding: 8px;
     text-align: left;
-    border-bottom: 1px solid #ddd;
+}
+
+.vis-actividad-table__td__btns{
+    display: flex;
+    padding: 5px;
+}
+
+.vis-actividad-table__td__btn{
+    font-size: 22px;
+    margin-right: 9px;
+}
+
+.vis-actividad-table__td__btn:hover{
+    transform: scale(1.09);
 }
 
 
-.mainPagess__contentMain{
-    margin: 10px;
-    
-}
-
-
-/* Botones principales
-.functionales__1,
-.functionales__2,
-.functionales__3,
-.functionales__4--green {
+.btn-vs-actividades{
     position: relative;
-    top: 30px;
-    left: 300px;
-    padding: 5px 15px;
-    margin: 0px 30px 0px 0px;
-    border: none;
-    border-radius: 8px;
-    background-color: white;
-    font-size: small;
-    cursor: pointer;
-    box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.2);
+    right: 3%;
 }
-
-
-
-.functionales__4--green{
-    color: white;
-    background-color: #39a900;}
-
-.functionales__4--green:hover{
-    color: black;
-    background-color: #2e8105}
-
-
-Botones secundarios
-.functionales2__delete,
-.functionales2__edit{
-    position: relative;
-    top: 170px;
-    left: 87%;
-    padding: 5px 15px ;
-    margin-left: 5px;
-    border: none;
-    border-radius: 8px;
-    background-color: white;
-    font-size: small;
-    cursor: pointer;
-    z-index: 1;
-} */

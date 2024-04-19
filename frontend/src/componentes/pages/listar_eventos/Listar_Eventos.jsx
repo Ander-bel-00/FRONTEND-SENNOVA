@@ -1,18 +1,17 @@
 import { BiSolidReport } from "react-icons/bi";
 import { LuCalendarDays } from "react-icons/lu";
-import { FaSearch } from "react-icons/fa";
-import { IoAdd } from "react-icons/io5";
-import { FaEdit } from "react-icons/fa";
 import { IoTrashOutline } from "react-icons/io5";
+import { Fragment } from "react";
+import { FaEdit } from "react-icons/fa";
 import { LiaEye } from "react-icons/lia";
-import "./css/Listar_Eventos.css";
+import { IoAdd } from "react-icons/io5";
+import { Link } from "react-router-dom";
 import Header_ToolBar from "../../common/Header_ToolBar";
 import Caja_Blanca from "../../common/Caja_Blanca";
-import { Fragment } from "react";
 import BotonBlanco from "../../common/BotonReporte";
 import Search from "../../common/Search";
 import BotonVerdeAñadir from "../../common/BotonVerde";
-import { Link } from "react-router-dom";
+import "./css/Listar_Eventos.css";
 
 function Listar_Eventos() {
   const Events = [
@@ -33,6 +32,7 @@ function Listar_Eventos() {
       tipo_evento: "Ponente",
     },
   ];
+
   return (
     <div className="main-container__contenedor-hijo">
       <Header_ToolBar
@@ -41,11 +41,7 @@ function Listar_Eventos() {
             <BotonBlanco icon={<BiSolidReport />} text={"Reporte"} />
             <BotonBlanco icon={<LuCalendarDays />} text={"Ir a Cronograma"} />
             <Search text={"Buscar Eventos"} />
-            <BotonVerdeAñadir
-              icon={<IoAdd />}
-              text={"Crear evento"}
-              link={"/lider-semillero/Crear-eventos"}
-            />
+            <BotonVerdeAñadir icon={<IoAdd />} text={"Crear evento"} link={"/lider-semillero/Crear-eventos"}/>
           </Fragment>
         }
       />
@@ -78,19 +74,19 @@ function Listar_Eventos() {
                   <td className="list-events-table__td">{evento.lugar}</td>
                   <td className="list-events-table__td">{evento.tipo_evento}</td>
                   <td className="list-events-table__td">
-                    
-                    <div className="list-events-table__td__btns">
-                      <Link>
-                        <LiaEye className="list-events-table__td__btn"/>
-                      </Link>
-                      <Link>
-                        <FaEdit className="list-events-table__td__btn"/>
-                      </Link>
-                      <Link>
-                        <IoTrashOutline className="list-events-table__td__btn"/>
-                      </Link>
 
+                    <div className="list-events-table__td__btns">
+                      <Link to={"/lider-semillero/Visualizar-evento"} >
+                        <LiaEye className="list-events-table__td__btn" />
+                      </Link>
+                      <Link to={"/lider-semillero/Actualizar-eventos"} >
+                        <FaEdit className="list-events-table__td__btn" />
+                      </Link>
+                      <Link>
+                        <IoTrashOutline className="list-events-table__td__btn" />
+                      </Link>
                     </div>
+
                   </td>
                 </tr>
               ))}

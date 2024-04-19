@@ -1,87 +1,79 @@
-.generalsTitle{
-    
-    position: relative;
-    top: 100px;
-    left: 560px;
-    font-size: 25px;
-    font-weight: bold ;
-}
-
-.mainBoxe_volver{
-    position: relative;
-    padding: 5px 15px;
-    margin: 30px;
-    border: none;
-    border-radius: 8px;
-    font-size: 30px;
-    cursor: pointer;    
-}
-
-/* caja mayor */
-.mainBoxe{
-    position: relative;
-    top: 150px;
-    height: 60%;
-    width: 45%;
-    background-color: white;
-    border-radius: 5px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-}
-
-.mainBoxe__tile{
+.title-vs-evento{
     text-align: center;
-    margin-bottom: 40px;
+    font-weight: bold;
+    font-size: 25px;
+}
+
+
+.caja-vs-evento__tile{
+    margin: 30px;
+    font-size: 20px;
+    text-align: center;
+    position: relative;
+    bottom: 2rem;
+}
+
+.form-vs-evento-container{
+    display: flex;
+    width: 100%;
+    height: 80%;
+    position: relative;
+    bottom: 3rem;
 }
 
 
 /* Primera columna del formulario*/
-.firstsColumn{
+.columnOne{
+    display: flex;
+    flex-direction: column;
+    text-wrap: nowrap;
+    width: 25%;
     position: relative;
-    left: 10px;
-    margin: 50px 70px 100px 70px ;
-    width: 30%;
+    left: 10%;
+    top: 10px;
 }
 
-
-.firstsColumn__nombre,
-.firstsColumn__fechaF,
-.firstsColumn__lugar{
-
-    padding: 5px 4px;
-    color: black;
-    background-color: white;
-    border-radius: 5px;
-    margin: 10px 0px;
-    cursor: auto;
-    border: 1px solid black;
-    box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.2);
+.form-vs-evento-container__label{
+    font-weight: 400;
+    padding-top: 12px;
 }
 
-.firstsColumn__nombre{
-    margin-bottom: 50px;
+.form-vs-evento-container__input{
+    width: 15rem;
+    border: 1px solid #000;
+    border-radius: 6px;
+    padding: 8px;
+    margin-top: 8px;
+    margin-bottom: 10px;
+    box-shadow: var(--box-shadow-inputs);
 }
-.firstsColumn__fechaF{
-    margin-bottom: 50px;
-}
-.firstsColumn__lugar{
-    margin-bottom: 50px;
+
+.form-vs-evento-container__label-select{
+    display: block;
+    font-weight: 400;
+    padding-top: 12px;
 }
 
 
 /* segunda columna del formulario*/
-.secondsColumn{
-    position: absolute;
-    top: 50px;
-    left: 60%;
-    width: 120%;
+.columnTwo{
+    display: flex;
+    flex-direction: column;
+    text-wrap: nowrap;
+    width: 25%;
+    position: relative;
+    left: 28%;
+    top: 10px;
 }
 
 
-.secondsColumn__fechaI,
-.secondsColumn__cantidad,
-.secondsColumn__tipo{
-
+.columnTwo__fechaI,
+.columnTwo__cantidad,
+.columnTwo__tipo{
+    
+    width: 120%;
     padding: 5px 4px;
+    margin-bottom: 30px;
     color: black;
     background-color: white;
     border-radius: 5px;
@@ -89,48 +81,91 @@
     cursor: auto;
     border: 1px solid black;
     box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.2);
+
 }
 
 
-.secondsColumn__fechaI{
+.columnTwo__fechaI{
     margin-bottom: 50px;
 }
-.secondsColumn__cantidad{
+.columnTwo__cantidad{
     margin-bottom: 50px;
 }
-.secondsColumn__tipo{
+.columnTwo__tipo{
     margin-bottom: 50px;
 }
 
+
+.columnTwo__op1,
+.columnTwo__op2{
+    text-align: center;
+}
 
 
 /* Botones principales */
-.buttEvents__cancelar,
-.buttEvents__crear--green{
-    position: absolute;
-    top: 79%;
-    left: 10%;
-    padding: 5px 15px;
-    border: none;
+
+.btn-vs-evento-container__cancelar{
+    background-color: var(--boton-cacelar-color);
+    width: 15rem;
+    height: 45px;
     border-radius: 8px;
-    font-size: small;
-    cursor: pointer;
-    box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 4px 11px 1px rgba(129,122,122,0.73);
+    position: relative;
+    top: 1rem;
+    color: var(--text-btn-color);
+    font-size: 21px;
 }
 
-.buttEvents__cancelar{
-    color: white;
-    background-color: #d4212c;
-    font-size: medium;
-    padding: 20px 80px;
+.btn-vs-evento-container__cancelar:hover{
+    background-color: var(--boton-cacelar-bg-hover);
 }
 
 
-.buttEvents__crear--green{
-    color: white;
-    background-color: #39a900;
-    font-size: medium;
-    padding: 20px 80px;
-    left: 61%; 
+.btn-vs-evento-container__crear--green{
+    background-color: var(--boton-crear-color);
+    width: 15rem;
+    height: 45px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 11px 1px rgba(129,122,122,0.73);
+    position: relative;
+    top: 1.2rem;
+    color: var(--text-btn-color);
+    font-size: 21px;
 }
 
+.btn-vs-return__crear--green:hover{   
+    background-color: var(--boton-crear-bg-hover);
+}
+
+.btn-vs-return{
+    width: 5rem;
+}
+
+.btn-vs-return a{
+    position: relative;
+    left: 10%;
+}
+
+.btn-vs-return:hover{
+    transform: scale(1.09);
+}
+
+
+@media screen and (min-width: 1338.18px) {
+    .caja-vs-evento__tile{
+        margin: 30px;
+        font-size: 20px;
+        text-align: center;
+        position: relative;
+        top: 2rem;
+    }
+
+    .form-vs-evento-container{
+        display: flex;
+        width: 100%;
+        height: 80%;
+        position: relative;
+        left: 6%;
+        top: 3rem;
+    }
+}

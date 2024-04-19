@@ -1,8 +1,6 @@
 import Cronograma from "./componentes/Cronograma/Cronograma";
 import ListarUsuarios from "./componentes/ListarUsuarios/ListarUsuarios";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Sidenav from "./componentes/layouts/Sidenav/Sidenav";
-import { Fragment } from "react";
 import Header from "./componentes/layouts/Header/Header";
 import Semillero from "./componentes/pages/Semillero/Semillero";
 import ModificarUsuario from "./componentes/pages/ModificarUsuario/ModificarUsuario";
@@ -20,6 +18,8 @@ import Visualizar_Programa_Formacion from "./componentes/pages/visualizar_progra
 import Crear_Programa_Formacion from "./componentes/pages/crear_programa_formacion/Crear_Programa_Formacion";
 import Crear_Eventos from "./componentes/pages/crear_eventos/Crear_Eventos";
 import Actualizar_Eventos from "./componentes/pages/actualizar_eventos/Actualizar_Eventos";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Fragment } from "react";
 
 function App() {
   return (
@@ -127,6 +127,11 @@ function App() {
                       </main>
                     }
                   />
+
+
+
+
+
 
                   <Route
                     path="/Visualizar-actividad"

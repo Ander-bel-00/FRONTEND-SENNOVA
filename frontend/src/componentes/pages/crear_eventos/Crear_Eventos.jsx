@@ -101,9 +101,6 @@ function Crear_Eventos() {
                   />
                 </div>
               </form>
-
-              {/* Botones principales */}
-              <div className="btnEvents"></div>
             </div>
           </Fragment>
         }

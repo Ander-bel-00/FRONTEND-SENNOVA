@@ -1,4 +1,4 @@
-.mainTitles{
+.mainsTitles{
     text-align: center;
     font-weight: bold;
     font-size: 25px;
@@ -34,15 +34,6 @@
 }
 
 
-.add-creat-btn-return{
-    width: 5rem;
-}
-
-.add-creat-btn-return a{
-    position: relative;
-    left: 10%;
-}
-
 .add-event-btn-return:hover{
     transform: scale(1.09);
 }
@@ -76,6 +67,7 @@
     font-size: medium;
     padding: 8px 20px;
 }
+
 
 .buttonsCreating__cancelar:hover{
     background-color: #f80616;

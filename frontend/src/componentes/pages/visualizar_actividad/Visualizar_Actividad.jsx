@@ -1,54 +1,103 @@
+import { IoAdd, IoTrashOutline } from "react-icons/io5";
+import { IoIosReturnLeft } from "react-icons/io";
 import { BiSolidReport } from "react-icons/bi";
 import { CiCalendar } from "react-icons/ci";
 import { FaSearch } from "react-icons/fa";
-import { IoAdd } from "react-icons/io5";
+import { Fragment } from "react";
 import { FaEdit } from "react-icons/fa";
-import { RiDeleteBin5Line } from "react-icons/ri";
+import { Link } from "react-router-dom";
+import Caja_Blanca from "../../common/Caja_Blanca";
+import Header_ToolBar from "../../common/Header_ToolBar";
+import BotonBlanco from "../../common/BotonReporte";
+import BotonVerdeAñadir from "../../common/BotonVerde";
+import Search from "../../common/Search";
+import BotonReturn from "../../common/BotonReturn";
 import './css/Visualizar_Actividad.css';
 
 function Visualizar_Actividad() {
+  const Contenido = [
+    {
+      nombre: "Carlos",
+      tarea: "programación",
+      fecha: "17 marzo 2024",
+      resultado: "El mejor",
+      producto: "carro",
+      responsable: "Anderson"
+    },
+    {
+      nombre: "Carlos",
+      tarea: "programación",
+      fecha: "17 marzo 2024",
+      resultado: "El mejor",
+      producto: "carro",
+      responsable: "Anderson"
+    }
+  ];
+
+
   return (
-    <div>
-
+    <div className="main-container__contenedor-hijo">
+    
+    <Header_ToolBar
+      Header_Tools={
+        <Fragment> 
+        <div className="btn-vs-actividades">
+          <BotonReturn
+            link={"/lider-semillero/Listar_Actividad"}
+            icon={<IoIosReturnLeft/>}
+          />
+        </div> 
+        <BotonBlanco icon={<BiSolidReport/>} text={"Reporte"}/>
+        <BotonBlanco icon={<CiCalendar/>} text={"calendario"}/>
+        <Search icon={<FaSearch/>} text={"Buscar Actividades"}/>
+        <BotonVerdeAñadir icon={<IoAdd/>} text={"Añadir Actividad"}/>
+        </Fragment>
+        } 
+      />
       
-      {/* Botones principales
-      <div className="functionales">
-        <button className="functionales__1"> <BiSolidReport  /> Reporte</button>
-        <button className="functionales__2"> <CiCalendar     /> Ir a Cronograma</button>
-        <input type="text" placeholder="Buscar Actividades" className="funcional__3" />
-        <button className='functionales__4--green'> <IoAdd   /> Crear Actividades</button>
-      </div>
+      
+    <Caja_Blanca
+      content={
+        <table className="vis-actividad-table">
+          <thead>
+                <tr className="vis-actividad-table__tr">
+                  <th className="vis-actividad-table__th">Nombre Actividad</th>
+                  <th className="vis-actividad-table__th">Tarea</th>
+                  <th className="vis-actividad-table__th">Fecha</th>
+                  <th className="vis-actividad-table__th">Resultado</th>
+                  <th className="vis-actividad-table__th">Producto</th>
+                  <th className="vis-actividad-table__th">Responsable de la Actividad</th>
+                  <th className="vis-actividad-table__th">Acciones</th>
+                </tr>
+              </thead>
+              <tbody>
+                {Contenido.map((Contenidos, index) => (
+                <tr className="vis-actividad-table__tr" key={index}>
+                  <td className="vis-actividad-table__td"> {Contenidos.nombre}</td>
+                  <td className="vis-actividad-table__td"> {Contenidos.tarea} </td>
+                  <td className="vis-actividad-table__td"> {Contenidos.fecha} </td>
+                  <td className="vis-actividad-table__td"> {Contenidos.resultado} </td>
+                  <td className="vis-actividad-table__td"> {Contenidos.producto} </td>
+                  <td className="vis-actividad-table__td"> {Contenidos.responsable} </td>
+                  <td className="vis-actividad-table__td">
 
-      Botones secundarios
-      <div className='functionales2'>
-        <button className="functionales2__edit"> <FaEdit /> </button>
-        <button className="functionales2__delete"> <RiDeleteBin5Line /> </button>
-      </div> */}
+                    <div className="vis-actividad-table__td__btns">
+                      <Link>
+                        <FaEdit className="vis-actividad-table__td__btn"/>
+                      </Link>
+                      <Link>
+                        <IoTrashOutline className="vis-actividad-table__td__btn"/>
+                      </Link>
+                    </div>
 
-      <div className='mainPagess'>
-        <table className="mainPage__tablemain">
-
-        <tr className="namePage__contentMain-title">
-          <th>Nombre Actividad</th>
-          <th>Tarea</th>
-          <th>Fecha</th>
-          <th>Resultado</th>
-          <th>Producto</th>
-          <th>Responsable de la Actividad</th>
-        </tr>
-
-        <tr className="mainPage__contentMain">
-          <td>.contenido</td>
-          <td>.contenido</td>
-          <td>.contenido</td>
-          <td>.contenido</td>
-          <td>.contenido</td>
-          <td>.contenido</td>
-        </tr>
+                  </td>
+                </tr>
+                ))}
+              </tbody>
         </table>
-      </div>
+      }
+    />
   </div>
   )
 }
-
 export default Visualizar_Actividad;

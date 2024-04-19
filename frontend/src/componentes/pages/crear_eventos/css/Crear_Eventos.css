@@ -137,16 +137,16 @@
     background-color: var(--boton-crear-bg-hover);
 }
 
-.add-event-btn-return{
+.add-creat-btn-return{
     width: 5rem;
 }
 
-.add-event-btn-return a{
+.add-creat-btn-return a{
     position: relative;
     left: 10%;
 }
 
-.add-event-btn-return:hover{
+.add-creat-btn-return:hover{
     transform: scale(1.09);
 }
 

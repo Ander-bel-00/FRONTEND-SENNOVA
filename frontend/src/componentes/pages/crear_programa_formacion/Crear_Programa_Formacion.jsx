@@ -10,7 +10,7 @@ function Crear_Programa_Formacion() {
     <div className="main-container__contenedor-hijo">
 
       <Link>
-        <div className="add-event-btn-return ">
+        <div className="add-creat-btn-return ">
           <BotonReturn
             link={"/lider-semillero/Visualizar-programa-formacion"}
             icon={<IoIosReturnLeft />}
@@ -18,7 +18,7 @@ function Crear_Programa_Formacion() {
         </div>
       </Link>
 
-      <h2 class='mainTitles'> Programa de Formación</h2>
+      <h2 class='mainsTitles'> Programa de Formación</h2>
 
       <Caja_formularios
         info={
