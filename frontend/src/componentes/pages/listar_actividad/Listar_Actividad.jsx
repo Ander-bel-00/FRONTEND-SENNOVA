@@ -107,7 +107,7 @@ function Listar_Actividad() {
                     <td className="list-activity-content-table__td">
                       <div className="list-activity-content-table__td__btns">
                         <Link
-                          to={"/lider-semillero/Visualizar_Suspender_Proyecto"}
+                          to={"/lider-semillero/Visualizar-actividad"}
                         >
                           <LiaEyeSolid className="list-activity-content-table__td__btn" />
                         </Link>

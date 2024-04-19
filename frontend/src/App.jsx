@@ -1,8 +1,8 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Fragment } from "react";
 import Cronograma from "./componentes/Cronograma/Cronograma";
 import ListarUsuarios from "./componentes/ListarUsuarios/ListarUsuarios";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Sidenav from "./componentes/layouts/Sidenav/Sidenav";
-import { Fragment } from "react";
 import Header from "./componentes/layouts/Header/Header";
 import Semillero from "./componentes/pages/Semillero/Semillero";
 import ModificarUsuario from "./componentes/pages/ModificarUsuario/ModificarUsuario";
@@ -27,6 +27,7 @@ function App() {
     <>
       <BrowserRouter>
         <Routes>
+          {/* Lider Semillero */}
           <Route
             path="/lider-semillero/*"
             element={
@@ -191,26 +192,92 @@ function App() {
                       </main>
                     }
                   />
-                  <Route
-                    path="/Listar-fichas"
-                    element={
-                      <main className="main-container">
-                        <Listar_Fichas />
-                      </main>
-                    }
-                  />
                 </Routes>
               </Fragment>
             }
           />
 
+          {/* instructor investigador */}
           <Route
-            path="/aprendiz-investigador/*"
+            path="/instructor-investigador/*"
             element={
               <Fragment>
                 <Header />
                 <Sidenav />
-                <Routes></Routes>
+                <Routes>
+                  <Route
+                    path="/semillero"
+                    element={
+                      <Fragment>
+                        <main className="main-container">
+                          <Semillero />
+                        </main>
+                      </Fragment>
+                    }
+                  />
+                  <Route
+                    path="/Visualizar-actividad"
+                    element={
+                      <main className="main-container">
+                        <Visualizar_Actividad />
+                      </main>
+                    }
+                  />
+
+                  <Route
+                    path="/Crear-eventos"
+                    element={
+                      <main className="main-container">
+                        <Crear_Eventos />
+                      </main>
+                    }
+                  />
+
+                  <Route
+                    path="/Listar-eventos"
+                    element={
+                      <main className="main-container">
+                        <Listar_Eventos />
+                      </main>
+                    }
+                  />
+
+                  <Route
+                    path="/Visualizar-evento"
+                    element={
+                      <main className="main-container">
+                        <Visualizar_Evento />
+                      </main>
+                    }
+                  />
+
+                  <Route
+                    path="/Visualizar-programa-formacion"
+                    element={
+                      <main className="main-container">
+                        <Visualizar_Programa_Formacion />
+                      </main>
+                    }
+                  />
+
+                  <Route
+                    path="/Crear-programa-formacion"
+                    element={
+                      <main className="main-container">
+                        <Crear_Programa_Formacion />
+                      </main>
+                    }
+                  />
+
+                  <Route
+                    path="/Actualizar-eventos"
+                    element={
+                      <main className="main-container">
+                        <Actualizar_Eventos />
+                      </main>
+                    }
+                  />
+                </Routes>
               </Fragment>
             }
           />
