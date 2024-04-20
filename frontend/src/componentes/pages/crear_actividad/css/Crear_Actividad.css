@@ -1,12 +1,3 @@
-:root{
-    --boton-color: #FFFFFF;
-    --boton-crear-color: #39A900;
-    --boton-cacelar-color: #D4212C;
-    --text-btn-color: #FFFFFF;
-    --fuente: 'Work Sans', sans-serif;
-    --line-color: #A5A5A5;
-}
-
 .crear-actividades-titulo{
     position: relative;
     top: 0rem;
