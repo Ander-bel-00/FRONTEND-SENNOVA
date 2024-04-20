@@ -1,4 +1,12 @@
-import { TbArrowBack } from "react-icons/tb";
+
+
+
+// Este no se va a usar porque el instructor no puede ni modificar ni suspender nada en los eventos
+
+
+
+
+
 import { IoIosReturnLeft } from 'react-icons/io';
 import { Fragment } from 'react';
 import { Link } from "react-router-dom";
@@ -11,95 +19,96 @@ function Actualizar_Eventos_ins_invg() {
     return (
         <div className="main-container__contenedor-hijo">
             <Link>
-                <div className="btn-vs-return">
+                <div className="btn-vs-return__instructor">
                     <BotonReturn
-                        link={"/lider-semillero/Listar-eventos"}
+                        link={"/instructor-investigador/Listar-eventos"}
                         icon={<IoIosReturnLeft />}
                     />
                 </div>
             </Link>
 
             {/* Titulo general */}
-            <h2 className='title-vs-evento'>Actualizar Evento CTI</h2>
+            <h2 className='title-vs-evento__instructor'>Actualizar Evento CTI</h2>
 
 
             <Caja_formularios
                 info={
                     <Fragment>
                         {/* Formulario y caja */}
-                        <div className="caja-vs-evento">
-                            <h3 className="caja-vs-evento__tile">Actualizar Evento</h3>
-                            <form className="form-vs-evento-container">
-                                <div className="columnOne">
+                        <div className="caja-vs-evento-instructor">
+                            <h3 className="caja-vs-evento-instructor__tile">Actualizar Evento</h3>
+                            <form className="form-vs-evento-container-instructor">
+                                <div className="columnOne__instructor">
                                     <div>
-                                        <label className="form-vs-evento-container__label">
+                                        <label className="form-vs-evento-container-instructor__label">
                                             Nombres*
                                         </label>
                                         <br />
                                         <input
-                                            type="text" className="form-vs-evento-container__input"
+                                            type="text" className="form-vs-evento-container-instructor__input"
                                         />
 
                                     </div>
                                     <div>
-                                        <label className="form-vs-evento-container__label">
+                                        <label className="form-vs-evento-container-instructor__label">
                                             Cantidad*
                                         </label>
                                         <br />
                                         <input
                                             type="text"
-                                            className="form-vs-evento-container__input"
+                                            className="form-vs-evento-container-instructor__input"
                                         />
                                     </div>
                                     <div>
-                                        <label className="form-vs-evento-container__label">
+                                        <label className="form-vs-evento-container-instructor__label">
                                             Lugar del Evento*
                                         </label>
                                         <br />
                                         <input
                                             type="text"
-                                            className="form-vs-evento-container__input"
+                                            className="form-vs-evento-container-instructor__input"
                                         />
                                     </div>
                                     <input
                                         type="submit"
-                                        className="btn-vs-evento-container__cancelar"
+                                        className="btn-vs-evento-container-instructor__cancelar"
                                         value={"Cancelar"}
                                     />
                                 </div>
+
                                 {/* segunda columna */}
-                                <div className="columnTwo">
+                                <div className="columnTwo__instructor">
                                     <div>
-                                        <label className="form-add-event-container__label">
+                                        <label className="form-add-event-container-instructor__label">
                                             Fecha de Inicio del Evento*
                                         </label>
                                         <br />
                                         <input
                                             type="text"
-                                            className="form-vs-evento-container__input"
+                                            className="form-vs-evento-container-instructor__input"
                                         />
                                     </div>
                                     <div>
-                                        <label className="form-vs-evento-container__label">
+                                        <label className="form-vs-evento-container-instructor__label">
                                             Fecha de Fin del Evento*
                                         </label>
                                         <br />
                                         <input
                                             type="text"
-                                            className="form-vs-evento-container__input"
+                                            className="form-vs-evento-container-instructor__input"
                                         />
                                     </div>
 
-                                    <label className="form-vs-evento-container__label-select">
+                                    <label className="form-vs-evento-container-instructor__label-select">
                                         Tipo*
                                     </label>
-                                    <select className="form-vs-evento-container__input">
-                                        <option className="columnTwo__op1">Asistente</option>
-                                        <option className="columnTwo__op2">Potente</option>
+                                    <select className="form-vs-evento-container-instructor__input">
+                                        <option className="columnTwo-instructor__op1">Asistente</option>
+                                        <option className="columnTwo-instructor__op2">Potente</option>
                                     </select>
                                     <input
                                         type="submit"
-                                        className="btn-vs-evento-container__crear--green"
+                                        className="btn-vs-evento-container-instructor__crear--green"
                                         value={"Crear"}
                                     />
                                 </div>

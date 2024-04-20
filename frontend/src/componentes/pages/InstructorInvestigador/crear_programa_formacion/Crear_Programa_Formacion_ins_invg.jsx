@@ -10,43 +10,43 @@ function Crear_Programa_Formacion_ins_invg() {
     <div className="main-container__contenedor-hijo">
 
       <Link>
-        <div className="add-creat-btn-return ">
+        <div className="add-creat-btn-return-instructor ">
           <BotonReturn
-            link={"/lider-semillero/Visualizar-programa-formacion"}
+            link={'/instructor-investigador/Visualizar-programa-formacion'}
             icon={<IoIosReturnLeft />}
           />
         </div>
       </Link>
 
-      <h2 class='mainsTitles'> Programa de Formación</h2>
+      <h2 class='mainsTitles-instructor'> Programa de Formación</h2>
 
       <Caja_formularios
         info={
           <Fragment>
-            <div className='inputBoxes'>
-              <h3 className='inputBoxes__titlecaja'>Insertar Información</h3>
-              <form className="inputBoxes__olderbox">
+            <div className='inputBoxes-instructor'>
+              <h3 className='inputBoxes-instructor__titlecaja'>Añadir Información</h3>
+              <form className="inputBoxes-instructor__olderbox">
                 <div >
-                  <label className='unputBoxes__label'>Código*</label>
+                  <label className='unputBoxes-instructor__label'>Código*</label>
                   <br />
-                  <input type='text' className='unputBoxes__input' />
+                  <input type='text' className='unputBoxes-instructor__input' />
                 </div>
                 <div>
-                  <label className='unputBoxes__label'>Versión*</label>
+                  <label className='unputBoxes-instructor__label'>Versión*</label>
                   <br />
-                  <input type='text' className='unputBoxes__input' />
+                  <input type='text' className='unputBoxes-instructor__input' />
                 </div>
                 <div>
-                  <label className='unputBoxes__label'>Nombre*</label>
+                  <label className='unputBoxes-instructor__label'>Nombre*</label>
                   <br />
-                  <input type='text' className='unputBoxes__input' />
+                  <input type='text' className='unputBoxes-instructor__input' />
                 </div>
                 <div />
               </form>
               {/* Botones principales */}
-              <div className='buttonsCreating'>
-                <button className='buttonsCreating__cancelar'> Cancelar</button>
-                <button className='buttonsCreating__crear--green'>  Crear</button>
+              <div className='buttonsCreating-instructor'>
+                <button className='buttonsCreating-instructor__cancelar'> Cancelar</button>
+                <button className='buttonsCreating-instructor__crear--green'>  Crear</button>
               </div>
             </div>
           </Fragment>

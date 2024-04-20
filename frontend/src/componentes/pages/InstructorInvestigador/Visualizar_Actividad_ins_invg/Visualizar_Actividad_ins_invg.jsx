@@ -18,15 +18,15 @@ import "./css/Visualizar_Actividad_ins_invg.css";
 function Visualizar_Actividad_ins_invg() {
   const Contenido = [
     {
-      nombre: "Carlos",
-      tarea: "programación",
+      nombre: "Arias",
+      tarea: "Programar",
       fecha: "17 marzo 2024",
       resultado: "El mejor",
       producto: "carro",
       responsable: "Anderson",
     },
     {
-      nombre: "Carlos",
+      nombre: "Arias",
       tarea: "programación",
       fecha: "17 marzo 2024",
       resultado: "El mejor",
@@ -40,9 +40,9 @@ function Visualizar_Actividad_ins_invg() {
       <Header_ToolBar
         Header_Tools={
           <Fragment>
-            <div className="btn-vs-actividades">
+            <div className="btn-vs-actividades-instructor">
               <BotonReturn
-                link={"/lider-semillero/Listar_Actividad"}
+                link={"/instructor-investigador/Listar_Actividad"}
                 icon={<IoIosReturnLeft />}
               />
             </div>
@@ -56,56 +56,43 @@ function Visualizar_Actividad_ins_invg() {
 
       <Caja_Blanca
         content={
-          <table className="vis-actividad-table">
+          <table className="vis-actividad-table-instructor">
             <thead>
-              <tr className="vis-actividad-table__tr">
-                <th className="vis-actividad-table__th">Nombre Actividad</th>
-                <th className="vis-actividad-table__th">Tarea</th>
-                <th className="vis-actividad-table__th">Fecha</th>
-                <th className="vis-actividad-table__th">Resultado</th>
-                <th className="vis-actividad-table__th">Producto</th>
-                <th className="vis-actividad-table__th">
-                  Responsable de la Actividad
-                </th>
-                <th className="vis-actividad-table__th">Acciones</th>
+              <tr className="vis-actividad-table-instructor__tr">
+                <th className="vis-actividad-table-instructor__th">Nombre Actividad</th>
+                <th className="vis-actividad-table-instructor__th">Tarea</th>
+                <th className="vis-actividad-table-instructor__th">Fecha</th>
+                <th className="vis-actividad-table-instructor__th">Resultado</th>
+                <th className="vis-actividad-table-instructor__th">Producto</th>
+                <th className="vis-actividad-table-instructor__th">Responsable de la Actividad</th>
               </tr>
             </thead>
             <tbody>
               {Contenido.map((Contenidos, index) => (
-                <tr className="vis-actividad-table__tr" key={index}>
-                  <td className="vis-actividad-table__td">
+                <tr className="vis-actividad-table-instructor__tr" key={index}>
+                  <td className="vis-actividad-table-instructor__td">
                     {" "}
                     {Contenidos.nombre}
                   </td>
-                  <td className="vis-actividad-table__td">
+                  <td className="vis-actividad-table-instructor__td">
                     {" "}
                     {Contenidos.tarea}{" "}
                   </td>
-                  <td className="vis-actividad-table__td">
+                  <td className="vis-actividad-table-instructor__td">
                     {" "}
                     {Contenidos.fecha}{" "}
                   </td>
-                  <td className="vis-actividad-table__td">
+                  <td className="vis-actividad-table-instructor__td">
                     {" "}
                     {Contenidos.resultado}{" "}
                   </td>
-                  <td className="vis-actividad-table__td">
+                  <td className="vis-actividad-table-instructor__td">
                     {" "}
                     {Contenidos.producto}{" "}
                   </td>
-                  <td className="vis-actividad-table__td">
+                  <td className="vis-actividad-table-instructor__td">
                     {" "}
                     {Contenidos.responsable}{" "}
-                  </td>
-                  <td className="vis-actividad-table__td">
-                    <div className="vis-actividad-table__td__btns">
-                      <Link>
-                        <FaEdit className="vis-actividad-table__td__btn" />
-                      </Link>
-                      <Link>
-                        <IoTrashOutline className="vis-actividad-table__td__btn" />
-                      </Link>
-                    </div>
                   </td>
                 </tr>
               ))}

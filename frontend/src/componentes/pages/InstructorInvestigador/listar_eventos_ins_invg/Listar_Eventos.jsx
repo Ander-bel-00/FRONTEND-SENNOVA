@@ -16,20 +16,20 @@ import "./css/Listar_Eventos_ins_invg.css";
 function Listar_Eventos_ins_ivg() {
   const Events = [
     {
-      nombre: "Sofia",
+      nombre: "Mariana",
       fecha_inicio: "18 de Abril de 2024",
       fecha_fin: "19 de Abril de 2028",
       cantidad_participantes: 5,
       lugar: "Bogotá",
-      tipo_evento: "Ponente",
+      tipo_evento: "Asistente",
     },
     {
-      nombre: "Sofia",
+      nombre: "Mariana",
       fecha_inicio: "18 de Abril de 2024",
       fecha_fin: "19 de Abril de 2028",
       cantidad_participantes: 5,
       lugar: "Bogotá",
-      tipo_evento: "Ponente",
+      tipo_evento: "Asistente",
     },
   ];
 
@@ -41,49 +41,43 @@ function Listar_Eventos_ins_ivg() {
             <BotonBlanco icon={<BiSolidReport />} text={"Reporte"} />
             <BotonBlanco icon={<LuCalendarDays />} text={"Ir a Cronograma"} />
             <Search text={"Buscar Eventos"} />
-            <BotonVerdeAñadir icon={<IoAdd />} text={"Crear evento"} link={"/lider-semillero/Crear-eventos"}/>
+            <BotonVerdeAñadir icon={<IoAdd />} text={"Añadir Información"} link={"/instructor-investigador/Crear-eventos"}/>
           </Fragment>
         }
       />
 
       <Caja_Blanca
         content={
-          <table className="list-events-table">
+          <table className="list-events-table-instructor">
             <thead>
-              <tr className="list-events-table__tr">
-                <th className="list-events-table__th">Nombre</th>
-                <th className="list-events-table__th">Fecha Inicio</th>
-                <th className="list-events-table__th">Fecha Fin</th>
-                <th className="list-events-table__th">
+              <tr className="list-events-table-instructor__tr">
+                <th className="list-events-table-instructor__th">Nombre</th>
+                <th className="list-events-table-instructor__th">Fecha Inicio</th>
+                <th className="list-events-table-instructor__th">Fecha Fin</th>
+                <th className="list-events-table-instructor__th">
                   Cantidad Participantes
                 </th>
-                <th className="list-events-table__th">Lugar</th>
-                <th className="list-events-table__th">Tipo</th>
-                <th className="list-events-table__th">Acciones</th>
+                <th className="list-events-table-instructor__th">Lugar</th>
+                <th className="list-events-table-instructor__th">Tipo</th>
+                <th className="list-events-table-instructor__th">Acciones</th>
               </tr>
             </thead>
             <tbody>
               {Events.map((evento, index) => (
-                <tr className="list-events-table__tr" key={index}>
-                  <td className="list-events-table__td">{evento.nombre}</td>
-                  <td className="list-events-table__td">{evento.fecha_inicio}</td>
-                  <td className="list-events-table__td">{evento.fecha_fin}</td>
-                  <td className="list-events-table__td">
+                <tr className="list-events-table-instructor__tr" key={index}>
+                  <td className="list-events-table-instructor__td">{evento.nombre}</td>
+                  <td className="list-events-table-instructor__td">{evento.fecha_inicio}</td>
+                  <td className="list-events-table-instructor__td">{evento.fecha_fin}</td>
+                  <td className="list-events-table-instructor__td">
                     {evento.cantidad_participantes}
                   </td>
-                  <td className="list-events-table__td">{evento.lugar}</td>
-                  <td className="list-events-table__td">{evento.tipo_evento}</td>
-                  <td className="list-events-table__td">
+                  <td className="list-events-table-instructor__td">{evento.lugar}</td>
+                  <td className="list-events-table-instructor__td">{evento.tipo_evento}</td>
+                  <td className="list-events-table-instructor__td">
 
-                    <div className="list-events-table__td__btns">
-                      <Link to={"/lider-semillero/Visualizar-evento"} >
-                        <LiaEye className="list-events-table__td__btn" />
-                      </Link>
-                      <Link to={"/lider-semillero/Actualizar-eventos"} >
-                        <FaEdit className="list-events-table__td__btn" />
-                      </Link>
-                      <Link>
-                        <IoTrashOutline className="list-events-table__td__btn" />
+                    <div className="list-events-table-instructor__td__btns">
+                      <Link to={"/instructor-investigador/Visualizar-evento"} >
+                        <LiaEye className="list-events-table-instructor__td__btn" />
                       </Link>
                     </div>
 

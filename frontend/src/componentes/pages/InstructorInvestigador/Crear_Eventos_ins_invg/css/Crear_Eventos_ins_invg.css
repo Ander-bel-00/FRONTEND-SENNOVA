@@ -1,10 +1,10 @@
-.mainssTitle{
+.mainssTitle-instructor{
     text-align: center;
     font-weight: bold;
     font-size: 25px;
 }
 
-.mainsBoxes__tile{
+.mainsBoxes-instructor__tile{
     margin: 30px;
     font-size: 20px;
     text-align: center;
@@ -12,7 +12,7 @@
     bottom: 2rem;
 }
 
-.form-add-event-container{
+.form-add-event-container-instructor{
     display: flex;
     width: 100%;
     height: 80%;
@@ -22,7 +22,7 @@
 
 
 /* Primera columna del formulario*/
-.firstColumns{
+.firstColumns-instructor{
     display: flex;
     flex-direction: column;
     text-wrap: nowrap;
@@ -32,12 +32,12 @@
     top: 10px;
 }
 
-.form-add-event-container__label{
+.form-add-event-container-instructor__label{
     font-weight: 400;
     padding-top: 12px;
 }
 
-.form-add-event-container__input{
+.form-add-event-container-instructor__input{
     width: 15rem;
     border: 1px solid #000;
     border-radius: 6px;
@@ -47,7 +47,7 @@
     box-shadow: var(--box-shadow-inputs);
 }
 
-.form-add-event-container__label-select{
+.form-add-event-container-instructor__label-select{
     display: block;
     font-weight: 400;
     padding-top: 12px;
@@ -55,7 +55,7 @@
 
 
 /* segunda columna del formulario*/
-.secondColumns{
+.secondColumns-instructor{
     display: flex;
     flex-direction: column;
     text-wrap: nowrap;
@@ -65,46 +65,17 @@
     top: 10px;
 }
 
-
-.secondColumns__fechaI,
-.secondColumns__cantidad,
-.secondColumns__tipo{
-    
-    width: 120%;
-    padding: 5px 4px;
-    margin-bottom: 30px;
-    color: black;
-    background-color: white;
-    border-radius: 5px;
-    margin: 10px 0px;
-    cursor: auto;
-    border: 1px solid black;
-    box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.2);
-
-}
-
-
-.secondColumns__fechaI{
-    margin-bottom: 50px;
-}
-.secondColumns__cantidad{
-    margin-bottom: 50px;
-}
-.secondColumns__tipo{
-    margin-bottom: 50px;
-}
-
-
-.secondColumns__op1,
-.secondColumns__op2{
+.secondColumns-instructor__op1,
+.secondColumns-instructor__op2{
     text-align: center;
 }
 
 
 
-/* Botones principales */
+/* Botones */
 
-.btnEvents__cancelar{
+
+.btnEvents-instructor__cancelar{
     background-color: var(--boton-cacelar-color);
     width: 15rem;
     height: 45px;
@@ -116,12 +87,12 @@
     font-size: 21px;
 }
 
-.btnEvents__cancelar:hover{
+.btnEvents-instructor__cancelar:hover{
     background-color: var(--boton-cacelar-bg-hover);
 }
 
 
-.btnEvents__crear--green{
+.btnEvents-instructor__crear--green{
     background-color: var(--boton-crear-color);
     width: 15rem;
     height: 45px;
@@ -133,26 +104,28 @@
     font-size: 21px;
 }
 
-.btnEvents__crear--green:hover{
+.btnEvents-instructor__crear--green:hover{
     background-color: var(--boton-crear-bg-hover);
 }
 
-.add-creat-btn-return{
+.add-creat-btn-return-instructor{
     width: 5rem;
 }
 
-.add-creat-btn-return a{
+.add-creat-btn-return-instructor a{
     position: relative;
     left: 10%;
 }
 
-.add-creat-btn-return:hover{
+.add-creat-btn-return-instructor:hover{
     transform: scale(1.09);
 }
 
 
+/* responsive */
+
 @media screen and (min-width: 1338.18px) {
-    .mainsBoxes__tile{
+    .mainsBoxes-instructor__tile{
         margin: 30px;
         font-size: 20px;
         text-align: center;
@@ -160,7 +133,7 @@
         top: 2rem;
     }
 
-    .form-add-event-container{
+    .form-add-event-container-instructor{
         display: flex;
         width: 100%;
         height: 80%;
