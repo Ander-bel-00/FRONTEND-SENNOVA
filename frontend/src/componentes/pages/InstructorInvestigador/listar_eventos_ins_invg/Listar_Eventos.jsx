@@ -6,11 +6,11 @@ import { FaEdit } from "react-icons/fa";
 import { LiaEye } from "react-icons/lia";
 import { IoAdd } from "react-icons/io5";
 import { Link } from "react-router-dom";
-import Header_ToolBar from "../../common/Header_ToolBar";
-import Caja_Blanca from "../../common/Caja_Blanca";
-import BotonBlanco from "../../common/BotonReporte";
-import Search from "../../common/Search";
-import BotonVerdeAñadir from "../../common/BotonVerde";
+import Header_ToolBar from "../../../common/Header_ToolBar";
+import Caja_Blanca from "../../../common/Caja_Blanca";
+import BotonBlanco from "../../../common/BotonReporte";
+import Search from "../../../common/Search";
+import BotonVerdeAñadir from "../../../common/BotonVerde";
 import "./css/Listar_Eventos_ins_invg.css";
 
 function Listar_Eventos_ins_ivg() {

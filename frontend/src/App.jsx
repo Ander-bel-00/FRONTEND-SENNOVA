@@ -21,16 +21,16 @@ import Crear_Programa_Formacion from "./componentes/pages/crear_programa_formaci
 import Crear_Eventos from "./componentes/pages/crear_eventos/Crear_Eventos";
 import Actualizar_Eventos from "./componentes/pages/actualizar_eventos/Actualizar_Eventos";
 import Listar_Fichas from "./componentes/pages/listar_fichas/Listar_Fichas";
-import Listar_Proyectos_Instructor_Investigador from "./componentes/pages/instructor_investigador/listar_proyectos_instructor_investigador/Listar_Proyectos_Instructor_Investigador";
-import Visualizar_Suspender_Proyecto_Instructor_Investigador from "./componentes/pages/instructor_investigador/visualizar_suspender_proyecto_instructor_investigador/Visualizar_Suspender_Proyecto_Instructor_Investigador";
-import Crear_Proyecto_Instructor_Investigador from "./componentes/pages/instructor_investigador/crear_proyecto_instructor_investigador/Crear_Proyecto_Instructor_Investigador";
-import Listar_Eventos_ins_ivg from "./componentes/pages/Instructor_Investigador/listar_eventos_ins_invg/Listar_Eventos";
-import Crear_Eventos_ins_invg from "./componentes/pages/Instructor_Investigador/Crear_Eventos_ins_invg/Crear_Eventos_ins_invg";
-import Visualizar_Actividad_ins_invg from "./componentes/pages/Instructor_Investigador/Visualizar_Actividad_ins_invg/Visualizar_Actividad_ins_invg";
-import Visualizar_Evento_ins_invg from "./componentes/pages/Instructor_Investigador/Visualizar_Evento_ins_invg/Visualizar_Evento_ins_invg";
-import Visualizar_Programa_Formacion_ins_invg from "./componentes/pages/Instructor_Investigador/Visualizar_Programa_Formacion_ins_invg/Visualizar_Programa_Formacion_ins_invg";
-import Crear_Programa_Formacion_ins_invg from "./componentes/pages/Instructor_Investigador/crear_programa_formacion/Crear_Programa_Formacion_ins_invg";
-import Actualizar_Eventos_ins_invg from "./componentes/pages/Instructor_Investigador/Actualizar_Eventos_ins_invg/Actualizar_Eventos_ins_invg";
+import Visualizar_Actividad_ins_invg from "./componentes/pages/InstructorInvestigador/Visualizar_Actividad_ins_invg/Visualizar_Actividad_ins_invg";
+import Listar_Eventos_ins_ivg from "./componentes/pages/InstructorInvestigador/listar_eventos_ins_invg/Listar_Eventos";
+import Crear_Eventos_ins_invg from "./componentes/pages/InstructorInvestigador/Crear_Eventos_ins_invg/Crear_Eventos_ins_invg";
+import Visualizar_Evento_ins_invg from "./componentes/pages/InstructorInvestigador/Visualizar_Evento_ins_invg/Visualizar_Evento_ins_invg";
+import Visualizar_Programa_Formacion_ins_invg from "./componentes/pages/InstructorInvestigador/Visualizar_Programa_Formacion_ins_invg/Visualizar_Programa_Formacion_ins_invg";
+import Crear_Programa_Formacion_ins_invg from "./componentes/pages/InstructorInvestigador/crear_programa_formacion/Crear_Programa_Formacion_ins_invg";
+import Actualizar_Eventos_ins_invg from "./componentes/pages/InstructorInvestigador/Actualizar_Eventos_ins_invg/Actualizar_Eventos_ins_invg";
+import Listar_Proyectos_Instructor_Investigador from "./componentes/pages/InstructorInvestigador/listar_proyectos_instructor_investigador/Listar_Proyectos_Instructor_Investigador";
+import Visualizar_Suspender_Proyecto_Instructor_Investigador from "./componentes/pages/InstructorInvestigador/visualizar_suspender_proyecto_instructor_investigador/Visualizar_Suspender_Proyecto_Instructor_Investigador";
+import Crear_Proyecto_Instructor_Investigador from "./componentes/pages/InstructorInvestigador/crear_proyecto_instructor_investigador/Crear_Proyecto_Instructor_Investigador";
 
 function App() {
   return (
@@ -202,6 +202,15 @@ function App() {
                       </main>
                     }
                   />
+
+                  <Route
+                    path="/Listar-fichas"
+                    element={
+                      <main className="main-container">
+                        <Listar_Fichas />
+                      </main>
+                    }
+                  />
                 </Routes>
               </Fragment>
             }
@@ -287,30 +296,30 @@ function App() {
                       </main>
                     }
                   />
-                  <Route 
-                path="/Listar_Proyectos_Instructor_Investigador"
-                element={
-                  <main className="main-container">
-                    <Listar_Proyectos_Instructor_Investigador />
-                  </main>
-                }
-                />
-                <Route 
-                path="/Visualizar_Suspender_Proyecto_Instructor_Investigador"
-                element={
-                  <main className="main-container">
-                    <Visualizar_Suspender_Proyecto_Instructor_Investigador />
-                  </main>
-                }
-                />
-                <Route
-                path="/Crear_Proyecto_Instructor_Investigador"
-                element={
-                  <main className="main-container">
-                    <Crear_Proyecto_Instructor_Investigador />
-                  </main>
-                }
-                />
+                  <Route
+                    path="/Listar_Proyectos_Instructor_Investigador"
+                    element={
+                      <main className="main-container">
+                        <Listar_Proyectos_Instructor_Investigador />
+                      </main>
+                    }
+                  />
+                  <Route
+                    path="/Visualizar_Suspender_Proyecto_Instructor_Investigador"
+                    element={
+                      <main className="main-container">
+                        <Visualizar_Suspender_Proyecto_Instructor_Investigador />
+                      </main>
+                    }
+                  />
+                  <Route
+                    path="/Crear_Proyecto_Instructor_Investigador"
+                    element={
+                      <main className="main-container">
+                        <Crear_Proyecto_Instructor_Investigador />
+                      </main>
+                    }
+                  />
                 </Routes>
               </Fragment>
             }

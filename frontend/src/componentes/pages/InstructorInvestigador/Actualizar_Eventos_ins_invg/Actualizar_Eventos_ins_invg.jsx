@@ -1,10 +1,9 @@
 import { TbArrowBack } from "react-icons/tb";
-import './css/Actualizar_Eventos.css';
 import { IoIosReturnLeft } from 'react-icons/io';
 import { Fragment } from 'react';
 import { Link } from "react-router-dom";
-import BotonReturn from "../../common/BotonReturn";
-import Caja_formularios from '../../common/Caja_formularios';
+import BotonReturn from "../../../common/BotonReturn";
+import Caja_formularios from "../../../common/Caja_formularios";
 import './css/Actualizar_Eventos_ins_invg.css';
 
 

@@ -1,8 +1,8 @@
 import { IoIosReturnLeft } from 'react-icons/io';
 import { Fragment } from 'react';
 import { Link } from "react-router-dom";
-import BotonReturn from "../../common/BotonReturn";
-import Caja_formularios from '../../common/Caja_formularios';
+import BotonReturn from '../../../common/BotonReturn';
+import Caja_formularios from '../../../common/Caja_formularios';
 import './css/Crear_Programa_Formacion_ins_invg.css';
 
 function Crear_Programa_Formacion_ins_invg() {
