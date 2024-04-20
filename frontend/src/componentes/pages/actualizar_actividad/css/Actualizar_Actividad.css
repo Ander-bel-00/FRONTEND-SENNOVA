@@ -7,158 +7,84 @@
     --line-color: #A5A5A5;
 }
 
-.icon-return-update-activity{
-    display: inline-block;
-    margin-top: 93px;
+.form-update-activity-content{
+    display: flex;
+    width: 100%;
+    height: 80%;
     position: relative;
-    top: 50px;
-    left: 407px;
-    font-size: 32px;
+    top: 1rem;
 }
 
-.actualizar-actividades-titulo{
-    position: relative;
-    top: 08px;
-    left: 65px;
+.actualizar-actividades-title{
     font-size: 25px;
-    font-weight: 650;
+    font-weight: 750;
+    position: relative;
+    top: 1rem;
 }
 
-.uptade-activity-box{
-    background-color: var(--boton-color);
-    width: 58%;
-    height: 67vh;
-    border-radius: 8px;
-    box-shadow: 0px 4px 11px 1px rgba(129,122,122,0.73);
-    margin-top: 30px;
+.form-update-activity-content__col1{
+    display: flex;
+    flex-direction: column;
+    text-wrap: nowrap;
+    width: 25%;
     position: relative;
-    left: 390px;
+    left: 10%;
+    top: 10px;
 }
 
-.uptade-nombre-activity-title{
-    position: relative;
-    top: 55px;
-    left: 125px;
+.form-update-activity-content__col1__label{
+    font-weight: 400;
+    padding-top: 12px;
 }
 
-.text-entry-box-nombre-update-actividad{
-    border: 1px solid #385C57;
-    width: 220px;
-    height: 30px;
-    border-radius: 8px;
-    box-shadow: 0px 4px 11px 1px rgba(129,122,122,0.73);
-    position: relative;
-    top: 98px;
-    right: 49px;
+.form-update-activity-content__col1__input{
+    width: 15rem;
+    border: 1px solid #000;
+    border-radius: 6px;
+    padding: 8px;
+    margin-top: 8px;
+    margin-bottom: 10px;
+    box-shadow: var(--box-shadow-inputs);
 }
 
-.uptade-tarea-activity-title{
+.form-update-activity-content__column2{
+    display: flex;
+    flex-direction: column;
+    text-wrap: nowrap;
+    width: 25%;
     position: relative;
-    top: 25px;
-    left: 530px;
-}
-
-.text-entry-box-tarea-uptade-actividad{
-    border: 1px solid #385C57;
-    width: 220px;
-    height: 31px;
-    border-radius: 8px;
-    box-shadow: 0px 4px 11px 1px rgba(129,122,122,0.73);
-    position: relative;
-    top: 64px;
-    left: 484px;
-}
-
-.update-fecha-activity-title{
-    position: relative;
-    top: 100px;
-    left: 126px;
-}
-
-.text-entry-box-fecha-entrega-uptade-actividad{
-    border: 1px solid #385C57;
-    width: 220px;
-    height: 31px;
-    border-radius: 8px;
-    box-shadow: 0px 4px 11px 1px rgba(129,122,122,0.73);
-    position: relative;
-    top: 140px;
-   left: 76px;
-}
-
-.uptade-resultado-activity-title{
-    position: relative;
-    top: 70px;
-    left: 533px;
-}
-
-.text-entry-box-resultado-uptade-actividad{
-    border: 1px solid #385C57;
-    width: 220px;
-    height: 31px;
-    border-radius: 8px;
-    box-shadow: 0px 4px 11px 1px rgba(129,122,122,0.73);
-    position: relative;
-    top: 110px;
-    left: 456px;
-}
-
-.uptade-producto-activity-title{
-    position: relative;
-    top: 135px;
-    left: 126px;
-}
-
-.text-entry-box-producto-uptade-actividad{
-    border: 1px solid #385C57;
-    width: 220px;
-    height: 31px;
-    border-radius: 8px;
-    box-shadow: 0px 4px 11px 1px rgba(129,122,122,0.73);
-    position: relative;
-    top: 180px;
-   left: 54px;
-}
-
-.uptade-responsable-activity-title{
-    position: relative;
-    top: 106px;
-    left: 538px;
-}
-
-.text-entry-box-responsable-uptade-actividad{
-    border: 1px solid #385C57;
-    width: 220px;
-    height: 31px;
-    border-radius: 8px;
-    box-shadow: 0px 4px 11px 1px rgba(129,122,122,0.73);
-    position: relative;
-    top: 151px;
-    left: 335px;
+    left: 28%;
+    top: 20px;
 }
 
 .btn-actualizar-actividad{
     background-color: var(--boton-crear-color);
-    width: 220px;
+    width: 15rem;
     height: 45px;
     border-radius: 8px;
     box-shadow: 0px 4px 11px 1px rgba(129,122,122,0.73);
     position: relative;
-    top: 190px;
-    left: 542px;
+    top: 4rem;
     color: var(--text-btn-color);
     font-size: 21px;
 }
 
+.btn-actualizar-actividad:hover{
+    background-color: var(--boton-crear-bg-hover);
+}
+
 .btn-cancelar-actividad-uptd{
     background-color: var(--boton-cacelar-color);
-    width: 220px;
+    width: 15rem;
     height: 45px;
     border-radius: 8px;
     box-shadow: 0px 4px 11px 1px rgba(129,122,122,0.73);
     position: relative;
-    top: 190px;
-    right: 94px;
+    top: 4rem;
     color: var(--text-btn-color);
     font-size: 21px;
+}
+
+.btn-cancelar-actividad-uptd:hover{
+    background-color: var(--boton-cacelar-bg-hover);
 }

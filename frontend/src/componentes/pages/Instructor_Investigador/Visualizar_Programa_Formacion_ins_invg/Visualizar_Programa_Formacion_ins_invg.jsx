@@ -4,10 +4,10 @@ import Header_ToolBar from "../../common/Header_ToolBar";
 import Caja_Blanca from "../../common/Caja_Blanca";
 import BotonBlanco from "../../common/BotonReporte";
 import BotonVerdeAñadir from "../../common/BotonVerde";
-import './css/Visualizar_Programa_Formacion.css';
+import './css/Visualizar_Programa_Formacion_ins_invg.css';
 import { Fragment } from "react";
 
-function Visualizar_Programa_Formacion() {
+function Visualizar_Programa_Formacion_ins_invg() {
   const Visualizar = [
     {
       codigo: 2895665,
@@ -58,4 +58,4 @@ function Visualizar_Programa_Formacion() {
     </div>
   );
 }
-export default Visualizar_Programa_Formacion;
+export default Visualizar_Programa_Formacion_ins_invg;

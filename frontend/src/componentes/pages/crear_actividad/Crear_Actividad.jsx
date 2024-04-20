@@ -1,54 +1,120 @@
-import React, { Fragment } from 'react';
-import "./css/Crear_Actividad.css"
+import React, { Fragment } from "react";
+import "./css/Crear_Actividad.css";
 import { IoIosReturnLeft } from "react-icons/io";
+import { Link } from "react-router-dom";
+import BotonReturn from "../../common/BotonReturn";
+import Caja_formularios from "../../common/Caja_formularios";
 
 function Crear_Actividad() {
   return (
     <Fragment>
-        <div>
-         <IoIosReturnLeft className='icon-return-create-activity'/> 
-         <h1 className='text-center crear-actividades-titulo'>ACTIVIDADES</h1>
+      <div className="main-container__contenedor-hijo">
+        <Link>
+          <div className="update-proyect-btn-return">
+            <BotonReturn
+              link={"/lider-semillero/Listar_Actividad"}
+              icon={<IoIosReturnLeft />}
+            />
+          </div>
+        </Link>
+        <h1 className="text-center crear-actividades-titulo">ACTIVIDADES</h1>
+        <Caja_formularios
+          info={
+            <Fragment>
+              <div className="create-activity-box">
+                <h2 className="text-center create-activity-title">
+                  Crear Actividad
+                </h2>
+                <form className="form-create-activity-content">
+                  <div className="form-create-activity-content__col1">
+                    <label
+                      htmlFor="nombre-actividad"
+                      className="form-create-activity-content__col1__label"
+                    >
+                      Nombre de la Actividad*
+                    </label>
+                    <input
+                      type="text"
+                      id="nombre-actividad"
+                      className="form-create-activity-content__col1__input"
+                    />
+                    <label
+                      htmlFor="fecha-entrega-actividad"
+                      className="create-fecha-activity-content__col1__label"
+                    >
+                      Fecha*
+                    </label>
+                    <input
+                      type="date"
+                      id="fecha-entrega-actividad"
+                      className="form-create-activity-content__col1__input"
+                    />
+                   <label
+                      htmlFor="producto-actividad"
+                      className="create-fecha-activity-content__col1__label"
+                    >
+                      Producto*
+                    </label>
+                    <input
+                      type="text"
+                      id="producto-actividad"
+                      className="form-create-activity-content__col1__input"
+                    />
+                    <input
+                    type="submit"
+                    value="Cancelar"
+                    className="btn-cancelar-actividad-uptd"
+                    />
+                  </div>
 
-         <div className='create-activity-box'>
-          <h2 className='text-center create-activity-title'>Crear Actividad</h2>
-          <form>
-            <div>
-                <label htmlFor="nombre-actividad" className='nombre-activity-title'>Nombre de la Actividad*</label>
-                <input type="text" id='nombre-actividad' className='text-entry-box-nombre-actividad'/>
-            </div>
-
-            <div>
-                <label htmlFor="tarea-activida" className='tarea-activity-title'>Tarea*</label>
-                <input type="text" id='tarea-actividad' className='text-entry-box-tarea-actividad'/>
-            </div>
-
-            <div>
-                <label htmlFor="fecha-entrega-actividad" className='fecha-activity-title'>Fecha*</label>
-                <input type="date" id='fecha-entrega-actividad' className='text-entry-box-fecha-entrega-actividad'/>
-            </div>
-
-            <div>
-                <label htmlFor="resultado-actividad" className='resultado-activity-title'>Resultado*</label>
-                <input type="text" id='resultado-actividad' className='text-entry-box-resultado-actividad'/>
-            </div>
-
-            <div>
-                <label htmlFor="producto-actividad" className='producto-activity-title'>Producto*</label>
-                <input type="text" id='producto-actividad' className='text-entry-box-producto-actividad'/>
-            </div>
-
-            <div>
-                <label htmlFor="responsable-actividad" className='responsable-activity-title'>Responsable de la Actividad*</label>
-                <input type="text" id='responsable-actividad' className='text-entry-box-responsable-actividad'/>
-            </div>
-
-            <input type="submit" value="Crear" className='text-center btn-crear-actividad'/>
-            <input type="submit" value="Cancelar" className='text-center btn-cancelar-actividad'/>
-          </form>
-         </div>
-        </div>
+                  <div className="form-create-activity-content__column2">
+                    <label
+                      htmlFor="tarea-activida"
+                      className="create-fecha-activity-content__col1__label"
+                    >
+                      Tarea*
+                    </label>
+                    <input
+                      type="text"
+                      id="tarea-actividad"
+                      className="form-create-activity-content__col1__input"
+                    />
+                    <label
+                      htmlFor="resultado-actividad"
+                      className="create-fecha-activity-content__col1__label"
+                    >
+                      Resultado*
+                    </label>
+                    <input
+                      type="text"
+                      id="resultado-actividad"
+                      className="form-create-activity-content__col1__input"
+                    />
+                    <label
+                      htmlFor="responsable-actividad"
+                      className="create-fecha-activity-content__col1__label"
+                    >
+                      Responsable de la Actividad*
+                    </label>
+                    <input
+                      type="text"
+                      id="responsable-actividad"
+                      className="form-create-activity-content__col1__input"
+                    />
+                    <input
+                    type="submit"
+                    value="Actualizar"
+                    className="btn-actualizar-actividad"
+                    />
+                  </div>
+                </form>
+              </div>
+            </Fragment>
+          }
+        />
+      </div>
     </Fragment>
-  )
+  );
 }
 
 export default Crear_Actividad;

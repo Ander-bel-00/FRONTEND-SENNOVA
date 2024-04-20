@@ -3,9 +3,9 @@ import { Fragment } from 'react';
 import { Link } from "react-router-dom";
 import BotonReturn from "../../common/BotonReturn";
 import Caja_formularios from '../../common/Caja_formularios';
-import './css/Crear_Programa_Formacion.css';
+import './css/Crear_Programa_Formacion_ins_invg.css';
 
-function Crear_Programa_Formacion() {
+function Crear_Programa_Formacion_ins_invg() {
   return (
     <div className="main-container__contenedor-hijo">
 
@@ -56,4 +56,4 @@ function Crear_Programa_Formacion() {
   );
 }
 
-export default Crear_Programa_Formacion;
+export default Crear_Programa_Formacion_ins_invg;

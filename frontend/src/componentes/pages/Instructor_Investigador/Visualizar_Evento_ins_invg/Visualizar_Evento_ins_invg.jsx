@@ -9,9 +9,9 @@ import Header_ToolBar from "../../common/Header_ToolBar";
 import BotonVerdeAñadir from "../../common/BotonVerde";
 import Search from "../../common/Search";
 import BotonReturn from "../../common/BotonReturn";
-import './css/Visualizar_Evento.css';
+import './css/Visualizar_Evento_ins_invg.css';
 
-function Visualizar_Evento() {
+function Visualizar_Evento_ins_invg() {
   const Evento = [
     {
       nombre: "Carlos",
@@ -92,4 +92,4 @@ function Visualizar_Evento() {
   )
 }
 
-export default Visualizar_Evento;
+export default Visualizar_Evento_ins_invg;

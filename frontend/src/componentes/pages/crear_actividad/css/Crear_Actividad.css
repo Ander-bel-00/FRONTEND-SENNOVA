@@ -7,32 +7,20 @@
     --line-color: #A5A5A5;
 }
 
-.icon-return-create-activity{
-    display: inline-block;
-    margin-top: 93px;
-    position: relative;
-    top: 50px;
-    left: 407px;
-    font-size: 32px;
-}
-
 .crear-actividades-titulo{
     position: relative;
-    top: 08px;
-    left: 65px;
+    top: 0rem;
     font-size: 25px;
     font-weight: 650;
 }
 
-.create-activity-box{
-    background-color: var(--boton-color);
-    width: 58%;
-    height: 67vh;
-    border-radius: 8px;
-    box-shadow: 0px 4px 11px 1px rgba(129,122,122,0.73);
-    margin-top: 30px;
+
+.form-create-activity-content{
+    display: flex;
+    width: 100%;
+    height: 80%;
     position: relative;
-    left: 390px;
+    top: 1rem;
 }
 
 .create-activity-title{
@@ -41,130 +29,69 @@
     font-size: 25px;
 }
 
-.nombre-activity-title{
+.form-create-activity-content__col1{
+    display: flex;
+    flex-direction: column;
+    text-wrap: nowrap;
+    width: 25%;
     position: relative;
-    top: 55px;
-    left: 125px;
+    left: 10%;
+    top: 10px;
 }
 
-.text-entry-box-nombre-actividad{
-    border: 1px solid #385C57;
-    width: 220px;
-    height: 30px;
-    border-radius: 8px;
-    box-shadow: 0px 4px 11px 1px rgba(129,122,122,0.73);
-    position: relative;
-    top: 98px;
-    right: 49px;
+.form-create-activity-content__col1__label{
+    font-weight: 400;
+    padding-top: 12px;
 }
 
-.tarea-activity-title{
-    position: relative;
-    top: 25px;
-    left: 530px;
+.form-create-activity-content__col1__input{
+    width: 15rem;
+    border: 1px solid #000;
+    border-radius: 6px;
+    padding: 8px;
+    margin-top: 8px;
+    margin-bottom: 10px;
+    box-shadow: var(--box-shadow-inputs);
 }
 
-.text-entry-box-tarea-actividad{
-    border: 1px solid #385C57;
-    width: 220px;
-    height: 31px;
-    border-radius: 8px;
-    box-shadow: 0px 4px 11px 1px rgba(129,122,122,0.73);
+.form-create-activity-content__column2{
+    display: flex;
+    flex-direction: column;
+    text-wrap: nowrap;
+    width: 25%;
     position: relative;
-    top: 64px;
-    left: 484px;
-}
-
-.fecha-activity-title{
-    position: relative;
-    top: 100px;
-    left: 126px;
-}
-
-.text-entry-box-fecha-entrega-actividad{
-    border: 1px solid #385C57;
-    width: 220px;
-    height: 31px;
-    border-radius: 8px;
-    box-shadow: 0px 4px 11px 1px rgba(129,122,122,0.73);
-    position: relative;
-    top: 140px;
-   left: 76px;
-}
-
-.resultado-activity-title{
-    position: relative;
-    top: 70px;
-    left: 533px;
-}
-
-.text-entry-box-resultado-actividad{
-    border: 1px solid #385C57;
-    width: 220px;
-    height: 31px;
-    border-radius: 8px;
-    box-shadow: 0px 4px 11px 1px rgba(129,122,122,0.73);
-    position: relative;
-    top: 110px;
-    left: 456px;
-}
-
-.producto-activity-title{
-    position: relative;
-    top: 135px;
-    left: 126px;
-}
-
-.text-entry-box-producto-actividad{
-    border: 1px solid #385C57;
-    width: 220px;
-    height: 31px;
-    border-radius: 8px;
-    box-shadow: 0px 4px 11px 1px rgba(129,122,122,0.73);
-    position: relative;
-    top: 180px;
-   left: 54px;
-}
-
-.responsable-activity-title{
-    position: relative;
-    top: 106px;
-    left: 538px;
-}
-
-.text-entry-box-responsable-actividad{
-    border: 1px solid #385C57;
-    width: 220px;
-    height: 31px;
-    border-radius: 8px;
-    box-shadow: 0px 4px 11px 1px rgba(129,122,122,0.73);
-    position: relative;
-    top: 151px;
-    left: 335px;
+    left: 28%;
+    top: 20px;
 }
 
 .btn-crear-actividad{
     background-color: var(--boton-crear-color);
-    width: 220px;
+    width: 15rem;
     height: 45px;
     border-radius: 8px;
     box-shadow: 0px 4px 11px 1px rgba(129,122,122,0.73);
     position: relative;
-    top: 190px;
-    left: 542px;
+    top: 4rem;
     color: var(--text-btn-color);
     font-size: 21px;
 }
 
+.btn-crear-actividad:hover{
+    background-color: var(--boton-crear-bg-hover);
+}
+
 .btn-cancelar-actividad{
     background-color: var(--boton-cacelar-color);
-    width: 220px;
+    width: 15rem;
     height: 45px;
     border-radius: 8px;
     box-shadow: 0px 4px 11px 1px rgba(129,122,122,0.73);
     position: relative;
-    top: 190px;
-    right: 94px;
+    top: 4rem;
     color: var(--text-btn-color);
     font-size: 21px;
+}
+
+.btn-cancelar-activida:hover{
+    background-color: var(--boton-cacelar-bg-hover);
 }

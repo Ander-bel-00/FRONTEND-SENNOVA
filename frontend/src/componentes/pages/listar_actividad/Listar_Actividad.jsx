@@ -50,7 +50,7 @@ function Listar_Actividad() {
               <BotonVerdeAñadir
                 icon={<AiOutlinePlus />}
                 text={"Crear Actividad"}
-                link={""}
+                link={"/lider-semillero/Crear_Actividad"}
               />
             </Fragment>
           }
@@ -78,7 +78,7 @@ function Listar_Actividad() {
                   <th className="list-activity-content__table__tr__th">
                     Responsable de la Actividad
                   </th>
-                  <th className="list-activity-content__table__tr__th">
+                  <th  className="list-activity-content__table__tr__th">
                     Acciones
                   </th>
                 </tr>
@@ -107,11 +107,11 @@ function Listar_Actividad() {
                     <td className="list-activity-content-table__td">
                       <div className="list-activity-content-table__td__btns">
                         <Link
-                          to={"/lider-semillero/Visualizar-actividad"}
+                          to={"/lider-semillero/Visualizar_Suspender_Proyecto"}
                         >
                           <LiaEyeSolid className="list-activity-content-table__td__btn" />
                         </Link>
-                        <Link to={"/lider-semillero/Actualizar_Proyectos"}>
+                        <Link to={"/lider-semillero/Actualizar_Actividad"}>
                           <FaRegEdit className="list-activity-content-table__td__btn" />
                         </Link>
                         <Link>

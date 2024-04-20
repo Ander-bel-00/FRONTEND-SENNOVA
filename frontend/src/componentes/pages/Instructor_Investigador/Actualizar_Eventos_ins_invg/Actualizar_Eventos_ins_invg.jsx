@@ -5,10 +5,10 @@ import { Fragment } from 'react';
 import { Link } from "react-router-dom";
 import BotonReturn from "../../common/BotonReturn";
 import Caja_formularios from '../../common/Caja_formularios';
-import './css/Actualizar_Eventos.css';
+import './css/Actualizar_Eventos_ins_invg.css';
 
 
-function Actualizar_Eventos() {
+function Actualizar_Eventos_ins_invg() {
     return (
         <div className="main-container__contenedor-hijo">
             <Link>
@@ -113,4 +113,4 @@ function Actualizar_Eventos() {
     )
 }
 
-export default Actualizar_Eventos;
+export default Actualizar_Eventos_ins_invg;

@@ -1,11 +1,11 @@
 import { IoIosReturnLeft } from "react-icons/io";
-import "./css/Crear_Eventos.css";
+import "./css/Crear_Eventos_ins_invg.css";
 import Caja_formularios from "../../common/Caja_formularios";
 import { Fragment } from "react";
 import { Link } from "react-router-dom";
 import BotonReturn from "../../common/BotonReturn";
 
-function Crear_Eventos() {
+function Crear_Eventos_ins_invg() {
   return (
     <div className="main-container__contenedor-hijo">
       
@@ -109,4 +109,4 @@ function Crear_Eventos() {
   );
 }
 
-export default Crear_Eventos;
+export default Crear_Eventos_ins_invg;

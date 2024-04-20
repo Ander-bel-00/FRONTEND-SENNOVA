@@ -11,9 +11,9 @@ import Caja_Blanca from "../../common/Caja_Blanca";
 import BotonBlanco from "../../common/BotonReporte";
 import Search from "../../common/Search";
 import BotonVerdeAñadir from "../../common/BotonVerde";
-import "./css/Listar_Eventos.css";
+import "./css/Listar_Eventos_ins_invg.css";
 
-function Listar_Eventos() {
+function Listar_Eventos_ins_ivg() {
   const Events = [
     {
       nombre: "Sofia",
@@ -98,4 +98,4 @@ function Listar_Eventos() {
   );
 }
 
-export default Listar_Eventos;
+export default Listar_Eventos_ins_ivg;

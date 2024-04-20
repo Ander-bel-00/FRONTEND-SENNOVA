@@ -12,9 +12,9 @@ import BotonBlanco from "../../common/BotonReporte";
 import BotonVerdeAñadir from "../../common/BotonVerde";
 import Search from "../../common/Search";
 import BotonReturn from "../../common/BotonReturn";
-import './css/Visualizar_Actividad.css';
+import './css/Visualizar_Actividad_ins_invg.css';
 
-function Visualizar_Actividad() {
+function Visualizar_Actividad_ins_invg() {
   const Contenido = [
     {
       nombre: "Carlos",
@@ -100,4 +100,4 @@ function Visualizar_Actividad() {
   </div>
   )
 }
-export default Visualizar_Actividad;
+export default Visualizar_Actividad_ins_invg;
