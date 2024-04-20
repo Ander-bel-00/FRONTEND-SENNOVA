@@ -1,11 +1,9 @@
-import { IoAdd, IoTrashOutline } from "react-icons/io5";
 import { IoIosReturnLeft } from "react-icons/io";
-import { BiSolidReport } from "react-icons/bi";
-import { CiCalendar } from "react-icons/ci";
+import { FaFileArrowUp } from "react-icons/fa6";
+import { LuCalendarDays } from "react-icons/lu";
+import { AiOutlinePlus } from "react-icons/ai";
 import { FaSearch } from "react-icons/fa";
 import { Fragment } from "react";
-import { FaEdit } from "react-icons/fa";
-import { Link } from "react-router-dom";
 import Caja_Blanca from "../../../common/Caja_Blanca";
 import Header_ToolBar from "../../../common/Header_ToolBar";
 import BotonBlanco from "../../../common/BotonReporte";
@@ -42,14 +40,14 @@ function Visualizar_Actividad_ins_invg() {
           <Fragment>
             <div className="btn-vs-actividades">
               <BotonReturn
-                link={"/lider-semillero/Listar_Actividad"}
+                link={"/instructor-investigador/Listar_Actividad_Instructor_Investigador"}
                 icon={<IoIosReturnLeft />}
               />
             </div>
-            <BotonBlanco icon={<BiSolidReport />} text={"Reporte"} />
-            <BotonBlanco icon={<CiCalendar />} text={"calendario"} />
+            <BotonBlanco icon={<FaFileArrowUp />} text={"Reporte"} />
+            <BotonBlanco icon={<LuCalendarDays />} text={"Ir al Cronograma"} />
             <Search icon={<FaSearch />} text={"Buscar Actividades"} />
-            <BotonVerdeAñadir icon={<IoAdd />} text={"Añadir Actividad"} />
+            <BotonVerdeAñadir icon={<AiOutlinePlus />} text={"Añadir Actividad"} />
           </Fragment>
         }
       />
@@ -67,7 +65,6 @@ function Visualizar_Actividad_ins_invg() {
                 <th className="vis-actividad-table__th">
                   Responsable de la Actividad
                 </th>
-                <th className="vis-actividad-table__th">Acciones</th>
               </tr>
             </thead>
             <tbody>
@@ -96,16 +93,6 @@ function Visualizar_Actividad_ins_invg() {
                   <td className="vis-actividad-table__td">
                     {" "}
                     {Contenidos.responsable}{" "}
-                  </td>
-                  <td className="vis-actividad-table__td">
-                    <div className="vis-actividad-table__td__btns">
-                      <Link>
-                        <FaEdit className="vis-actividad-table__td__btn" />
-                      </Link>
-                      <Link>
-                        <IoTrashOutline className="vis-actividad-table__td__btn" />
-                      </Link>
-                    </div>
                   </td>
                 </tr>
               ))}

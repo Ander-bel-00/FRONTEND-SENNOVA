@@ -1,12 +1,12 @@
-.crear-actividades-titulo{
+.crear-actividades-instructor-titulo{
     position: relative;
     top: 0rem;
-    right: 1%;
-    font-size: 24px;
+    font-size: 25px;
     font-weight: 650;
+    right: 1%;
 }
 
-.form-create-activity-content{
+.form-create-activity-instructor-content{
     display: flex;
     width: 100%;
     height: 80%;
@@ -14,13 +14,13 @@
     top: 1rem;
 }
 
-.create-activity-title{
+.create-activity-instructor-title{
     position: relative;
     top: 24px;
     font-size: 25px;
 }
 
-.form-create-activity-content__col1{
+.form-create-activity-instructor-content__col1{
     display: flex;
     flex-direction: column;
     text-wrap: nowrap;
@@ -30,12 +30,12 @@
     top: 35px;
 }
 
-.form-create-activity-content__col1__label{
+.form-create-activity-instructor-content__col1__label{
     font-weight: 400;
     padding-top: 12px;
 }
 
-.form-create-activity-content__col1__input{
+.form-create-activity-instructor-content__col1__input{
     width: 15rem;
     border: 1px solid #000;
     border-radius: 6px;
@@ -45,7 +45,7 @@
     box-shadow: var(--box-shadow-inputs);
 }
 
-.form-create-activity-content__column2{
+.form-create-activity-instructor-content__column2{
     display: flex;
     flex-direction: column;
     text-wrap: nowrap;
@@ -55,23 +55,7 @@
     top: 45px;
 }
 
-.btn-create-actividad{
-    background-color: var(--boton-crear-color);
-    width: 15rem;
-    height: 45px;
-    border-radius: 8px;
-    box-shadow: 0px 4px 11px 1px rgba(129,122,122,0.73);
-    position: relative;
-    top: 4rem;
-    color: var(--text-btn-color);
-    font-size: 21px;
-}
-
-.btn-create-actividad:hover{
-   background-color: var( --btn-update-bg-hover);
-}
-
-.btn-cancelar-actividad-uptd{
+.btn-cancelar-actividad-instructor-uptd{
     background-color: var(--boton-cacelar-color);
     width: 15rem;
     height: 45px;
@@ -83,6 +67,22 @@
     font-size: 21px;
 }
 
-.btn-cancelar-actividad-uptd:hover{
+.btn-cancelar-actividad-instructor-uptd:hover{
     background-color: var(--boton-cacelar-bg-hover);
+}
+
+.btn-actualizar-instructor-actividad{
+    background-color: var(--btn-update-bg);
+    width: 15rem;
+    height: 45px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 11px 1px rgba(129,122,122,0.73);
+    position: relative;
+    top: 4rem;
+    color: var(--text-btn-color);
+    font-size: 21px;
+}
+
+.btn-actualizar-instructor-actividad:hover{
+    background-color: var(--btn-update-bg-hover);
 }

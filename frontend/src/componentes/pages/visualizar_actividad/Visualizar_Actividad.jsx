@@ -4,7 +4,7 @@ import { BiSolidReport } from "react-icons/bi";
 import { CiCalendar } from "react-icons/ci";
 import { FaSearch } from "react-icons/fa";
 import { Fragment } from "react";
-import { FaEdit } from "react-icons/fa";
+import { FaRegEdit } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import Caja_Blanca from "../../common/Caja_Blanca";
 import Header_ToolBar from "../../common/Header_ToolBar";
@@ -82,8 +82,8 @@ function Visualizar_Actividad() {
                   <td className="vis-actividad-table__td">
 
                     <div className="vis-actividad-table__td__btns">
-                      <Link>
-                        <FaEdit className="vis-actividad-table__td__btn"/>
+                      <Link to={"/lider-semillero/Actualizar_Actividad"}>
+                        <FaRegEdit className="vis-actividad-table__td__btn"/>
                       </Link>
                       <Link>
                         <IoTrashOutline className="vis-actividad-table__td__btn"/>

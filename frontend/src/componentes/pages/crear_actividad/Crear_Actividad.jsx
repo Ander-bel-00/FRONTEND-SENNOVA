@@ -103,8 +103,8 @@ function Crear_Actividad() {
                     />
                     <input
                     type="submit"
-                    value="Actualizar"
-                    className="btn-actualizar-actividad"
+                    value="Crear"
+                    className="btn-create-actividad"
                     />
                   </div>
                 </form>

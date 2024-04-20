@@ -27,23 +27,3 @@
     padding: 8px;
     text-align: left;
 }
-
-.vis-actividad-table__td__btns{
-    display: flex;
-    padding: 5px;
-}
-
-.vis-actividad-table__td__btn{
-    font-size: 22px;
-    margin-right: 9px;
-}
-
-.vis-actividad-table__td__btn:hover{
-    transform: scale(1.09);
-}
-
-
-.btn-vs-actividades{
-    position: relative;
-    right: 3%;
-}

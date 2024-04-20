@@ -1,5 +1,4 @@
-import React, { Fragment } from "react";
-import "./css/Listar_Actividad.css";
+import React, { Fragment } from "react";import "./css/Listar_Actividad.css";
 import { LiaEyeSolid } from "react-icons/lia";
 import { FaRegEdit } from "react-icons/fa";
 import { IoTrashOutline } from "react-icons/io5";
@@ -12,6 +11,7 @@ import { FaFileArrowUp } from "react-icons/fa6";
 import Header_ToolBar from "../../common/Header_ToolBar";
 import Caja_Blanca from "../../common/Caja_Blanca";
 import { Link } from "react-router-dom";
+import "./css/Listar_Actividad.css";
 
 function Listar_Actividad() {
   const Actividades = [
@@ -30,8 +30,8 @@ function Listar_Actividad() {
       resultado: 'Sistema funcional',
       producto: 'Proyecto web',
       responsable: 'Arnold'
-    }
-  ]
+    },
+  ];
   return (
     <Fragment>
       <div className="main-container__contenedor-hijo">
@@ -107,7 +107,7 @@ function Listar_Actividad() {
                     <td className="list-activity-content-table__td">
                       <div className="list-activity-content-table__td__btns">
                         <Link
-                          to={"/lider-semillero/Visualizar_Suspender_Proyecto"}
+                          to={"/lider-semillero/Visualizar-actividad"}
                         >
                           <LiaEyeSolid className="list-activity-content-table__td__btn" />
                         </Link>

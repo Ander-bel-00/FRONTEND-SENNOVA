@@ -3,6 +3,8 @@
 }
 
 .create-project-instructor-title{
+    position: relative;
+    top: 25px;
     font-size: 25px;
 }
 
@@ -13,7 +15,7 @@
     width: 25%;
     position: relative;
     left: 10%;
-    top: 10px;
+    top: 50px;
 }
 
 .form-add-pryect-instructor-container__col1__label{
@@ -39,13 +41,12 @@
     box-shadow: 0px 4px 11px 1px rgba(129,122,122,0.73);
 }
 
-.form-add-pryect-instructor-container__column2{
+.form-add-pryect-intructor-container__column2{
     display: flex;
     flex-direction: column;
     text-wrap: nowrap;
     width: 25%;
     position: relative;
-    left: 28%;
-    top: 10px;
+    left: 55%;
+    top: -310px;
 }
-

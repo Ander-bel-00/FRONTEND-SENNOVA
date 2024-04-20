@@ -31,6 +31,8 @@ import Actualizar_Eventos_ins_invg from "./componentes/pages/InstructorInvestiga
 import Listar_Proyectos_Instructor_Investigador from "./componentes/pages/InstructorInvestigador/listar_proyectos_instructor_investigador/Listar_Proyectos_Instructor_Investigador";
 import Visualizar_Suspender_Proyecto_Instructor_Investigador from "./componentes/pages/InstructorInvestigador/visualizar_suspender_proyecto_instructor_investigador/Visualizar_Suspender_Proyecto_Instructor_Investigador";
 import Crear_Proyecto_Instructor_Investigador from "./componentes/pages/InstructorInvestigador/crear_proyecto_instructor_investigador/Crear_Proyecto_Instructor_Investigador";
+import Listar_Actividad_Instructor_Investigador from "./componentes/pages/InstructorInvestigador/listar_actividad_instructor_investigador/Listar_Actividad_Instructor_Investigador";
+import Crear_Actividad_Instructor_Investigador from "./componentes/pages/InstructorInvestigador/crear_actividad_instructor_investigador/Crear_Actividad_Instructor_Investigador";
 
 function App() {
   return (
@@ -319,6 +321,22 @@ function App() {
                         <Crear_Proyecto_Instructor_Investigador />
                       </main>
                     }
+                  />
+                  <Route
+                  path="/Listar_Actividad_Instructor_Investigador"
+                  element={
+                    <main className="main-container">
+                      <Listar_Actividad_Instructor_Investigador />
+                    </main>
+                  }
+                  />
+                  <Route 
+                  path="/Crear_Actividad_Instructor_Investigador"
+                  element={
+                    <main className="main-container">
+                      <Crear_Actividad_Instructor_Investigador />
+                    </main>
+                  }
                   />
                 </Routes>
               </Fragment>

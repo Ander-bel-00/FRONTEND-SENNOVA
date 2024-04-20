@@ -30,9 +30,11 @@
     top: 0rem;
 }
 
-/* titulo principal del formulario */
+
 .create-project-title{
     font-size: 25px;
+    position: relative;
+    top: 4%;
 }
 
 .form-add-pryect-container__col1{
@@ -41,8 +43,8 @@
     text-wrap: nowrap;
     width: 25%;
     position: relative;
-    left: 10%;
-    top: 10px;
+    left: 15%;
+    top: 35px;
 }
 
 .form-add-pryect-container__col1__label{
@@ -73,12 +75,12 @@
     text-wrap: nowrap;
     width: 25%;
     position: relative;
-    left: 28%;
-    top: 10px;
+    left: 31%;
+    top: 35px;
 }
 
 .btn-crear-proyecto{
-    background-color: var(--boton-crear-color);
+    background-color: var(--btn-update-bg);
     width: 15rem;
     height: 45px;
     border-radius: 8px;
