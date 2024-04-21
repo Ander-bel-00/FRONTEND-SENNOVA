@@ -92,7 +92,7 @@ function Crear_Eventos() {
                   </label>
                   <select className="form-add-event-container__input">
                     <option className="secondColumns__op1">Asistente</option>
-                    <option className="secondColumns__op2">Potente</option>
+                    <option className="secondColumns__op2">Ponente</option>
                   </select>
                   <input
                     type="submit"

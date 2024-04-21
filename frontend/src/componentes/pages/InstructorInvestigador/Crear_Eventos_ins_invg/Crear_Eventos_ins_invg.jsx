@@ -92,7 +92,7 @@ function Crear_Eventos_ins_invg() {
                   </label>
                   <select className="form-add-event-container-instructor__input">
                     <option className="secondColumns-instructor__op1">Asistente</option>
-                    <option className="secondColumns-instructor__op2">Potente</option>
+                    <option className="secondColumns-instructor__op2">Ponente</option>
                   </select>
                   <input
                     type="submit"
