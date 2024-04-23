@@ -16,7 +16,7 @@
     /* Alinea el menú en la parte izquierda */
     padding-top: 20px;
     /* Añade relleno al menú */
-    background: #04324D;
+    background: var(--sidenav-bg);
     overflow-y: auto;
     /* Añade desplazamiento vertical si el contenido es más grande que el menú */
     z-index: 1000;

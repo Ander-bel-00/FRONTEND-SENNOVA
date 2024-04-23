@@ -1,9 +1,3 @@
-:root{
-    --boton-color: #FFFFFF;
-    --text-btn-color: #FFFFFF;
-    --line-color: #A5A5A5;
-}
-
 .main-container__contenedor-hijo--size{
     height: 86.3vh;
 }
