@@ -3,16 +3,12 @@
 @tailwind utilities;
 
 :root{
-    --color-border-bottom-tr: #ddd;
-    --btn-report-bg: #fff;
     --box-search-bg: #fff;
     --fuente: 'Work Sans', sans-serif;
-    --box-shadow-btns: 0px 4px 11px 1px rgba(129,122,122,0.73);
     --list-user-bg: #fff;
     --color-border-bottom-tr: #ddd;
     --btn-report-bg: #fff;
     --btn-report-bg-hover: #d9d7d7;
-    --fuente: 'Work Sans', sans-serif;
     --box-shadow-btns: 0px 4px 11px 1px rgba(129,122,122,0.73);
     --box-shadow-users-box: -1px 3px 5px 6px rgba(0,0,0,0.09);
     --box-shadow-inputs:  -1px 3px 5px 6px rgba(0,0,0,0.01);

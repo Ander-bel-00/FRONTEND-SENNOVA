@@ -12,10 +12,10 @@ import BotonBlanco from "../../../common/BotonReporte";
 import BotonVerdeAñadir from "../../../common/BotonVerde";
 import Search from "../../../common/Search";
 import BotonReturn from "../../../common/BotonReturn";
-import "./css/Visualizar_Actividad_ins_invg.css";
+import "./css/Visualizar_Actividad_apr_invg.css";
 
 
-function Visualizar_Actividad_ins_invg() {
+function Visualizar_Actividad_apr_invg() {
   const Contenido = [
     {
       nombre: "Arias",
@@ -40,9 +40,9 @@ function Visualizar_Actividad_ins_invg() {
       <Header_ToolBar
         Header_Tools={
           <Fragment>
-            <div className="btn-vs-actividades-instructor">
+            <div className="btn-vs-actividades-aprendiz">
               <BotonReturn
-                link={"/instructor-investigador/Listar_Actividad"}
+                link={"/aprendiz-investigador/Listar_Actividad"}
                 icon={<IoIosReturnLeft />}
               />
             </div>
@@ -56,41 +56,41 @@ function Visualizar_Actividad_ins_invg() {
 
       <Caja_Blanca
         content={
-          <table className="vis-actividad-table-instructor">
+          <table className="vis-actividad-table-aprendiz">
             <thead>
-              <tr className="vis-actividad-table-instructor__tr">
-                <th className="vis-actividad-table-instructor__th">Nombre Actividad</th>
-                <th className="vis-actividad-table-instructor__th">Tarea</th>
-                <th className="vis-actividad-table-instructor__th">Fecha</th>
-                <th className="vis-actividad-table-instructor__th">Resultado</th>
-                <th className="vis-actividad-table-instructor__th">Producto</th>
-                <th className="vis-actividad-table-instructor__th">Responsable de la Actividad</th>
+              <tr className="vis-actividad-table-aprendiz__tr">
+                <th className="vis-actividad-table-aprendiz__th">Nombre Actividad</th>
+                <th className="vis-actividad-table-aprendiz__th">Tarea</th>
+                <th className="vis-actividad-table-aprendiz__th">Fecha</th>
+                <th className="vis-actividad-table-aprendiz__th">Resultado</th>
+                <th className="vis-actividad-table-aprendiz__th">Producto</th>
+                <th className="vis-actividad-table-aprendiz__th">Responsable de la Actividad</th>
               </tr>
             </thead>
             <tbody>
               {Contenido.map((Contenidos, index) => (
-                <tr className="vis-actividad-table-instructor__tr" key={index}>
-                  <td className="vis-actividad-table-instructor__td">
+                <tr className="vis-actividad-table-aprendiz__tr" key={index}>
+                  <td className="vis-actividad-table-aprendiz__td">
                     {" "}
                     {Contenidos.nombre}
                   </td>
-                  <td className="vis-actividad-table-instructor__td">
+                  <td className="vis-actividad-table-aprendiz__td">
                     {" "}
                     {Contenidos.tarea}{" "}
                   </td>
-                  <td className="vis-actividad-table-instructor__td">
+                  <td className="vis-actividad-table-aprendiz__td">
                     {" "}
                     {Contenidos.fecha}{" "}
                   </td>
-                  <td className="vis-actividad-table-instructor__td">
+                  <td className="vis-actividad-table-aprendiz__td">
                     {" "}
                     {Contenidos.resultado}{" "}
                   </td>
-                  <td className="vis-actividad-table-instructor__td">
+                  <td className="vis-actividad-table-aprendiz__td">
                     {" "}
                     {Contenidos.producto}{" "}
                   </td>
-                  <td className="vis-actividad-table-instructor__td">
+                  <td className="vis-actividad-table-aprendiz__td">
                     {" "}
                     {Contenidos.responsable}{" "}
                   </td>
@@ -103,4 +103,4 @@ function Visualizar_Actividad_ins_invg() {
     </div>
   );
 }
-export default Visualizar_Actividad_ins_invg;
+export default Visualizar_Actividad_apr_invg;

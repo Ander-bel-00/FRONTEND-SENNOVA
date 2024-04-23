@@ -1,20 +1,19 @@
-
-.vis-event-table{
+.vis-event-table-instructor{
     position: relative;
     left: 1%;
     width: 98%;
     border-collapse: collapse;
 }
 
-.vis-event-table__tr{
+.vis-event-table-instructor__tr{
     border: 1px solid var(--color-border-bottom-tr);
 }
 
-.vis-event-table__tr:nth-child(even){
+.vis-event-table-instructor__tr:nth-child(even){
     background-color: #f9f9f9;
 }
 
-.vis-event-table__th{
+.vis-event-table-instructor__th{
     background-color: #f0f0f0;
     border: 1px solid #ccc;
     text-wrap: nowrap;
@@ -22,32 +21,34 @@
     padding: 8px;
 }
 
-.vis-event-table__td{
+.vis-event-table-instructor__td{
     border: 1px solid #dddddd;
     padding: 8px;
     text-align: left;
 }
 
-.vis-event-table__td__btns{
+.vis-event-table-instructor__td__btns{
     display: flex;
     padding: 5px;
 }
 
-.vis-event-table__td__btn{
+.vis-event-table-instructor__td__btn{
     font-size: 22px;
     margin-right: 9px;
 }
 
-.vis-event-table__td__btn:hover{
+.vis-event-table-instructor__td__btn:hover{
     transform: scale(1.09);
 }
 
-.btn-vs-evento{
+/* botones */
+
+.btn-vs-evento-instructor{
     position: relative;
     right: 10%;
 }
 
-.btn-vs-evento:hover{
+.btn-vs-evento-instructor:hover{
     transform: scale(1.09);
 }
 

@@ -1,10 +1,10 @@
-.mainsTitles{
+.mainsTitles-instructor{
     text-align: center;
     font-weight: bold;
     font-size: 25px;
 }
 
-.inputBoxes__titlecaja{
+.inputBoxes-instructor__titlecaja{
     margin: 30px;
     font-size: 20px;
     text-align: center;
@@ -13,7 +13,7 @@
 }
 
 
-.unputBoxes__label{
+.unputBoxes-instructor__label{
     display: flex;
     flex-direction: column;
     text-wrap: nowrap;
@@ -23,7 +23,7 @@
     top: 10px;
 }
 
-.unputBoxes__input{
+.unputBoxes-instructor__input{
     width: 15rem;
     border: 1px solid #000;
     border-radius: 6px;
@@ -34,12 +34,12 @@
 }
 
 
-.add-event-btn-return:hover{
+.add-event-btn-return-instructor:hover{
     transform: scale(1.09);
 }
 
 
-.inputBoxes__olderbox{
+.inputBoxes-instructor__olderbox{
     margin: 40px 70px;
    
 }
@@ -48,8 +48,8 @@
 
 
 /* Botones principales */
-.buttonsCreating__cancelar,
-.buttonsCreating__crear--green{
+.buttonsCreating-instructor__cancelar,
+.buttonsCreating-instructor__crear--green{
     position: relative;
     top: 84%;
     left: 5%;
@@ -61,7 +61,7 @@
     box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.2);
 }
 
-.buttonsCreating__cancelar{
+.buttonsCreating-instructor__cancelar{
     color: white;
     background-color: #d4212c;
     font-size: medium;
@@ -69,12 +69,12 @@
 }
 
 
-.buttonsCreating__cancelar:hover{
-    background-color: #f80616;
+.buttonsCreating-instructor__cancelar:hover{
+    background-color: var(--boton-cacelar-bg-hover);
 }
 
 
-.buttonsCreating__crear--green{
+.buttonsCreating-instructor__crear--green{
     color: white;
     background-color: #39a900;
     font-size: medium;
@@ -82,15 +82,15 @@
     left: 10%; 
 }
 
-.buttonsCreating__crear--green:hover{
-    background-color: #57c91e;
+.buttonsCreating-instructor__crear--green:hover{
+    background-color: var(--boton-crear-bg-hover);
 }
 
 
 
 @media screen and (min-width: 1338.18px) {
 
-    .inputBoxes__titlecaja{
+    .inputBoxes-instructor__titlecaja{
         margin: 30px;
         font-size: 20px;
         text-align: center;
@@ -98,7 +98,7 @@
         top: 1rem;
     }
 
-    .unputBoxes__label{
+    .unputBoxes-instructor__label{
         display: flex;
         flex-direction: column;
         text-wrap: nowrap;
@@ -109,7 +109,7 @@
         top: 35px;
     }
     
-    .unputBoxes__input{
+    .unputBoxes-instructor__input{
         width: 17rem;
         border: 1px solid #000;
         border-radius: 6px;
@@ -124,8 +124,8 @@
     }
 
     /* Botones principales */
-    .buttonsCreating__cancelar,
-    .buttonsCreating__crear--green{
+    .buttonsCreating-instructor__cancelar,
+    .buttonsCreating-instructor__crear--green{
         position: relative;
         top: 84%;
         left: 38%;
@@ -137,19 +137,15 @@
         box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.2);
     }
 
-    .buttonsCreating__cancelar{
+    .buttonsCreating-instructor__cancelar{
         color: white;
         background-color: #d4212c;
         font-size: medium;
         padding: 8px 20px;
     }
 
-    .buttonsCreating__cancelar:hover{
-        background-color: #f80616;
-    }
 
-
-    .buttonsCreating__crear--green{
+    .buttonsCreating-instructor__crear--green{
         color: white;
         background-color: #39a900;
         font-size: medium;
@@ -157,7 +153,5 @@
         left: 42%; 
     }
 
-    .buttonsCreating__crear--green:hover{
-        background-color: #57c91e;
-    }
+    
 }
