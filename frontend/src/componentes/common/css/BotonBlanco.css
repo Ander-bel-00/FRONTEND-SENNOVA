@@ -17,3 +17,17 @@
 .btn-blanco--modify{
     width: 12rem;
 }
+.btn-verde{
+    background-color: #70B22D;
+    color: white;
+}
+.btn-verde:hover{
+    background-color: #04324D;
+}
+.btn-azul{
+    background-color: #04324D;
+    color: white;
+}
+.btn-azul:hover{
+    background-color: #70B22D;
+}

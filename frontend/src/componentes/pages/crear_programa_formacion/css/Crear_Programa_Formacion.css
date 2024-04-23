@@ -1,36 +1,38 @@
 .mainsTitles{
     text-align: center;
     font-weight: bold;
-    font-size: 25px;
+    font-size: 30px;
 }
-
+.inputBoxes{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 1rem;
+}
 .inputBoxes__titlecaja{
-    margin: 30px;
-    font-size: 20px;
+    font-size: 30px;
     text-align: center;
-    position: relative;
-    bottom: 2rem;
+    padding: 1rem;
 }
 
 
 .unputBoxes__label{
     display: flex;
-    flex-direction: column;
     text-wrap: nowrap;
     width: 25%;
-    position: relative;
-    left: 10%;
-    top: 10px;
+    gap: 5px;
+
 }
 
 .unputBoxes__input{
-    width: 15rem;
-    border: 1px solid #000;
+    width: 100%;
     border-radius: 6px;
     padding: 8px;
     margin-top: 8px;
     margin-bottom: 10px;
     box-shadow: var(--box-shadow-inputs);
+    background-color: var(--bg-inputs);
 }
 
 
@@ -40,25 +42,30 @@
 
 
 .inputBoxes__olderbox{
-    margin: 40px 70px;
+    width: 80%;
+    padding-top: 2rem;
    
 }
 
 
-
+.buttonsCreating{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    gap: 2rem;
+    margin-top: 2rem;
+}
 
 /* Botones principales */
 .buttonsCreating__cancelar,
 .buttonsCreating__crear--green{
-    position: relative;
-    top: 84%;
-    left: 5%;
     padding: 5px 15px;
     border: none;
     border-radius: 8px;
     font-size: small;
     cursor: pointer;
     box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.2);
+    width: 10rem;
 }
 
 .buttonsCreating__cancelar{
