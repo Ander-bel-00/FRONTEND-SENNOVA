@@ -1,13 +1,3 @@
-<<<<<<< HEAD
-:root{
-    --boton-color: #FFFFFF;
-    --text-btn-color: #FFFFFF;
-    --fuente: 'Work Sans', sans-serif;
-    --line-color: #A5A5A5;
-}
-
-=======
->>>>>>> carlos
 .crear-actividades-titulo{
     position: relative;
     top: 0rem;
@@ -82,13 +72,8 @@
    background-color: var( --btn-update-bg-hover);
 }
 
-<<<<<<< HEAD
-.btn-cancelar-actividad{
-    background-color: var(--boton-cancelar-color);
-=======
 .btn-cancelar-actividad-uptd{
     background-color: var(--boton-cacelar-color);
->>>>>>> Karol
     width: 15rem;
     height: 45px;
     border-radius: 8px;
@@ -99,11 +84,6 @@
     font-size: 21px;
 }
 
-<<<<<<< HEAD
-.btn-cancelar-activida:hover{
-    background-color: var(--boton-cancelar-bg-hover);
-=======
 .btn-cancelar-actividad-uptd:hover{
     background-color: var(--boton-cacelar-bg-hover);
->>>>>>> Karol
 }

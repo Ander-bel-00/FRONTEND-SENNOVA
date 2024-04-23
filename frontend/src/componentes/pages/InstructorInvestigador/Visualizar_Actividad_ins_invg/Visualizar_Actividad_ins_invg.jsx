@@ -40,11 +40,7 @@ function Visualizar_Actividad_ins_invg() {
           <Fragment>
             <div className="btn-vs-actividades-instructor">
               <BotonReturn
-<<<<<<< HEAD
-                link={"/instructor-investigador/Listar_Actividad"}
-=======
                 link={"/instructor-investigador/Listar_Actividad_Instructor_Investigador"}
->>>>>>> Karol
                 icon={<IoIosReturnLeft />}
               />
             </div>
@@ -60,15 +56,6 @@ function Visualizar_Actividad_ins_invg() {
         content={
           <table className="vis-actividad-table-instructor">
             <thead>
-<<<<<<< HEAD
-              <tr className="vis-actividad-table-instructor__tr">
-                <th className="vis-actividad-table-instructor__th">Nombre Actividad</th>
-                <th className="vis-actividad-table-instructor__th">Tarea</th>
-                <th className="vis-actividad-table-instructor__th">Fecha</th>
-                <th className="vis-actividad-table-instructor__th">Resultado</th>
-                <th className="vis-actividad-table-instructor__th">Producto</th>
-                <th className="vis-actividad-table-instructor__th">Responsable de la Actividad</th>
-=======
               <tr className="vis-actividad-table__tr">
                 <th className="vis-actividad-table__th">Nombre Actividad</th>
                 <th className="vis-actividad-table__th">Tarea</th>
@@ -78,7 +65,6 @@ function Visualizar_Actividad_ins_invg() {
                 <th className="vis-actividad-table__th">
                   Responsable de la Actividad
                 </th>
->>>>>>> Karol
               </tr>
             </thead>
             <tbody>
