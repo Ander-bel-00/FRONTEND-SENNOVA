@@ -1,23 +1,4 @@
-/* .main-container__contenedor-hijo--size{
-    height: 86.3vh;
-} */
-.add-proyect-btn-return{
-    width: 5rem;
-}
-
-.add-proyect-btn-return a{
-    position: relative;
-    left: 10%;
-}
-
-.Caja-formularios--add-proyect{
-    height: 100vh;
-    bottom: 2rem;
-    width: 70%;
-}
-
 .main-form-proyecto{
-
     display: flex;
     justify-content: center;
     align-items: center;
@@ -31,14 +12,8 @@
     flex-direction: column;
     justify-content: center;
     width: 80%;
-  
     margin-top: 1rem;
-
 }
-/* .form-add-pryect-container input, .form-add-pryect-container textarea{
- width: 60%;
- background-color: #A6ACAF;
-} */
 
 .create-project-title{
     font-size: 25px;
@@ -46,15 +21,6 @@
     top: 4%;
 }
 
-.form-add-pryect-container__col1{
-    display: flex;
-    flex-direction: column;
-    text-wrap: nowrap;
-    width: 25%;
-    position: relative;
-    left: 15%;
-    top: 35px;
-}
 
 .form-add-pryect-container__col1__label{
     font-weight: 400;
@@ -65,14 +31,13 @@
 }
 
 .form-add-pryect-container__col1__input{
-    width: 50%;
+    width: 100%;
     background-color: var(--bg-inputs);
     border-radius: 6px;
     padding: 8px;
     margin-top: 8px;
     margin-bottom: 10px;
     box-shadow: var(--box-shadow-inputs);
-    width: 100%;
 }
 
 .form-add-pryect-container__col1__textarea{
@@ -81,15 +46,6 @@
     height: 5rem;
     border-radius: 8px;
    
-}
-.form-add-pryect-container__column2{
-    display: flex;
-    flex-direction: column;
-    text-wrap: nowrap;
-    width: 25%;
-    position: relative;
-    left: 31%;
-    top: 35px;
 }
 
 .btns-crear-projecto{

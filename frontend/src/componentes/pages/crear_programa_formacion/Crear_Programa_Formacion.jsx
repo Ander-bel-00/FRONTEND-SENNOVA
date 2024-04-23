@@ -18,7 +18,6 @@ function Crear_Programa_Formacion() {
         </div>
       </Link>
 
-
       <Caja_formularios
         info={
           <Fragment>

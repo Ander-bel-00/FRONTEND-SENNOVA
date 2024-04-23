@@ -26,12 +26,11 @@ function Crear_Actividad() {
                   Crear Actividad
                 </h2>
                 <form className="form-create-activity-content">
-
                   <label
                     htmlFor="nombre-actividad"
                     className="form-create-activity-content__col1__label"
                   >
-                    Nombre de la Actividad  <p className="rojo-required">*</p>
+                    Nombre de la Actividad <p className="rojo-required">*</p>
                   </label>
                   <input
                     type="text"
@@ -53,7 +52,7 @@ function Crear_Actividad() {
                     htmlFor="fecha-entrega-actividad"
                     className="form-create-activity-content__col1__label"
                   >
-                    Fecha final  <p className="rojo-required">*</p>
+                    Fecha final <p className="rojo-required">*</p>
                   </label>
                   <input
                     type="date"
@@ -61,13 +60,11 @@ function Crear_Actividad() {
                     className="form-create-activity-content__col1__input"
                   />
 
-
-
                   <label
                     htmlFor="tarea-activida"
                     className="form-create-activity-content__col1__label"
                   >
-                    Tarea  <p className="rojo-required">*</p>
+                    Tarea <p className="rojo-required">*</p>
                   </label>
                   <input
                     type="text"
@@ -79,7 +76,7 @@ function Crear_Actividad() {
                     htmlFor="resultado-actividad"
                     className="form-create-activity-content__col1__label"
                   >
-                    Resultado  <p className="rojo-required">*</p>
+                    Resultado <p className="rojo-required">*</p>
                   </label>
                   <input
                     type="text"
@@ -90,7 +87,8 @@ function Crear_Actividad() {
                     htmlFor="responsable-actividad"
                     className="form-create-activity-content__col1__label"
                   >
-                    Responsable de la Actividad  <p className="rojo-required">*</p>
+                    Responsable de la Actividad{" "}
+                    <p className="rojo-required">*</p>
                   </label>
                   <input
                     type="text"
@@ -111,19 +109,16 @@ function Crear_Actividad() {
                   />
 
                   <div className="btns-crear-actividad">
-                    <input
-                      type="submit"
-                      value="Cancelar"
-                      className="btn-cancelar-actividad-uptd"
-                    />
-                    <input
-                      type="submit"
-                      value="Crear"
-                      className="btn-create-actividad"
-                    />
+                    <Link to={"/lider-semillero/Listar_Actividad"}>
+                      <button
+                        className="btn-cancelar-actividad-uptd"
+                        type="button"
+                      >
+                        Cancelar
+                      </button>
+                    </Link>
+                    <button className="btn-create-actividad" type="button">Crear</button>
                   </div>
-
-
                 </form>
               </div>
             </Fragment>

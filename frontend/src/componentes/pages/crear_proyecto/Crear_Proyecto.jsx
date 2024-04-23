@@ -38,9 +38,9 @@ function Crear_Proyecto() {
                   </label>
 
                   <select className="form-add-pryect-container__select">
-                  <option selected>Seleccione tip de proyecto</option>
+                  <option selected>Seleccione tipo de proyecto</option>
                     <option>Modernizacion</option>
-                    <option>Innovación</option>
+                    <option>Innovación</option> 
                     <option>Aplicación</option>
                   </select>
                   <label
@@ -94,18 +94,15 @@ function Crear_Proyecto() {
 
                   <div className="btns-crear-projecto">
 
-                    <button className="btn-crear-proyecto">Crear</button>
+                    <button className="btn-crear-proyecto" type="button">Crear</button>
 
                     <Link to={"/lider-semillero/Listar_Proyectos"}>
-                      <input
-                        type="submit"
-                        value="Cancelar"
+                      <button
+                        type="button"
                         className="btn-cancelar-proyecto"
-                      />
+                      >Cancelar</button>
                     </Link>
                   </div>
-
-
                 </form>
               </div>
             </Fragment>
