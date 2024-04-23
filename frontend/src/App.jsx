@@ -33,6 +33,10 @@ import Visualizar_Suspender_Proyecto_Instructor_Investigador from "./componentes
 import Crear_Proyecto_Instructor_Investigador from "./componentes/pages/InstructorInvestigador/crear_proyecto_instructor_investigador/Crear_Proyecto_Instructor_Investigador";
 import Listar_Actividad_Instructor_Investigador from "./componentes/pages/InstructorInvestigador/listar_actividad_instructor_investigador/Listar_Actividad_Instructor_Investigador";
 import Crear_Actividad_Instructor_Investigador from "./componentes/pages/InstructorInvestigador/crear_actividad_instructor_investigador/Crear_Actividad_Instructor_Investigador";
+import Visualizar_Proyecto_apr_invg from "./componentes/pages/AprendizInvestigador/visualizar_proyecto_apr_invg/Visualizar_Proyecto_apr_invg";
+import Listar_Proyectos_apr_invg from "./componentes/pages/AprendizInvestigador/listar_proyectos_apr_invg/Listar_Proyectos_apr_invg";
+
+
 
 function App() {
   return (
@@ -341,6 +345,33 @@ function App() {
                 </Routes>
               </Fragment>
             }
+          />
+          <Route 
+          path="/aprendiz-investigador/*"
+          element={
+            <Fragment>
+              <Header />
+              <Sidenav />
+              <Routes>
+                <Route 
+                path="/Visualizar_Proyecto_apr_invg"
+                element={
+                  <main className="main-container">
+                    <Visualizar_Proyecto_apr_invg />
+                  </main>
+                }
+                />
+                <Route
+                path="/Listar_Proyectos_apr_invg"
+                element={
+                  <main className="main-container">
+                    <Listar_Proyectos_apr_invg />
+                  </main>
+                }
+                />
+              </Routes>
+            </Fragment>
+          }
           />
         </Routes>
       </BrowserRouter>
