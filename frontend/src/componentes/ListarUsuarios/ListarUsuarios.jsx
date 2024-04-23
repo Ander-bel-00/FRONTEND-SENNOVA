@@ -39,6 +39,7 @@ function ListarUsuarios() {
               <BotonVerdeAñadir
                 icon={<IoPersonAddSharp />}
                 text={"Crear Usuario"}
+                link={"/lider-semillero/crear-usuario"}
               />
             </Fragment>
           }
@@ -67,7 +68,7 @@ function ListarUsuarios() {
                     <td className="user-table__cell">
                       <div className="user-table__cell__buttons">
                       <Link
-                          to={""}
+                          to={"/lider-semillero/users-update"}
                         >
                           <LiaEyeSolid className="user-table__cell__btn" />
                         </Link>

@@ -43,6 +43,7 @@
     padding: 6px;
     margin-top: 8px;
     box-shadow: var(--box-shadow-inputs);
+    background-color: var(--bg-inputs);
 }
 
 .update-users-box__form-container__options-column2{

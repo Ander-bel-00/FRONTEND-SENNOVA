@@ -1,7 +1,5 @@
 :root{
     --boton-color: #FFFFFF;
-    --boton-crear-color: #39A900;
-    --boton-cacelar-color: #D4212C;
     --text-btn-color: #FFFFFF;
     --fuente: 'Work Sans', sans-serif;
     --line-color: #A5A5A5;
@@ -52,6 +50,7 @@
     margin-top: 8px;
     margin-bottom: 10px;
     box-shadow: var(--box-shadow-inputs);
+    background-color: var(--bg-inputs);
 }
 
 .form-create-activity-content__column2{
@@ -81,7 +80,7 @@
 }
 
 .btn-cancelar-actividad{
-    background-color: var(--boton-cacelar-color);
+    background-color: var(--boton-cancelar-color);
     width: 15rem;
     height: 45px;
     border-radius: 8px;
@@ -93,5 +92,5 @@
 }
 
 .btn-cancelar-activida:hover{
-    background-color: var(--boton-cacelar-bg-hover);
+    background-color: var(--boton-cancelar-bg-hover);
 }

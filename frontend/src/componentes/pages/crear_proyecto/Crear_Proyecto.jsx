@@ -79,11 +79,13 @@ function Crear_Proyecto() {
                     value="Crear"
                     className="btn-crear-proyecto"
                   />
-                  <input
-                    type="submit"
-                    value="Cancelar"
-                    className="btn-cancelar-proyecto"
-                  />
+                  <Link to={"/lider-semillero/Listar_Proyectos"}>
+                    <input
+                      type="submit"
+                      value="Cancelar"
+                      className="btn-cancelar-proyecto"
+                    />
+                  </Link>
                 </div>
               </form>
             </Fragment>

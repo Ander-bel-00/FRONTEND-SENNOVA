@@ -1,0 +1,252 @@
+
+.imgtei{
+   height: 100%;
+   width: 100%;
+}
+
+.row{
+    width: 100%;
+    max-width: 1170px;
+    display: flex;
+    overflow-x: hidden;
+    padding: 5rem 0 ;
+    justify-content: space-between;
+    background-color: #fff;
+}
+
+.row .imgWrapper{
+   width: 65%;
+    overflow: hidden;
+    position: relative ;
+    left: 250px;
+    transform: translateY(-90px);
+    
+}
+
+.row .imgWrapper img{
+   display: flex;
+   flex-direction: column;
+    width: 45%;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.3s;
+    margin-left: 90px;
+}
+
+.row .imgWrapper:hover img{
+    transform: scale(1.06);
+}
+
+.row .contentWrapper{
+   display: flex;
+   flex-direction: column;
+    width: 35%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 350px;
+    transform: translateY(-20px);
+    
+}
+
+.row .contentWrapper span.textWrapper{
+    font-size: 20px;
+    text-transform: capitalize;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+  
+}
+
+  
+
+.row .contentWrapper h2{
+    font-size: 30px;
+    font-weight: 700;
+   text-wrap: nowrap;
+   color: #04324D;
+
+}
+
+.row .contentWrapper p{
+    font-size: 20px;
+    line-height: 25px;
+    padding-bottom: 25px;
+    color: #04324D;
+}
+
+
+.btn button{
+    font-weight: 700;
+    color: #fff;
+    padding: 9px 25px;
+    background: #39a900;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+}
+
+.btn button:hover{
+    background-color: #e2f1f8;
+    color: #39a900;
+    transform: scale(1.1);
+}
+
+.princi .imgWrapper_2{
+   width: 50%;
+   overflow: hidden;
+   position: relative ;
+   right: 3px;
+   transform: translateY(-90px);  
+   background-color: #fff;
+   display: flex;
+   flex-direction: column;
+}
+
+.princi .imgWrapper_2 img{
+    width: 75%;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.3s;
+    margin-left: 90px;
+    border-radius: 20%;
+    
+}
+
+.princi .imgWrapper_2:hover img{
+   transform: scale(1.06);
+}
+
+
+.princi{
+   width: 100%;
+   display: flex;
+   overflow-x: hidden;
+   padding: 5rem 0 ;
+   background-color: #fff;
+   
+}
+.princi .titulo_semi h1{
+   font-size: 40px;
+    font-weight: 700;
+    color: #39a900;
+   text-wrap: nowrap;
+   text-align: center;
+   
+}
+
+.princi .titulo_semi{
+   position: relative;
+   right: -228px;
+   display: flex;
+   flex-direction: column;
+   bottom: 70px;
+}
+
+.princi .titulo_semi span.textWrapper_2{
+   font-size: 20px;
+   text-transform: capitalize;
+   display: flex;
+   justify-content: flex-start;
+   align-items: center;
+   gap: 15px;
+   margin-bottom: 20px;
+}
+
+.princi .Gif{
+   position: relative;
+   right: 10%;
+   width: 35%;
+}
+
+.princi__parrafo{
+   text-align: center;
+   background-color: #fff;
+   text-align: justify;
+   margin-left: 90px;
+   margin-right: 90px;
+   color: #04324D;
+   transform: translateY(-80px);
+   font-family: 'Work Sans', sans-serif;
+}
+
+
+.row2{
+   width: 100%;
+   max-width: 1170px;
+   display: flex;
+   overflow-x: hidden;
+   padding: 5rem 0 ;
+   justify-content: space-between;
+   background-color: #fff;
+}
+
+
+.row2 .contentWrapper2{
+  display: flex;
+
+   width: 35%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   transform: translateY(-20px);
+   
+}
+
+.row2 .contentWrapper2 span.textWrapper2{
+   font-size: 20px;
+   text-transform: capitalize;
+   display: flex;
+   justify-content: flex-start;
+   align-items: center;
+   gap: 15px;
+   margin-bottom: 20px;
+ 
+}
+
+ 
+
+.row2 .contentWrapper2 h2{
+   font-size: 30px;
+   font-weight: 700;
+  text-wrap: nowrap;
+  color: #39a900;
+  align-items: center;
+  
+
+}
+
+.row2 .contentWrapper2 p{
+   font-size: 20px;
+   line-height: 25px;
+   padding-bottom: 25px;
+   color: #04324D;
+}
+
+
+.row .imgWrapper2{
+   width: 65%;
+    overflow: hidden;
+    position: relative ;
+    left: 250px;
+    transform: translateY(-90px);
+    
+}
+
+.row .imgWrapper2 img{
+   display: flex;
+   flex-direction: column;
+    width: 45%;
+    height: 25%;
+    object-fit: cover;
+    transition: 0.3s;
+    margin-left: 90px;
+    transform: translateY(200px);
+}
+
+.row .imgWrapper2:hover img{
+    transform: scale(1.06);
+}

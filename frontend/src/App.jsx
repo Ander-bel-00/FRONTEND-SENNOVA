@@ -31,11 +31,28 @@ import Actualizar_Eventos_ins_invg from "./componentes/pages/InstructorInvestiga
 import Listar_Proyectos_Instructor_Investigador from "./componentes/pages/InstructorInvestigador/listar_proyectos_instructor_investigador/Listar_Proyectos_Instructor_Investigador";
 import Visualizar_Suspender_Proyecto_Instructor_Investigador from "./componentes/pages/InstructorInvestigador/visualizar_suspender_proyecto_instructor_investigador/Visualizar_Suspender_Proyecto_Instructor_Investigador";
 import Crear_Proyecto_Instructor_Investigador from "./componentes/pages/InstructorInvestigador/crear_proyecto_instructor_investigador/Crear_Proyecto_Instructor_Investigador";
+import Crear_Usuario from "./componentes/pages/crear_usuario/Crear_Usuario";
+import Cronograma_ins_invg from "./componentes/pages/InstructorInvestigador/Cronograma_ins_invg/Cronograma_ins_invg";
+import Listar_Usuarios_ins_invg from "./componentes/pages/InstructorInvestigador/Listar_Usuarios_ins_invg/Listar_Usuarios_ins_invg";
+import Listar_Fichas_ins_invg from "./componentes/pages/InstructorInvestigador/Listar_Fichas_ins_invg/Listar_Fichas_ins_invg";
+import Listar_Usuarios_apr_invg from "./componentes/pages/AprendizInvestigador/Listar_usuarios_apr_invg/Listar_Usuarios_apr_invg";
+
+import Landing_ofi from "./componentes/pages/Landing/Landing_ofi";
+ import Login from "./componentes/pages/login/Login";
+
 
 function App() {
   return (
     <>
       <BrowserRouter>
+    <Routes>
+        <Route path="/" element={
+        <Landing_ofi />}/>
+      </Routes>
+      <Routes>
+        <Route path="/login" element={
+        <Login />}/>
+      </Routes>
         <Routes>
           {/* Lider Semillero */}
           <Route
@@ -211,6 +228,15 @@ function App() {
                       </main>
                     }
                   />
+
+                  <Route
+                    path="/crear-usuario"
+                    element={
+                      <main className="main-container">
+                        <Crear_Usuario />
+                      </main>
+                    }
+                  />
                 </Routes>
               </Fragment>
             }
@@ -318,6 +344,77 @@ function App() {
                       <main className="main-container">
                         <Crear_Proyecto_Instructor_Investigador />
                       </main>
+                    }
+                  />
+                  <Route
+                    path="/cronograma"
+                    element={
+                      <Fragment>
+                        <main className="main-container">
+                          <Cronograma_ins_invg />
+                        </main>
+                      </Fragment>
+                    }
+                  />
+
+                  <Route
+                    path="/usuarios-getAll"
+                    element={
+                      <main className="main-container">
+                        <Listar_Usuarios_ins_invg />
+                      </main>
+                    }
+                  />
+
+                  <Route
+                    path="/Listar-fichas"
+                    element={
+                      <main className="main-container">
+                        <Listar_Fichas_ins_invg />
+                      </main>
+                    }
+                  />
+                </Routes>
+              </Fragment>
+            }
+          />
+          <Route
+            path="/aprendiz-investigador/*"
+            element={
+              <Fragment>
+                <Header />
+                <Sidenav />
+                <Routes>
+                  <Route
+                    path="/cronograma"
+                    element={
+                      <Fragment>
+                        <main className="main-container">
+                          <Cronograma_ins_invg />
+                        </main>
+                      </Fragment>
+                    }
+                  />
+
+                  <Route
+                    path="/usuarios-getAll"
+                    element={
+                      <Fragment>
+                        <main className="main-container">
+                          <Listar_Usuarios_apr_invg />
+                        </main>
+                      </Fragment>
+                    }
+                  />
+
+                  <Route
+                    path="/semillero"
+                    element={
+                      <Fragment>
+                        <main className="main-container">
+                          <Semillero />
+                        </main>
+                      </Fragment>
                     }
                   />
                 </Routes>

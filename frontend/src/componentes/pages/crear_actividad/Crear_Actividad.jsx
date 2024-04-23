@@ -78,6 +78,7 @@ function Crear_Actividad() {
                       type="text"
                       id="tarea-actividad"
                       className="form-create-activity-content__col1__input"
+                      required
                     />
                     <label
                       htmlFor="resultado-actividad"

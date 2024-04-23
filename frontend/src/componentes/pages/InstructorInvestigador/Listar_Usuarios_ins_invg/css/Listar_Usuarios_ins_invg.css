@@ -1,0 +1,46 @@
+:root{
+    --list-user-bg: #fff;
+    --color-border-bottom-tr: #ddd;
+    --btn-report-bg: #fff;
+    --box-search-bg: #fff;
+    --fuente: 'Work Sans', sans-serif;
+    --box-shadow-btns: 0px 4px 11px 1px rgba(129,122,122,0.73);
+
+}
+
+.user-table {
+    width: 98%;
+    border-collapse: collapse;
+    
+  }
+  
+  .user-table__header {
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  .user-table__row:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  .user-table__cell {
+    border: 1px solid #dddddd;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  .user-table__cell__buttons{
+    display: flex;
+    padding: 5px;
+  }
+
+  .user-table__cell__btn{
+    font-size: 22px;
+    margin-right: 9px;
+  }
+
+  .user-table__cell__btn:hover{
+    transform: scale(1.09);
+  }
