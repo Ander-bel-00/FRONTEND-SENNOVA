@@ -17,6 +17,11 @@
     --update-users-box-bg: #fff;
     --btn-update-bg: #39a900;
     --btn-update-bg-hover: #339302;
+<<<<<<< HEAD
+    --boton-cacelar-color: #D4212C;
+    --boton-cacelar-bg-hover: #c31e29;
+    --color--container-inputs: #E7E7E7;
+=======
     --boton-crear-color: #39A900;
     --boton-cancelar-color: #D4212C;
     --boton-cancelar-bg-hover: #c31e29;
@@ -24,6 +29,7 @@
     --boton-color: #FFFFFF;
     --text-btn-color: #FFFFFF;
     --line-color: #A5A5A5;
+>>>>>>> e31befb43facccb46452d862ebbd5d8e9575d216
 }
 
 *{

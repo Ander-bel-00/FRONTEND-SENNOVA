@@ -36,6 +36,7 @@ function Visualizar_Suspender_Proyecto() {
                 <BotonBlanco
                   icon={<LuCalendarDays />}
                   text={"Ir al Cronograma"}
+                  link={"/lider-semillero/cronograma"}
                 />
               </div>
             </Fragment>

@@ -11,10 +11,10 @@
 .crear-actividades-titulo{
     position: relative;
     top: 0rem;
-    font-size: 25px;
+    right: 1%;
+    font-size: 24px;
     font-weight: 650;
 }
-
 
 .form-create-activity-content{
     display: flex;
@@ -36,8 +36,8 @@
     text-wrap: nowrap;
     width: 25%;
     position: relative;
-    left: 10%;
-    top: 10px;
+    left: 15%;
+    top: 35px;
 }
 
 .form-create-activity-content__col1__label{
@@ -62,11 +62,11 @@
     text-wrap: nowrap;
     width: 25%;
     position: relative;
-    left: 28%;
-    top: 20px;
+    left: 31%;
+    top: 45px;
 }
 
-.btn-crear-actividad{
+.btn-create-actividad{
     background-color: var(--boton-crear-color);
     width: 15rem;
     height: 45px;
@@ -78,12 +78,17 @@
     font-size: 21px;
 }
 
-.btn-crear-actividad:hover{
-    background-color: var(--boton-crear-bg-hover);
+.btn-create-actividad:hover{
+   background-color: var( --btn-update-bg-hover);
 }
 
+<<<<<<< HEAD
 .btn-cancelar-actividad{
     background-color: var(--boton-cancelar-color);
+=======
+.btn-cancelar-actividad-uptd{
+    background-color: var(--boton-cacelar-color);
+>>>>>>> Karol
     width: 15rem;
     height: 45px;
     border-radius: 8px;
@@ -94,6 +99,11 @@
     font-size: 21px;
 }
 
+<<<<<<< HEAD
 .btn-cancelar-activida:hover{
     background-color: var(--boton-cancelar-bg-hover);
+=======
+.btn-cancelar-actividad-uptd:hover{
+    background-color: var(--boton-cacelar-bg-hover);
+>>>>>>> Karol
 }

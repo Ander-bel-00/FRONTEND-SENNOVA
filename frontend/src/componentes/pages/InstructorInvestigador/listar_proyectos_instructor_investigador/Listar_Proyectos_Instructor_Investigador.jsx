@@ -43,7 +43,7 @@ function Listar_Proyectos_Instructor_Investigador() {
               <BotonVerdeAñadir
                 icon={<AiOutlinePlus />}
                 text={"Añadir Información"}
-                link={"/instructor-investigador/"}
+                link={"/instructor-investigador/Crear_Proyecto_Instructor_Investigador"}
               />
             </Fragment>
           }

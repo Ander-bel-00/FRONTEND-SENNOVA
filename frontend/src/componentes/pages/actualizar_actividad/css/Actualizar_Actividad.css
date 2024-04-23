@@ -19,8 +19,8 @@
     text-wrap: nowrap;
     width: 25%;
     position: relative;
-    left: 10%;
-    top: 10px;
+    left: 15%;
+    top: 35px;
 }
 
 .form-update-activity-content__col1__label{
@@ -44,12 +44,12 @@
     text-wrap: nowrap;
     width: 25%;
     position: relative;
-    left: 28%;
-    top: 20px;
+    left: 31%;
+    top: 45px;
 }
 
 .btn-actualizar-actividad{
-    background-color: var(--boton-crear-color);
+    background-color: var(--btn-update-bg);
     width: 15rem;
     height: 45px;
     border-radius: 8px;
@@ -61,7 +61,7 @@
 }
 
 .btn-actualizar-actividad:hover{
-    background-color: var(--boton-crear-bg-hover);
+    background-color: var(--btn-update-bg-hover);
 }
 
 .btn-cancelar-actividad-uptd{

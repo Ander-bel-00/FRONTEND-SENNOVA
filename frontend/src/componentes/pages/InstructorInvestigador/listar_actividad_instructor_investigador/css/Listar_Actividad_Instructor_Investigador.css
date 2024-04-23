@@ -1,19 +1,19 @@
-.vis-actividad-table-instructor{
+.list-activity-instructor-content-table{
     position: relative;
     left: 1%;
     width: 98%;
     border-collapse: collapse;
 }
 
-.vis-actividad-table-instructor__tr{
+.list-activity-instructor-content-table-tr{
     border: 1px solid var(--color-border-bottom-tr);
 }
 
-.vis-actividad-table-instructor__tr:nth-child(even){
+.list-activity-instrcutor-content-table-tr:nth-child(even){
     background-color: #f9f9f9;
 }
 
-.vis-actividad-table-instructor__th{
+.list-activity-instructor-content__table__tr__th{
     background-color: #f0f0f0;
     border: 1px solid #ccc;
     text-wrap: nowrap;
@@ -21,31 +21,22 @@
     padding: 8px;
 }
 
-.vis-actividad-table-instructor__td{
+.list-activity-instructor-content-table-td{
     border: 1px solid #dddddd;
     padding: 8px;
     text-align: left;
 }
-<<<<<<< HEAD
 
-.vis-actividad-table-instructor__td__btns{
+.list-activity-instructor-content-table__td__btns{
     display: flex;
     padding: 5px;
 }
 
-.vis-actividad-table-instructor__td__btn{
+.list-activity-instructor-content-table__td__btn{
     font-size: 22px;
     margin-right: 9px;
 }
 
-.vis-actividad-table-instructor__td__btn:hover{
+.list-activity-instructor-content-table__td__btn:hover{
     transform: scale(1.09);
 }
-
-
-.btn-vs-actividades-instructor{
-    position: relative;
-    right: 3%;
-}
-=======
->>>>>>> Karol
