@@ -1,36 +1,40 @@
 .mainsTitles{
     text-align: center;
     font-weight: bold;
-    font-size: 25px;
+    font-size: 30px;
 }
-
+.inputBoxes{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    flex-direction: column;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
 .inputBoxes__titlecaja{
-    margin: 30px;
-    font-size: 20px;
+    font-size: 30px;
     text-align: center;
-    position: relative;
-    bottom: 2rem;
+    padding: 1rem;
 }
 
 
 .unputBoxes__label{
     display: flex;
-    flex-direction: column;
     text-wrap: nowrap;
     width: 25%;
-    position: relative;
-    left: 10%;
-    top: 10px;
+    gap: 5px;
+
 }
 
 .unputBoxes__input{
-    width: 15rem;
-    border: 1px solid #000;
+    width: 100%;
     border-radius: 6px;
     padding: 8px;
     margin-top: 8px;
     margin-bottom: 10px;
     box-shadow: var(--box-shadow-inputs);
+    background-color: var(--bg-inputs);
 }
 
 
@@ -40,25 +44,30 @@
 
 
 .inputBoxes__olderbox{
-    margin: 40px 70px;
+    width: 80%;
+    padding-top: 2rem;
    
 }
 
 
-
+.buttonsCreating{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    gap: 2rem;
+    margin-top: 2rem;
+}
 
 /* Botones principales */
 .buttonsCreating__cancelar,
 .buttonsCreating__crear--green{
-    position: relative;
-    top: 84%;
-    left: 5%;
     padding: 5px 15px;
     border: none;
     border-radius: 8px;
     font-size: small;
     cursor: pointer;
     box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.2);
+    width: 10rem;
 }
 
 .buttonsCreating__cancelar{
@@ -70,7 +79,7 @@
 
 
 .buttonsCreating__cancelar:hover{
-    background-color: #f80616;
+    background-color: var(--boton-cacelar-bg-hover);
 }
 
 
@@ -83,81 +92,5 @@
 }
 
 .buttonsCreating__crear--green:hover{
-    background-color: #57c91e;
-}
-
-
-
-@media screen and (min-width: 1338.18px) {
-
-    .inputBoxes__titlecaja{
-        margin: 30px;
-        font-size: 20px;
-        text-align: center;
-        position: relative;
-        top: 1rem;
-    }
-
-    .unputBoxes__label{
-        display: flex;
-        flex-direction: column;
-        text-wrap: nowrap;
-        text-align: left;
-        width: 25%;
-        position: relative;
-        left: 36%;
-        top: 35px;
-    }
-    
-    .unputBoxes__input{
-        width: 17rem;
-        border: 1px solid #000;
-        border-radius: 6px;
-        padding: 8px;
-        margin-top: 8px;
-        margin-bottom: 10px;
-        box-shadow: var(--box-shadow-inputs);
-        position: relative;
-        left: 35%;
-        top: 10px;
-        
-    }
-
-    /* Botones principales */
-    .buttonsCreating__cancelar,
-    .buttonsCreating__crear--green{
-        position: relative;
-        top: 84%;
-        left: 38%;
-        padding: 5px 15px;
-        border: none;
-        border-radius: 8px;
-        font-size: small;
-        cursor: pointer;
-        box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.2);
-    }
-
-    .buttonsCreating__cancelar{
-        color: white;
-        background-color: #d4212c;
-        font-size: medium;
-        padding: 8px 20px;
-    }
-
-    .buttonsCreating__cancelar:hover{
-        background-color: #f80616;
-    }
-
-
-    .buttonsCreating__crear--green{
-        color: white;
-        background-color: #39a900;
-        font-size: medium;
-        padding: 8px 30px;
-        left: 42%; 
-    }
-
-    .buttonsCreating__crear--green:hover{
-        background-color: #57c91e;
-    }
+    background-color: var(--boton-crear-bg-hover);
 }

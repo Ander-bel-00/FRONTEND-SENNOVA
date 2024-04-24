@@ -24,7 +24,7 @@ function Sidenav() {
               <img src={LogoTeinnovaHome} alt="Logo Teinnova" />
             </div>
           </li>
-          <Link to={"/lider-semillero/semillero"}>
+          <Link to={"/lider-semillero/"}>
             <li className="Sidenav-content__menu-content__menu-options">
               <FaSeedling className="inline-block mr-2" />
               Semillero

@@ -3,6 +3,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+
   
 }
 .semillero-main-container__info-semillero{
@@ -13,7 +14,7 @@
     width: 100%;
     flex-direction: column;
     margin-top: 90px;
-
+    overflow: hidden;
 }
 
 .semillero-main-container__header{

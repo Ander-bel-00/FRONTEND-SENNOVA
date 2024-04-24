@@ -23,8 +23,8 @@ const Semillero = () => {
         <Fragment>
             <div className='semillero-main-container__info-semillero'>
                 <section className='semillero-main-container__header'>
-                    <BotonBlanco icon={<FaFileArrowUp />} text={'Reporte'} />
-                    <BotonBlanco icon={<GrDocumentUpdate />} text={'Actualizar'} />
+                    <BotonBlanco icon={<FaFileArrowUp />} text={'Reporte'} clase={'btn-blanco btn-blanco--modify btn-verde'} />
+                    <BotonBlanco icon={<GrDocumentUpdate />} text={'Actualizar'} clase={'btn-blanco btn-blanco--modify btn-azul'} />
 
                 </section>
                 <section className='semillero-main-container__datos-semillero'>

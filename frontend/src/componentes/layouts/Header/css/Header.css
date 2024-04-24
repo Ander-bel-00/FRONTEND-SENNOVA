@@ -1,16 +1,25 @@
 .Header-general {
-    background-color: #fff;
+    /* border-bottom: 5px solid #70B22D ; */
+    background-color: #70B22D;
     width: 100%;
     position: fixed;
     top: 0;
     padding: 30px;
-    height: 90px;
+    height: 50px;
     z-index: 1000; /* Asegura que el encabezado esté por encima del resto del contenido */
     display: flex;
     justify-content: space-between; /* Alinea los elementos al principio y al final */
     align-items: center; /* Centra verticalmente los elementos */
+    color: #fff ;
+    font-weight: 600;
 }
-
+.Header-general__opciones{
+    display: flex;
+    justify-content: end;
+    width: 100%;
+    align-items: center;
+    gap: 2rem;
+}
 .Header-general__Search-box {
     width: 80px;
     order: 0; /* Cambia el orden del elemento */
@@ -48,10 +57,7 @@
 }
 
 .Header-general__user_name {
-    order: 1; /* Cambia el orden del elemento */
-    padding-right: 10px;
-    position: relative;
-    left: 33%;
+   
 }
 
 .Header-general__user_name__icon{

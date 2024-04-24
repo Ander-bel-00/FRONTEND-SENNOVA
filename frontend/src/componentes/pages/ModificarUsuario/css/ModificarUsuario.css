@@ -1,81 +1,58 @@
+.update-user-main-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    flex-direction: column;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
 .update-users-box__title{
     font-weight: bold;
     font-size: 25px;
-    position: relative;
-    left: 10%;
-    top: 1rem;
+    text-align: center;
 }
 
 .update-users-box__form-container{
     display: flex;
-    width: 100%;
-    height: 100%;
-    position: relative;
-    top: 1rem;
-}
-
-.update-users-box__form-container__options-col1{
-    display: flex;
     flex-direction: column;
-    text-wrap: nowrap;
-    width: 25%;
-    height: 80%;
-    position: relative;
-    left: 10%;
-    top: 10px;
+    justify-content: center;
+    width: 80%;
+    margin-top: 9rem;
+    height: 100vh;
 }
-
-/* .update-users-box__form-container__options-col1__icon{
-    position: relative;
-    left: 40%;
-    font-size: 20px;
-    height: 10px;
-} */
 
 .update-users-box__form-container__options-col1__label{
     font-weight: 400;
     padding-top: 12px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
 }
 
 .update-users-box__form-container__options-col1__input{
-    border: 1px solid #000;
-    border-radius: 6px;
-    padding: 6px;
-    margin-top: 8px;
-    box-shadow: var(--box-shadow-inputs);
+    width: 100%;
     background-color: var(--bg-inputs);
+    border-radius: 6px;
+    padding: 8px;
+    margin-top: 8px;
+    margin-bottom: 10px;
+    box-shadow: var(--box-shadow-inputs);
 }
 
-.update-users-box__form-container__options-column2{
-    display: flex;
-    flex-direction: column;
-    text-wrap: nowrap;
-    width: 25%;
-    position: relative;
-    left: 28%;
-    top: 10px;
-    height: 80%;
-}
 
 .update-users-box__form-container__btn-update{
     background-color: var(--btn-update-bg);
     color: #fff;
-    position: relative;
-    top: 70px;
-    padding: 8px;
+    padding: 10px;
     border-radius: 8px;
+    margin-top: 2rem;
+    margin-bottom: 9rem;
+    position: relative;
+    bottom: 1rem;
+    transform: translateY(-10px);
 }
 
 .update-users-box__form-container__btn-update:hover{
     background-color: var(--btn-update-bg-hover);
-}
-
-@media screen and (min-width: 1272px){
-    .update-users-box__form-container{
-        display: flex;
-        width: 100%;
-        height: 100%;
-        position: relative;
-        top: 0rem;
-    }    
 }

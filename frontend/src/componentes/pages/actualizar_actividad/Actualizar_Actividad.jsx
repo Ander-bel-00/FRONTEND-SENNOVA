@@ -20,92 +20,91 @@ function Actualizar_Actividad() {
         <Caja_formularios
           info={
             <Fragment>
-              <h1 className="text-center actualizar-actividades-title">
-                ACTUALIZAR ACTIVIDAD
-              </h1>
+              <div className="update-activity-main">
+                <h1 className="text-center actualizar-actividades-title">
+                  ACTUALIZAR ACTIVIDAD
+                </h1>
                 <form className="form-update-activity-content">
-                  <div className="form-update-activity-content__col1">
-                    <label
-                      htmlFor="nombre-actividad"
-                      className="form-update-activity-content__col1__label"
-                    >
-                      Nombre de la Actividad*
-                    </label>
-                    <input
-                      type="text"
-                      id="nombre-actividad"
-                      className="form-update-activity-content__col1__input"
-                    />
-                    <label
-                      htmlFor="fecha-entrega-actividad"
-                      className="update-fecha-activity-content__col1__label"
-                    >
-                      Fecha*
-                    </label>
-                    <input
-                      type="date"
-                      id="fecha-entrega-actividad"
-                      className="form-update-activity-content__col1__input"
-                    />
-                   <label
-                      htmlFor="producto-actividad"
-                      className="update-fecha-activity-content__col1__label"
-                    >
-                      Producto*
-                    </label>
-                    <input
-                      type="text"
-                      id="producto-actividad"
-                      className="form-update-activity-content__col1__input"
-                    />
-                    <input
-                    type="submit"
-                    value="Cancelar"
-                    className="btn-cancelar-actividad-uptd"
-                    />
-                  </div>
+                  <label
+                    htmlFor="nombre-actividad"
+                    className="form-update-activity-content__col1__label"
+                  >
+                    Nombre de la Actividad <p className="text-red-600">*</p>
+                  </label>
+                  <input
+                    type="text"
+                    id="nombre-actividad"
+                    className="form-update-activity-content__col1__input"
+                  />
+                  <label
+                    htmlFor="fecha-entrega-actividad"
+                    className="form-update-activity-content__col1__label"
+                  >
+                    Fecha <p className="text-red-600">*</p>
+                  </label>
+                  <input
+                    type="date"
+                    id="fecha-entrega-actividad"
+                    className="form-update-activity-content__col1__input"
+                  />
+                  <label
+                    htmlFor="producto-actividad"
+                    className="form-update-activity-content__col1__label"
+                  >
+                    Producto <p className="text-red-600">*</p>
+                  </label>
+                  <input
+                    type="text"
+                    id="producto-actividad"
+                    className="form-update-activity-content__col1__input"
+                  />
+                  <label
+                    htmlFor="tarea-activida"
+                    className="form-update-activity-content__col1__label"
+                  >
+                    Tarea <p className="text-red-600">*</p>
+                  </label>
+                  <input
+                    type="text"
+                    id="tarea-actividad"
+                    className="form-update-activity-content__col1__input"
+                  />
+                  <label
+                    htmlFor="resultado-actividad"
+                    className="form-update-activity-content__col1__label"
+                  >
+                    Resultado <p className="text-red-600">*</p>
+                  </label>
+                  <input
+                    type="text"
+                    id="resultado-actividad"
+                    className="form-update-activity-content__col1__input"
+                  />
+                  <label
+                    htmlFor="responsable-actividad"
+                    className="form-update-activity-content__col1__label"
+                  >
+                    Responsable de la Actividad{" "}
+                    <p className="text-red-600">*</p>
+                  </label>
+                  <input
+                    type="text"
+                    id="responsable-actividad"
+                    className="form-update-activity-content__col1__input"
+                  />
 
-                  <div className="form-update-activity-content__column2">
-                    <label
-                      htmlFor="tarea-activida"
-                      className="update-fecha-activity-content__col1__label"
-                    >
-                      Tarea*
-                    </label>
-                    <input
-                      type="text"
-                      id="tarea-actividad"
-                      className="form-update-activity-content__col1__input"
-                    />
-                    <label
-                      htmlFor="resultado-actividad"
-                      className="update-fecha-activity-content__col1__label"
-                    >
-                      Resultado*
-                    </label>
-                    <input
-                      type="text"
-                      id="resultado-actividad"
-                      className="form-update-activity-content__col1__input"
-                    />
-                    <label
-                      htmlFor="responsable-actividad"
-                      className="update-fecha-activity-content__col1__label"
-                    >
-                      Responsable de la Actividad*
-                    </label>
-                    <input
-                      type="text"
-                      id="responsable-actividad"
-                      className="form-update-activity-content__col1__input"
-                    />
-                    <input
-                    type="submit"
-                    value="Actualizar"
-                    className="btn-actualizar-actividad"
-                    />
+                  <div className="update-activity-btns">
+                    <button className="btn-actualizar-actividad">
+                      Actualizar
+                    </button>
+                    <Link to={"/lider-semillero/Listar_Actividad"}>
+                      <button className="btn-cancelar-actividad-uptd" type="button">
+                        Cancelar
+                      </button>
+                    </Link>
                   </div>
                 </form>
+              </div>
             </Fragment>
           }
         />

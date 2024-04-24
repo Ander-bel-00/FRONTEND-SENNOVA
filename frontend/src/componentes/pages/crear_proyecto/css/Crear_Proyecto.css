@@ -1,29 +1,20 @@
-.main-container__contenedor-hijo--size{
-    height: 86.3vh;
-}
-.add-proyect-btn-return{
-    width: 5rem;
-}
-
-.add-proyect-btn-return a{
-    position: relative;
-    left: 10%;
-}
-
-.Caja-formularios--add-proyect{
-    position: relative;
-    bottom: 2rem;
-    width: 68%;
+.main-form-proyecto{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    flex-direction: column;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
 }
 
 .form-add-pryect-container{
     display: flex;
-    width: 100%;
-    height: 80%;
-    position: relative;
-    top: 0rem;
+    flex-direction: column;
+    justify-content: center;
+    width: 80%;
+    margin-top: 1rem;
 }
-
 
 .create-project-title{
     font-size: 25px;
@@ -31,24 +22,17 @@
     top: 4%;
 }
 
-.form-add-pryect-container__col1{
-    display: flex;
-    flex-direction: column;
-    text-wrap: nowrap;
-    width: 25%;
-    position: relative;
-    left: 15%;
-    top: 35px;
-}
 
 .form-add-pryect-container__col1__label{
     font-weight: 400;
     padding-top: 12px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
 }
 
 .form-add-pryect-container__col1__input{
-    width: 15rem;
-    border: 1px solid #A6ACAF;
+    width: 100%;
     background-color: var(--bg-inputs);
     border-radius: 6px;
     padding: 8px;
@@ -58,33 +42,31 @@
 }
 
 .form-add-pryect-container__col1__textarea{
-    border: 1px solid #A6ACAF;
     background-color: var(--bg-inputs);
-    width: 15rem;
-    height: 15rem;
+    width: 100%;
+    height: 5rem;
     border-radius: 8px;
-    box-shadow: var(--box-shadow-inputs);
-}
-.form-add-pryect-container__column2{
-    display: flex;
-    flex-direction: column;
-    text-wrap: nowrap;
-    width: 25%;
-    position: relative;
-    left: 31%;
-    top: 35px;
+   
 }
 
+.btns-crear-projecto{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    justify-content: space-around;
+    margin-top: 2rem;
+}
 .btn-crear-proyecto{
     background-color: var(--btn-update-bg);
-    width: 15rem;
+    width: 12rem;
     height: 45px;
     border-radius: 8px;
     box-shadow: 0px 4px 11px 1px rgba(129,122,122,0.3);
-    position: relative;
     top: 2rem;
     color: var(--text-btn-color);
     font-size: 21px;
+    text-align: center;
 }
 
 .btn-crear-proyecto:hover{
@@ -92,11 +74,10 @@
 }
 .btn-cancelar-proyecto{
     background-color: var(--boton-cancelar-color);
-    width: 15rem;
+    width: 12rem;
     height: 45px;
     border-radius: 8px;
     box-shadow: 0px 4px 11px 1px rgba(129,122,122,0.3);
-    position: relative;
     top: 4rem;
     color: var(--text-btn-color);
     font-size: 21px;
@@ -104,4 +85,13 @@
 
 .btn-cancelar-proyecto:hover{
     background-color: var(--boton-cancelar-bg-hover);
+}
+.rojo-required{
+    color: red;
+}
+.form-add-pryect-container__select{
+    background-color: var(--bg-inputs);
+    height: 2rem;
+    border-radius: 5px;
+
 }
