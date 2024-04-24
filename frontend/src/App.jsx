@@ -45,7 +45,6 @@ import Listar_Usuarios_ins_invg from "./componentes/pages/InstructorInvestigador
 import Listar_Fichas_ins_invg from "./componentes/pages/InstructorInvestigador/Listar_Fichas_ins_invg/Listar_Fichas_ins_invg";
 import Listar_Usuarios_apr_invg from "./componentes/pages/AprendizInvestigador/Listar_usuarios_apr_invg/Listar_Usuarios_apr_invg";
 
-
 import Landing_ofi from "./componentes/pages/Landing/Landing_ofi";
 import Login from "./componentes/pages/login/Login";
 import Cronograma_apr_invg from "./componentes/pages/AprendizInvestigador/Cronograma_apr_invg/Cronograma_apr_invg";
@@ -402,7 +401,7 @@ function App() {
                     element={
                       <Fragment>
                         <main className="main-container">
-                          <Cronograma_apr_invg/>
+                          <Cronograma_apr_invg />
                         </main>
                       </Fragment>
                     }
@@ -426,7 +425,7 @@ function App() {
                     }
                   />
 
-                    <Route
+                  <Route
                     path="/listar-eventos"
                     element={
                       <main className="main-container">
@@ -435,25 +434,25 @@ function App() {
                     }
                   />
 
-                    <Route
+                  <Route
                     path="/visualizar-actividad"
                     element={
                       <main className="main-container">
-                        <Visualizar_Actividad_apr_invg/>
+                        <Visualizar_Actividad_apr_invg />
                       </main>
                     }
                   />
 
-                    <Route
+                  <Route
                     path="/visualizar-evento"
                     element={
                       <main className="main-container">
-                        <Visualizar_Evento_apr_invg/>
+                        <Visualizar_Evento_apr_invg />
                       </main>
                     }
                   />
 
-                    <Route
+                  <Route
                     path="/visualizar-programa-formacion"
                     element={
                       <main className="main-container">
