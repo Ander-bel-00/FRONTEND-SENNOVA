@@ -49,6 +49,7 @@ import Listar_Usuarios_apr_invg from "./componentes/pages/AprendizInvestigador/L
 import Landing_ofi from "./componentes/pages/Landing/Landing_ofi";
 import Login from "./componentes/pages/login/Login";
 import ListarEvento_ins_invg from "./componentes/pages/InstructorInvestigador/listarEventos_ins_invg/ListarEvento_ins_invg";
+import Perfil from "./componentes/pages/perfil/Perfil";
 
 function App() {
   return (
@@ -103,6 +104,15 @@ function App() {
                     element={
                       <main className="main-container">
                         <ModificarUsuario />
+                      </main>
+                    }
+                  />
+
+                  <Route
+                    path="/perfil"
+                    element={
+                      <main className="main-container">
+                        <Perfil />
                       </main>
                     }
                   />
