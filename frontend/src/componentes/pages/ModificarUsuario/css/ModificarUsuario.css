@@ -46,8 +46,11 @@
     color: #fff;
     padding: 10px;
     border-radius: 8px;
-    margin-top: 1rem;
-    margin-bottom: 7rem;
+    margin-top: 2rem;
+    margin-bottom: 9rem;
+    position: relative;
+    bottom: 1rem;
+    transform: translateY(-10px);
 }
 
 .update-users-box__form-container__btn-update:hover{

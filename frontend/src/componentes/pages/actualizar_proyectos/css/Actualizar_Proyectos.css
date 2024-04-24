@@ -94,7 +94,7 @@
     margin-top: 2rem;
 }
 
-.btn-actualizar-projecto{
+.btn-actualizar-proyecto{
     background-color: var(--btn-update-bg);
     width: 15rem;
     padding: 8px;
@@ -105,12 +105,12 @@
     text-align: center;
 }
 
-.btn-actualizar-projecto:hover{
+.btn-actualizar-proyecto:hover{
     background-color: var(--btn-update-bg-hover);
 }
 
 .btn-cancelar-actualizar-proyect{
-    background-color: var(--boton-cacelar-color);
+    background-color: var(--boton-cancelar-color);
     width: 15rem;
     padding: 8px;
     border-radius: 8px;
@@ -120,7 +120,7 @@
 }
 
 .btn-cancelar-actualizar-proyect:hover{
-    background-color: var(--boton-cacelar-bg-hover);
+    background-color: var(--boton-cancelar-bg-hover);
 }
 
 .form-update-proyects-content_select{
