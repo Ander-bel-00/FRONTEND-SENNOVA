@@ -46,7 +46,7 @@ function App() {
                 <Sidenav />
                 <Routes>
                   <Route
-                    path="/semillero"
+                    path="/"
                     element={
                       <Fragment>
                         <main className="main-container">

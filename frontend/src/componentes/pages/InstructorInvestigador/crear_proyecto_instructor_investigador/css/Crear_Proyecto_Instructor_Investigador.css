@@ -1,11 +1,40 @@
-.main-container__contenedor-hijo--size{
-    height: 86.3vh;
+.add-proyect-btn-return{
+    width: 5rem;
+}
+
+.add-proyect-btn-return a{
+    position: relative;
+    left: 10%;
+}
+
+.Caja-formularios--add-pryect-intructor{
+    height: 100vh;
+    bottom: 2rem;
+    width: 70%;
+}
+
+.main-form-instructor-proyecto{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    flex-direction: column;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+.form-add-pryect-intructor-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 80%;
+    margin-top: 1rem;
 }
 
 .create-project-instructor-title{
-    position: relative;
-    top: 25px;
     font-size: 25px;
+    position: relative;
+    top: 4%;
 }
 
 .form-add-pryect-instructor-container__col1{
@@ -14,31 +43,34 @@
     text-wrap: nowrap;
     width: 25%;
     position: relative;
-    left: 10%;
-    top: 50px;
+    left: 15%;
+    top: 35px;
 }
 
 .form-add-pryect-instructor-container__col1__label{
     font-weight: 400;
     padding-top: 12px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
 }
 
 .form-add-pryect-instructor-container__col1__input{
-    width: 15rem;
-    border: 1px solid #000;
+    width: 50%;
+    background-color: var(--bg-inputs);
     border-radius: 6px;
     padding: 8px;
     margin-top: 8px;
     margin-bottom: 10px;
     box-shadow: var(--box-shadow-inputs);
+    width: 100%;
 }
 
 .form-add-pryect-instructor-container__col1__textarea{
-    border: 1px solid #385C57;
-    width: 15rem;
-    height: 15rem;
+    background-color: var(--bg-inputs);
+    width: 100%;
+    height: 5rem;
     border-radius: 8px;
-    box-shadow: 0px 4px 11px 1px rgba(129,122,122,0.73);
 }
 
 .form-add-pryect-intructor-container__column2{
@@ -47,6 +79,56 @@
     text-wrap: nowrap;
     width: 25%;
     position: relative;
-    left: 55%;
-    top: -310px;
+    left: 31%;
+    top: 35px;
+}
+
+.btns-crear-instructor-projecto{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    justify-content: space-around;
+    margin-top: 2rem;
+}
+
+.btn-crear-instructor-projecto{
+    background-color: var(--btn-update-bg);
+    width: 12rem;
+    height: 45px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 11px 1px rgba(129,122,122,0.3);
+    top: 2rem;
+    color: var(--text-btn-color);
+    font-size: 21px;
+    text-align: center;
+}
+
+.btn-crear-instructor-projecto{
+    background-color: var(--btn-update-bg-hover);
+}
+
+.btn-cancelar-instructor-proyecto{
+    background-color: var(--boton-cancelar-color);
+    width: 12rem;
+    height: 45px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 11px 1px rgba(129,122,122,0.3);
+    top: 4rem;
+    color: var(--text-btn-color);
+    font-size: 21px;
+}
+
+.btn-cancelar-instructor-proyecto:hover{
+    background-color: var(--boton-cancelar-bg-hover);
+}
+
+.rojo-required{
+    color: red;
+}
+
+.form-add-pryect-intructor-container__select{
+    background-color: var(--bg-inputs);
+    height: 2rem;
+    border-radius: 5px;
 }
