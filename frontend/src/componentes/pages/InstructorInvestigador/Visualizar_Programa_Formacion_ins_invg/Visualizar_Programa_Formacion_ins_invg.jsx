@@ -1,4 +1,4 @@
-import { BiSolidReport, BiTable } from "react-icons/bi";
+import { FaFileArrowUp } from "react-icons/fa6";
 import { Fragment } from "react";
 import { IoAdd } from "react-icons/io5";
 import Header_ToolBar from "../../../common/Header_ToolBar";
@@ -26,7 +26,7 @@ function Visualizar_Programa_Formacion_ins_invg() {
       <Header_ToolBar
       Header_Tools={
         <Fragment>
-          <BotonBlanco icon={<BiSolidReport/>} text={"reporte"} />
+          <BotonBlanco icon={<FaFileArrowUp/>} text={"reporte"} clase={'btn-blanco btn-blanco--modify btn-verde'} />
           <BotonVerdeAñadir icon={<IoAdd/>} text={"Añadir Informacion al Programa de Formación"} link={'/instructor-investigador/Crear-programa-formacion'}/>
         </Fragment>
       }

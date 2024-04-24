@@ -1,31 +1,39 @@
-.mainsTitles-instructor{
-    text-align: center;
-    font-weight: bold;
-    font-size: 25px;
+.main-form-program-instructor{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    flex-direction: column;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
 }
 
-.inputBoxes-instructor__titlecaja{
-    margin: 30px;
-    font-size: 20px;
-    text-align: center;
-    position: relative;
-    bottom: 2rem;
-}
-
-
-.unputBoxes-instructor__label{
+.form-add-program-container-instructor{
     display: flex;
     flex-direction: column;
-    text-wrap: nowrap;
-    width: 25%;
-    position: relative;
-    left: 10%;
-    top: 10px;
+    justify-content: center;
+    width: 80%;
+    margin-top: 1rem;
 }
 
-.unputBoxes-instructor__input{
-    width: 15rem;
-    border: 1px solid #000;
+.create-program-title-instructor{
+    font-size: 25px;
+    position: relative;
+    top: 4%;
+}
+
+
+.form-add-program-container__col1__label-instructor{
+    font-weight: 400;
+    padding-top: 12px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.form-add-program-container__col1__input-instructor{
+    width: 100%;
+    background-color: var(--bg-inputs);
     border-radius: 6px;
     padding: 8px;
     margin-top: 8px;
@@ -33,125 +41,57 @@
     box-shadow: var(--box-shadow-inputs);
 }
 
-
-.add-event-btn-return-instructor:hover{
-    transform: scale(1.09);
-}
-
-
-.inputBoxes-instructor__olderbox{
-    margin: 40px 70px;
+.form-add-program-container__col1__textarea-instructor{
+    background-color: var(--bg-inputs);
+    width: 100%;
+    height: 5rem;
+    border-radius: 8px;
    
 }
 
-
-
-
-/* Botones principales */
-.buttonsCreating-instructor__cancelar,
-.buttonsCreating-instructor__crear--green{
-    position: relative;
-    top: 84%;
-    left: 5%;
-    padding: 5px 15px;
-    border: none;
+.btns-crear-program{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    justify-content: space-around;
+    margin-top: 2rem;
+}
+.btn-crear-program{
+    background-color: var(--btn-update-bg);
+    width: 12rem;
+    height: 45px;
     border-radius: 8px;
-    font-size: small;
-    cursor: pointer;
-    box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 4px 11px 1px rgba(129,122,122,0.3);
+    top: 2rem;
+    color: var(--text-btn-color);
+    font-size: 21px;
+    text-align: center;
 }
 
-.buttonsCreating-instructor__cancelar{
-    color: white;
-    background-color: #d4212c;
-    font-size: medium;
-    padding: 8px 20px;
+.btn-crear-program:hover{
+    background-color: var(--btn-update-bg-hover);
+}
+.btn-cancelar-program{
+    background-color: var(--boton-cancelar-color);
+    width: 12rem;
+    height: 45px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 11px 1px rgba(129,122,122,0.3);
+    top: 4rem;
+    color: var(--text-btn-color);
+    font-size: 21px;
 }
 
-
-.buttonsCreating-instructor__cancelar:hover{
-    background-color: var(--boton-cacelar-bg-hover);
+.btn-cancelar-program:hover{
+    background-color: var(--boton-cancelar-bg-hover);
 }
-
-
-.buttonsCreating-instructor__crear--green{
-    color: white;
-    background-color: #39a900;
-    font-size: medium;
-    padding: 8px 30px;
-    left: 10%; 
+.rojo-required{
+    color: red;
 }
+.form-add-program-container-instructor__select{
+    background-color: var(--bg-inputs);
+    height: 2rem;
+    border-radius: 5px;
 
-.buttonsCreating-instructor__crear--green:hover{
-    background-color: var(--boton-crear-bg-hover);
-}
-
-
-
-@media screen and (min-width: 1338.18px) {
-
-    .inputBoxes-instructor__titlecaja{
-        margin: 30px;
-        font-size: 20px;
-        text-align: center;
-        position: relative;
-        top: 1rem;
-    }
-
-    .unputBoxes-instructor__label{
-        display: flex;
-        flex-direction: column;
-        text-wrap: nowrap;
-        text-align: left;
-        width: 25%;
-        position: relative;
-        left: 36%;
-        top: 35px;
-    }
-    
-    .unputBoxes-instructor__input{
-        width: 17rem;
-        border: 1px solid #000;
-        border-radius: 6px;
-        padding: 8px;
-        margin-top: 8px;
-        margin-bottom: 10px;
-        box-shadow: var(--box-shadow-inputs);
-        position: relative;
-        left: 35%;
-        top: 10px;
-        
-    }
-
-    /* Botones principales */
-    .buttonsCreating-instructor__cancelar,
-    .buttonsCreating-instructor__crear--green{
-        position: relative;
-        top: 84%;
-        left: 38%;
-        padding: 5px 15px;
-        border: none;
-        border-radius: 8px;
-        font-size: small;
-        cursor: pointer;
-        box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.2);
-    }
-
-    .buttonsCreating-instructor__cancelar{
-        color: white;
-        background-color: #d4212c;
-        font-size: medium;
-        padding: 8px 20px;
-    }
-
-
-    .buttonsCreating-instructor__crear--green{
-        color: white;
-        background-color: #39a900;
-        font-size: medium;
-        padding: 8px 30px;
-        left: 42%; 
-    }
-
-    
 }

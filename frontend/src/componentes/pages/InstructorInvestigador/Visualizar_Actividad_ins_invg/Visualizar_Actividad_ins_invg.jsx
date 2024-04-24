@@ -44,8 +44,8 @@ function Visualizar_Actividad_ins_invg() {
                 icon={<IoIosReturnLeft />}
               />
             </div>
-            <BotonBlanco icon={<FaFileArrowUp />} text={"Reporte"} />
-            <BotonBlanco icon={<LuCalendarDays />} text={"Ir al Cronograma"} />
+            <BotonBlanco icon={<FaFileArrowUp />} text={"Reporte"} clase={'btn-blanco btn-blanco--modify btn-verde'} />
+            <BotonBlanco icon={<LuCalendarDays />} text={"Ir al Cronograma"} clase={'btn-blanco btn-blanco--modify btn-azul'}/>
             <Search icon={<FaSearch />} text={"Buscar Actividades"} />
             <BotonVerdeAñadir icon={<AiOutlinePlus />} text={"Añadir Actividad"} />
           </Fragment>

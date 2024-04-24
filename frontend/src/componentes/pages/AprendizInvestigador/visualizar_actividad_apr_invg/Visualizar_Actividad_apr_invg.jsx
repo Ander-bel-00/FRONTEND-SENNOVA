@@ -1,6 +1,7 @@
 import { IoAdd, IoTrashOutline } from "react-icons/io5";
 import { IoIosReturnLeft } from "react-icons/io";
 import { BiSolidReport } from "react-icons/bi";
+import { FaFileArrowUp } from "react-icons/fa6";
 import { CiCalendar } from "react-icons/ci";
 import { FaSearch } from "react-icons/fa";
 import { Fragment } from "react";
@@ -46,8 +47,8 @@ function Visualizar_Actividad_apr_invg() {
                 icon={<IoIosReturnLeft />}
               />
             </div>
-            <BotonBlanco icon={<BiSolidReport />} text={"Reporte"} />
-            <BotonBlanco icon={<CiCalendar />} text={"calendario"} />
+            <BotonBlanco icon={<FaFileArrowUp />} text={"Reporte"} clase={'btn-blanco btn-blanco--modify btn-verde'} />
+            <BotonBlanco icon={<CiCalendar />} text={"calendario"} clase={'btn-blanco btn-blanco--modify btn-azul'} />
             <Search icon={<FaSearch />} text={"Buscar Actividades"} />
             <BotonVerdeAñadir icon={<IoAdd />} text={"Añadir Actividad"} />
           </Fragment>
