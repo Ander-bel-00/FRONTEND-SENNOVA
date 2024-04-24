@@ -8,7 +8,7 @@ import BotonReturn from "../../common/BotonReturn";
 function Actualizar_Proyectos() {
   return (
     <Fragment>
-      <div className="main-container__contenedor-hijo">
+      <div className="main-container__contenedor-hijo main-container__contenedor-hijo--size">
         <Link>
           <div className="update-proyect-btn-return">
             <BotonReturn
@@ -20,16 +20,29 @@ function Actualizar_Proyectos() {
         <Caja_formularios
           info={
             <Fragment>
-              <h2 className="text-center actualizar-project-title">
-                ACTUALIZAR PROYECTO DE INVESTIGACIÓN
-              </h2>
-              <form className="form-update-proyects-content">
-                <div className="form-update-proyects-content__col1">
+              <div className="main-form-update-proyecto">
+                <h2 className="text-center actualizar-project-title">
+                  ACTUALIZAR PROYECTO DE INVESTIGACIÓN
+                </h2>
+                <form className="form-update-proyects-content">
+                  <label
+                    htmlFor="tipo proyecto"
+                    className="form-update-proyects-content__col1__label"
+                  >
+                    Tipo Proyecto <p className="rojo-required">*</p>
+                  </label>
+
+                  <select className="form-update-proyects-content_select">
+                    <option select>Seleccione tipo de proyecto</option>
+                    <option>Modernizacion</option>
+                    <option>Innovació</option>
+                    <option>Aplicación</option>
+                  </select>
                   <label
                     htmlFor="nombre-del-proyecto"
                     className="form-update-proyects-content__col1__label"
                   >
-                    Nombre del Proyecto*
+                    Nombre del Proyecto <p className="rojo-required">*</p>
                   </label>
                   <input
                     type="text"
@@ -40,7 +53,7 @@ function Actualizar_Proyectos() {
                     htmlFor="descripción-del-proyecto"
                     className="form-update-proyects-content__col1__label"
                   >
-                    Descripción del Proyecto*
+                    Descripción del Proyecto <p className="rojo-required">*</p>
                   </label>
                   <textarea
                     name="text"
@@ -49,14 +62,12 @@ function Actualizar_Proyectos() {
                     rows="9"
                     className="form-update-proyects-content__col1__textarea"
                   ></textarea>
-                </div>
 
-                <div className="form-update-proyects-content__column2">
                   <label
                     htmlFor="fecha-inicio-del-proyecto"
                     className="form-update-proyects-content__col1__label"
                   >
-                    Fecha inicio del Proyecto*
+                    Fecha inicio del Proyecto <p className="rojo-required">*</p>
                   </label>
                   <input
                     type="date"
@@ -67,7 +78,7 @@ function Actualizar_Proyectos() {
                     htmlFor="fecha-fin-del-proyecto"
                     className="form-update-proyects-content__col1__label"
                   >
-                    Fecha Fin del Proyecto*
+                    Fecha Fin del Proyecto <p className="rojo-required">*</p>
                   </label>
                   <input
                     type="date"
@@ -75,18 +86,16 @@ function Actualizar_Proyectos() {
                     className="form-update-proyects-content__col1__input"
                   />
 
-                  <input
-                    type="submit"
-                    value="Actualizar"
-                    className="btn-actualizar-proyecto"
-                  />
-                  <input
-                    type="submit"
-                    value="Cancelar"
-                    className="btn-cancelar-actualizar-proyect"
-                  />
-                </div>
-              </form>
+                  <div className="btns-actualizar-projecto">
+                    <button className="btn-actualizar-projecto">Actualizar</button>
+                    <input
+                      type="submit"
+                      value="Cancelar"
+                      className="btn-cancelar-update-proyect"
+                    />
+                  </div>
+                </form>
+              </div>
             </Fragment>
           }
         />
