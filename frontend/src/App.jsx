@@ -48,6 +48,7 @@ import Listar_Usuarios_apr_invg from "./componentes/pages/AprendizInvestigador/L
 
 import Landing_ofi from "./componentes/pages/Landing/Landing_ofi";
 import Login from "./componentes/pages/login/Login";
+import Cronograma_apr_invg from "./componentes/pages/AprendizInvestigador/Cronograma_apr_invg/Cronograma_apr_invg";
 import ListarEvento_ins_invg from "./componentes/pages/InstructorInvestigador/listarEventos_ins_invg/ListarEvento_ins_invg";
 
 function App() {
@@ -401,7 +402,7 @@ function App() {
                     element={
                       <Fragment>
                         <main className="main-container">
-                          <Cronograma_ins_invg />
+                          <Cronograma_apr_invg/>
                         </main>
                       </Fragment>
                     }
