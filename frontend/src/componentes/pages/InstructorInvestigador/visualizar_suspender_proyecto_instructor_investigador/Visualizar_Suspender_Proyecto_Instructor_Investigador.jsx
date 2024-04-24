@@ -1,6 +1,5 @@
 import React, { Fragment } from "react";
 import "./css/Visualizar_Suspender_Proyecto_Instructor_Investigador.css";
-import { IoIosReturnLeft } from "react-icons/io";
 import { LuCalendarDays } from "react-icons/lu";
 import Header_ToolBar from "../../../common/Header_ToolBar";
 import BotonBlanco from "../../../common/BotonReporte";
@@ -23,11 +22,11 @@ function Visualizar_Suspender_Proyecto_Instructor_Investigador() {
         <Header_ToolBar
           Header_Tools={
             <Fragment>
-              <BotonReturn  link={"/instructor-investigador/Listar_Proyectos_Instructor_Investigador"} icon={<IoIosReturnLeft />} />
               <div className="Header-tool-btn-go-cronograma">
                 <BotonBlanco
                   icon={<LuCalendarDays />}
                   text={"Ir al Cronograma"}
+                  clase={'btn-blanco btn-blanco--modify btn-azul'}
                 />
               </div>
             </Fragment>

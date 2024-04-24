@@ -1,6 +1,5 @@
 import React, { Fragment } from "react";
 import "./css/Crear_Proyecto_Instructor_Investigador.css";
-import { IoIosReturnLeft } from "react-icons/io";
 import Caja_formularios from "../../../common/Caja_formularios";
 import BotonReturn from "../../../common/BotonReturn";
 import { Link } from "react-router-dom";
@@ -11,12 +10,6 @@ function Crear_Proyecto_Instructor_Investigador() {
       <div className="main-container__contenedor-hijo main-container__contenedor-hijo--size">
         <Link>
           <div className="add-proyect-btn-return">
-            <BotonReturn
-              link={
-                "/instructor-investigador/Listar_Proyectos_Instructor_Investigador"
-              }
-              icon={<IoIosReturnLeft />}
-            />
           </div>
         </Link>
 

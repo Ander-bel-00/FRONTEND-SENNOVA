@@ -330,7 +330,7 @@ function App() {
                     }
                   />
                   <Route
-                    path="/listar-proyectos-instructor-investigador"
+                    path="/listar-proyectos"
                     element={
                       <main className="main-container">
                         <Listar_Proyectos_Instructor_Investigador />
@@ -338,7 +338,7 @@ function App() {
                     }
                   />
                   <Route
-                    path="/visualizar-suspender-proyecto-instructor-investigador"
+                    path="/visualizar-suspender-proyecto"
                     element={
                       <main className="main-container">
                         <Visualizar_Suspender_Proyecto_Instructor_Investigador />
@@ -346,7 +346,7 @@ function App() {
                     }
                   />
                   <Route
-                    path="/crear-proyecto-instructor-investigador"
+                    path="/crear-proyecto"
                     element={
                       <main className="main-container">
                         <Crear_Proyecto_Instructor_Investigador />
@@ -354,7 +354,7 @@ function App() {
                     }
                   />
                   <Route
-                    path="/listar-actividad-instructor-investigador"
+                    path="/listar-actividad"
                     element={
                       <main className="main-container">
                         <Listar_Actividad_Instructor_Investigador />
@@ -362,7 +362,7 @@ function App() {
                     }
                   />
                   <Route
-                    path="/crear-actividad-instructor-investigador"
+                    path="/crear-actividad"
                     element={
                       <main className="main-container">
                         <Crear_Actividad_Instructor_Investigador />

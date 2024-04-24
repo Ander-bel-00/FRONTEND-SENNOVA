@@ -9,7 +9,6 @@ import Header_ToolBar from "../../../common/Header_ToolBar";
 import BotonBlanco from "../../../common/BotonReporte";
 import BotonVerdeAñadir from "../../../common/BotonVerde";
 import Search from "../../../common/Search";
-import BotonReturn from "../../../common/BotonReturn";
 import "./css/Visualizar_Actividad_ins_invg.css";
 
 
@@ -39,13 +38,13 @@ function Visualizar_Actividad_ins_invg() {
         Header_Tools={
           <Fragment>
             <div className="btn-vs-actividades-instructor">
-              <BotonReturn
-                link={"/instructor-investigador/Listar_Actividad_Instructor_Investigador"}
-                icon={<IoIosReturnLeft />}
-              />
             </div>
             <BotonBlanco icon={<FaFileArrowUp />} text={"Reporte"} clase={'btn-blanco btn-blanco--modify btn-verde'} />
+<<<<<<< HEAD
             <BotonBlanco icon={<LuCalendarDays />} text={"Ir al Cronograma"} clase={'btn-blanco btn-blanco--modify btn-azul'}/>
+=======
+            <BotonBlanco icon={<LuCalendarDays />} text={"Ir al Cronograma"} clase={'btn-blanco btn-blanco--modify btn-azul'} />
+>>>>>>> Karol
             <Search icon={<FaSearch />} text={"Buscar Actividades"} />
             <BotonVerdeAñadir icon={<AiOutlinePlus />} text={"Añadir Actividad"} />
           </Fragment>
