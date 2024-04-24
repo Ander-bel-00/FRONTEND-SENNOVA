@@ -38,11 +38,12 @@ function Listar_Actividad() {
         <Header_ToolBar
           Header_Tools={
             <Fragment>
-              <BotonBlanco icon={<FaFileArrowUp />} text={"Reporte"} />
+              <BotonBlanco icon={<FaFileArrowUp />} text={"Reporte"}  clase={'btn-blanco btn-blanco--modify btn-verde'}/>
 
               <BotonBlanco
                 icon={<LuCalendarDays />}
                 text={"Ir al Cronograma"}
+                clase={'btn-blanco btn-blanco--modify btn-azul'}
               />
 
               <Search text={"Buscar Actividades"} />

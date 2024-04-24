@@ -33,17 +33,18 @@ function Listar_Proyectos_Instructor_Investigador() {
         <Header_ToolBar
           Header_Tools={
             <Fragment>
-              <BotonBlanco icon={<FaFileArrowUp />} text={"Reporte"} />
+              <BotonBlanco icon={<FaFileArrowUp />} text={"Reporte"} clase={'btn-blanco btn-blanco--modify btn-verde'}/>
               <Search text={"Buscar proyecto"} />
               <BotonBlanco
                 icon={<LuCalendarDays />}
                 text={"Ir al Cronograma"}
                 link={"/instructor-investigador/cronograma"}
+                clase={'btn-blanco btn-blanco--modify btn-azul'}
               />
               <BotonVerdeAñadir
                 icon={<AiOutlinePlus />}
                 text={"Añadir Información"}
-                link={"/instructor-investigador/Crear_Proyecto_Instructor_Investigador"}
+                link={"/instructor-investigador/crear-proyecto"}
               />
             </Fragment>
           }
@@ -85,7 +86,7 @@ function Listar_Proyectos_Instructor_Investigador() {
                         </td>
                         <td className="list-project-instructor-table__td">
                             <div className="list-project-instructor-table__td__btns">
-                            <Link to={"/instructor-investigador/Visualizar_Suspender_Proyecto_Instructor_Investigador"}
+                            <Link to={"/instructor-investigador/visualizar-suspender-proyecto"}
                             >
                               <LiaEyeSolid className="list-project-instructor-table__td__btn" />
                             </Link>

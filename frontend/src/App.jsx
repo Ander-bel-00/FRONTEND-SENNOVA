@@ -107,7 +107,7 @@ function App() {
                   />
 
                   <Route
-                    path="/Visualizar_Suspender_Proyecto"
+                    path="/visualizar-suspender-proyecto"
                     element={
                       <main className="main-container">
                         <Visualizar_Suspender_Proyecto />
@@ -115,7 +115,7 @@ function App() {
                     }
                   />
                   <Route
-                    path="/Listar_Proyectos"
+                    path="/listar-proyectos"
                     element={
                       <main className="main-container">
                         <Listar_Proyectos />
@@ -123,7 +123,7 @@ function App() {
                     }
                   />
                   <Route
-                    path="/Crear_Proyecto"
+                    path="/crear-proyecto"
                     element={
                       <main className="main-container">
                         <Crear_Proyecto />
@@ -131,7 +131,7 @@ function App() {
                     }
                   />
                   <Route
-                    path="/Actualizar_Proyectos"
+                    path="/actualizar-proyectos"
                     element={
                       <main className="main-container">
                         <Actualizar_Proyectos />
@@ -139,7 +139,7 @@ function App() {
                     }
                   />
                   <Route
-                    path="/Listar_Actividad"
+                    path="/listar-actividad"
                     element={
                       <main className="main-container">
                         <Listar_Actividad />
@@ -147,7 +147,7 @@ function App() {
                     }
                   />
                   <Route
-                    path="/Crear_Actividad"
+                    path="/crear-actividad"
                     element={
                       <main className="main-container">
                         <Crear_Actividad />
@@ -155,7 +155,7 @@ function App() {
                     }
                   />
                   <Route
-                    path="/Actualizar_Actividad"
+                    path="/actualizar-actividad"
                     element={
                       <main className="main-container">
                         <Actualizar_Actividad />
@@ -164,7 +164,7 @@ function App() {
                   />
 
                   <Route
-                    path="/Visualizar-actividad"
+                    path="/visualizar-actividad"
                     element={
                       <main className="main-container">
                         <Visualizar_Actividad />
@@ -173,7 +173,7 @@ function App() {
                   />
 
                   <Route
-                    path="/Crear-eventos"
+                    path="/crear-eventos"
                     element={
                       <main className="main-container">
                         <Crear_Eventos />
@@ -182,7 +182,7 @@ function App() {
                   />
 
                   <Route
-                    path="/Listar-eventos"
+                    path="/listar-eventos"
                     element={
                       <main className="main-container">
                         <Listar_Eventos />
@@ -191,7 +191,7 @@ function App() {
                   />
 
                   <Route
-                    path="/Visualizar-evento"
+                    path="/visualizar-evento"
                     element={
                       <main className="main-container">
                         <Visualizar_Evento />
@@ -200,7 +200,7 @@ function App() {
                   />
 
                   <Route
-                    path="/Visualizar-programa-formacion"
+                    path="/visualizar-programa-formacion"
                     element={
                       <main className="main-container">
                         <Visualizar_Programa_Formacion />
@@ -209,7 +209,7 @@ function App() {
                   />
 
                   <Route
-                    path="/Crear-programa-formacion"
+                    path="/crear-programa-formacion"
                     element={
                       <main className="main-container">
                         <Crear_Programa_Formacion />
@@ -218,7 +218,7 @@ function App() {
                   />
 
                   <Route
-                    path="/Actualizar-eventos"
+                    path="/actualizar-eventos"
                     element={
                       <main className="main-container">
                         <Actualizar_Eventos />
@@ -227,7 +227,7 @@ function App() {
                   />
 
                   <Route
-                    path="/Listar-fichas"
+                    path="/listar-fichas"
                     element={
                       <main className="main-container">
                         <Listar_Fichas />
@@ -267,7 +267,7 @@ function App() {
                     }
                   />
                   <Route
-                    path="/Visualizar-actividad"
+                    path="/visualizar-actividad"
                     element={
                       <main className="main-container">
                         <Visualizar_Actividad_ins_invg />
@@ -276,7 +276,7 @@ function App() {
                   />
 
                   <Route
-                    path="/Crear-eventos"
+                    path="/crear-eventos"
                     element={
                       <main className="main-container">
                         <Crear_Eventos_ins_invg />
@@ -285,7 +285,7 @@ function App() {
                   />
 
                   <Route
-                    path="/Listar-eventos"
+                    path="/listar-eventos"
                     element={
                       <main className="main-container">
                         <Listar_Eventos_ins_ivg />
@@ -294,7 +294,7 @@ function App() {
                   />
 
                   <Route
-                    path="/Visualizar-evento"
+                    path="/visualizar-evento"
                     element={
                       <main className="main-container">
                         <Visualizar_Evento_ins_invg />
@@ -302,7 +302,7 @@ function App() {
                     }
                   />
                   <Route
-                    path="/Visualizar-programa-formacion"
+                    path="/visualizar-programa-formacion"
                     element={
                       <main className="main-container">
                         <Visualizar_Programa_Formacion_ins_invg />
@@ -311,7 +311,7 @@ function App() {
                   />
 
                   <Route
-                    path="/Crear-programa-formacion"
+                    path="/crear-programa-formacion"
                     element={
                       <main className="main-container">
                         <Crear_Programa_Formacion_ins_invg />
@@ -320,7 +320,7 @@ function App() {
                   />
 
                   <Route
-                    path="/Actualizar-eventos"
+                    path="/actualizar-eventos"
                     element={
                       <main className="main-container">
                         <Actualizar_Eventos_ins_invg />
@@ -328,7 +328,7 @@ function App() {
                     }
                   />
                   <Route
-                    path="/Listar_Proyectos_Instructor_Investigador"
+                    path="/listar-proyectos"
                     element={
                       <main className="main-container">
                         <Listar_Proyectos_Instructor_Investigador />
@@ -336,7 +336,7 @@ function App() {
                     }
                   />
                   <Route
-                    path="/Visualizar_Suspender_Proyecto_Instructor_Investigador"
+                    path="/visualizar-suspender-proyecto"
                     element={
                       <main className="main-container">
                         <Visualizar_Suspender_Proyecto_Instructor_Investigador />
@@ -344,7 +344,7 @@ function App() {
                     }
                   />
                   <Route
-                    path="/Crear_Proyecto_Instructor_Investigador"
+                    path="/crear-proyecto"
                     element={
                       <main className="main-container">
                         <Crear_Proyecto_Instructor_Investigador />
@@ -352,7 +352,7 @@ function App() {
                     }
                   />
                   <Route
-                    path="/Listar_Actividad_Instructor_Investigador"
+                    path="/listar-actividad"
                     element={
                       <main className="main-container">
                         <Listar_Actividad_Instructor_Investigador />
@@ -360,7 +360,7 @@ function App() {
                     }
                   />
                   <Route
-                    path="/Crear_Actividad_Instructor_Investigador"
+                    path="/crear-actividad"
                     element={
                       <main className="main-container">
                         <Crear_Actividad_Instructor_Investigador />
@@ -380,7 +380,7 @@ function App() {
                 <Sidenav />
                 <Routes>
                   <Route
-                    path="/Visualizar_Proyecto_apr_invg"
+                    path="/visualizar-proyecto"
                     element={
                       <main className="main-container">
                         <Visualizar_Proyecto_apr_invg />
@@ -388,7 +388,7 @@ function App() {
                     }
                   />
                   <Route
-                    path="/Listar_Proyectos_apr_invg"
+                    path="/listar-proyectos"
                     element={
                       <main className="main-container">
                         <Listar_Proyectos_apr_invg />
@@ -416,7 +416,7 @@ function App() {
                   />
 
                   <Route
-                    path="/Listar-fichas"
+                    path="/listar-fichas"
                     element={
                       <main className="main-container">
                         <Listar_Fichas_ins_invg />

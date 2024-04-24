@@ -8,7 +8,7 @@ import Caja_Blanca from "../../common/Caja_Blanca";
 import Header_ToolBar from "../../common/Header_ToolBar";
 import { Link } from "react-router-dom";
 import BotonBlanco from "../../common/BotonReporte";
-import BotonReturn from "../../common/BotonReturn";
+
 
 function Visualizar_Suspender_Proyecto() {
   const infoProyects = [
@@ -31,12 +31,12 @@ function Visualizar_Suspender_Proyecto() {
         <Header_ToolBar
           Header_Tools={
             <Fragment>
-              <BotonReturn link={"/lider-semillero/Listar_Proyectos"} icon={<IoIosReturnLeft />}/>
               <div className="Header-tool-btn-go-cronograma">
                 <BotonBlanco
                   icon={<LuCalendarDays />}
                   text={"Ir al Cronograma"}
                   link={"/lider-semillero/cronograma"}
+                  clase={'btn-blanco btn-blanco--modify btn-azul'}
                 />
               </div>
             </Fragment>
@@ -75,7 +75,7 @@ function Visualizar_Suspender_Proyecto() {
                     </td>
                     <td className="View-off-table__td">
                       <div className="View-off-table__td__btns">
-                        <Link to={"/lider-semillero/Actualizar_Proyectos"}>
+                        <Link to={"/lider-semillero/actualizar-proyectos"}>
                           <FaRegEdit className="View-off-table__td__btn" />
                         </Link>
                         <Link>
