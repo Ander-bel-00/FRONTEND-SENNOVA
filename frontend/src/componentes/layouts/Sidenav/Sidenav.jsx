@@ -31,18 +31,18 @@ function Sidenav() {
             </li>
           </Link>
 
-          <Link to={'/lider-semillero/Listar_Proyectos'}>
+          <Link to={'/lider-semillero/listar-Proyectos'}>
             <li className="Sidenav-content__menu-content__menu-options">
               <FaProjectDiagram className="inline-block mr-2 " />
               Proyectos
             </li>
           </Link>
-          <Link to={"/lider-semillero/Listar_Actividad"}>
+          <Link to={"/lider-semillero/listar-actividad"}>
             <li className="Sidenav-content__menu-content__menu-options">
               <FaCalendarCheck className="inline-block mr-2" /> Actividades
             </li>
           </Link>
-          <Link to={"/lider-semillero/Listar-eventos"}>
+          <Link to={"/lider-semillero/listar-eventos"}>
             <li className="Sidenav-content__menu-content__menu-options">
               <FaRegClock className="inline-block mr-2" />
               Eventos
@@ -55,7 +55,7 @@ function Sidenav() {
             </li>
           </Link>
 
-          <Link to={"/lider-semillero/Visualizar-programa-formacion"}>
+          <Link to={"/lider-semillero/visualizar-programa-formacion"}>
             <li className="Sidenav-content__menu-content__menu-options">
               <FaList className="inline-block mr-2" />
               Programa

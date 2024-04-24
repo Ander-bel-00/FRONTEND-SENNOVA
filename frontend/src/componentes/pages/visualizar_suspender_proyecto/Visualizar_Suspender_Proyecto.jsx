@@ -18,12 +18,6 @@ function Visualizar_Suspender_Proyecto() {
       fecha_fin: "25 de Julio de 2024",
       descripcion: "Este proyecto se esta llevando",
     },
-    {
-      nombre_proyecto: "Tecnología",
-      fecha_inicio: "22 de Junio de 2024",
-      fecha_fin: "09 de julio de 2024",
-      descripcion: "Este proyecto se esta llevando",
-    },
   ];
   return (
     <Fragment>

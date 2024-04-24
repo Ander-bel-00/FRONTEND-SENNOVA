@@ -12,6 +12,7 @@ import { FaFileArrowUp } from "react-icons/fa6";
 import Caja_Blanca from "../../common/Caja_Blanca";
 import Header_ToolBar from "../../common/Header_ToolBar";
 import { Link } from "react-router-dom";
+import * as XLSX from "xlsx";
 
 function Listar_Proyectos() {
   const lists = [
@@ -74,7 +75,8 @@ function Listar_Proyectos() {
       fecha_inicio: "22 de Junio de 2024",
       fecha_fin: "09 de julio de 2024",
       descripcion: "Este proyecto se esta llevando",
-    },    {
+    },
+    {
       nombre_proyecto: "Tecnología",
       fecha_inicio: "22 de Junio de 2024",
       fecha_fin: "09 de julio de 2024",
@@ -94,24 +96,61 @@ function Listar_Proyectos() {
     },
   ];
 
+  const exportToExcel = () => {
+    const wb = XLSX.utils.book_new();
+    const wsData = [
+      [
+        "Nombre del Proyecto",
+        "Fecha Inicio del Proyecto",
+        "Fecha Fin del Proyecto",
+        "Descripción del Proyecto",
+      ],
+      ...lists.map((proyect) => [
+        proyect.nombre_proyecto,
+        proyect.fecha_inicio,
+        proyect.fecha_fin,
+        proyect.descripcion,
+      ]),
+    ];
+    const ws = XLSX.utils.aoa_to_sheet(wsData);
+
+    // Agrega estilos de tabla a la hoja de cálculo
+    ws["!cols"] = [
+      { width: 40 },
+      { width: 40 },
+      { width: 40 },
+      { width: 40 },
+      { width: 40 },
+    ];
+
+    // Genera el archivo Excel
+    XLSX.utils.book_append_sheet(wb, ws, "Proyectos");
+    XLSX.writeFile(wb, "proyectos.xlsx");
+  };
+
   return (
     <Fragment>
       <div className="main-container__contenedor-hijo">
         <Header_ToolBar
           Header_Tools={
             <Fragment>
-              <BotonBlanco icon={<FaFileArrowUp />} text={"Reporte"} clase={'btn-blanco btn-blanco--modify btn-verde'} />
+              <BotonBlanco
+                icon={<FaFileArrowUp />}
+                text={"Reporte"}
+                clase={"btn-blanco btn-blanco--modify btn-verde"}
+                onClick={exportToExcel}
+              />
               <Search text={"Buscar proyecto"} />
               <BotonBlanco
                 icon={<LuCalendarDays />}
                 text={"Ir al Cronograma"}
                 link={"/lider-semillero/cronograma"}
-                clase={'btn-blanco btn-blanco--modify btn-azul'}
+                clase={"btn-blanco btn-blanco--modify btn-azul"}
               />
               <BotonVerdeAñadir
                 icon={<AiOutlinePlus />}
                 text={"Crear"}
-                link={"/lider-semillero/Crear_Proyecto"}
+                link={"/lider-semillero/crear-proyecto"}
               />
             </Fragment>
           }
@@ -151,12 +190,12 @@ function Listar_Proyectos() {
                     </td>
                     <td className="list-project-table__td">
                       <div className="list-project-table__td__btns">
-                        <Link           // Link que permite ingresar por medio el icono LiaEyesolid teniendo un acceso a la url del archivo Visualizar_Suspender_Proyecto
-                          to={"/lider-semillero/Visualizar_Suspender_Proyecto"}  
+                        <Link // Link que permite ingresar por medio el icono LiaEyesolid teniendo un acceso a la url del archivo Visualizar_Suspender_Proyecto
+                          to={"/lider-semillero/visualizar-suspender-proyecto"}
                         >
                           <LiaEyeSolid className="list-project-table__td__btn" />
                         </Link>
-                        <Link to={"/lider-semillero/Actualizar_Proyectos"}>
+                        <Link to={"/lider-semillero/actualizar-proyectos"}>
                           <FaRegEdit className="list-project-table__td__btn" />
                         </Link>
                         <Link>

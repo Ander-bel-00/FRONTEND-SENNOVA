@@ -18,7 +18,7 @@ function ModificarUsuario() {
                   htmlFor="tipo_documento"
                   className="update-users-box__form-container__options-col1__label"
                 >
-                  Tipo de documento
+                  Tipo de documento <p className="rojo-required">*</p>
                 </label>
                 <select className="update-users-box__form-container__options-col1__input">
                   <option value="cedula_de_ciudadania">
@@ -35,7 +35,7 @@ function ModificarUsuario() {
                   htmlFor="numero_documento"
                   className="update-users-box__form-container__options-col1__label"
                 >
-                  Número de documento
+                  Número de documento <p className="rojo-required">*</p>
                 </label>
                 <input
                   type="text"
@@ -46,7 +46,7 @@ function ModificarUsuario() {
                   htmlFor="nombres"
                   className="update-users-box__form-container__options-col1__label"
                 >
-                  Nombres
+                  Nombres <p className="rojo-required">*</p>
                 </label>
                 <input
                   type="text"
@@ -57,7 +57,7 @@ function ModificarUsuario() {
                   htmlFor="apellidos"
                   className="update-users-box__form-container__options-col1__label"
                 >
-                  Apellidos
+                  Apellidos <p className="rojo-required">*</p>
                 </label>
                 <input
                   type="text"
@@ -68,7 +68,7 @@ function ModificarUsuario() {
                   htmlFor="numero_telefonico"
                   className="update-users-box__form-container__options-col1__label"
                 >
-                  Número telefónico
+                  Número telefónico <p className="rojo-required">*</p>
                 </label>
                 <input
                   type="text"
@@ -79,7 +79,7 @@ function ModificarUsuario() {
                   htmlFor="Correo_Sena"
                   className="update-users-box__form-container__options-col1__label"
                 >
-                  Correo SENA
+                  Correo SENA <p className="rojo-required">*</p>
                 </label>
                 <input
                   type="email"
@@ -90,7 +90,7 @@ function ModificarUsuario() {
                   htmlFor="Correo_Personal"
                   className="update-users-box__form-container__options-col1__label"
                 >
-                  Correo Personal
+                  Correo Personal <p className="rojo-required">*</p>
                 </label>
                 <input
                   type="email"
@@ -100,7 +100,7 @@ function ModificarUsuario() {
                   htmlFor="Estado"
                   className="update-users-box__form-container__options-col1__label"
                 >
-                  Estado
+                  Estado <p className="rojo-required">*</p>
                 </label>
                 <select className="update-users-box__form-container__options-col1__input">
                   <option value="Activo">Activo</option>

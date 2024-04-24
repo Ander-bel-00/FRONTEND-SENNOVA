@@ -4,6 +4,7 @@ import { IoIosReturnLeft } from "react-icons/io";
 import Caja_formularios from "../../common/Caja_formularios";
 import BotonReturn from "../../common/BotonReturn";
 import { Link } from "react-router-dom";
+import { GiReturnArrow } from "react-icons/gi";
 
 function Crear_Proyecto() {
 
@@ -15,7 +16,7 @@ function Crear_Proyecto() {
           <div className="add-proyect-btn-return">
             <BotonReturn
               // onClick={() => history.goBack()}
-              icon={<IoIosReturnLeft />}
+              icon={<GiReturnArrow />}
               link={"/lider-semillero/Listar_proyectos"}
             />
           </div>

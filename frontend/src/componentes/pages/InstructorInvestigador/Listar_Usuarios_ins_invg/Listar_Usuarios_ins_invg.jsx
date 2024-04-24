@@ -35,7 +35,7 @@ function Listar_Usuarios_ins_invg() {
         <Header_ToolBar
           Header_Tools={
             <Fragment>
-              <BotonBlanco icon={<FaFileArrowUp />} text={"Reporte"} />
+              <BotonBlanco icon={<FaFileArrowUp />} text={"Reporte"} clase={'btn-blanco btn-blanco--modify btn-verde'}/>
               <Search text={"Buscar usuarios"} />
             </Fragment>
           }

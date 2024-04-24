@@ -258,7 +258,7 @@ function App() {
                 <Sidenav />
                 <Routes>
                   <Route
-                    path="/semillero"
+                    path="/"
                     element={
                       <Fragment>
                         <main className="main-container">
@@ -368,11 +368,21 @@ function App() {
                       </main>
                     }
                   />
+
+                  <Route
+                    path="/usuarios-getAll"
+                    element={
+                      <main className="main-container">
+                        <Listar_Usuarios_ins_invg />
+                      </main>
+                    }
+                  />
                 </Routes>
               </Fragment>
             }
           />
 
+          {/* Aprendiz Investigador */}
           <Route
             path="/aprendiz-investigador/*"
             element={
@@ -380,6 +390,16 @@ function App() {
                 <Header />
                 <Sidenav />
                 <Routes>
+                  <Route
+                    path="/"
+                    element={
+                      <Fragment>
+                        <main className="main-container">
+                          <Semillero />
+                        </main>
+                      </Fragment>
+                    }
+                  />
                   <Route
                     path="/visualizar-proyecto"
                     element={
@@ -411,16 +431,7 @@ function App() {
                     path="/usuarios-getAll"
                     element={
                       <main className="main-container">
-                        <Listar_Usuarios_ins_invg />
-                      </main>
-                    }
-                  />
-
-                  <Route
-                    path="/listar-fichas"
-                    element={
-                      <main className="main-container">
-                        <Listar_Fichas_ins_invg />
+                        <Listar_Usuarios_apr_invg />
                       </main>
                     }
                   />

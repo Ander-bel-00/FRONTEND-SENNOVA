@@ -38,10 +38,23 @@ function Listar_Eventos() {
       <Header_ToolBar
         Header_Tools={
           <Fragment>
-            <BotonBlanco icon={<BiSolidReport />} text={"Reporte"} />
-            <BotonBlanco icon={<LuCalendarDays />} text={"Ir a Cronograma"} />
+            <BotonBlanco
+              icon={<BiSolidReport />}
+              text={"Reporte"}
+              clase={"btn-blanco btn-blanco--modify btn-verde"}
+            />
+            <BotonBlanco
+              icon={<LuCalendarDays />}
+              text={"Ir a Cronograma"}
+              clase={"btn-blanco btn-blanco--modify btn-azul"}
+              link={"../cronograma"}
+            />
             <Search text={"Buscar Eventos"} />
-            <BotonVerdeAñadir icon={<IoAdd />} text={"Crear evento"} link={"/lider-semillero/Crear-eventos"}/>
+            <BotonVerdeAñadir
+              icon={<IoAdd />}
+              text={"Crear evento"}
+              link={"../Crear-eventos"}
+            />
           </Fragment>
         }
       />
@@ -66,27 +79,29 @@ function Listar_Eventos() {
               {Events.map((evento, index) => (
                 <tr className="list-events-table__tr" key={index}>
                   <td className="list-events-table__td">{evento.nombre}</td>
-                  <td className="list-events-table__td">{evento.fecha_inicio}</td>
+                  <td className="list-events-table__td">
+                    {evento.fecha_inicio}
+                  </td>
                   <td className="list-events-table__td">{evento.fecha_fin}</td>
                   <td className="list-events-table__td">
                     {evento.cantidad_participantes}
                   </td>
                   <td className="list-events-table__td">{evento.lugar}</td>
-                  <td className="list-events-table__td">{evento.tipo_evento}</td>
                   <td className="list-events-table__td">
-
+                    {evento.tipo_evento}
+                  </td>
+                  <td className="list-events-table__td">
                     <div className="list-events-table__td__btns">
-                      <Link to={"/lider-semillero/Visualizar-evento"} >
+                      <Link to={"../Visualizar-evento"}>
                         <LiaEye className="list-events-table__td__btn" />
                       </Link>
-                      <Link to={"/lider-semillero/Actualizar-eventos"} >
+                      <Link to={"../Actualizar-eventos"}>
                         <FaEdit className="list-events-table__td__btn" />
                       </Link>
                       <Link>
                         <IoTrashOutline className="list-events-table__td__btn" />
                       </Link>
                     </div>
-
                   </td>
                 </tr>
               ))}

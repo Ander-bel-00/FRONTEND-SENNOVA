@@ -64,7 +64,7 @@ function Crear_Programa_Formacion_ins_invg() {
 
                   <button className="btn-crear-program" type="button">Crear</button>
 
-                  <Link to={"/instructor-investigador/listar_proyectos"}>
+                  <Link to={"../visualizar-programa-formacion"}>
                     <button
                       type="button"
                       className="btn-cancelar-evento"

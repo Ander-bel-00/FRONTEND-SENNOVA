@@ -11,6 +11,8 @@ import Search from "../common/Search";
 import BotonVerdeAñadir from "../common/BotonVerde";
 import Header_ToolBar from "../common/Header_ToolBar";
 import Caja_Blanca from "../common/Caja_Blanca";
+import * as XLSX from "xlsx";
+
 function ListarUsuarios() {
   const users = [
     {
@@ -28,18 +30,52 @@ function ListarUsuarios() {
       rol: "Usuario",
     },
   ];
+
+  const exportToExcel = () => {
+    const wb = XLSX.utils.book_new();
+    const wsData = [
+      ["Nombres", "Apellidos", "Tipo documento", "Número documento", "Rol"],
+      ...users.map((user) => [
+        user.nombres,
+        user.apellidos,
+        user.tipoDocumento,
+        user.numeroDocumento,
+        user.rol,
+      ]),
+    ];
+    const ws = XLSX.utils.aoa_to_sheet(wsData);
+
+    // Agrega estilos de tabla a la hoja de cálculo
+    ws["!cols"] = [
+      { width: 30 },
+      { width: 30 },
+      { width: 30 },
+      { width: 30 },
+      { width: 30 },
+    ];
+
+    // Genera el archivo Excel
+    XLSX.utils.book_append_sheet(wb, ws, "Usuarios");
+    XLSX.writeFile(wb, "usuarios.xlsx");
+  };
+
   return (
     <Fragment>
       <div className="main-container__contenedor-hijo main-container__contenedor-hijo--color">
         <Header_ToolBar
           Header_Tools={
             <Fragment>
-              <BotonBlanco icon={<FaFileArrowUp />} text={"Reporte"} />
+              <BotonBlanco
+                icon={<FaFileArrowUp />}
+                text={"Reporte"}
+                clase={"btn-blanco btn-blanco--modify btn-verde"}
+                onClick={exportToExcel}
+              />
               <Search text={"Buscar usuarios"} />
               <BotonVerdeAñadir
                 icon={<IoPersonAddSharp />}
                 text={"Crear Usuario"}
-                link={"/lider-semillero/crear-usuario"}
+                link={"../crear-usuario"}
               />
             </Fragment>
           }
@@ -67,9 +103,7 @@ function ListarUsuarios() {
                     <td className="user-table__cell">{user.rol}</td>
                     <td className="user-table__cell">
                       <div className="user-table__cell__buttons">
-                      <Link
-                          to={"/lider-semillero/users-update"}
-                        >
+                        <Link to={"/lider-semillero/users-update"}>
                           <LiaEyeSolid className="user-table__cell__btn" />
                         </Link>
                         <Link to={"/lider-semillero/users-update"}>
