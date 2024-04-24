@@ -16,6 +16,7 @@ function Crear_Proyecto() {
             <BotonReturn
               // onClick={() => history.goBack()}
               icon={<IoIosReturnLeft />}
+              link={"/lider-semillero/Listar_proyectos"}
             />
           </div>
         </Link>
@@ -34,7 +35,7 @@ function Crear_Proyecto() {
                     htmlFor="tipo proyecto"
                     className="form-add-pryect-container__col1__label"
                   >
-                  Tipo proyecto  <p className="rojo-required">*</p>
+                   Tipo proyecto  <p className="rojo-required">*</p>
                   </label>
 
                   <select className="form-add-pryect-container__select">

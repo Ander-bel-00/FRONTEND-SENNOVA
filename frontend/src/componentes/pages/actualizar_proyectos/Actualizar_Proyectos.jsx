@@ -8,7 +8,7 @@ import BotonReturn from "../../common/BotonReturn";
 function Actualizar_Proyectos() {
   return (
     <Fragment>
-      <div className="main-container__contenedor-hijo">
+      <div className="main-container__contenedor-hijo main-container__contenedor-hijo--size">
         <Link>
           <div className="update-proyect-btn-return">
             <BotonReturn
