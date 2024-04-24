@@ -36,12 +36,13 @@ function Listar_Actividad_Instructor_Investigador() {
          <Header_ToolBar
            Header_Tools={
               <Fragment>
-                 <BotonBlanco icon={<FaFileArrowUp />}  text={"Reporte"}/>
+                 <BotonBlanco icon={<FaFileArrowUp />}  text={"Reporte"} clase={'btn-blanco btn-blanco--modify btn-verde'} />
 
                  <BotonBlanco
                    icon={<LuCalendarDays />}
                    text={"Ir al Cronograma"}
                    link={"/instructor-investigador/cronograma"}
+                   clase={'btn-blanco btn-blanco--modify btn-azul'}
                  />
 
                  <Search text={"Buscar Actividades"} />
@@ -49,7 +50,7 @@ function Listar_Actividad_Instructor_Investigador() {
                  <BotonVerdeAñadir 
                    icon={<AiOutlinePlus />}
                    text={"Añadir Información"}
-                   link={"/instructor-investigador/Crear_Actividad_Instructor_Investigador"}
+                   link={"/instructor-investigador/crear-actividad"}
                  />
               </Fragment>
            }

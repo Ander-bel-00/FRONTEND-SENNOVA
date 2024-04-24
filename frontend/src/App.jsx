@@ -48,6 +48,7 @@ import Listar_Usuarios_apr_invg from "./componentes/pages/AprendizInvestigador/L
 
 import Landing_ofi from "./componentes/pages/Landing/Landing_ofi";
 import Login from "./componentes/pages/login/Login";
+import Cronograma_apr_invg from "./componentes/pages/AprendizInvestigador/Cronograma_apr_invg/Cronograma_apr_invg";
 import ListarEvento_ins_invg from "./componentes/pages/InstructorInvestigador/listarEventos_ins_invg/ListarEvento_ins_invg";
 import Perfil from "./componentes/pages/perfil/Perfil";
 
@@ -339,7 +340,7 @@ function App() {
                     }
                   />
                   <Route
-                    path="/listar-proyectos-instructor-investigador"
+                    path="/listar-proyectos"
                     element={
                       <main className="main-container">
                         <Listar_Proyectos_Instructor_Investigador />
@@ -347,7 +348,7 @@ function App() {
                     }
                   />
                   <Route
-                    path="/visualizar-suspender-proyecto-instructor-investigador"
+                    path="/visualizar-suspender-proyecto"
                     element={
                       <main className="main-container">
                         <Visualizar_Suspender_Proyecto_Instructor_Investigador />
@@ -355,7 +356,7 @@ function App() {
                     }
                   />
                   <Route
-                    path="/crear-proyecto-instructor-investigador"
+                    path="/crear-proyecto"
                     element={
                       <main className="main-container">
                         <Crear_Proyecto_Instructor_Investigador />
@@ -363,7 +364,7 @@ function App() {
                     }
                   />
                   <Route
-                    path="/listar-actividad-instructor-investigador"
+                    path="/listar-actividad"
                     element={
                       <main className="main-container">
                         <Listar_Actividad_Instructor_Investigador />
@@ -371,7 +372,7 @@ function App() {
                     }
                   />
                   <Route
-                    path="/crear-actividad-instructor-investigador"
+                    path="/crear-actividad"
                     element={
                       <main className="main-container">
                         <Crear_Actividad_Instructor_Investigador />
@@ -411,7 +412,7 @@ function App() {
                     element={
                       <Fragment>
                         <main className="main-container">
-                          <Cronograma_ins_invg />
+                          <Cronograma_apr_invg/>
                         </main>
                       </Fragment>
                     }
