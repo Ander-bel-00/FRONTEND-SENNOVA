@@ -47,6 +47,9 @@ import Listar_Usuarios_apr_invg from "./componentes/pages/AprendizInvestigador/L
 
 import Landing_ofi from "./componentes/pages/Landing/Landing_ofi";
 import Login from "./componentes/pages/login/Login";
+import Listar_Actividad_apr_invg from "./componentes/pages/AprendizInvestigador/listar-_actividad_apr_invg/Listar_Actividad_apr_invg";
+import Actualizar_Semillero from "./componentes/pages/actualizar-semillero/Actualizar_Semillero";
+import Añadir_Semillero from "./componentes/pages/InstructorInvestigador/añadir_semillero/Añadir_Semillero";
 import Cronograma_apr_invg from "./componentes/pages/AprendizInvestigador/Cronograma_apr_invg/Cronograma_apr_invg";
 import ListarEvento_ins_invg from "./componentes/pages/InstructorInvestigador/listarEventos_ins_invg/ListarEvento_ins_invg";
 
@@ -244,6 +247,14 @@ function App() {
                       </main>
                     }
                   />
+                  <Route
+                   path="/actualizar-semillero"
+                   element={
+                    <main className="main-container">
+                      <Actualizar_Semillero />
+                    </main>
+                   }
+                  />
                 </Routes>
               </Fragment>
             }
@@ -266,6 +277,14 @@ function App() {
                         </main>
                       </Fragment>
                     }
+                  />
+                  <Route
+                  path="/añadir-semillero"
+                  element={
+                    <main className="main-container">
+                      <Añadir_Semillero />
+                    </main>
+                  }
                   />
                   <Route
                     path="/visualizar-actividad"
@@ -468,6 +487,14 @@ function App() {
                     element={
                       <main className="main-container">
                         <Visualizar_Programa_Formacion_apr_invg />
+                      </main>
+                    }
+                  />
+                  <Route
+                    path="/listar-actividad"
+                    element={
+                      <main className="main-container">
+                        <Listar_Actividad_apr_invg />
                       </main>
                     }
                   />
