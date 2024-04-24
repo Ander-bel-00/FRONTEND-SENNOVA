@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import 'react-big-calendar/lib/css/react-big-calendar.css';
-import "./css/Cronograma_apr_invg.css";
+import "./css/Cronograma_apr_inv.css";
 import { Calendar, momentLocalizer } from 'react-big-calendar';
 import moment from 'moment';
 import 'moment/locale/es';
