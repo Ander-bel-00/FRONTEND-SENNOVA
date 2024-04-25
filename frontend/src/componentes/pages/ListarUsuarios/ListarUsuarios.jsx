@@ -6,11 +6,11 @@ import { LiaEyeSolid } from "react-icons/lia";
 import { FaRegEdit } from "react-icons/fa";
 import { IoTrashOutline } from "react-icons/io5";
 import { Link } from "react-router-dom";
-import BotonBlanco from "../common/BotonReporte";
-import Search from "../common/Search";
-import BotonVerdeAñadir from "../common/BotonVerde";
-import Header_ToolBar from "../common/Header_ToolBar";
-import Caja_Blanca from "../common/Caja_Blanca";
+import BotonBlanco from "../../common/BotonReporte";
+import Search from "../../common/Search";
+import BotonVerdeAñadir from "../../common/BotonVerde";
+import Header_ToolBar from "../../common/Header_ToolBar";
+import Caja_Blanca from "../../common/Caja_Blanca";
 import * as XLSX from "xlsx";
 
 function ListarUsuarios() {
@@ -103,7 +103,7 @@ function ListarUsuarios() {
                     <td className="user-table__cell">{user.rol}</td>
                     <td className="user-table__cell">
                       <div className="user-table__cell__buttons">
-                        <Link to={"/lider-semillero/users-update"}>
+                        <Link to={"../usuario"}>
                           <LiaEyeSolid className="user-table__cell__btn" />
                         </Link>
                         <Link to={"/lider-semillero/users-update"}>

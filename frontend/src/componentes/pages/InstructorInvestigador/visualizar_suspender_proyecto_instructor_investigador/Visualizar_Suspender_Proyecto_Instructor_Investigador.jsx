@@ -5,7 +5,7 @@ import Header_ToolBar from "../../../common/Header_ToolBar";
 import BotonBlanco from "../../../common/BotonReporte";
 import BotonReturn from "../../../common/BotonReturn";
 import Caja_Blanca from "../../../common/Caja_Blanca";
-
+import { GiReturnArrow } from "react-icons/gi";
 
 function Visualizar_Suspender_Proyecto_Instructor_Investigador() {
   const invginfoProyects = [
@@ -22,11 +22,14 @@ function Visualizar_Suspender_Proyecto_Instructor_Investigador() {
         <Header_ToolBar
           Header_Tools={
             <Fragment>
+              <div className="btn-view-proyect-return">
+                <BotonReturn icon={<GiReturnArrow />} />
+              </div>
               <div className="Header-tool-btn-go-cronograma">
                 <BotonBlanco
                   icon={<LuCalendarDays />}
                   text={"Ir al Cronograma"}
-                  clase={'btn-blanco btn-blanco--modify btn-azul'}
+                  clase={"btn-blanco btn-blanco--modify btn-azul"}
                 />
               </div>
             </Fragment>

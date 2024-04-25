@@ -1,4 +1,4 @@
-import { BiSolidReport } from "react-icons/bi";
+import { FaFileArrowUp } from "react-icons/fa6";
 import { LuCalendarDays } from "react-icons/lu";
 import { IoTrashOutline } from "react-icons/io5";
 import { Fragment } from "react";
@@ -39,7 +39,7 @@ function Listar_Eventos() {
         Header_Tools={
           <Fragment>
             <BotonBlanco
-              icon={<BiSolidReport />}
+              icon={<FaFileArrowUp />}
               text={"Reporte"}
               clase={"btn-blanco btn-blanco--modify btn-verde"}
             />

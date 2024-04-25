@@ -1,17 +1,12 @@
-import { BiSolidReport } from "react-icons/bi";
 import { LuCalendarDays } from "react-icons/lu";
-import { IoTrashOutline } from "react-icons/io5";
 import { FaFileArrowUp } from "react-icons/fa6";
 import { Fragment } from "react";
-import { FaEdit } from "react-icons/fa";
 import { LiaEye } from "react-icons/lia";
-import { IoAdd } from "react-icons/io5";
 import { Link } from "react-router-dom";
 import Header_ToolBar from "../../../common/Header_ToolBar";
 import Caja_Blanca from "../../../common/Caja_Blanca";
 import BotonBlanco from "../../../common/BotonReporte";
 import Search from "../../../common/Search";
-import BotonVerdeAñadir from "../../../common/BotonVerde";
 import "./css/Listar_Eventos_apr_invg.css";
 
 function Listar_Eventos_apr_invg() {

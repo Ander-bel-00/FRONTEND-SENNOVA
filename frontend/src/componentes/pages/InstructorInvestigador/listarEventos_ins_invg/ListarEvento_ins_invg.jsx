@@ -36,10 +36,22 @@ function ListarEvento_ins_invg() {
       <Header_ToolBar
         Header_Tools={
           <Fragment>
-            <BotonBlanco icon={<FaFileArrowUp />} text={"Reporte"} clase={'btn-blanco btn-blanco--modify btn-verde'}/>
-            <BotonBlanco icon={<LuCalendarDays />} text={"Ir a Cronograma"} clase={'btn-blanco btn-blanco--modify btn-azul'} />
+            <BotonBlanco
+              icon={<FaFileArrowUp />}
+              text={"Reporte"}
+              clase={"btn-blanco btn-blanco--modify btn-verde"}
+            />
+            <BotonBlanco
+              icon={<LuCalendarDays />}
+              text={"Ir a Cronograma"}
+              clase={"btn-blanco btn-blanco--modify btn-azul"}
+            />
             <Search text={"Buscar Eventos"} />
-            <BotonVerdeAñadir icon={<IoAdd />} text={"Añadir Información"} link={"/instructor-investigador/Crear-eventos"}/>
+            <BotonVerdeAñadir
+              icon={<IoAdd />}
+              text={"Añadir Información"}
+              link={"/instructor-investigador/Crear-eventos"}
+            />
           </Fragment>
         }
       />
@@ -50,7 +62,9 @@ function ListarEvento_ins_invg() {
             <thead>
               <tr className="list-events-table-instructor__tr">
                 <th className="list-events-table-instructor__th">Nombre</th>
-                <th className="list-events-table-instructor__th">Fecha Inicio</th>
+                <th className="list-events-table-instructor__th">
+                  Fecha Inicio
+                </th>
                 <th className="list-events-table-instructor__th">Fecha Fin</th>
                 <th className="list-events-table-instructor__th">
                   Cantidad Participantes
@@ -63,22 +77,30 @@ function ListarEvento_ins_invg() {
             <tbody>
               {Events.map((evento, index) => (
                 <tr className="list-events-table-instructor__tr" key={index}>
-                  <td className="list-events-table-instructor__td">{evento.nombre}</td>
-                  <td className="list-events-table-instructor__td">{evento.fecha_inicio}</td>
-                  <td className="list-events-table-instructor__td">{evento.fecha_fin}</td>
+                  <td className="list-events-table-instructor__td">
+                    {evento.nombre}
+                  </td>
+                  <td className="list-events-table-instructor__td">
+                    {evento.fecha_inicio}
+                  </td>
+                  <td className="list-events-table-instructor__td">
+                    {evento.fecha_fin}
+                  </td>
                   <td className="list-events-table-instructor__td">
                     {evento.cantidad_participantes}
                   </td>
-                  <td className="list-events-table-instructor__td">{evento.lugar}</td>
-                  <td className="list-events-table-instructor__td">{evento.tipo_evento}</td>
                   <td className="list-events-table-instructor__td">
-
+                    {evento.lugar}
+                  </td>
+                  <td className="list-events-table-instructor__td">
+                    {evento.tipo_evento}
+                  </td>
+                  <td className="list-events-table-instructor__td">
                     <div className="list-events-table-instructor__td__btns">
-                      <Link to={"/instructor-investigador/Visualizar-evento"} >
+                      <Link to={"/instructor-investigador/Visualizar-evento"}>
                         <LiaEye className="list-events-table-instructor__td__btn" />
                       </Link>
                     </div>
-
                   </td>
                 </tr>
               ))}

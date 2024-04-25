@@ -1,4 +1,4 @@
-import { BiSolidReport, BiTable } from "react-icons/bi";
+import { FaFileArrowUp } from "react-icons/fa6";
 import { IoAdd } from "react-icons/io5";
 import Header_ToolBar from "../../common/Header_ToolBar";
 import Caja_Blanca from "../../common/Caja_Blanca";
@@ -27,7 +27,7 @@ function Visualizar_Programa_Formacion() {
         Header_Tools={
           <Fragment>
             <BotonBlanco
-              icon={<BiSolidReport />}
+              icon={<FaFileArrowUp />}
               text={"Reporte"}
               clase={"btn-blanco btn-blanco--modify btn-verde"}
             />

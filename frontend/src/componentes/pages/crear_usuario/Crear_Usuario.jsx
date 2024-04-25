@@ -2,6 +2,8 @@ import React, { Fragment, useState } from "react";
 import "./css/Crear_usuario.css";
 import { Link } from "react-router-dom";
 import Caja_formularios from "../../common/Caja_formularios";
+import { GiReturnArrow } from "react-icons/gi";
+import BotonReturn from "../../common/BotonReturn";
 
 function Crear_Usuario() {
   // Función para declarar un estado que almacenará el rol seleccionado
@@ -20,6 +22,9 @@ function Crear_Usuario() {
 
   return (
     <div className="main-container__contenedor-hijo">
+      <div className="add-proyect-btn-return">
+        <BotonReturn icon={<GiReturnArrow />} />
+      </div>
       <Caja_formularios
         info={
           <Fragment>

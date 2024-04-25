@@ -1,6 +1,5 @@
 import React, { Fragment } from "react";
 import "./css/Crear_Proyecto.css";
-import { IoIosReturnLeft } from "react-icons/io";
 import Caja_formularios from "../../common/Caja_formularios";
 import BotonReturn from "../../common/BotonReturn";
 import { Link } from "react-router-dom";
@@ -8,20 +7,14 @@ import { GiReturnArrow } from "react-icons/gi";
 
 function Crear_Proyecto() {
 
-  // const history = useHistory()
   return (
     <Fragment>
       <div className="main-container__contenedor-hijo main-container__contenedor-hijo--size">
-        <Link>
           <div className="add-proyect-btn-return">
             <BotonReturn
-              // onClick={() => history.goBack()}
               icon={<GiReturnArrow />}
-              link={"/lider-semillero/Listar_proyectos"}
             />
           </div>
-        </Link>
-
         <Caja_formularios
           info={
             <Fragment>

@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Fragment } from "react";
-import Cronograma from "./componentes/Cronograma/Cronograma";
-import ListarUsuarios from "./componentes/ListarUsuarios/ListarUsuarios";
+import Cronograma from "./componentes/pages/Cronograma/Cronograma";
+import ListarUsuarios from "./componentes/pages/ListarUsuarios/ListarUsuarios";
 import Sidenav from "./componentes/layouts/Sidenav/Sidenav";
 import Header from "./componentes/layouts/Header/Header";
 import Semillero from "./componentes/pages/Semillero/Semillero";
@@ -49,9 +49,13 @@ import Landing_ofi from "./componentes/pages/Landing/Landing_ofi";
 import Login from "./componentes/pages/login/Login";
 import Listar_Actividad_apr_invg from "./componentes/pages/AprendizInvestigador/listar-_actividad_apr_invg/Listar_Actividad_apr_invg";
 import Actualizar_Semillero from "./componentes/pages/actualizar-semillero/Actualizar_Semillero";
-import Añadir_Semillero from "./componentes/pages/InstructorInvestigador/añadir_semillero/Añadir_Semillero";
+import Añadir_Semillero from "./componentes/pages/añadir_semillero/Añadir_Semillero";
 import Cronograma_apr_invg from "./componentes/pages/AprendizInvestigador/Cronograma_apr_invg/Cronograma_apr_invg";
 import ListarEvento_ins_invg from "./componentes/pages/InstructorInvestigador/listarEventos_ins_invg/ListarEvento_ins_invg";
+import Semillero_ins_invg from "./componentes/pages/InstructorInvestigador/Semillero_ins_invg/Semillero_ins_invg";
+import Semillero_apr_invg from "./componentes/pages/AprendizInvestigador/Semillero_apr_invg/Semillero_apr_invg";
+import Visualizar_Usuario from "./componentes/pages/visualizar_usuario/Visualizar_Usuario";
+import Visualizar_Usuario_ins_invg from "./componentes/pages/InstructorInvestigador/visualizar_usuario_ins_invg/Visualizar_Usuario_ins_invg";
 
 function App() {
   return (
@@ -83,6 +87,14 @@ function App() {
                     }
                   />
                   <Route
+                    path="/actualizar-semillero"
+                    element={
+                      <main className="main-container">
+                        <Actualizar_Semillero />
+                      </main>
+                    }
+                  />
+                  <Route
                     path="/cronograma"
                     element={
                       <Fragment>
@@ -97,6 +109,15 @@ function App() {
                     element={
                       <main className="main-container">
                         <ListarUsuarios />
+                      </main>
+                    }
+                  />
+
+                  <Route
+                    path="/usuario"
+                    element={
+                      <main className="main-container">
+                        <Visualizar_Usuario />
                       </main>
                     }
                   />
@@ -247,14 +268,6 @@ function App() {
                       </main>
                     }
                   />
-                  <Route
-                   path="/actualizar-semillero"
-                   element={
-                    <main className="main-container">
-                      <Actualizar_Semillero />
-                    </main>
-                   }
-                  />
                 </Routes>
               </Fragment>
             }
@@ -273,18 +286,10 @@ function App() {
                     element={
                       <Fragment>
                         <main className="main-container">
-                          <Semillero />
+                          <Semillero_ins_invg />
                         </main>
                       </Fragment>
                     }
-                  />
-                  <Route
-                  path="/añadir-semillero"
-                  element={
-                    <main className="main-container">
-                      <Añadir_Semillero />
-                    </main>
-                  }
                   />
                   <Route
                     path="/visualizar-actividad"
@@ -396,6 +401,15 @@ function App() {
                       </main>
                     }
                   />
+
+                  <Route
+                    path="/usuario"
+                    element={
+                      <main className="main-container">
+                        <Visualizar_Usuario_ins_invg/>
+                      </main>
+                    }
+                  />
                 </Routes>
               </Fragment>
             }
@@ -414,7 +428,7 @@ function App() {
                     element={
                       <Fragment>
                         <main className="main-container">
-                          <Semillero />
+                          <Semillero_apr_invg />
                         </main>
                       </Fragment>
                     }

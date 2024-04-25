@@ -1,6 +1,6 @@
 .Header-general {
     /* border-bottom: 5px solid #70B22D ; */
-    background-color: #70B22D;
+    background-color: var(--sidenav-bg);
     width: 100%;
     position: fixed;
     top: 0;
@@ -12,6 +12,7 @@
     align-items: center; /* Centra verticalmente los elementos */
     color: #fff ;
     font-weight: 600;
+    border-bottom: 10px solid #39a900;
 }
 .Header-general__opciones{
     display: flex;
@@ -54,10 +55,6 @@
 
 .Header-general__logout-link__icon{
     font-size: 20px;
-}
-
-.Header-general__user_name {
-   
 }
 
 .Header-general__user_name__icon{

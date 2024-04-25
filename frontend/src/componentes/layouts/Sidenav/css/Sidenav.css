@@ -10,7 +10,7 @@
     /* Establece la altura al 100% de la altura de la ventana */
     position: fixed;
     /* Cambia la posición a fija para que el menú se mantenga visible al desplazar la página */
-    top: 0;
+    top: 4.4rem;
     /* Alinea el menú en la parte superior */
     left: 0;
     /* Alinea el menú en la parte izquierda */

@@ -1,10 +1,8 @@
-import { Fragment } from "react";
-import "./css/semillero.css";
+import React, { Fragment } from "react";
 import { FaFileArrowUp } from "react-icons/fa6";
-import { GrDocumentUpdate } from "react-icons/gr";
-import BotonBlanco from "../../common/BotonReporte";
+import BotonBlanco from "../../../common/BotonReporte";
 
-const Semillero = () => {
+function Semillero_ins_invg() {
   const integrantes = [
     {
       nombre: "Yesid",
@@ -16,7 +14,6 @@ const Semillero = () => {
       nombre: "Panela",
     },
   ];
-
   return (
     <Fragment>
       <div className="semillero-main-container__info-semillero">
@@ -25,12 +22,6 @@ const Semillero = () => {
             icon={<FaFileArrowUp />}
             text={"Reporte"}
             clase={"btn-blanco btn-blanco--modify btn-verde"}
-          />
-          <BotonBlanco
-            icon={<GrDocumentUpdate />}
-            link={"../actualizar-semillero"}
-            text={"Actualizar"}
-            clase={"btn-blanco btn-blanco--modify btn-azul"}
           />
         </section>
         <section className="semillero-main-container__datos-semillero">
@@ -97,6 +88,6 @@ const Semillero = () => {
       </div>
     </Fragment>
   );
-};
+}
 
-export default Semillero;
+export default Semillero_ins_invg;

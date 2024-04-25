@@ -4,10 +4,15 @@ import { FaRegEdit } from "react-icons/fa";
 import Caja_formularios from "../../common/Caja_formularios";
 import { BiSolidReport } from "react-icons/bi";
 import Button_Blanco from "../../common/BotonReporte";
+import BotonReturn from "../../common/BotonReturn";
+import { GiReturnArrow } from "react-icons/gi";
 
 function ModificarUsuario() {
   return (
     <div className="main-container__contenedor-hijo">
+      <div className="add-proyect-btn-return">
+        <BotonReturn icon={<GiReturnArrow />} />
+      </div>
       <Caja_formularios
         info={
           <Fragment>

@@ -64,7 +64,7 @@ function Listar_Usuarios_ins_invg() {
                     <td className="user-table__cell">
                       <div className="user-table__cell__buttons">
                       <Link
-                          to={"/lider-semillero/users-update"}
+                          to={"../usuario"}
                         >
                           <LiaEyeSolid className="user-table__cell__btn" />
                         </Link>

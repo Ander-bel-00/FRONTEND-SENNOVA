@@ -1,51 +1,53 @@
-import { IoIosReturnLeft } from 'react-icons/io';
-import { Fragment } from 'react';
+import { GiReturnArrow } from "react-icons/gi";
+import { Fragment } from "react";
 import { Link } from "react-router-dom";
 import BotonReturn from "../../common/BotonReturn";
-import Caja_formularios from '../../common/Caja_formularios';
-import './css/Crear_Programa_Formacion.css';
+import Caja_formularios from "../../common/Caja_formularios";
+import "./css/Crear_Programa_Formacion.css";
 
 function Crear_Programa_Formacion() {
   return (
     <div className="main-container__contenedor-hijo">
-
-      <Link>
-        <div className="add-creat-btn-return ">
-          <BotonReturn
-            link={"/lider-semillero/Visualizar-programa-formacion"}
-            icon={<IoIosReturnLeft />}
-          />
-        </div>
-      </Link>
+      <div className="add-proyect-btn-return">
+        <BotonReturn icon={<GiReturnArrow />} />
+      </div>
 
       <Caja_formularios
         info={
           <Fragment>
-            <div className='inputBoxes'>
-              <h3 className='inputBoxes__titlecaja'>Crear Programa de formación</h3>
+            <div className="inputBoxes">
+              <h3 className="inputBoxes__titlecaja">
+                Crear Programa de formación
+              </h3>
               <form className="inputBoxes__olderbox">
+                <label className="unputBoxes__label">
+                  Código <p className="rojo-required">*</p>
+                </label>
 
-                <label className='unputBoxes__label'>Código <p className="rojo-required">*</p></label>
+                <input type="text" className="unputBoxes__input" />
 
-                <input type='text' className='unputBoxes__input' />
+                <label className="unputBoxes__label">
+                  Versión <p className="rojo-required">*</p>
+                </label>
 
+                <input type="text" className="unputBoxes__input" />
 
-                <label className='unputBoxes__label'>Versión <p className="rojo-required">*</p></label>
+                <label className="unputBoxes__label">
+                  Nombre <p className="rojo-required">*</p>
+                </label>
 
-                <input type='text' className='unputBoxes__input' />
-
-
-                <label className='unputBoxes__label'>Nombre <p className="rojo-required">*</p></label>
-
-                <input type='text' className='unputBoxes__input' />
+                <input type="text" className="unputBoxes__input" />
 
                 <div />
               </form>
               {/* Botones principales */}
-              <div className='buttonsCreating'>
-                <button className='buttonsCreating__crear--green'>  Crear</button>
-                <button className='buttonsCreating__cancelar'> Cancelar</button>
-
+              <div className="buttonsCreating">
+                <button className="buttonsCreating__crear--green">Crear</button>
+                <Link to={"../visualizar-programa-formacion"}>
+                  <button className="buttonsCreating__cancelar" type="button">
+                    Cancelar
+                  </button>
+                </Link>
               </div>
             </div>
           </Fragment>

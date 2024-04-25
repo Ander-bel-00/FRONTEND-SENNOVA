@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 import "./css/Añadir_Semillero.css";
-import Caja_formularios from '../../../common/Caja_formularios';
+import Caja_formularios from "../../common/Caja_formularios";
 
 function Añadir_Semillero() {
   return (

@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 import "./css/Crear_Actividad.css";
-import { IoIosReturnLeft } from "react-icons/io";
+import { GiReturnArrow } from "react-icons/gi";
 import { Link } from "react-router-dom";
 import BotonReturn from "../../common/BotonReturn";
 import Caja_formularios from "../../common/Caja_formularios";
@@ -9,14 +9,13 @@ function Crear_Actividad() {
   return (
     <Fragment>
       <div className="main-container__contenedor-hijo">
-        <Link>
-          <div className="update-proyect-btn-return">
+
+      <div className="add-proyect-btn-return">
             <BotonReturn
-              link={"/lider-semillero/Listar_Actividad"}
-              icon={<IoIosReturnLeft />}
+              icon={<GiReturnArrow />}
+              link={"/lider-semillero/listar-actividad"}
             />
           </div>
-        </Link>
 
         <Caja_formularios
           info={

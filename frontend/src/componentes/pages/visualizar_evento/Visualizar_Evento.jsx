@@ -1,5 +1,5 @@
 import { IoAdd, IoTrashOutline } from "react-icons/io5";
-import { IoIosReturnLeft } from "react-icons/io";
+import { GiReturnArrow } from "react-icons/gi";
 import { FaSearch } from "react-icons/fa";
 import { Fragment } from "react";
 import { FaEdit } from "react-icons/fa";
@@ -37,10 +37,7 @@ function Visualizar_Evento() {
         Header_Tools={
           <Fragment>
             <div className="btn-vs-evento">
-              <BotonReturn
-                link={"/lider-semillero/Listar-eventos"}
-                icon={<IoIosReturnLeft />}
-              />
+              <BotonReturn icon={<GiReturnArrow />} />
             </div>
             <Search icon={<FaSearch />} text={"Buscar Evento"} />
             <BotonVerdeAñadir

@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 import "./css/Actualizar_Actividad.css";
-import { IoIosReturnLeft } from "react-icons/io";
+import { GiReturnArrow } from "react-icons/gi";
 import { Link } from "react-router-dom";
 import BotonReturn from "../../common/BotonReturn";
 import Caja_formularios from "../../common/Caja_formularios";
@@ -9,14 +9,9 @@ function Actualizar_Actividad() {
   return (
     <Fragment>
       <div className="main-container__contenedor-hijo">
-        <Link>
-          <div className="update-proyect-btn-return">
-            <BotonReturn
-              link={"/lider-semillero/Listar_Actividad"}
-              icon={<IoIosReturnLeft />}
-            />
-          </div>
-        </Link>
+        <div className="add-proyect-btn-return">
+          <BotonReturn icon={<GiReturnArrow />} />
+        </div>
         <Caja_formularios
           info={
             <Fragment>
@@ -98,7 +93,10 @@ function Actualizar_Actividad() {
                       Actualizar
                     </button>
                     <Link to={"/lider-semillero/Listar_Actividad"}>
-                      <button className="btn-cancelar-actividad-uptd" type="button">
+                      <button
+                        className="btn-cancelar-actividad-uptd"
+                        type="button"
+                      >
                         Cancelar
                       </button>
                     </Link>
