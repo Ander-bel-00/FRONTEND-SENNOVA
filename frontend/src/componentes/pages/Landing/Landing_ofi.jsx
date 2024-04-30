@@ -8,6 +8,7 @@ import Tei_Azul from './img/tei_az.jpg';
 import Cards from './Cards/Cards';
 import Encabezado from './Encabezado';
 import Footer from './Pie_de_pagina';
+import { Link } from 'react-router-dom';
 
 function Landing_ofi() {
     return (
@@ -22,7 +23,7 @@ function Landing_ofi() {
                     <div className='container-ficha-ingreso__content'>
                         <h2>SENNOVA <br /> <br />Sistema de Investigación, <br /> Desarrollo Tecnológico e Innovación</h2> <br />
                         <p>Fortaleciendo capacidades locales en <br /> productividad, competitividad, <br /> generación de conocimiento y <br /> pertinencia de la Formación Profesional <br /> Integral Impartida</p>
-                        <a className="btn btn--big" href="#"><button>Ingresar</button></a>
+                        <Link className="btn btn--big" to='/login'><button>Ingresar</button></Link>
 
                     </div>
                 </div>

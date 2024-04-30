@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useState, useEffect } from "react";
 import "./css/ListarUsuarios.css";
 import { FaFileArrowUp } from "react-icons/fa6";
 import { IoPersonAddSharp } from "react-icons/io5";
@@ -14,22 +14,36 @@ import Caja_Blanca from "../../common/Caja_Blanca";
 import * as XLSX from "xlsx";
 
 function ListarUsuarios() {
-  const users = [
-    {
-      nombres: "Juan",
-      apellidos: "Perez",
-      tipoDocumento: "Cédula",
-      numeroDocumento: "123456789",
-      rol: "Admin",
-    },
-    {
-      nombres: "María",
-      apellidos: "Gómez",
-      tipoDocumento: "Pasaporte",
-      numeroDocumento: "987654321",
-      rol: "Usuario",
-    },
-  ];
+  const [users, setUsers] = useState([]);
+
+  // Función para simular la obtención de usuarios de la base de datos
+  const fetchUsers = () => {
+    // Aquí puedes simular la obtención de usuarios de una base de datos
+    const simulatedUsers = [
+      {
+        id: 1,
+        nombres: "Juan",
+        apellidos: "Perez",
+        tipoDocumento: "Cédula",
+        numeroDocumento: "123456789",
+        rol: "Admin",
+      },
+      {
+        id: 2,
+        nombres: "María",
+        apellidos: "Gómez",
+        tipoDocumento: "Pasaporte",
+        numeroDocumento: "987654321",
+        rol: "Usuario",
+      },
+    ];
+    setUsers(simulatedUsers);
+  };
+
+  useEffect(() => {
+    // Llamada a la función para obtener usuarios cuando el componente se monta
+    fetchUsers();
+  }, []);
 
   const exportToExcel = () => {
     const wb = XLSX.utils.book_new();
@@ -103,9 +117,15 @@ function ListarUsuarios() {
                     <td className="user-table__cell">{user.rol}</td>
                     <td className="user-table__cell">
                       <div className="user-table__cell__buttons">
-                        <Link to={"../usuario"}>
+                        <Link
+                          to={{
+                            pathname: "../usuario",
+                            state: { usuario: user },
+                          }}
+                        >
                           <LiaEyeSolid className="user-table__cell__btn" />
                         </Link>
+
                         <Link to={"/lider-semillero/users-update"}>
                           <FaRegEdit className="user-table__cell__btn" />
                         </Link>

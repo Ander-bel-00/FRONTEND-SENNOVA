@@ -3,6 +3,8 @@ import "./css/semillero.css";
 import { FaFileArrowUp } from "react-icons/fa6";
 import { GrDocumentUpdate } from "react-icons/gr";
 import BotonBlanco from "../../common/BotonReporte";
+import BotonVerdeAñadir from "../../common/BotonVerde";
+import { IoPersonAddSharp } from "react-icons/io5";
 
 const Semillero = () => {
   const integrantes = [
@@ -31,6 +33,12 @@ const Semillero = () => {
             link={"../actualizar-semillero"}
             text={"Actualizar"}
             clase={"btn-blanco btn-blanco--modify btn-azul"}
+          />
+
+          <BotonVerdeAñadir
+            icon={<IoPersonAddSharp />}
+            text={"Crear Semillero"}
+            link={"../crear-semillero"}
           />
         </section>
         <section className="semillero-main-container__datos-semillero">

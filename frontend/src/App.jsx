@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { Fragment } from "react";
 import Cronograma from "./componentes/pages/Cronograma/Cronograma";
 import ListarUsuarios from "./componentes/pages/ListarUsuarios/ListarUsuarios";
@@ -56,16 +56,42 @@ import Semillero_ins_invg from "./componentes/pages/InstructorInvestigador/Semil
 import Semillero_apr_invg from "./componentes/pages/AprendizInvestigador/Semillero_apr_invg/Semillero_apr_invg";
 import Visualizar_Usuario from "./componentes/pages/visualizar_usuario/Visualizar_Usuario";
 import Visualizar_Usuario_ins_invg from "./componentes/pages/InstructorInvestigador/visualizar_usuario_ins_invg/Visualizar_Usuario_ins_invg";
+import { useAuth } from "./context/AuthContext";
+import { ProtectedRoute } from "./ProtectedRoute";
 
 function App() {
+  const { isAuthenticated, userRole } = useAuth();
   return (
     <>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Landing_ofi />} />
+          <Route
+            path="/"
+            element={
+              !isAuthenticated ? (
+                <Navigate to="/landing-page" />
+              ) : (
+                <ProtectedRoute userRole={localStorage.getItem("userRole")} />
+              )
+            }
+          />
         </Routes>
         <Routes>
-          <Route path="/login" element={<Login />} />
+          <Route
+            path="/login"
+            element={
+              isAuthenticated ? <Navigate to={`/${userRole}`} /> : <Login />
+            }
+          />
+        </Routes>
+
+        <Routes>
+          <Route
+            path="/landing-page"
+            element={
+              isAuthenticated ? <Navigate to={`/${userRole}`} /> : <Landing_ofi />
+            }
+          />
         </Routes>
         <Routes>
           {/* Lider Semillero */}
@@ -82,6 +108,16 @@ function App() {
                       <Fragment>
                         <main className="main-container">
                           <Semillero />
+                        </main>
+                      </Fragment>
+                    }
+                  />
+                  <Route
+                    path="/crear-semillero"
+                    element={
+                      <Fragment>
+                        <main className="main-container">
+                          <Añadir_Semillero />
                         </main>
                       </Fragment>
                     }
@@ -275,143 +311,151 @@ function App() {
 
           {/* instructor investigador */}
           <Route
-            path="/instructor-investigador/*"
+            path="/instructor investigador/*"
             element={
-              <Fragment>
-                <Header />
-                <Sidenav />
-                <Routes>
-                  <Route
-                    path="/"
-                    element={
-                      <Fragment>
+              <ProtectedRoute
+                isAllowed={
+                  !!localStorage.getItem("isAuthenticated") &&
+                  localStorage.getItem("userRole") === "instructor investigador"
+                }
+                redirectTo="/login"
+              >
+                <Fragment>
+                  <Header />
+                  <Sidenav />
+                  <Routes>
+                    <Route
+                      path="/"
+                      element={
+                        <Fragment>
+                          <main className="main-container">
+                            <Semillero_ins_invg />
+                          </main>
+                        </Fragment>
+                      }
+                    />
+                    <Route
+                      path="/visualizar-actividad"
+                      element={
                         <main className="main-container">
-                          <Semillero_ins_invg />
+                          <Visualizar_Actividad_ins_invg />
                         </main>
-                      </Fragment>
-                    }
-                  />
-                  <Route
-                    path="/visualizar-actividad"
-                    element={
-                      <main className="main-container">
-                        <Visualizar_Actividad_ins_invg />
-                      </main>
-                    }
-                  />
+                      }
+                    />
 
-                  <Route
-                    path="/crear-eventos"
-                    element={
-                      <main className="main-container">
-                        <Crear_Eventos_ins_invg />
-                      </main>
-                    }
-                  />
+                    <Route
+                      path="/crear-eventos"
+                      element={
+                        <main className="main-container">
+                          <Crear_Eventos_ins_invg />
+                        </main>
+                      }
+                    />
 
-                  <Route
-                    path="/listar-eventos"
-                    element={
-                      <main className="main-container">
-                        <ListarEvento_ins_invg />
-                      </main>
-                    }
-                  />
+                    <Route
+                      path="/listar-eventos"
+                      element={
+                        <main className="main-container">
+                          <ListarEvento_ins_invg />
+                        </main>
+                      }
+                    />
 
-                  <Route
-                    path="/visualizar-evento"
-                    element={
-                      <main className="main-container">
-                        <Visualizar_Evento_ins_invg />
-                      </main>
-                    }
-                  />
-                  <Route
-                    path="/visualizar-programa-formacion"
-                    element={
-                      <main className="main-container">
-                        <Visualizar_Programa_Formacion_ins_invg />
-                      </main>
-                    }
-                  />
+                    <Route
+                      path="/visualizar-evento"
+                      element={
+                        <main className="main-container">
+                          <Visualizar_Evento_ins_invg />
+                        </main>
+                      }
+                    />
+                    <Route
+                      path="/visualizar-programa-formacion"
+                      element={
+                        <main className="main-container">
+                          <Visualizar_Programa_Formacion_ins_invg />
+                        </main>
+                      }
+                    />
 
-                  <Route
-                    path="/crear-programa-formacion"
-                    element={
-                      <main className="main-container">
-                        <Crear_Programa_Formacion_ins_invg />
-                      </main>
-                    }
-                  />
+                    <Route
+                      path="/crear-programa-formacion"
+                      element={
+                        <main className="main-container">
+                          <Crear_Programa_Formacion_ins_invg />
+                        </main>
+                      }
+                    />
 
-                  <Route
-                    path="/actualizar-eventos"
-                    element={
-                      <main className="main-container">
-                        <Actualizar_Eventos_ins_invg />
-                      </main>
-                    }
-                  />
-                  <Route
-                    path="/listar-proyectos"
-                    element={
-                      <main className="main-container">
-                        <Listar_Proyectos_Instructor_Investigador />
-                      </main>
-                    }
-                  />
-                  <Route
-                    path="/visualizar-suspender-proyecto"
-                    element={
-                      <main className="main-container">
-                        <Visualizar_Suspender_Proyecto_Instructor_Investigador />
-                      </main>
-                    }
-                  />
-                  <Route
-                    path="/crear-proyecto"
-                    element={
-                      <main className="main-container">
-                        <Crear_Proyecto_Instructor_Investigador />
-                      </main>
-                    }
-                  />
-                  <Route
-                    path="/listar-actividad"
-                    element={
-                      <main className="main-container">
-                        <Listar_Actividad_Instructor_Investigador />
-                      </main>
-                    }
-                  />
-                  <Route
-                    path="/crear-actividad"
-                    element={
-                      <main className="main-container">
-                        <Crear_Actividad_Instructor_Investigador />
-                      </main>
-                    }
-                  />
+                    <Route
+                      path="/actualizar-eventos"
+                      element={
+                        <main className="main-container">
+                          <Actualizar_Eventos_ins_invg />
+                        </main>
+                      }
+                    />
+                    <Route
+                      path="/listar-proyectos"
+                      element={
+                        <main className="main-container">
+                          <Listar_Proyectos_Instructor_Investigador />
+                        </main>
+                      }
+                    />
+                    <Route
+                      path="/visualizar-suspender-proyecto"
+                      element={
+                        <main className="main-container">
+                          <Visualizar_Suspender_Proyecto_Instructor_Investigador />
+                        </main>
+                      }
+                    />
+                    <Route
+                      path="/crear-proyecto"
+                      element={
+                        <main className="main-container">
+                          <Crear_Proyecto_Instructor_Investigador />
+                        </main>
+                      }
+                    />
+                    <Route
+                      path="/listar-actividad"
+                      element={
+                        <main className="main-container">
+                          <Listar_Actividad_Instructor_Investigador />
+                        </main>
+                      }
+                    />
+                    <Route
+                      path="/crear-actividad"
+                      element={
+                        <main className="main-container">
+                          <Crear_Actividad_Instructor_Investigador />
+                        </main>
+                      }
+                    />
 
-                  <Route
-                    path="/usuarios-getAll"
-                    element={
-                      <main className="main-container">
-                        <Listar_Usuarios_ins_invg />
-                      </main>
-                    }
-                  />
+                    <Route
+                      path="/usuarios-getAll"
+                      element={
+                        <main className="main-container">
+                          <Listar_Usuarios_ins_invg />
+                        </main>
+                      }
+                    />
 
-                  <Route
-                    path="/usuario"
-                    element={
-                      <main className="main-container">
-                        <Visualizar_Usuario_ins_invg/>
-                      </main>
-                    }
-                  />
-                </Routes>
-              </Fragment>
+                    <Route
+                      path="/usuario"
+                      element={
+                        <main className="main-container">
+                          <Visualizar_Usuario_ins_invg />
+                        </main>
+                      }
+                    />
+                  </Routes>
+                </Fragment>
+              </ProtectedRoute>
             }
           />
 

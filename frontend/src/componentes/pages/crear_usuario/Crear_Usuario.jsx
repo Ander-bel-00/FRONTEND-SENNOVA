@@ -18,26 +18,36 @@ function Crear_Usuario() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const response = await clienteAxios.post("/create-user/", formDataUser);
+      const userData = {
+        ...formDataUser,
+        rol: rolUsuario,
+      };
+      const response = await clienteAxios.post("/create-user/", userData);
       Swal.fire({
         title: "Usuario registrado exitosamente",
         icon: "success",
         showCancelButton: false,
         confirmButtonText: "Aceptar",
       }).then((result) => {
-        if (result.isConfirmed) {
-          window.location.href = "/";
-        }
+        // if (result.isConfirmed) {
+        //   window.location.href = "/";
+        // }
       });
 
       console.log(response.data);
     } catch (error) {
       console.error("Error al crear el Usuario:", error);
 
-      // Mostrar Mensaje e caso de error al crear el Usuario.
+      // Mostrar errores recibidos en la respuesta
+      const errors = error.response.data;
+      let errorMessage = "";
+      Object.keys(errors).forEach((field) => {
+        errorMessage += `${field}: ${errors[field].join(", ")}\n`;
+      });
+
       Swal.fire({
         title: "Error",
-        text: "Hubo un error al crear el Usuario",
+        text: errorMessage,
         icon: "error",
         confirmButtonText: "Aceptar",
       });
@@ -154,7 +164,7 @@ function Crear_Usuario() {
                   onChange={handleChange}
                 />
                 <label
-                  htmlFor="last_names"
+                  htmlFor="email"
                   className="form-add-user-container__col1__label"
                 >
                   Email <p className="rojo-required">*</p>
@@ -167,20 +177,26 @@ function Crear_Usuario() {
                   onChange={handleChange}
                 />
                 <label
+                  htmlFor="semillero"
+                  className="form-add-user-container__col1__label"
+                >
+                  Semillero <p className="rojo-required">*</p>
+                </label>
+                <input
+                  type="number"
+                  name="semillero"
+                  id="semillero"
+                  className="form-add-user-container__col1__input"
+                  onChange={handleChange}
+                />
+                <label
+                  hidden
                   htmlFor="rol"
                   className="form-add-user-container__col1__label"
                 >
                   Rol de Usuario <p className="rojo-required">*</p>
                 </label>
-                <input
-                  type="text"
-                  id="rol"
-                  name="rol"
-                  className="form-add-user-container__col1__input"
-                  value={rolUsuario}
-                  readOnly
-                  onChange={handleChange}
-                />
+                <input type="hidden" id="rol" name="rol" value={rolUsuario} />
                 {/* Campos adicionales solo si se selecciona el rol de "aprendiz investigador" */}
 
                 {mostrarCamposAprendiz && (
@@ -192,7 +208,7 @@ function Crear_Usuario() {
                       Número de Ficha <p className="rojo-required">*</p>
                     </label>
                     <input
-                      type="text"
+                      type="number"
                       id="ficha"
                       name="ficha"
                       className="form-add-user-container__col1__input"
@@ -206,7 +222,7 @@ function Crear_Usuario() {
                       Programa de Formación <p className="rojo-required">*</p>
                     </label>
                     <input
-                      type="text"
+                      type="number"
                       id="programa_formacion"
                       name="programa_formacion"
                       className="form-add-user-container__col1__input"
