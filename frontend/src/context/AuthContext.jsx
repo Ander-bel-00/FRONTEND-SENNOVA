@@ -41,12 +41,30 @@ export const AuthProvider = ({children}) => {
         }
     }
 
+    const handleLogout = async () => {
+        try {
+          setIsAuthenticated(false);
+          setUserRole(null);
+          // Eliminar el token, el rol de usuario y el estado de autenticación del almacenamiento local
+          localStorage.removeItem('isAuthenticated');
+          localStorage.removeItem('userRole');
+          localStorage.removeItem('token');
+          // Redirigir a la página de inicio
+          Navigate('/');
+        } catch (error) {
+          console.error('Error al cerrar sesión:', error);
+          throw error;
+        }
+      };
+      
+
     return (
         <AuthContext.Provider
             value={{
                 isAuthenticated,
                 userRole,
-                handleLogin
+                handleLogin,
+                handleLogout
             }}
         >
             {children}

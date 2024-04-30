@@ -5,7 +5,7 @@ import './css/Header.css';
 import { Link } from 'react-router-dom';
 import { FaSearch } from "react-icons/fa";
 
-function Header() {
+function Header({handleLogout}) {
   return (
     <header className='Header-general'>
       {/* <div className='Header-general__Search-box'>
@@ -17,7 +17,7 @@ function Header() {
         </div>
 
         <Link className='Header-general__logout-link'>
-          <button>
+          <button onClick={handleLogout}>
             <MdLogout className='inline-block Header-general__logout-link__icon' /> Cerrar Sesión
           </button>
         </Link>

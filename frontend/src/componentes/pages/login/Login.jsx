@@ -5,44 +5,52 @@ import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../../context/AuthContext";
 
 function Login() {
-
   const navigate = useNavigate();
   const { handleLogin } = useAuth();
   const [formData, setFormData] = useState({
-    documento: '',
-    password: ''
+    documento: "",
+    password: "",
   });
 
   const [errors, setErrors] = useState([]);
+  const [isLoading, setIsLoading] = useState(false); // Estado para controlar la carga
 
   const { documento, password } = formData;
 
-  const onChange = e => {
+  const onChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
 
-  const onSubmit = async e => {
+  const onSubmit = async (e) => {
     e.preventDefault();
+    setIsLoading(true); // Comienza la carga al enviar el formulario
     try {
       await handleLogin(navigate, formData);
     } catch (error) {
       console.log(error);
-      // if (Array.isArray(error.response.data)) {
-      //   setErrors(error.response.data);
-      // } else {
-      //   setErrors([error.response.data.message]);
-      // }
+      if (Array.isArray(error.response.data.non_field_errors)) {
+        setErrors(error.response.data.non_field_errors);
+      } else {
+        setErrors([error.response.data.non_field_errors]);
+      }
+    } finally {
+      setIsLoading(false); // Finaliza la carga después de la operación
     }
   };
 
+  // clear errors after 5 seconds
+  useEffect(() => {
+    if (errors.length > 0) {
+      const timer = setTimeout(() => {
+        setErrors([]);
+      }, 3000);
+      return () => clearTimeout(timer);
+    }
+  }, [errors]);
 
-  
   return (
-
     <div className="main-login">
-      {/* Reutilización de código SHD. */}
-
       <div className="container-form register">
         <div className="information">
           <div className="info-childs">
@@ -61,34 +69,46 @@ function Login() {
             <h2 className="login-title">Iniciar Sesión</h2>
             <form class="form form-register" onSubmit={onSubmit}>
               <div className="caja">
-                <label>
-                  
-                  <input
-                    type="number"
-                    placeholder="Número documento"
-                    name="documento"
-                    value={documento}
-                    required
-                    onChange={onChange}
-                  />
-                </label>
+                <input
+                  type="number"
+                  placeholder="Número documento"
+                  name="documento"
+                  value={documento}
+                  required
+                  onChange={onChange}
+                />
               </div>
 
               <div className="caja2">
-                <label>
-                  <i class="bx bx-lock-alt"></i>
-                  <input
-                    type="password"
-                    placeholder="Contraseña"
-                    name="password"
-                    required
-                    value={password}
-                    onChange={onChange}
-                  />
-                </label>
+                <i class="bx bx-lock-alt"></i>
+                <input
+                  type="password"
+                  placeholder="Contraseña"
+                  name="password"
+                  required
+                  value={password}
+                  onChange={onChange}
+                />
+
+                {errors.map((error, i) => (
+                  <div key={i} className="text-red-600 ml-6">
+                    {error}
+                  </div>
+                ))}
               </div>
 
-              <input value="Ingresar" className="btn-login" type="submit"/>
+              {isLoading ? (
+                <div className="loading-container">
+                  {" "}
+                  {/* Nuevo contenedor para alinear los elementos */}
+                  <div className="loading"></div> {/* Rueda giratoria */}
+                </div>
+              ) : (
+                <button className="btn-login" type="submit">
+                  Ingresar
+                </button>
+              )}
+
               <br />
               <br />
               <div class="recuperacion_contrasena">
