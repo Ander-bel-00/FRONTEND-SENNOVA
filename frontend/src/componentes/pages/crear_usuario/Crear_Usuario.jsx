@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import "./css/Crear_usuario.css";
 import { Link } from "react-router-dom";
 import Caja_formularios from "../../common/Caja_formularios";
@@ -6,9 +6,17 @@ import { GiReturnArrow } from "react-icons/gi";
 import BotonReturn from "../../common/BotonReturn";
 import clienteAxios from "../../../config/axios";
 import Swal from "sweetalert2";
+import { useAuth } from "../../../context/AuthContext";
 
 function Crear_Usuario() {
-  const [formDataUser, SetFormDataUser] = useState({});
+  const { userProfile } = useAuth();
+
+  // Verificar si userProfile es null antes de acceder a sus propiedades
+  const SemilleroID = userProfile ? userProfile.semillero : "";
+
+  const [formDataUser, SetFormDataUser] = useState({
+    semillero: SemilleroID,
+  });
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -17,6 +25,22 @@ function Crear_Usuario() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+
+    // Verificar si algún campo está vacío
+    const anyFieldEmpty = Object.values(formDataUser).some(
+      (value) => value === ""
+    );
+    if (anyFieldEmpty) {
+      // Mostrar Sweet Alert si algún campo está vacío
+      Swal.fire({
+        title: "Error al crear el Usuario",
+        text: "Debes diligenciar todos los campos",
+        icon: "warning",
+        confirmButtonText: "Aceptar",
+      });
+      return;
+    }
+
     try {
       const userData = {
         ...formDataUser,
@@ -38,16 +62,9 @@ function Crear_Usuario() {
     } catch (error) {
       console.error("Error al crear el Usuario:", error);
 
-      // Mostrar errores recibidos en la respuesta
-      const errors = error.response.data;
-      let errorMessage = "";
-      Object.keys(errors).forEach((field) => {
-        errorMessage += `${field}: ${errors[field].join(", ")}\n`;
-      });
-
       Swal.fire({
-        title: "Error",
-        text: errorMessage,
+        title: "Error al crear el Usuario",
+        text: "Hubo un error al crear el Usuario",
         icon: "error",
         confirmButtonText: "Aceptar",
       });
@@ -179,6 +196,7 @@ function Crear_Usuario() {
                 <label
                   htmlFor="semillero"
                   className="form-add-user-container__col1__label"
+                  hidden
                 >
                   Semillero <p className="rojo-required">*</p>
                 </label>
@@ -188,6 +206,9 @@ function Crear_Usuario() {
                   id="semillero"
                   className="form-add-user-container__col1__input"
                   onChange={handleChange}
+                  value={SemilleroID}
+                  readOnly
+                  hidden
                 />
                 <label
                   hidden

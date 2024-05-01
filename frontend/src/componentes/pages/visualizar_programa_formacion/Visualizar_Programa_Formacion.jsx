@@ -34,7 +34,7 @@ function Visualizar_Programa_Formacion() {
             <BotonVerdeAñadir
               icon={<IoAdd />}
               text={"Crear Programa de Formación"}
-              link={"/lider-semillero/Crear-programa-formacion"}
+              link={"../crear-programa-formacion"}
             />
           </Fragment>
         }

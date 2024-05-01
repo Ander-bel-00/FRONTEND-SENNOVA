@@ -144,13 +144,13 @@ function Listar_Proyectos() {
               <BotonBlanco
                 icon={<LuCalendarDays />}
                 text={"Ir al Cronograma"}
-                link={"/lider-semillero/cronograma"}
+                link={"../cronograma"}
                 clase={"btn-blanco btn-blanco--modify btn-azul"}
               />
               <BotonVerdeAñadir
                 icon={<AiOutlinePlus />}
                 text={"Crear"}
-                link={"/lider-semillero/crear-proyecto"}
+                link={"../crear-proyecto"}
               />
             </Fragment>
           }

@@ -59,6 +59,22 @@ import Visualizar_Usuario_ins_invg from "./componentes/pages/InstructorInvestiga
 import { useAuth } from "./context/AuthContext";
 import { ProtectedRoute } from "./ProtectedRoute";
 import Perfil from "./componentes/pages/perfil/Perfil";
+import Visualizar_Programa_Formacion_Admin from "./componentes/pages/Admin/Visualizar_Programa_Formacion_Admin/Visualizar_Programa_Formacion_Admin";
+import Crear_Programa_Formacion_Admin from "./componentes/pages/Admin/Crear_Programa_Formacion_Admin/Crear_Programa_Formacion_Admin";
+import Visualizar_Actividad_Admin from "./componentes/pages/Admin/Visualizar_Actividad_Admin/Visualizar_Actividad_Admin";
+import Listar_Eventos_Admin from "./componentes/pages/Admin/Listar_Eventos_Admin/Listar_Eventos_Admin";
+import Visualizar_Evento_Admin from "./componentes/pages/Admin/Visualizar_Evento_Admin/Visualizar_Evento_Admin";
+import Crear_Eventos_Admin from "./componentes/pages/Admin/Crear_Eventos_Admin/Crear_Eventos_Admin";
+import Actualizar_Eventos_Admin from "./componentes/pages/Admin/Actualizar_Eventos_Admin/Actualizar_Eventos_Admin";
+import Cronograma_Admin from "./componentes/pages/Admin/Cronograma_Admin/Cronograma_Admin";
+import Listar_Proyectos_Admin from "./componentes/pages/Admin/Listar_Proyecros_Admin/Listar_Proyectos_Admin";
+import Visualizar_Suspender_Proyecto_Admin from "./componentes/pages/Admin/Visualizar_Suspender_Proyecto_Admin/Visualizar_Suspender_Proyecto_Admin";
+import Actualizar_Proyectos_Admin from "./componentes/pages/Admin/Actualizar_Proyectos_Admin/Actualizar_Proyectos_Admin";
+import Crear_Proyectos_Admin from "./componentes/pages/Admin/Crear_Proyectos_Admin/Crear_Proyectos_Admin";
+import Crear_Actividad_Admin from "./componentes/pages/Admin/Crear_Actividad_Admin/Crear_Actividad_Admin";
+import Listar_Actividad_Admin from "./componentes/pages/Admin/Listar_Actividad_Admin/Listar_Actividad_Admin";
+import Actualizar_Actividad_Admin from "./componentes/pages/Admin/Actualizar_Actividad_Admin/Actualizar_Actividad_Admin";
+import Listar_Usuarios_Admin from "./componentes/pages/Admin/Listar-Usuarios-Admin/Listar_Usuarios_Admin";
 
 function App() {
   const { isAuthenticated, userRole, handleLogout } = useAuth();
@@ -99,6 +115,192 @@ function App() {
           />
         </Routes>
         <Routes>
+          <Route
+            path="/admin/*"
+            element={
+              <ProtectedRoute
+                isAllowed={
+                  !!localStorage.getItem("isAuthenticated") &&
+                  localStorage.getItem("userRole") === "admin"
+                }
+                redirectTo="/login"
+              >
+                <Fragment>
+                  <Header handleLogout={handleLogout} />
+                  <Sidenav />
+                  <Routes>
+                    <Route
+                      path="/"
+                      element={
+                        <Fragment>
+                          <main className="main-container">
+                            <Semillero />
+                          </main>
+                        </Fragment>
+                      }
+                    />
+                    <Route
+                      path="/crear-semillero"
+                      element={
+                        <Fragment>
+                          <main className="main-container">
+                            <Añadir_Semillero />
+                          </main>
+                        </Fragment>
+                      }
+                    />
+                    <Route
+                      path="/perfil"
+                      element={
+                        <main className="main-container">
+                          <Perfil />
+                        </main>
+                      }
+                    />
+                    <Route
+                      path="/cronograma"
+                      element={
+                        <Fragment>
+                          <main className="main-container">
+                            <Cronograma_Admin />
+                          </main>
+                        </Fragment>
+                      }
+                    />
+                    <Route
+                      path="/usuarios-getAll"
+                      element={
+                        <main className="main-container">
+                          <Listar_Usuarios_Admin />
+                        </main>
+                      }
+                    />
+
+                    <Route
+                      path="/visualizar-programa-formacion"
+                      element={
+                        <main className="main-container">
+                          <Visualizar_Programa_Formacion_Admin />
+                        </main>
+                      }
+                    />
+
+                    <Route
+                      path="/crear-programa-formacion"
+                      element={
+                        <main className="main-container">
+                          <Crear_Programa_Formacion_Admin />
+                        </main>
+                      }
+                    />
+
+                    <Route
+                      path="/visualizar-actividad"
+                      element={
+                        <main className="main-container">
+                          <Visualizar_Actividad_Admin />
+                        </main>
+                      }
+                    />
+
+                    <Route
+                      path="/listar-eventos"
+                      element={
+                        <main className="main-container">
+                          <Listar_Eventos_Admin />
+                        </main>
+                      }
+                    />
+
+                    <Route
+                      path="/visualizar-evento"
+                      element={
+                        <main className="main-container">
+                          <Visualizar_Evento_Admin />
+                        </main>
+                      }
+                    />
+
+                    <Route
+                      path="/crear-eventos"
+                      element={
+                        <main className="main-container">
+                          <Crear_Eventos_Admin />
+                        </main>
+                      }
+                    />
+
+                    <Route
+                      path="/actualizar-eventos"
+                      element={
+                        <main className="main-container">
+                          <Actualizar_Eventos_Admin />
+                        </main>
+                      }
+                    />
+
+                    <Route
+                      path="/listar-proyectos"
+                      element={
+                        <main className="main-container">
+                          <Listar_Proyectos_Admin />
+                        </main>
+                      }
+                    />
+                    <Route
+                      path="/visualizar-suspender-proyecto"
+                      element={
+                        <main className="main-container">
+                          <Visualizar_Suspender_Proyecto_Admin />
+                        </main>
+                      }
+                    />
+                    <Route
+                      path="/actualizar-proyectos"
+                      element={
+                        <main className="main-container">
+                          <Actualizar_Proyectos_Admin />
+                        </main>
+                      }
+                    />
+                    <Route
+                      path="/crear-proyectos"
+                      element={
+                        <main className="main-container">
+                          <Crear_Proyectos_Admin />
+                        </main>
+                      }
+                    />
+                    <Route
+                      path="/crear-actividad"
+                      element={
+                        <main className="main-container">
+                          <Crear_Actividad_Admin />
+                        </main>
+                      }
+                    />
+                    <Route
+                      path="/listar-actividad"
+                      element={
+                        <main className="main-container">
+                          <Listar_Actividad_Admin />
+                        </main>
+                      }
+                    />
+                    <Route
+                      path="/actualizar-actividad"
+                      element={
+                        <main className="main-container">
+                          <Actualizar_Actividad_Admin />
+                        </main>
+                      }
+                    />
+                  </Routes>
+                </Fragment>
+              </ProtectedRoute>
+            }
+          />
+
           {/* Lider Semillero */}
           <Route
             path="/lider_semillero/*"
@@ -130,16 +332,6 @@ function App() {
                         <main className="main-container">
                           <Perfil />
                         </main>
-                      }
-                    />
-                    <Route
-                      path="/crear-semillero"
-                      element={
-                        <Fragment>
-                          <main className="main-container">
-                            <Añadir_Semillero />
-                          </main>
-                        </Fragment>
                       }
                     />
                     <Route

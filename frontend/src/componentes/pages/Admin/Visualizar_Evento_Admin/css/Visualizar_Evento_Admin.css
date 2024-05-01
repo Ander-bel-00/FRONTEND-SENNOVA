@@ -1,0 +1,51 @@
+.vis-event-table-admin{
+    position: relative;
+    left: 1%;
+    width: 98%;
+    border-collapse: collapse;
+}
+
+.vis-event-table__tr-admin{
+    border: 1px solid var(--color-border-bottom-tr);
+}
+
+.vis-event-table__tr-admin:nth-child(even){
+    background-color: #f9f9f9;
+}
+
+.vis-event-table__th-admin{
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    text-wrap: nowrap;
+    text-align: left;
+    padding: 8px;
+}
+
+.vis-event-table__td-admin{
+    border: 1px solid #dddddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.vis-event-table__td__btns-admin{
+    display: flex;
+    padding: 5px;
+}
+
+.vis-event-table__td__btn-admin{
+    font-size: 22px;
+    margin-right: 9px;
+}
+
+.vis-event-table__td__btn-admin:hover{
+    transform: scale(1.09);
+}
+
+.btn-vs-evento-admin{
+    position: relative;
+    right: 10%;
+}
+
+.btn-vs-evento-admin:hover{
+    transform: scale(1.09);
+}

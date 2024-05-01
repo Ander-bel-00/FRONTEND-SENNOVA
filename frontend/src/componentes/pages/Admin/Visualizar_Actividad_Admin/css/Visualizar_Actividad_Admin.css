@@ -1,0 +1,48 @@
+.vis-actividad-table-admin{
+    position: relative;
+    left: 1%;
+    width: 98%;
+    border-collapse: collapse;
+}
+
+.vis-actividad-table__tr-admin{
+    border: 1px solid var(--color-border-bottom-tr);
+}
+
+.vis-actividad-table__tr-admin:nth-child(even){
+    background-color: #f9f9f9;
+}
+
+.vis-actividad-table__th-admin{
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    text-wrap: nowrap;
+    text-align: left;
+    padding: 8px;
+}
+
+.vis-actividad-table__td-admin{
+    border: 1px solid #dddddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.vis-actividad-table__td__btns-admin{
+    display: flex;
+    padding: 5px;
+}
+
+.vis-actividad-table__td__btn-admin{
+    font-size: 22px;
+    margin-right: 9px;
+}
+
+.vis-actividad-table__td__btn-admin:hover{
+    transform: scale(1.09);
+}
+
+
+.btn-vs-actividades-admin{
+    position: relative;
+    right: 3%;
+}
