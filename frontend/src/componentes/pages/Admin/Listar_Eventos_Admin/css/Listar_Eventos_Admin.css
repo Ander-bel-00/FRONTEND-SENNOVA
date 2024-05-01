@@ -1,0 +1,42 @@
+.list-events-table-admin{
+    position: relative;
+    left: 1%;
+    width: 98%;
+    border-collapse: collapse;
+}
+
+.list-events-table__tr-admin{
+    border: 1px solid var(--color-border-bottom-tr);
+}
+
+.list-events-table__tr-admin:nth-child(even){
+    background-color: #f9f9f9;
+}
+
+.list-events-table__th-admin{
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    text-wrap: nowrap;
+    text-align: left;
+    padding: 8px;
+}
+
+.list-events-table__td-admin{
+    border: 1px solid #dddddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.list-events-table__td__btns-admin{
+    display: flex;
+    padding: 5px;
+}
+
+.list-events-table__td__btn-admin{
+    font-size: 22px;
+    margin-right: 9px;
+}
+
+.list-events-table__td__btn-admin:hover{
+    transform: scale(1.09);
+}

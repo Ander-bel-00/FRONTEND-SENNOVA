@@ -52,6 +52,14 @@ import Cronograma_apr_invg from "./componentes/pages/AprendizInvestigador/Cronog
 import ListarEvento_ins_invg from "./componentes/pages/InstructorInvestigador/listarEventos_ins_invg/ListarEvento_ins_invg";
 import Perfil from "./componentes/pages/perfil/Perfil";
 
+import Visualizar_Programa_Formacion_Admin from "./componentes/pages/Admin/Visualizar_Programa_Formacion_Admin/Visualizar_Programa_Formacion_Admin";
+import Crear_Programa_Formacion_Admin from "./componentes/pages/Admin/Crear_Programa_Formacion_Admin/Crear_Programa_Formacion_Admin";
+import Visualizar_Actividad_Admin from "./componentes/pages/Admin/Visualizar_Actividad_Admin/Visualizar_Actividad_Admin";
+import Listar_Eventos_Admin from "./componentes/pages/Admin/Listar_Eventos_Admin/Listar_Eventos_Admin";
+import Visualizar_Evento_Admin from "./componentes/pages/Admin/Visualizar_Evento_Admin/Visualizar_Evento_Admin";
+import Crear_Eventos_Admin from "./componentes/pages/Admin/Crear_Eventos_Admin/Crear_Eventos_Admin";
+import Actualizar_Eventos_Admin from "./componentes/pages/Admin/Actualizar_Eventos_Admin/Actualizar_Eventos_Admin";
+
 function App() {
   return (
     <>
@@ -63,6 +71,102 @@ function App() {
           <Route path="/login" element={<Login />} />
         </Routes>
         <Routes>
+
+          <Route
+            path="/admin/*"
+            element={
+              <Fragment>
+                <Header />
+                <Sidenav />
+                <Routes>
+                  <Route
+                    path="/cronograma"
+                    element={
+                      <Fragment>
+                        <main className="main-container">
+                          <Cronograma_apr_invg />
+                        </main>
+                      </Fragment>
+                    }
+                  />
+
+                  <Route
+                    path="/usuarios-getAll"
+                    element={
+                      <main className="main-container">
+                        <Listar_Usuarios_ins_invg />
+                      </main>
+                    }
+                  />
+
+                  <Route
+                    path="/visualizar-programa-formacion"
+                    element={
+                      <main className="main-container">
+                        <Visualizar_Programa_Formacion_Admin/>
+                      </main>
+                    }
+                  />
+
+                   <Route
+                    path="/crear-programa-formacion"
+                    element={
+                      <main className="main-container">
+                        <Crear_Programa_Formacion_Admin />
+                      </main>
+                    }
+                  />
+                  
+                  <Route
+                    path="/visualizar-actividad"
+                    element={
+                      <main className="main-container">
+                        <Visualizar_Actividad_Admin />
+                      </main>
+                    }
+                  />
+                  
+                  <Route
+                    path="/listar-eventos"
+                    element={
+                      <main className="main-container">
+                        <Listar_Eventos_Admin />
+                      </main>
+                    }
+                  />
+
+                  <Route
+                    path="/visualizar-evento"
+                    element={
+                      <main className="main-container">
+                        <Visualizar_Evento_Admin />
+                      </main>
+                    }
+                  />
+
+                  <Route
+                    path="/crear-eventos"
+                    element={
+                      <main className="main-container">
+                        <Crear_Eventos_Admin/>
+                      </main>
+                    }
+                  />
+
+                  <Route
+                    path="/actualizar-eventos"
+                    element={
+                      <main className="main-container">
+                        <Actualizar_Eventos_Admin />
+                      </main>
+                    }
+                  />
+                </Routes>
+              </Fragment>
+            }
+          />
+
+
           {/* Lider Semillero */}
           <Route
             path="/lider-semillero/*"
@@ -384,6 +488,7 @@ function App() {
             }
           />
 
+          {/* Aprendiz Investigador */}
           <Route
             path="/aprendiz-investigador/*"
             element={
@@ -412,7 +517,7 @@ function App() {
                     element={
                       <Fragment>
                         <main className="main-container">
-                          <Cronograma_apr_invg/>
+                          <Cronograma_apr_invg />
                         </main>
                       </Fragment>
                     }
@@ -436,7 +541,7 @@ function App() {
                     }
                   />
 
-                    <Route
+                  <Route
                     path="/listar-eventos"
                     element={
                       <main className="main-container">
@@ -445,25 +550,25 @@ function App() {
                     }
                   />
 
-                    <Route
+                  <Route
                     path="/visualizar-actividad"
                     element={
                       <main className="main-container">
-                        <Visualizar_Actividad_apr_invg/>
+                        <Visualizar_Actividad_apr_invg />
                       </main>
                     }
                   />
 
-                    <Route
+                  <Route
                     path="/visualizar-evento"
                     element={
                       <main className="main-container">
-                        <Visualizar_Evento_apr_invg/>
+                        <Visualizar_Evento_apr_invg />
                       </main>
                     }
                   />
 
-                    <Route
+                  <Route
                     path="/visualizar-programa-formacion"
                     element={
                       <main className="main-container">

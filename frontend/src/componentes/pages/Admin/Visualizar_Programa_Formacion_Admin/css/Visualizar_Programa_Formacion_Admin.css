@@ -1,0 +1,28 @@
+.list-visualize-table-admin{
+    position: relative;
+    left: 1%;
+    width: 98%;
+    border-collapse: collapse;
+}
+
+.list-visualize-table__tr-admin{
+    border: 1px solid var(--color-border-bottom-tr);
+}
+
+.list-visualize-table__tr-admin:nth-child(even){
+    background-color: #f9f9f9;
+}
+
+.list-visualize-table__th-admin{
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    text-wrap: nowrap;
+    text-align: left;
+    padding: 8px;
+}
+
+.list-visualize-table__td-admin{
+    border: 1px solid #dddddd;
+    padding: 8px;
+    text-align: left;
+}

@@ -1,5 +1,3 @@
-import { TbArrowBack } from "react-icons/tb";
-import "./css/Actualizar_Eventos.css";
 import { IoIosReturnLeft } from "react-icons/io";
 import { Fragment } from "react";
 import { Link } from "react-router-dom";
@@ -85,7 +83,7 @@ function Actualizar_Eventos() {
                   <option className="columnTwo__op1">Asistente</option>
                   <option className="columnTwo__op2">Potente</option>
                 </select>
-                <div className="update-event-btns">
+                <div className="form-vs-event-btns">
                   <button
                     type="button"
                     className="btn-vs-evento-container__crear--green"

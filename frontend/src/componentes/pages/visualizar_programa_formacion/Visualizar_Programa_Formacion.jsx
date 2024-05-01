@@ -26,7 +26,7 @@ function Visualizar_Programa_Formacion() {
       <Header_ToolBar
       Header_Tools={
         <Fragment>
-          <BotonBlanco icon={<BiSolidReport/>} text={"reporte"} />
+          <BotonBlanco icon={<BiSolidReport/>} text={"reporte"} clase={'btn-blanco btn-blanco--modify btn-verde'}/>
           <BotonVerdeAñadir icon={<IoAdd/>} text={"Crear Programa de Formación"} link={'/lider-semillero/Crear-programa-formacion'}/>
         </Fragment>
       }

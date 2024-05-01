@@ -1,20 +1,20 @@
 import { IoAdd, IoTrashOutline } from "react-icons/io5";
 import { IoIosReturnLeft } from "react-icons/io";
 import { FaSearch } from "react-icons/fa";
-import { LuCalendarDays } from "react-icons/lu";
-import { FaFileArrowUp } from "react-icons/fa6";
 import { Fragment } from "react";
 import { FaRegEdit } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import Caja_Blanca from "../../common/Caja_Blanca";
-import Header_ToolBar from "../../common/Header_ToolBar";
-import BotonBlanco from "../../common/BotonReporte";
-import BotonVerdeAñadir from "../../common/BotonVerde";
-import Search from "../../common/Search";
-import BotonReturn from "../../common/BotonReturn";
-import "./css/Visualizar_Actividad.css";
+import Caja_Blanca from "../../../common/Caja_Blanca";
+import Header_ToolBar from "../../../common/Header_ToolBar";
+import BotonBlanco from "../../../common/BotonReporte";
+import BotonVerdeAñadir from "../../../common/BotonVerde";
+import Search from "../../../common/Search";
+import { FaFileArrowUp } from "react-icons/fa6";
+import { LuCalendarDays } from "react-icons/lu";
+import BotonReturn from "../../../common/BotonReturn";
+import "./css/Visualizar_Actividad_Admin.css";
 
-function Visualizar_Actividad() {
+function Visualizar_Actividad_Admin() {
   const Contenido = [
     {
       nombre: "Carlos",
@@ -39,19 +39,19 @@ function Visualizar_Actividad() {
       <Header_ToolBar
         Header_Tools={
           <Fragment>
-            <div className="btn-vs-actividades">
+            <div className="btn-vs-actividades-admin">
               <BotonReturn
-                link={"/lider-semillero/Listar_Actividad"}
+                link={"/admin/listar-actividad"}
                 icon={<IoIosReturnLeft />}
               />
             </div>
             <BotonBlanco icon={<FaFileArrowUp />} text={"Reporte"} clase={'btn-blanco btn-blanco--modify btn-verde'} />
-            <BotonBlanco icon={<LuCalendarDays />} text={"calendario"} clase={'btn-blanco btn-blanco--modify btn-azul'} />
+            <BotonBlanco icon={<LuCalendarDays />} text={"Ir al Cronograma"} clase={'btn-blanco btn-blanco--modify btn-azul'}/>
             <Search icon={<FaSearch />} text={"Buscar Actividades"} />
             <BotonVerdeAñadir
               icon={<IoAdd />}
               text={"Añadir Actividad"}
-              link={"/lider-semillero/Crear_Actividad"}
+              link={"/admin/crear-actividad"}
             />
           </Fragment>
         }
@@ -59,54 +59,54 @@ function Visualizar_Actividad() {
 
       <Caja_Blanca
         content={
-          <table className="vis-actividad-table">
+          <table className="vis-actividad-table-admin">
             <thead>
-              <tr className="vis-actividad-table__tr">
-                <th className="vis-actividad-table__th">Nombre Actividad</th>
-                <th className="vis-actividad-table__th">Tarea</th>
-                <th className="vis-actividad-table__th">Fecha</th>
-                <th className="vis-actividad-table__th">Resultado</th>
-                <th className="vis-actividad-table__th">Producto</th>
-                <th className="vis-actividad-table__th">
+              <tr className="vis-actividad-table__tr-admin">
+                <th className="vis-actividad-table__th-admin">Nombre Actividad</th>
+                <th className="vis-actividad-table__th-admin">Tarea</th>
+                <th className="vis-actividad-table__th-admin">Fecha</th>
+                <th className="vis-actividad-table__th-admin">Resultado</th>
+                <th className="vis-actividad-table__th-admin">Producto</th>
+                <th className="vis-actividad-table__th-admin">
                   Responsable de la Actividad
                 </th>
-                <th className="vis-actividad-table__th">Acciones</th>
+                <th className="vis-actividad-table__th-admin">Acciones</th>
               </tr>
             </thead>
             <tbody>
               {Contenido.map((Contenidos, index) => (
-                <tr className="vis-actividad-table__tr" key={index}>
-                  <td className="vis-actividad-table__td">
+                <tr className="vis-actividad-table__tr-admin" key={index}>
+                  <td className="vis-actividad-table__td-admin">
                     {" "}
                     {Contenidos.nombre}
                   </td>
-                  <td className="vis-actividad-table__td">
+                  <td className="vis-actividad-table__td-admin">
                     {" "}
                     {Contenidos.tarea}{" "}
                   </td>
-                  <td className="vis-actividad-table__td">
+                  <td className="vis-actividad-table__td-admin">
                     {" "}
                     {Contenidos.fecha}{" "}
                   </td>
-                  <td className="vis-actividad-table__td">
+                  <td className="vis-actividad-table__td-admin">
                     {" "}
                     {Contenidos.resultado}{" "}
                   </td>
-                  <td className="vis-actividad-table__td">
+                  <td className="vis-actividad-table__td-admin">
                     {" "}
                     {Contenidos.producto}{" "}
                   </td>
-                  <td className="vis-actividad-table__td">
+                  <td className="vis-actividad-table__td-admin">
                     {" "}
                     {Contenidos.responsable}{" "}
                   </td>
-                  <td className="vis-actividad-table__td">
-                    <div className="vis-actividad-table__td__btns">
-                      <Link to={"/lider-semillero/Actualizar_Actividad"}>
-                        <FaRegEdit className="vis-actividad-table__td__btn" />
+                  <td className="vis-actividad-table__td-admin">
+                    <div className="vis-actividad-table__td__btns-admin">
+                      <Link to={"/admin/actualizar-actividad"}>
+                        <FaRegEdit className="vis-actividad-table__td__btn-admin" />
                       </Link>
                       <Link>
-                        <IoTrashOutline className="vis-actividad-table__td__btn" />
+                        <IoTrashOutline className="vis-actividad-table__td__btn-admin" />
                       </Link>
                     </div>
                   </td>
@@ -119,4 +119,4 @@ function Visualizar_Actividad() {
     </div>
   );
 }
-export default Visualizar_Actividad;
+export default Visualizar_Actividad_Admin;

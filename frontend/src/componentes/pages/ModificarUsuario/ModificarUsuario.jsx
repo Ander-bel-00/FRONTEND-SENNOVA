@@ -106,6 +106,7 @@ function ModificarUsuario() {
                   <option value="Activo">Activo</option>
                   <option value="Inactivo">Inactivo</option>
                 </select>
+                <br />
                 <button className="update-users-box__form-container__btn-update">
                   Modificar
                 </button>

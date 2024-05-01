@@ -31,8 +31,8 @@ function Crear_Eventos() {
                   <option className="secondColumns__op1" selected>
                     Seleccione el tipo de evento
                   </option>
-                  <option className="secondColumns__op1">Asistente</option>
-                  <option className="secondColumns__op2">Ponente</option>
+                  <option>Asistente</option>
+                  <option>Ponente</option>
                 </select>
                 <label className="form-add-event-container__label">
                   Nombre del evento <p className="rojo-required">*</p>

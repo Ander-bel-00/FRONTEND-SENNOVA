@@ -1,10 +1,9 @@
-.mainsBoxes__tile{
- 
+.mainsBoxes__tile-admin{
     font-size: 2rem;
     text-align: center;
 
 }
-.mainsBoxes{
+.mainsBoxes-admin{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -13,7 +12,7 @@
     padding-top: 2rem;
     padding-bottom: 2rem;
 }
-.form-add-event-container{
+.form-add-event-container-admin{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -22,13 +21,13 @@
 }
 
 
-.form-add-event-container__label{
+.form-add-event-container__label-admin{
     font-weight: 400;
     display: flex;
     gap: 5px;
 }
 
-.form-add-event-container__input{
+.form-add-event-container__input-admin{
     width: 100%;
     background-color: var(--bg-inputs);
     border-radius: 6px;
@@ -38,7 +37,7 @@
     box-shadow: var(--box-shadow-inputs);
 }
 
-.form-add-event-container__label-select{
+.form-add-event-container__label-admin-select{
     display: block;
     font-weight: 400;
     padding-top: 12px;
@@ -48,7 +47,7 @@
 
 /* Botones principales */
 
-.btnEvents__cancelar{
+.btnEvents__cancelar-admin{
     background-color: var(--boton-cacelar-color);
     width: 15rem;
     height: 45px;
@@ -59,12 +58,12 @@
     font-size: 21px;
 }
 
-.btnEvents__cancelar:hover{
+.btnEvents__cancelar-admin:hover{
     background-color: var(--boton-cacelar-bg-hover);
 }
 
 
-.btnEvents__crear--green{
+.btnEvents__crear--green-admin{
     background-color: var(--boton-crear-color);
     width: 15rem;
     height: 45px;
@@ -75,24 +74,24 @@
     font-size: 21px;
 }
 
-.btnEvents__crear--green:hover{
+.btnEvents__crear--green-admin:hover{
     background-color: var(--boton-crear-bg-hover);
 }
 
 
-.add-creat-btn-return{
+.add-creat-btn-return-admin{
     width: 5rem;
 }
 
-.add-creat-btn-return a{
+.add-creat-btn-return-admin a{
     position: relative;
     left: 10%;
 }
 
-.add-creat-btn-return:hover{
+.add-creat-btn-return-admin:hover{
     transform: scale(1.09);
 }
-.btns-crear-evento{
+.btns-crear-evento-admin{
     display: flex;
     flex-direction: row;
     align-items: center;

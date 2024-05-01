@@ -1,0 +1,96 @@
+.mainsTitles{
+    text-align: center;
+    font-weight: bold;
+    font-size: 30px;
+}
+.inputBoxes-admin{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    flex-direction: column;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+.inputBoxes__titlecaja-admin{
+    font-size: 30px;
+    text-align: center;
+    padding: 1rem;
+}
+
+
+.unputBoxes__label-admin{
+    display: flex;
+    text-wrap: nowrap;
+    width: 25%;
+    gap: 5px;
+
+}
+
+.unputBoxes__input-admin{
+    width: 100%;
+    border-radius: 6px;
+    padding: 8px;
+    margin-top: 8px;
+    margin-bottom: 10px;
+    box-shadow: var(--box-shadow-inputs);
+    background-color: var(--bg-inputs);
+}
+
+
+.add-event-btn-return-admin:hover{
+    transform: scale(1.09);
+}
+
+
+.inputBoxes__olderbox-admin{
+    width: 80%;
+    padding-top: 2rem;
+   
+}
+
+
+.buttonsCreating-admin{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+/* Botones principales */
+.buttonsCreating__cancelar-admin,
+.buttonsCreating__crear--green-admin{
+    padding: 5px 15px;
+    border: none;
+    border-radius: 8px;
+    font-size: small;
+    cursor: pointer;
+    box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.2);
+    width: 10rem;
+}
+
+.buttonsCreating__cancelar-admin{
+    color: white;
+    background-color: #d4212c;
+    font-size: medium;
+    padding: 8px 20px;
+}
+
+
+.buttonsCreating__cancelar-admin:hover{
+    background-color: var(--boton-cacelar-bg-hover);
+}
+
+
+.buttonsCreating__crear--green-admin{
+    color: white;
+    background-color: #39a900;
+    font-size: medium;
+    padding: 8px 30px;
+    left: 10%; 
+}
+
+.buttonsCreating__crear--green-admin:hover{
+    background-color: var(--boton-crear-bg-hover);
+}
