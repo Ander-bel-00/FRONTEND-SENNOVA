@@ -12,48 +12,46 @@ import BotonVerdeAñadir from "../../common/BotonVerde";
 import Header_ToolBar from "../../common/Header_ToolBar";
 import Caja_Blanca from "../../common/Caja_Blanca";
 import * as XLSX from "xlsx";
+import { useAuth } from "../../../context/AuthContext";
+import clienteAxios from "../../../config/axios";
 
 function ListarUsuarios() {
+  const { userProfile } = useAuth();
+
+  const SemilleroID = userProfile ? userProfile.semillero : null;
+
   const [users, setUsers] = useState([]);
 
-  // Función para simular la obtención de usuarios de la base de datos
-  const fetchUsers = () => {
-    // Aquí puedes simular la obtención de usuarios de una base de datos
-    const simulatedUsers = [
-      {
-        id: 1,
-        nombres: "Juan",
-        apellidos: "Perez",
-        tipoDocumento: "Cédula",
-        numeroDocumento: "123456789",
-        rol: "Admin",
-      },
-      {
-        id: 2,
-        nombres: "María",
-        apellidos: "Gómez",
-        tipoDocumento: "Pasaporte",
-        numeroDocumento: "987654321",
-        rol: "Usuario",
-      },
-    ];
-    setUsers(simulatedUsers);
-  };
-
   useEffect(() => {
-    // Llamada a la función para obtener usuarios cuando el componente se monta
-    fetchUsers();
-  }, []);
+    // Definición de una función asincrónica para obtener los usuarios del semillero
+    const ObtenerusuariosSemillero = async () => {
+      try {
+        // Verifica si SemilleroID existe y no es nulo
+        if (SemilleroID) {
+          // Realiza una solicitud GET a la API para obtener los usuarios del semillero
+          const res = await clienteAxios.get(`/semilleros/${SemilleroID}/usuarios/`);
+          // Actualiza el estado de los usuarios con los datos obtenidos de la solicitud
+          setUsers(res.data);
+        }
+      } catch (error) {
+        // Manejo de errores: si ocurre algún error en la solicitud, se muestra en la consola
+        console.error('Error al obtener los usuarios del Semillero:', error);
+      }
+    }
+  
+    // Llama a la función ObtenerusuariosSemillero una vez que el componente se monta o cuando SemilleroID cambia
+    ObtenerusuariosSemillero();
+  }, [SemilleroID]); // Dependencia que indica cuándo debe ejecutarse el efecto nuevamente
+  
 
   const exportToExcel = () => {
     const wb = XLSX.utils.book_new();
     const wsData = [
-      ["Nombres", "Apellidos", "Tipo documento", "Número documento", "Rol"],
+      ["Nombres", "Apellidos", "Número documento", "Rol"],
       ...users.map((user) => [
-        user.nombres,
-        user.apellidos,
-        user.tipoDocumento,
-        user.numeroDocumento,
+        user.name,
+        user.last_names,
+        user.documento,
         user.rol,
       ]),
     ];
@@ -101,7 +99,6 @@ function ListarUsuarios() {
                 <tr>
                   <th className="user-table__header">Nombres</th>
                   <th className="user-table__header">Apellidos</th>
-                  <th className="user-table__header">Tipo documento</th>
                   <th className="user-table__header">Número documento</th>
                   <th className="user-table__header">Rol</th>
                   <th className="user-table__header">Acciones</th>
@@ -110,18 +107,14 @@ function ListarUsuarios() {
               <tbody>
                 {users.map((user, index) => (
                   <tr key={index} className="user-table__row">
-                    <td className="user-table__cell">{user.nombres}</td>
-                    <td className="user-table__cell">{user.apellidos}</td>
-                    <td className="user-table__cell">{user.tipoDocumento}</td>
-                    <td className="user-table__cell">{user.numeroDocumento}</td>
+                    <td className="user-table__cell">{user.name}</td>
+                    <td className="user-table__cell">{user.last_names}</td>
+                    <td className="user-table__cell">{user.documento}</td>
                     <td className="user-table__cell">{user.rol}</td>
                     <td className="user-table__cell">
                       <div className="user-table__cell__buttons">
                         <Link
-                          to={{
-                            pathname: "../usuario",
-                            state: { usuario: user },
-                          }}
+                          to={'../usuario'}
                         >
                           <LiaEyeSolid className="user-table__cell__btn" />
                         </Link>

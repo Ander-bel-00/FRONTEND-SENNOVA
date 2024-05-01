@@ -58,6 +58,7 @@ import Visualizar_Usuario from "./componentes/pages/visualizar_usuario/Visualiza
 import Visualizar_Usuario_ins_invg from "./componentes/pages/InstructorInvestigador/visualizar_usuario_ins_invg/Visualizar_Usuario_ins_invg";
 import { useAuth } from "./context/AuthContext";
 import { ProtectedRoute } from "./ProtectedRoute";
+import Perfil from "./componentes/pages/perfil/Perfil";
 
 function App() {
   const { isAuthenticated, userRole, handleLogout } = useAuth();
@@ -100,14 +101,14 @@ function App() {
         <Routes>
           {/* Lider Semillero */}
           <Route
-            path="/lider semillero/*"
+            path="/lider_semillero/*"
             element={
               <ProtectedRoute
                 isAllowed={
                   !!localStorage.getItem("isAuthenticated") &&
-                  localStorage.getItem("userRole") === "lider semillero"
+                  localStorage.getItem("userRole") === "lider_semillero"
                 }
-                redirectTo="/"
+                redirectTo="/login"
               >
                 <Fragment>
                   <Header handleLogout={handleLogout} />
@@ -121,6 +122,14 @@ function App() {
                             <Semillero />
                           </main>
                         </Fragment>
+                      }
+                    />
+                    <Route
+                      path="/perfil"
+                      element={
+                        <main className="main-container">
+                          <Perfil />
+                        </main>
                       }
                     />
                     <Route
@@ -323,14 +332,14 @@ function App() {
 
           {/* instructor investigador */}
           <Route
-            path="/instructor investigador/*"
+            path="/instructor_investigador/*"
             element={
               <ProtectedRoute
                 isAllowed={
                   !!localStorage.getItem("isAuthenticated") &&
-                  localStorage.getItem("userRole") === "instructor investigador"
+                  localStorage.getItem("userRole") === "instructor_investigador"
                 }
-                redirectTo="/"
+                redirectTo="/login"
               >
                 <Fragment>
                   <Header handleLogout={handleLogout} />
@@ -344,6 +353,14 @@ function App() {
                             <Semillero_ins_invg />
                           </main>
                         </Fragment>
+                      }
+                    />
+                    <Route
+                      path="/perfil"
+                      element={
+                        <main className="main-container">
+                          <Perfil />
+                        </main>
                       }
                     />
                     <Route
@@ -447,7 +464,16 @@ function App() {
                         </main>
                       }
                     />
-
+                    <Route
+                      path="/cronograma"
+                      element={
+                        <Fragment>
+                          <main className="main-container">
+                            <Cronograma_ins_invg />
+                          </main>
+                        </Fragment>
+                      }
+                    />
                     <Route
                       path="/usuarios-getAll"
                       element={
@@ -473,103 +499,119 @@ function App() {
 
           {/* Aprendiz Investigador */}
           <Route
-            path="/aprendiz-investigador/*"
+            path="/aprendiz_investigador/*"
             element={
-              <Fragment>
-                <Header />
-                <Sidenav />
-                <Routes>
-                  <Route
-                    path="/"
-                    element={
-                      <Fragment>
+              <ProtectedRoute
+                isAllowed={
+                  !!localStorage.getItem("isAuthenticated") &&
+                  localStorage.getItem("userRole") === "aprendiz_investigador"
+                }
+                redirectTo="/login"
+              >
+                <Fragment>
+                  <Header handleLogout={handleLogout} />
+                  <Sidenav />
+                  <Routes>
+                    <Route
+                      path="/"
+                      element={
+                        <Fragment>
+                          <main className="main-container">
+                            <Semillero_apr_invg />
+                          </main>
+                        </Fragment>
+                      }
+                    />
+                    <Route
+                      path="/perfil"
+                      element={
                         <main className="main-container">
-                          <Semillero_apr_invg />
+                          <Perfil />
                         </main>
-                      </Fragment>
-                    }
-                  />
-                  <Route
-                    path="/visualizar-proyecto"
-                    element={
-                      <main className="main-container">
-                        <Visualizar_Proyecto_apr_invg />
-                      </main>
-                    }
-                  />
-                  <Route
-                    path="/listar-proyectos"
-                    element={
-                      <main className="main-container">
-                        <Listar_Proyectos_apr_invg />
-                      </main>
-                    }
-                  />
-                  <Route
-                    path="/cronograma"
-                    element={
-                      <Fragment>
+                      }
+                    />
+                    <Route
+                      path="/visualizar-proyecto"
+                      element={
                         <main className="main-container">
-                          <Cronograma_apr_invg />
+                          <Visualizar_Proyecto_apr_invg />
                         </main>
-                      </Fragment>
-                    }
-                  />
+                      }
+                    />
+                    <Route
+                      path="/listar-proyectos"
+                      element={
+                        <main className="main-container">
+                          <Listar_Proyectos_apr_invg />
+                        </main>
+                      }
+                    />
+                    <Route
+                      path="/cronograma"
+                      element={
+                        <Fragment>
+                          <main className="main-container">
+                            <Cronograma_apr_invg />
+                          </main>
+                        </Fragment>
+                      }
+                    />
 
-                  <Route
-                    path="/usuarios-getAll"
-                    element={
-                      <main className="main-container">
-                        <Listar_Usuarios_apr_invg />
-                      </main>
-                    }
-                  />
+                    <Route
+                      path="/usuarios-getAll"
+                      element={
+                        <main className="main-container">
+                          <Listar_Usuarios_apr_invg />
+                        </main>
+                      }
+                    />
 
-                  <Route
-                    path="/listar-eventos"
-                    element={
-                      <main className="main-container">
-                        <Listar_Eventos_apr_invg />
-                      </main>
-                    }
-                  />
+                    <Route
+                      path="/listar-eventos"
+                      element={
+                        <main className="main-container">
+                          <Listar_Eventos_apr_invg />
+                        </main>
+                      }
+                    />
 
-                  <Route
-                    path="/visualizar-actividad"
-                    element={
-                      <main className="main-container">
-                        <Visualizar_Actividad_apr_invg />
-                      </main>
-                    }
-                  />
+                    <Route
+                      path="/visualizar-actividad"
+                      element={
+                        <main className="main-container">
+                          <Visualizar_Actividad_apr_invg />
+                        </main>
+                      }
+                    />
 
-                  <Route
-                    path="/visualizar-evento"
-                    element={
-                      <main className="main-container">
-                        <Visualizar_Evento_apr_invg />
-                      </main>
-                    }
-                  />
+                    <Route
+                      path="/visualizar-evento"
+                      element={
+                        <main className="main-container">
+                          <Visualizar_Evento_apr_invg />
+                        </main>
+                      }
+                    />
 
-                  <Route
-                    path="/visualizar-programa-formacion"
-                    element={
-                      <main className="main-container">
-                        <Visualizar_Programa_Formacion_apr_invg />
-                      </main>
-                    }
-                  />
-                  <Route
-                    path="/listar-actividad"
-                    element={
-                      <main className="main-container">
-                        <Listar_Actividad_apr_invg />
-                      </main>
-                    }
-                  />
-                </Routes>
-              </Fragment>
+                    <Route
+                      path="/visualizar-programa-formacion"
+                      element={
+                        <main className="main-container">
+                          <Visualizar_Programa_Formacion_apr_invg />
+                        </main>
+                      }
+                    />
+                    <Route
+                      path="/listar-actividad"
+                      element={
+                        <main className="main-container">
+                          <Listar_Actividad_apr_invg />
+                        </main>
+                      }
+                    />
+                  </Routes>
+                </Fragment>
+              </ProtectedRoute>
             }
           />
         </Routes>

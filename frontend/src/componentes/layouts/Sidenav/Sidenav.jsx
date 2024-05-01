@@ -11,9 +11,13 @@ import { FaRegClock } from "react-icons/fa";
 import { FaChartGantt } from "react-icons/fa6";
 import { FaList } from "react-icons/fa6";
 import { FaUsers } from "react-icons/fa";
+import { useAuth } from "../../../context/AuthContext";
 
 
 function Sidenav() {
+  const { userProfile } = useAuth();
+  // Verificar si userProfile es null antes de acceder a sus propiedades
+  const Rol = userProfile ? userProfile.rol : '';
   return (
     <Fragment>
       <div className="Sidenav-content">
@@ -24,38 +28,38 @@ function Sidenav() {
               <img src={LogoTeinnovaHome} alt="Logo Teinnova" />
             </div>
           </li>
-          <Link to={"/lider-semillero/"}>
+          <Link to={`/${Rol}/`}>
             <li className="Sidenav-content__menu-content__menu-options">
               <FaSeedling className="inline-block mr-2" />
               Semillero
             </li>
           </Link>
 
-          <Link to={'/lider-semillero/listar-Proyectos'}>
+          <Link to={`/${Rol}/listar-Proyectos`}>
             <li className="Sidenav-content__menu-content__menu-options">
               <FaProjectDiagram className="inline-block mr-2 " />
               Proyectos
             </li>
           </Link>
-          <Link to={"/lider-semillero/listar-actividad"}>
+          <Link to={`/${Rol}/listar-actividad`}>
             <li className="Sidenav-content__menu-content__menu-options">
               <FaCalendarCheck className="inline-block mr-2" /> Actividades
             </li>
           </Link>
-          <Link to={"/lider-semillero/listar-eventos"}>
+          <Link to={`/${Rol}/listar-eventos`}>
             <li className="Sidenav-content__menu-content__menu-options">
               <FaRegClock className="inline-block mr-2" />
               Eventos
             </li>
           </Link>
-          <Link to={"/lider-semillero/cronograma"}>
+          <Link to={`/${Rol}/cronograma`}>
             <li className="Sidenav-content__menu-content__menu-options">
               <FaChartGantt className="inline-block mr-2" />
               Cronograma
             </li>
           </Link>
 
-          <Link to={"/lider-semillero/visualizar-programa-formacion"}>
+          <Link to={`/${Rol}/visualizar-programa-formacion`}>
             <li className="Sidenav-content__menu-content__menu-options">
               <FaList className="inline-block mr-2" />
               Programa
@@ -63,7 +67,7 @@ function Sidenav() {
           </Link>
 
 
-          <Link to={"/lider-semillero/usuarios-getAll"}>
+          <Link to={`/${Rol}/usuarios-getAll`}>
             <li className="Sidenav-content__menu-content__menu-options">
               <FaUsers className="inline-block" /> Integrantes
             </li>

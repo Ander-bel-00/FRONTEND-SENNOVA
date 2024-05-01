@@ -6,21 +6,27 @@ import BotonBlanco from "../../common/BotonReporte";
 import BotonVerdeAñadir from "../../common/BotonVerde";
 import { IoPersonAddSharp } from "react-icons/io5";
 import clienteAxios from "../../../config/axios";
+import { useAuth } from "../../../context/AuthContext";
 
 const Semillero = () => {
+  const { userProfile } = useAuth();
+
+
   const [semilleros, setSemilleros] = useState([]);
   useEffect(() => {
     const fetchSemillero = async () => {
       try {
-        const response = await clienteAxios.get("/semilleros/");
-        setSemilleros(response.data);
+        if (userProfile && userProfile.semillero) {
+          const response = await clienteAxios.get(`/semilleros/${userProfile.semillero}/`);
+          setSemilleros(response.data);
+        }
       } catch (error) {
         console.error("Error al obtener los datos del semillero:", error);
       }
     };
 
     fetchSemillero();
-  }, []);
+  }, [userProfile]);
 
   return (
     <Fragment>
@@ -49,7 +55,7 @@ const Semillero = () => {
             style={{ textAlign: "center", fontSize: "2rem", fontWeight: "500" }}
           >
             SEMILLERO DE INVESTIGACIÓN <br></br>{" "}
-            {"Informatica, Desarrollo de software"}
+            {semilleros.nombre_semillero}
           </h1>
 
           <div className="semillero-main-container__campos-informacion">
@@ -64,7 +70,7 @@ const Semillero = () => {
               </div>
               <div className="semillero-main-container__campos-informacion__inputs">
                 <h1>Sectores de aplicacion: </h1>
-                <h2>{"-" + semilleros.sectores_apicacion}</h2>
+                <h2>{"- " + semilleros.sectores_apicacion}</h2>
               </div>
               <div>
                 <h1>Integrantes:</h1>
@@ -73,7 +79,7 @@ const Semillero = () => {
                     semilleros.users.map((usuario) => (
                       <div key={usuario.id}>
                         <h5 className="integrantes">
-                          {"-" + usuario.name + usuario.last_names}
+                          {"- " + usuario.name + ' ' + usuario.last_names}
                         </h5>
                       </div>
                     ))}
@@ -82,7 +88,7 @@ const Semillero = () => {
               <div className="semillero-main-container__campos-informacion__inputs">
                 <h1>lineas de Investigación </h1>
                 <h2>
-                  {"-" + semilleros.lineas_investigacion_declaradas}
+                  {"- " + semilleros.lineas_investigacion_declaradas}
                 </h2>
               </div>
             </section>
@@ -99,7 +105,7 @@ const Semillero = () => {
               <div className="semillero-main-container__campos-informacion__inputs">
                 <h1>Plan estrategico: </h1>
                 <h2>
-                  {"-" + semilleros.plan_estrategico_investigacion}
+                  {"- " + semilleros.plan_estrategico_investigacion}
                 </h2>
               </div>
             </section>

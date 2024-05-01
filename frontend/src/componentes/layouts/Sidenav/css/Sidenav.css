@@ -10,7 +10,7 @@
     /* Establece la altura al 100% de la altura de la ventana */
     position: fixed;
     /* Cambia la posición a fija para que el menú se mantenga visible al desplazar la página */
-    top: 4.4rem;
+    top: 3.69rem;
     /* Alinea el menú en la parte superior */
     left: 0;
     /* Alinea el menú en la parte izquierda */
@@ -80,6 +80,6 @@
         width: 100%;
         color: #fff;
         font-size: 20px;
-        padding-top: 25px;
+        padding-top: 23px;
     }
 }

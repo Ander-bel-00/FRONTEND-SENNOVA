@@ -11,6 +11,7 @@ import { FaRegEdit } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import BotonReturn from "../../common/BotonReturn";
 import { GiReturnArrow } from "react-icons/gi";
+import { Fragment } from "react";
 
 function Visualizar_Usuario() {
 
@@ -43,7 +44,6 @@ function Visualizar_Usuario() {
               <tr>
                 <th className="user-table__header">Nombres</th>
                 <th className="user-table__header">Apellidos</th>
-                <th className="user-table__header">Tipo documento</th>
                 <th className="user-table__header">Número documento</th>
                 <th className="user-table__header">Correo SENA</th>
                 <th className="user-table__header">Correo personal</th>
@@ -53,14 +53,13 @@ function Visualizar_Usuario() {
             </thead>
             <tbody>
               <tr className="user-table__row">
-                <td className="user-table__cell">{usuario.nombres}</td>
-                <td className="user-table__cell">{usuario.apellidos}</td>
-                <td className="user-table__cell">{usuario.tipoDocumento}</td>
-                <td className="user-table__cell">{usuario.numeroDocumento}</td>
-                <td className="user-table__cell">{usuario.correo_SENA}</td>
-                <td className="user-table__cell">{usuario.correo_personal}</td>
-                <td className="user-table__cell">{usuario.telefono}</td>
-                <td className="user-table__cell">{usuario.rol}</td>
+                <td className="user-table__cell"></td>
+                <td className="user-table__cell"></td>
+                <td className="user-table__cell"></td>
+                <td className="user-table__cell"></td>
+                <td className="user-table__cell"></td>
+                <td className="user-table__cell"></td>
+                <td className="user-table__cell"></td>
               </tr>
             </tbody>
           </table>

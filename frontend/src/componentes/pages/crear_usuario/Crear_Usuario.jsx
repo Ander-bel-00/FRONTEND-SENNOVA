@@ -55,7 +55,7 @@ function Crear_Usuario() {
   };
 
   // Función para declarar un estado que almacenará el rol seleccionado
-  const [rolUsuario, setRolUsuario] = useState("instructor investigador");
+  const [rolUsuario, setRolUsuario] = useState("instructor_investigador");
   // Función para mostrar campos adicionales en el formulario solo si se selecciona aprendiz investigador
   const [mostrarCamposAprendiz, setMostrarCamposAprendiz] = useState(false);
 
@@ -65,7 +65,7 @@ function Crear_Usuario() {
     const selectedRol = e.target.value;
     setRolUsuario(selectedRol);
     // Mostrar campos adicionales solo si se selecciona el rol de "aprendiz-investigador"
-    setMostrarCamposAprendiz(selectedRol === "aprendiz investigador");
+    setMostrarCamposAprendiz(selectedRol === "aprendiz_investigador");
   };
 
   return (
@@ -85,10 +85,10 @@ function Crear_Usuario() {
                   onChange={handleRolChange}
                   className="form-add-user-container__col1__input"
                 >
-                  <option value="instructor investigador">
+                  <option value="instructor_investigador">
                     Instructor Investigador
                   </option>
-                  <option value="aprendiz investigador">
+                  <option value="aprendiz_investigador">
                     Aprendiz Investigador
                   </option>
                 </select>

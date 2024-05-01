@@ -5,8 +5,9 @@ import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../../context/AuthContext";
 
 function Login() {
-  const navigate = useNavigate();
-  const { handleLogin } = useAuth();
+  const navigate = useNavigate(); // Utilizar navigate de React-router-dom para realizar navegación:
+  const { handleLogin } = useAuth(); // Llamar la función handleLogin del Hook useAuth.
+  // Función para guardar y actualizar los datos recibidos en el formulario de Login.
   const [formData, setFormData] = useState({
     documento: "",
     password: "",
