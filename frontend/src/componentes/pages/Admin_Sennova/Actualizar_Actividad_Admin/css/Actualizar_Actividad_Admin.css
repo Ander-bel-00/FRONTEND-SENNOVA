@@ -1,4 +1,4 @@
-.update-activity-main{
+.update-activity-admin-main{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -7,7 +7,8 @@
     padding-top: 2rem;
     padding-bottom: 2rem;
 }
-.form-update-activity-content{
+
+.form-update-activity-admin-content{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -15,14 +16,14 @@
     margin-top: 1rem;
 }
 
-.actualizar-actividades-title{
+.actualizar-actividades-admin-title{
     font-size: 25px;
     font-weight: 750;
     position: relative;
     top: 1rem;
 }
 
-.form-update-activity-content__col1__label{
+.form-update-activity-admin-content__col1__label{
     font-weight: 400;
     padding-top: 12px;
     display: flex;
@@ -30,7 +31,7 @@
     gap: 5px;
 }
 
-.form-update-activity-content__col1__input{
+.form-update-activity-admin-content__col1__input{
     width: 100%;
     background-color: var(--bg-inputs);
     border-radius: 6px;
@@ -40,7 +41,7 @@
     box-shadow: var(--box-shadow-inputs);
 }
 
-.update-activity-btns{
+.update-activity-admin-btns{
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -48,21 +49,21 @@
     justify-content: space-around;
 }
 
-.btn-actualizar-actividad{
+.btn-actualizar-actividad-admin{
     background-color: var(--btn-update-bg);
     width: 15rem;
     border-radius: 8px;
     box-shadow: 0px 4px 11px 1px rgba(129,122,122,0.73);
     color: var(--text-btn-color);
     font-size: 21px;
-    padding: 8px;
+    padding: 8px
 }
 
-.btn-actualizar-actividad:hover{
+.btn-actualizar-actividad-admin:hover{
     background-color: var(--btn-update-bg-hover);
 }
 
-.btn-cancelar-actividad-uptd-admin{
+.btn-cancelar-actividad-admin-uptd{
     background-color: var(--boton-cacelar-color);
     width: 15rem;
     padding: 8px;
@@ -75,7 +76,7 @@
     text-align: center;
 }
 
-.btn-cancelar-actividad-uptd-admin:hover{
+.btn-cancelar-actividad-admin-uptd:hover{
     cursor: pointer;
     background-color: var(--boton-cacelar-bg-hover);
 }

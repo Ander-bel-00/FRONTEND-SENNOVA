@@ -1,0 +1,42 @@
+.list-project-instructor-table{
+    position: relative;
+    left: 1%;
+    width: 98%;
+    border-collapse: collapse;
+}
+
+.list-project-instructor-table__tr{
+    border: 1px solid var(--color-border-bottom-tr);
+}
+
+.list-project-instructor-table__tr:nth-child(even){
+    background-color: #f9f9f9;
+}
+
+.list-project-instructor-table__th{
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    text-wrap: nowrap;
+    text-align: left;
+    padding: 8px;
+}
+
+.list-project-instructor-table__td{
+    border: 1px solid #dddddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.list-project-instructor-table__td__btns{
+    display: flex;
+    padding: 5px;
+}
+
+.list-project-instructor-table__td__btn{
+    font-size: 22px;
+    margin-right: 9px;
+}
+
+.list-project-instructor-table__td__btn:hover{
+    transform: scale(1.09);
+}

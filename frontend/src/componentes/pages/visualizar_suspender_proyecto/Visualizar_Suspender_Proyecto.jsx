@@ -1,6 +1,5 @@
 import React, { Fragment } from "react";
 import "./css/Visualizar_Suspender_Proyecto.css";
-import { IoIosReturnLeft } from "react-icons/io";
 import { LuCalendarDays } from "react-icons/lu";
 import { FaRegEdit } from "react-icons/fa";
 import { IoTrashOutline } from "react-icons/io5";

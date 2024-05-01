@@ -1,4 +1,4 @@
-.main-form-proyecto{
+.update-proyect-admin-main{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -8,7 +8,23 @@
     padding-bottom: 2rem;
 }
 
-.form-add-pryect-container{
+.Caja-formularios--update-proyect-admin{
+    height: 100vh;
+    bottom: 2rem;
+    width: 70%;
+}
+
+.main-form-update-proyect-admin{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    flex-direction: column;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+.form-update-proyects-admin-content{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -16,40 +32,48 @@
     margin-top: 1rem;
 }
 
-.create-project-title{
+.actualizar-project-admin-title{
     font-size: 25px;
     position: relative;
     top: 4%;
 }
 
-
-.form-add-pryect-container__col1__label{
+.form-update-proyects-admin-content__col1__label{
     font-weight: 400;
     padding-top: 12px;
     display: flex;
     align-items: center;
     gap: 5px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
 }
 
-.form-add-pryect-container__col1__input{
-    width: 100%;
+.form-update-proyects-admin-content__col1__input{
+    width: 50%;
+    background-color: var(--bg-inputs);
+    width: 50%;
     background-color: var(--bg-inputs);
     border-radius: 6px;
     padding: 8px;
     margin-top: 8px;
     margin-bottom: 10px;
     box-shadow: var(--box-shadow-inputs);
+    width: 100%;
+    width: 100%;
 }
 
-.form-add-pryect-container__col1__textarea{
+.form-update-proyects-admin-content__col1__textarea{
+    background-color: var(--bg-inputs);
+    width: 100%;
+    height: 5rem;
     background-color: var(--bg-inputs);
     width: 100%;
     height: 5rem;
     border-radius: 8px;
-   
 }
 
-.btns-crear-projecto{
+.update-proyects-admin-btns{
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -57,42 +81,42 @@
     justify-content: space-around;
     margin-top: 2rem;
 }
-.btn-crear-proyecto{
+
+.btn-actualizar-admin-proyecto{
     background-color: var(--btn-update-bg);
-    width: 12rem;
-    height: 45px;
+    width: 15rem;
+    padding: 8px;
     border-radius: 8px;
-    box-shadow: 0px 4px 11px 1px rgba(129,122,122,0.3);
-    top: 2rem;
+    box-shadow: 0px 4px 11px 1px rgba(129,122,122,0.73);
     color: var(--text-btn-color);
     font-size: 21px;
     text-align: center;
 }
 
-.btn-crear-proyecto:hover{
+.btn-actualizar-admin-proyecto:hover{
     background-color: var(--btn-update-bg-hover);
 }
-.btn-cancelar-proyecto{
+
+.btn-cancelar-actualizar-admin-proyect{
     background-color: var(--boton-cancelar-color);
-    width: 12rem;
-    height: 45px;
+    width: 15rem;
+    padding: 8px;
     border-radius: 8px;
-    box-shadow: 0px 4px 11px 1px rgba(129,122,122,0.3);
-    top: 4rem;
+    box-shadow: 0px 4px 11px 1px rgba(129,122,122,0.73);
     color: var(--text-btn-color);
     font-size: 21px;
 }
 
-.btn-cancelar-proyecto:hover{
+.btn-cancelar-actualizar-admin-proyect:hover{
     background-color: var(--boton-cancelar-bg-hover);
 }
-.rojo-required{
-    color: red;
-}
-.form-add-pryect-container__select{
+
+.form-update-proyects-admin-content_select{
     background-color: var(--bg-inputs);
     height: 2rem;
     border-radius: 5px;
-
 }
 
+.rojo-required{
+    color: red;
+}

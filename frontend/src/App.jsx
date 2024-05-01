@@ -51,6 +51,15 @@ import Login from "./componentes/pages/login/Login";
 import Listar_Actividad_apr_invg from "./componentes/pages/AprendizInvestigador/listar-_actividad_apr_invg/Listar_Actividad_apr_invg";
 import Actualizar_Semillero from "./componentes/pages/actualizar-semillero/Actualizar_Semillero";
 import Añadir_Semillero from "./componentes/pages/InstructorInvestigador/añadir_semillero/Añadir_Semillero";
+import Listar_Proyectos_Admin from "./componentes/pages/Admin_Sennova/Listar_Proyecros_Admin/Listar_Proyectos_Admin";
+import Visualizar_Suspender_Proyecto_Admin from "./componentes/pages/Admin_Sennova/Visualizar_Suspender_Proyecto_Admin/Visualizar_Suspender_Proyecto_Admin";
+import Actualizar_Proyectos_Admin from "./componentes/pages/Admin_Sennova/Actualizar_Proyectos_Admin/Actualizar_Proyectos_Admin";
+import Crear_Proyectos_Admin from "./componentes/pages/Admin_Sennova/Crear_Proyectos_Admin/Crear_Proyectos_Admin";
+import Crear_Actividad_Admin from "./componentes/pages/Admin_Sennova/Crear_Actividad_Admin/Crear_Actividad_Admin";
+import Listar_Actividad_Admin from "./componentes/pages/Admin_Sennova/Listar_Actividad_Admin/Listar_Actividad_Admin";
+import Actualizar_Actividad_Admin from"./componentes/pages/Admin_Sennova/Actualizar_Actividad_Admin/Actualizar_Actividad_Admin";
+
+
 
 function App() {
   return (
@@ -453,6 +462,75 @@ function App() {
                 </Routes>
               </Fragment>
             }
+          />
+
+          {/* admin */}
+          <Route
+           path="/admin/*"
+           element={
+            <Fragment>
+              <Header />
+              <Sidenav />
+              <Routes>
+                <Route 
+                 path="/listar-proyectos"
+                 element={
+                  <main className="main-container">
+                    <Listar_Proyectos_Admin />
+                  </main>
+                 }
+                />
+                <Route
+                 path="/visualizar-suspender-proyecto"
+                 element={
+                  <main className="main-container">
+                    <Visualizar_Suspender_Proyecto_Admin />
+                  </main>
+                 }
+                />
+                <Route
+                 path="/actualizar-proyectos"
+                 element={
+                  <main className="main-container">
+                    <Actualizar_Proyectos_Admin />
+                  </main>
+                 }
+                />
+                <Route 
+                 path="/crear-proyectos"
+                 element={
+                  <main className="main-container">
+                    <Crear_Proyectos_Admin />
+                  </main>
+                 }
+                />
+                <Route 
+                 path="/crear-actividad"
+                 element={
+                  <main className="main-container">
+                    <Crear_Actividad_Admin />
+                  </main>
+                 }
+                />
+                <Route 
+                 path="/listar-actividad"
+                 element={
+                  <main  className="main-container">
+                    <Listar_Actividad_Admin />
+                  </main>
+                 }
+                />
+                <Route
+                 path="/actualizar-actividad"
+                 element={
+                  <main className="main-container">
+                    <Actualizar_Actividad_Admin />
+                  </main>
+                 }
+                />
+              </Routes>
+            </Fragment>
+           }
           />
         </Routes>
       </BrowserRouter>

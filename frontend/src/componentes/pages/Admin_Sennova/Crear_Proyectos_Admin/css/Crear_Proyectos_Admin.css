@@ -1,4 +1,4 @@
-.main-form-proyecto{
+.main-form-admin-proyecto{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -8,7 +8,7 @@
     padding-bottom: 2rem;
 }
 
-.form-add-pryect-container{
+.form-add-pryect-admin-container{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -16,14 +16,13 @@
     margin-top: 1rem;
 }
 
-.create-project-title{
+.create-project-admin-title{
     font-size: 25px;
     position: relative;
     top: 4%;
 }
 
-
-.form-add-pryect-container__col1__label{
+.form-add-pryect-admin-container__col1__label{
     font-weight: 400;
     padding-top: 12px;
     display: flex;
@@ -31,7 +30,7 @@
     gap: 5px;
 }
 
-.form-add-pryect-container__col1__input{
+.form-add-pryect-admin-container__col1__input{
     width: 100%;
     background-color: var(--bg-inputs);
     border-radius: 6px;
@@ -41,15 +40,14 @@
     box-shadow: var(--box-shadow-inputs);
 }
 
-.form-add-pryect-container__col1__textarea{
+.form-add-pryect-admin-container__col1__textarea{
     background-color: var(--bg-inputs);
     width: 100%;
     height: 5rem;
     border-radius: 8px;
-   
 }
 
-.btns-crear-projecto{
+.btns-crear-projecto-admin{
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -57,7 +55,8 @@
     justify-content: space-around;
     margin-top: 2rem;
 }
-.btn-crear-proyecto{
+
+.btn-crear-proyecto-admin{
     background-color: var(--btn-update-bg);
     width: 12rem;
     height: 45px;
@@ -69,10 +68,11 @@
     text-align: center;
 }
 
-.btn-crear-proyecto:hover{
+.btn-crear-proyecto-admin:hover{
     background-color: var(--btn-update-bg-hover);
 }
-.btn-cancelar-proyecto{
+
+.btn-cancelar-proyecto-admin{
     background-color: var(--boton-cancelar-color);
     width: 12rem;
     height: 45px;
@@ -83,16 +83,16 @@
     font-size: 21px;
 }
 
-.btn-cancelar-proyecto:hover{
+.btn-cancelar-proyecto-admin:hover{
     background-color: var(--boton-cancelar-bg-hover);
 }
+
 .rojo-required{
     color: red;
 }
-.form-add-pryect-container__select{
+
+.form-add-pryect-admin-container__select{
     background-color: var(--bg-inputs);
     height: 2rem;
     border-radius: 5px;
-
 }
-
