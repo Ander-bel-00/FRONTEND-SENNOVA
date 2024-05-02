@@ -20,6 +20,11 @@
     align-items: center;
     gap: 2rem;
 }
+.Header-general_options{
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
 .Header-general__Search-box {
     width: 80px;
     order: 0; /* Cambia el orden del elemento */
@@ -53,10 +58,25 @@
 }
 
 .Header-general__logout-link__icon{
+    color: #fff;
     font-size: 20px;
 }
 
 .Header-general__user_name__icon{
-    font-size: 40px;
+    font-size: 25px;
+    color: #04324D;
+    margin-left: 3px;
 }
 
+.Header-general__logout-link__text{
+    color: #04324D;
+}
+.Header-general__logout-link__text:hover{
+    color: #063f60;
+    text-decoration: underline;
+}
+
+.user-name{
+    color: #fff;
+    font-weight: 500;
+}
