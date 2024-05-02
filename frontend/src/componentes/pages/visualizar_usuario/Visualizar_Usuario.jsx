@@ -5,10 +5,8 @@ import BotonBlanco from "../../common/BotonReporte";
 import { FaFileArrowUp } from "react-icons/fa6";
 import Search from "../../common/Search";
 import BotonVerdeAñadir from "../../common/BotonVerde";
-import { IoPersonAddSharp, IoTrashOutline } from "react-icons/io5";
+import { IoPersonAddSharp } from "react-icons/io5";
 import Caja_Blanca from "../../common/Caja_Blanca";
-import { FaRegEdit } from "react-icons/fa";
-import { Link } from "react-router-dom";
 import BotonReturn from "../../common/BotonReturn";
 import { GiReturnArrow } from "react-icons/gi";
 import { Fragment } from "react";
@@ -45,21 +43,19 @@ function Visualizar_Usuario() {
                 <th className="user-table__header">Nombres</th>
                 <th className="user-table__header">Apellidos</th>
                 <th className="user-table__header">Número documento</th>
-                <th className="user-table__header">Correo SENA</th>
-                <th className="user-table__header">Correo personal</th>
+                <th className="user-table__header">Correo</th>
                 <th className="user-table__header">Teléfono</th>
                 <th className="user-table__header">Rol</th>
               </tr>
             </thead>
             <tbody>
               <tr className="user-table__row">
-                <td className="user-table__cell"></td>
-                <td className="user-table__cell"></td>
-                <td className="user-table__cell"></td>
-                <td className="user-table__cell"></td>
-                <td className="user-table__cell"></td>
-                <td className="user-table__cell"></td>
-                <td className="user-table__cell"></td>
+                <td className="user-table__cell">Yesid</td>
+                <td className="user-table__cell">Molona</td>
+                <td className="user-table__cell">1059695065</td>
+                <td className="user-table__cell">yesid@gmail.com</td>
+                <td className="user-table__cell">3192819219</td>
+                <td className="user-table__cell">admin</td>
               </tr>
             </tbody>
           </table>

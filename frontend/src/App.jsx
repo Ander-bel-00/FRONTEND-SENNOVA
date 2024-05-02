@@ -75,6 +75,9 @@ import Crear_Actividad_Admin from "./componentes/pages/Admin/Crear_Actividad_Adm
 import Listar_Actividad_Admin from "./componentes/pages/Admin/Listar_Actividad_Admin/Listar_Actividad_Admin";
 import Actualizar_Actividad_Admin from "./componentes/pages/Admin/Actualizar_Actividad_Admin/Actualizar_Actividad_Admin";
 import Listar_Usuarios_Admin from "./componentes/pages/Admin/Listar-Usuarios-Admin/Listar_Usuarios_Admin";
+import Semillero_Admin from "./componentes/pages/Admin/Semillero_Admin/Semillero_Admin";
+import Crear_Usuario_Admin from "./componentes/pages/Admin/Crear_Usuario_Admin/Crear_Usuario_Admin";
+import Visualizar_Usuario_Admin from "./componentes/pages/Admin/Visualizar_Usuario_Admin/Visualizar_Usuario_Admin";
 
 function App() {
   const { isAuthenticated, userRole, handleLogout } = useAuth();
@@ -134,7 +137,7 @@ function App() {
                       element={
                         <Fragment>
                           <main className="main-container">
-                            <Semillero />
+                            <Semillero_Admin />
                           </main>
                         </Fragment>
                       }
@@ -147,6 +150,14 @@ function App() {
                             <Añadir_Semillero />
                           </main>
                         </Fragment>
+                      }
+                    />
+                    <Route
+                      path="/actualizar-semillero"
+                      element={
+                        <main className="main-container">
+                          <Actualizar_Semillero />
+                        </main>
                       }
                     />
                     <Route
@@ -172,6 +183,33 @@ function App() {
                       element={
                         <main className="main-container">
                           <Listar_Usuarios_Admin />
+                        </main>
+                      }
+                    />
+
+                    <Route
+                      path="/crear-usuario"
+                      element={
+                        <main className="main-container">
+                          <Crear_Usuario_Admin />
+                        </main>
+                      }
+                    />
+
+                    <Route
+                      path="/usuario"
+                      element={
+                        <main className="main-container">
+                          <Visualizar_Usuario_Admin />
+                        </main>
+                      }
+                    />
+
+                    <Route
+                      path="/users-update"
+                      element={
+                        <main className="main-container">
+                          <ModificarUsuario />
                         </main>
                       }
                     />
@@ -331,14 +369,6 @@ function App() {
                       element={
                         <main className="main-container">
                           <Perfil />
-                        </main>
-                      }
-                    />
-                    <Route
-                      path="/actualizar-semillero"
-                      element={
-                        <main className="main-container">
-                          <Actualizar_Semillero />
                         </main>
                       }
                     />

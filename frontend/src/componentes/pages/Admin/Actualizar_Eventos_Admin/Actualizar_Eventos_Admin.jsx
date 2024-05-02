@@ -4,16 +4,14 @@ import { Link } from "react-router-dom";
 import BotonReturn from "../../../common/BotonReturn";
 import Caja_formularios from "../../../common/Caja_formularios";
 import "./css/Actualizar_Eventos_Admin.css";
+import { GiReturnArrow } from "react-icons/gi";
 
 function Actualizar_Eventos_Admin() {
     return (
         <div className="main-container__contenedor-hijo">
             <Link>
                 <div className="btn-vs-return-admin">
-                    <BotonReturn
-                        link={"/admin/listar-eventos"}
-                        icon={<IoIosReturnLeft />}
-                    />
+                <BotonReturn icon={<GiReturnArrow />} />
                 </div>
             </Link>
 

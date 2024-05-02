@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import "./css/Listar_Proyectos.css";
 import { LiaEyeSolid } from "react-icons/lia";
 import { FaRegEdit } from "react-icons/fa";
@@ -13,88 +13,31 @@ import Caja_Blanca from "../../common/Caja_Blanca";
 import Header_ToolBar from "../../common/Header_ToolBar";
 import { Link } from "react-router-dom";
 import * as XLSX from "xlsx";
+import { useAuth } from "../../../context/AuthContext";
+import clienteAxios from "../../../config/axios";
 
 function Listar_Proyectos() {
-  const lists = [
-    {
-      nombre_proyecto: "Innovación",
-      fecha_inicio: "12 de Abril de 2024",
-      fecha_fin: "25 de Julio de 2024",
-      descripcion: "Este proyecto se esta llevando",
-    },
-    {
-      nombre_proyecto: "Tecnología",
-      fecha_inicio: "22 de Junio de 2024",
-      fecha_fin: "09 de julio de 2024",
-      descripcion: "Este proyecto se esta llevando",
-    },
-    {
-      nombre_proyecto: "Tecnología",
-      fecha_inicio: "22 de Junio de 2024",
-      fecha_fin: "09 de julio de 2024",
-      descripcion: "Este proyecto se esta llevando",
-    },
-    {
-      nombre_proyecto: "Tecnología",
-      fecha_inicio: "22 de Junio de 2024",
-      fecha_fin: "09 de julio de 2024",
-      descripcion: "Este proyecto se esta llevando",
-    },
-    {
-      nombre_proyecto: "Tecnología",
-      fecha_inicio: "22 de Junio de 2024",
-      fecha_fin: "09 de julio de 2024",
-      descripcion: "Este proyecto se esta llevando",
-    },
-    {
-      nombre_proyecto: "Tecnología",
-      fecha_inicio: "22 de Junio de 2024",
-      fecha_fin: "09 de julio de 2024",
-      descripcion: "Este proyecto se esta llevando",
-    },
-    {
-      nombre_proyecto: "Tecnología",
-      fecha_inicio: "22 de Junio de 2024",
-      fecha_fin: "09 de julio de 2024",
-      descripcion: "Este proyecto se esta llevando",
-    },
-    {
-      nombre_proyecto: "Tecnología",
-      fecha_inicio: "22 de Junio de 2024",
-      fecha_fin: "09 de julio de 2024",
-      descripcion: "Este proyecto se esta llevando",
-    },
-    {
-      nombre_proyecto: "Tecnología",
-      fecha_inicio: "22 de Junio de 2024",
-      fecha_fin: "09 de julio de 2024",
-      descripcion: "Este proyecto se esta llevando",
-    },
-    {
-      nombre_proyecto: "Tecnología",
-      fecha_inicio: "22 de Junio de 2024",
-      fecha_fin: "09 de julio de 2024",
-      descripcion: "Este proyecto se esta llevando",
-    },
-    {
-      nombre_proyecto: "Tecnología",
-      fecha_inicio: "22 de Junio de 2024",
-      fecha_fin: "09 de julio de 2024",
-      descripcion: "Este proyecto se esta llevando",
-    },
-    {
-      nombre_proyecto: "Tecnología",
-      fecha_inicio: "22 de Junio de 2024",
-      fecha_fin: "09 de julio de 2024",
-      descripcion: "Este proyecto se esta llevando",
-    },
-    {
-      nombre_proyecto: "Tecnología",
-      fecha_inicio: "22 de Junio de 2024",
-      fecha_fin: "09 de julio de 2024",
-      descripcion: "Este proyecto se esta llevando",
-    },
-  ];
+  const {userProfile} = useAuth();
+
+  const SemilleroID = userProfile ? userProfile.semillero : null;
+
+  const [proyectosSemillero, setProyectosSemillero] = useState([]);
+
+  useEffect(() => {
+    const obtenerProyectosSemillero = async () => {
+      try {
+        if (SemilleroID) {
+          const res = await clienteAxios.get("/proyectos/");
+          setProyectosSemillero(res.data);
+        }
+      } catch (error) {
+        console.error('Error al obtener los proyectos del semillero', error);
+      }
+    }
+  
+    obtenerProyectosSemillero();
+  }, [SemilleroID]);
+  
 
   const exportToExcel = () => {
     const wb = XLSX.utils.book_new();
@@ -105,7 +48,7 @@ function Listar_Proyectos() {
         "Fecha Fin del Proyecto",
         "Descripción del Proyecto",
       ],
-      ...lists.map((proyect) => [
+      ...proyectosSemillero.map((proyect) => [
         proyect.nombre_proyecto,
         proyect.fecha_inicio,
         proyect.fecha_fin,
@@ -176,7 +119,7 @@ function Listar_Proyectos() {
                 </tr>
               </thead>
               <tbody>
-                {lists.map((list, index) => (
+                {proyectosSemillero.map((list, index) => (
                   <tr key={index} className="list-project-table__tr">
                     <td className="list-project-table__td">
                       {list.nombre_proyecto}
@@ -186,7 +129,7 @@ function Listar_Proyectos() {
                     </td>
                     <td className="list-project-table__td">{list.fecha_fin}</td>
                     <td className="list-project-table__td">
-                      {list.descripcion}
+                      {list.descripcion_proyecto}
                     </td>
                     <td className="list-project-table__td">
                       <div className="list-project-table__td__btns">

@@ -37,7 +37,7 @@ const Semillero = () => {
             text={"Reporte"}
             clase={"btn-blanco btn-blanco--modify btn-verde"}
           />
-          <BotonBlanco
+          {/* <BotonBlanco
             icon={<GrDocumentUpdate />}
             link={"../actualizar-semillero"}
             text={"Actualizar"}
@@ -48,7 +48,7 @@ const Semillero = () => {
             icon={<IoPersonAddSharp />}
             text={"Crear Semillero"}
             link={"../crear-semillero"}
-          />
+          /> */}
         </section>
         <section className="semillero-main-container__datos-semillero">
           <h1
