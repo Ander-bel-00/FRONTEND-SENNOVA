@@ -143,11 +143,29 @@ function App() {
                       }
                     />
                     <Route
+                      path="/crear-proyecto"
+                      element={
+                        <main className="main-container">
+                          <Crear_Proyecto />
+                        </main>
+                      }
+                    />
+                    <Route
                       path="/crear-semillero"
                       element={
                         <Fragment>
                           <main className="main-container">
                             <Añadir_Semillero />
+                          </main>
+                        </Fragment>
+                      }
+                    />
+                    <Route
+                      path="/crear-actividad"
+                      element={
+                        <Fragment>
+                          <main className="main-container">
+                            <Crear_Actividad_Admin />
                           </main>
                         </Fragment>
                       }
@@ -820,6 +838,14 @@ function App() {
                       element={
                         <main className="main-container">
                           <Visualizar_Programa_Formacion_apr_invg />
+                        </main>
+                      }
+                    />
+                    <Route
+                      path="/crear-actividad"
+                      element={
+                        <main className="main-container">
+                          <Crear_Actividad />
                         </main>
                       }
                     />

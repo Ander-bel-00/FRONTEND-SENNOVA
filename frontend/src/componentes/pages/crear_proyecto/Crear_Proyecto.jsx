@@ -2,7 +2,7 @@ import React, { Fragment, useEffect, useState } from "react";
 import "./css/Crear_Proyecto.css";
 import Caja_formularios from "../../common/Caja_formularios";
 import BotonReturn from "../../common/BotonReturn";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { GiReturnArrow } from "react-icons/gi";
 import { useAuth } from "../../../context/AuthContext";
 import clienteAxios from "../../../config/axios";
@@ -10,6 +10,7 @@ import Swal from "sweetalert2";
 
 function Crear_Proyecto() {
   const { userProfile } = useAuth();
+  const navigate = useNavigate();
 
   const SemilleroID = userProfile ? userProfile.semillero : "";
 
@@ -54,6 +55,8 @@ function Crear_Proyecto() {
         icon: "success",
         showCancelButton: false,
         confirmButtonText: "Aceptar",
+      }).then((result) => {
+        return navigate('../listar-Proyectos')
       });
     } catch (error) {
       console.error("Error al crear el proyecto para el semillero", error);

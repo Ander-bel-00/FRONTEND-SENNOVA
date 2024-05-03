@@ -27,7 +27,7 @@ function Listar_Proyectos_Admin() {
     const obtenerProyectosSemillero = async () => {
       try {
         if (SemilleroID) {
-          const res = await clienteAxios.get("/proyectos/");
+          const res = await clienteAxios.get(`/semillero/${SemilleroID}/proyectos/`);
           setProyectosSemillero(res.data);
         }
       } catch (error) {

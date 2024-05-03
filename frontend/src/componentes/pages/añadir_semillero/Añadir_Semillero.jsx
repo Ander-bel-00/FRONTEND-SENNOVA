@@ -13,7 +13,7 @@ function Añadir_Semillero() {
 
   const handleChange = (event) => {
     const { name, value } = event.target;
-    SetFormDataUser({ ...formSemilleroAdd, [name]: value });
+    setformSemilleroAdd({ ...formSemilleroAdd, [name]: value });
   };
 
   const handleSubmit = async (event) => {
