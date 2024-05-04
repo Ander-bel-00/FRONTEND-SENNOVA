@@ -1,6 +1,7 @@
 import { BiSolidReport } from "react-icons/bi";
 import { LuCalendarDays } from "react-icons/lu";
 import { IoTrashOutline } from "react-icons/io5";
+import { FaFileArrowUp } from "react-icons/fa6";
 import { Fragment } from "react";
 import { FaEdit } from "react-icons/fa";
 import { LiaEye } from "react-icons/lia";
@@ -38,8 +39,8 @@ function Listar_Eventos_apr_invg() {
       <Header_ToolBar
         Header_Tools={
           <Fragment>
-            <BotonBlanco icon={<BiSolidReport />} text={"Reporte"} />
-            <BotonBlanco icon={<LuCalendarDays />} text={"Ir a Cronograma"} />
+            <BotonBlanco icon={<FaFileArrowUp />} text={"Reporte"} clase={'btn-blanco btn-blanco--modify btn-verde'}  />
+            <BotonBlanco icon={<LuCalendarDays />} text={"Ir a Cronograma"} clase={'btn-blanco btn-blanco--modify btn-azul'} />
             <Search text={"Buscar Eventos"} />
           </Fragment>
         }

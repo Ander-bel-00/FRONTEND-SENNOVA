@@ -22,7 +22,6 @@ import Crear_Eventos from "./componentes/pages/crear_eventos/Crear_Eventos";
 import Actualizar_Eventos from "./componentes/pages/actualizar_eventos/Actualizar_Eventos";
 import Listar_Fichas from "./componentes/pages/listar_fichas/Listar_Fichas";
 import Visualizar_Actividad_ins_invg from "./componentes/pages/InstructorInvestigador/Visualizar_Actividad_ins_invg/Visualizar_Actividad_ins_invg";
-import Listar_Eventos_ins_ivg from "./componentes/pages/InstructorInvestigador/listar_eventos_ins_invg/Listar_Eventos";
 import Crear_Eventos_ins_invg from "./componentes/pages/InstructorInvestigador/Crear_Eventos_ins_invg/Crear_Eventos_ins_invg";
 import Visualizar_Evento_ins_invg from "./componentes/pages/InstructorInvestigador/Visualizar_Evento_ins_invg/Visualizar_Evento_ins_invg";
 import Visualizar_Programa_Formacion_ins_invg from "./componentes/pages/InstructorInvestigador/Visualizar_Programa_Formacion_ins_invg/Visualizar_Programa_Formacion_ins_invg";
@@ -51,15 +50,8 @@ import Login from "./componentes/pages/login/Login";
 import Listar_Actividad_apr_invg from "./componentes/pages/AprendizInvestigador/listar-_actividad_apr_invg/Listar_Actividad_apr_invg";
 import Actualizar_Semillero from "./componentes/pages/actualizar-semillero/Actualizar_Semillero";
 import Añadir_Semillero from "./componentes/pages/InstructorInvestigador/añadir_semillero/Añadir_Semillero";
-import Listar_Proyectos_Admin from "./componentes/pages/Admin_Sennova/Listar_Proyecros_Admin/Listar_Proyectos_Admin";
-import Visualizar_Suspender_Proyecto_Admin from "./componentes/pages/Admin_Sennova/Visualizar_Suspender_Proyecto_Admin/Visualizar_Suspender_Proyecto_Admin";
-import Actualizar_Proyectos_Admin from "./componentes/pages/Admin_Sennova/Actualizar_Proyectos_Admin/Actualizar_Proyectos_Admin";
-import Crear_Proyectos_Admin from "./componentes/pages/Admin_Sennova/Crear_Proyectos_Admin/Crear_Proyectos_Admin";
-import Crear_Actividad_Admin from "./componentes/pages/Admin_Sennova/Crear_Actividad_Admin/Crear_Actividad_Admin";
-import Listar_Actividad_Admin from "./componentes/pages/Admin_Sennova/Listar_Actividad_Admin/Listar_Actividad_Admin";
-import Actualizar_Actividad_Admin from"./componentes/pages/Admin_Sennova/Actualizar_Actividad_Admin/Actualizar_Actividad_Admin";
-
-
+import Cronograma_apr_invg from "./componentes/pages/AprendizInvestigador/Cronograma_apr_invg/Cronograma_apr_invg";
+import ListarEvento_ins_invg from "./componentes/pages/InstructorInvestigador/listarEventos_ins_invg/ListarEvento_ins_invg";
 
 function App() {
   return (
@@ -316,7 +308,7 @@ function App() {
                     path="/listar-eventos"
                     element={
                       <main className="main-container">
-                        <Listar_Eventos_ins_ivg />
+                        <ListarEvento_ins_invg />
                       </main>
                     }
                   />
@@ -428,7 +420,7 @@ function App() {
                     element={
                       <Fragment>
                         <main className="main-container">
-                          <Cronograma_ins_invg />
+                          <Cronograma_apr_invg />
                         </main>
                       </Fragment>
                     }
@@ -448,6 +440,42 @@ function App() {
                     element={
                       <main className="main-container">
                         <Listar_Fichas_ins_invg />
+                      </main>
+                    }
+                  />
+
+                  <Route
+                    path="/listar-eventos"
+                    element={
+                      <main className="main-container">
+                        <Listar_Eventos_apr_invg />
+                      </main>
+                    }
+                  />
+
+                  <Route
+                    path="/visualizar-actividad"
+                    element={
+                      <main className="main-container">
+                        <Visualizar_Actividad_apr_invg />
+                      </main>
+                    }
+                  />
+
+                  <Route
+                    path="/visualizar-evento"
+                    element={
+                      <main className="main-container">
+                        <Visualizar_Evento_apr_invg />
+                      </main>
+                    }
+                  />
+
+                  <Route
+                    path="/visualizar-programa-formacion"
+                    element={
+                      <main className="main-container">
+                        <Visualizar_Programa_Formacion_apr_invg />
                       </main>
                     }
                   />

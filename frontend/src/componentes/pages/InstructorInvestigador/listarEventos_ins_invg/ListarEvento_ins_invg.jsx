@@ -1,8 +1,6 @@
-import { BiSolidReport } from "react-icons/bi";
 import { LuCalendarDays } from "react-icons/lu";
-import { IoTrashOutline } from "react-icons/io5";
+import { FaFileArrowUp } from "react-icons/fa6";
 import { Fragment } from "react";
-import { FaEdit } from "react-icons/fa";
 import { LiaEye } from "react-icons/lia";
 import { IoAdd } from "react-icons/io5";
 import { Link } from "react-router-dom";
@@ -11,9 +9,9 @@ import Caja_Blanca from "../../../common/Caja_Blanca";
 import BotonBlanco from "../../../common/BotonReporte";
 import Search from "../../../common/Search";
 import BotonVerdeAñadir from "../../../common/BotonVerde";
-import "./css/Listar_Eventos_ins_invg.css";
+import "./css/ListarEvento_ins_invg.css";
 
-function Listar_Eventos_ins_ivg() {
+function ListarEvento_ins_invg() {
   const Events = [
     {
       nombre: "Mariana",
@@ -38,8 +36,8 @@ function Listar_Eventos_ins_ivg() {
       <Header_ToolBar
         Header_Tools={
           <Fragment>
-            <BotonBlanco icon={<BiSolidReport />} text={"Reporte"} />
-            <BotonBlanco icon={<LuCalendarDays />} text={"Ir a Cronograma"} />
+            <BotonBlanco icon={<FaFileArrowUp />} text={"Reporte"} clase={'btn-blanco btn-blanco--modify btn-verde'}/>
+            <BotonBlanco icon={<LuCalendarDays />} text={"Ir a Cronograma"} clase={'btn-blanco btn-blanco--modify btn-azul'} />
             <Search text={"Buscar Eventos"} />
             <BotonVerdeAñadir icon={<IoAdd />} text={"Añadir Información"} link={"/instructor-investigador/Crear-eventos"}/>
           </Fragment>
@@ -92,4 +90,4 @@ function Listar_Eventos_ins_ivg() {
   );
 }
 
-export default Listar_Eventos_ins_ivg;
+export default ListarEvento_ins_invg;

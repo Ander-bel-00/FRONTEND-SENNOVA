@@ -9,45 +9,69 @@ function Crear_Programa_Formacion_ins_invg() {
   return (
     <div className="main-container__contenedor-hijo">
 
-      <Link>
-        <div className="add-creat-btn-return-instructor ">
-          <BotonReturn
-            link={'/instructor-investigador/Visualizar-programa-formacion'}
-            icon={<IoIosReturnLeft />}
-          />
-        </div>
-      </Link>
-
-      <h2 class='mainsTitles-instructor'> Programa de Formación</h2>
 
       <Caja_formularios
         info={
           <Fragment>
-            <div className='inputBoxes-instructor'>
-              <h3 className='inputBoxes-instructor__titlecaja'>Añadir Información</h3>
-              <form className="inputBoxes-instructor__olderbox">
-                <div >
-                  <label className='unputBoxes-instructor__label'>Código*</label>
-                  <br />
-                  <input type='text' className='unputBoxes-instructor__input' />
+            <div className=" main-form-program-instructor">
+              <h2 className="text-center create-program-title-instructor">
+                Nuevo Programa de Formación
+              </h2>
+
+              <form className="form-add-program-container-instructor">
+
+                <label
+                  htmlFor="nombre"
+                  className="form-add-program-container__col1__label-instructor"
+                >
+                  Nombre  <p className="rojo-required">*</p>
+                </label>
+                <input
+                  type="text"
+                  id="nombre"
+                  className="form-add-program-container__col1__input-instructor"
+                />
+
+
+                <label
+                  htmlFor="version"
+                  className="form-add-program-container__col1__label-instructor"
+                >
+                  Versión  <p className="rojo-required">*</p>
+                </label>
+                <input
+                  type="text"
+                  id="version"
+                  className="form-add-program-container__col1__input-instructor"
+                />
+
+
+                <label
+                  htmlFor="codigo"
+                  className="form-add-program-container__col1__label-instructor"
+                >
+                  Código  <p className="rojo-required">*</p>
+                </label>
+                <input
+                  type="text"
+                  id="codigo"
+                  className="form-add-program-container__col1__input-instructor"
+                />
+
+
+
+                <div className="btns-crear-program">
+
+                  <button className="btn-crear-program" type="button">Crear</button>
+
+                  <Link to={"/instructor-investigador/listar_proyectos"}>
+                    <button
+                      type="button"
+                      className="btn-cancelar-evento"
+                    >Cancelar</button>
+                  </Link>
                 </div>
-                <div>
-                  <label className='unputBoxes-instructor__label'>Versión*</label>
-                  <br />
-                  <input type='text' className='unputBoxes-instructor__input' />
-                </div>
-                <div>
-                  <label className='unputBoxes-instructor__label'>Nombre*</label>
-                  <br />
-                  <input type='text' className='unputBoxes-instructor__input' />
-                </div>
-                <div />
               </form>
-              {/* Botones principales */}
-              <div className='buttonsCreating-instructor'>
-                <button className='buttonsCreating-instructor__cancelar'> Cancelar</button>
-                <button className='buttonsCreating-instructor__crear--green'>  Crear</button>
-              </div>
             </div>
           </Fragment>
         }
