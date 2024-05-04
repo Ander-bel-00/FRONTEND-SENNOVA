@@ -1,0 +1,284 @@
+
+.main{
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #9CCC65;
+  
+}
+.profile-card{
+  position: relative;
+  width: 250px;
+  height: 250px;
+  background: #fff;
+  padding: 30px;
+  border-radius: 50%;
+  box-shadow: 0 0 22px #3336;
+  transition: .6s;
+  margin: 0 25px;
+ 
+}
+.profile-card:hover{
+  border-radius: 10px;
+  height: 260px;
+}
+.profile-card .img{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: .6s;
+  z-index: 99;
+  cursor: pointer;
+}
+.img img{
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  box-shadow: 0 0 22px #3336;
+  transition: .6s;
+}
+.profile-card:hover .img{
+  transform: translateY(-90px);
+}
+.profile-card:hover img{
+  border-radius: 10px;
+}
+.caption{
+  text-align: center;
+  transform: translateY(-80px);
+  opacity: 0;
+  transition: .6s;
+}
+.profile-card:hover .caption{
+  opacity: 1;
+}
+.caption h3{
+  font-size: 20px;
+ 
+}
+.caption p{
+  font-size: 17px;
+  color: #0c52a1;
+  font-weight: bold;
+}
+.social-links a{
+  color: #333;
+  font-size: 21px;
+  transition: .6s;
+   
+}
+i{
+  margin-top: 10px;
+  padding: 5px;
+}
+.social-links a:hover{
+  color: #0c52a1;
+}
+
+
+/* Creadores */
+
+/* Juan Carlos */
+
+.profile-card_J_Carlos{
+  position: relative;
+  width: 250px;
+  height: 250px;
+  background: #fff;
+  padding: 30px;
+  border-radius: 50%;
+  box-shadow: 0 0 22px #3336;
+  transition: .6s;
+  margin: 0 25px;
+  transform: translateY(-350px);
+  right: -10px;
+}
+
+.profile-card_J_Carlos:hover{
+  border-radius: 10px;
+  height: 260px;
+}
+.profile-card_J_Carlos .img{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: .6s;
+  z-index: 99;
+  cursor: pointer;
+}
+.profile-card_J_Carlos:hover .img{
+  transform: translateY(-90px);
+}
+.profile-card_J_Carlos:hover img{
+  border-radius: 10px;
+}
+.profile-card_J_Carlos:hover .caption{
+  opacity: 1;
+}
+
+/* Jorge Raigosa. */
+
+
+.profile-card_J_Raigosa{
+  position: relative;
+  width: 250px;
+  height: 250px;
+  background: #fff;
+  padding: 30px;
+  border-radius: 50%;
+  box-shadow: 0 0 22px #3336;
+  transition: .6s;
+  margin: 0 25px;
+  transform: translateY(-350px);
+  right: -160px;
+}
+
+.profile-card_J_Raigosa:hover{
+  border-radius: 10px;
+  height: 260px;
+}
+.profile-card_J_Raigosa .img{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: .6s;
+  z-index: 99;
+  cursor: pointer;
+}
+.profile-card_J_Raigosa:hover .img{
+  transform: translateY(-90px);
+}
+.profile-card_J_Raigosa:hover img{
+  border-radius: 10px;
+}
+.profile-card_J_Raigosa:hover .caption{
+  opacity: 1;
+}
+
+
+/* Yuly Paulin */
+
+
+.profile-card_Yuly{
+  position: relative;
+  width: 250px;
+  height: 250px;
+  background: #fff;
+  padding: 30px;
+  border-radius: 50%;
+  box-shadow: 0 0 22px #3336;
+  transition: .6s;
+  margin: 0 25px;
+  transform: translateY(-350px);
+  right: -300px;
+}
+
+.profile-card_Yuly:hover{
+  border-radius: 10px;
+  height: 260px;
+}
+.profile-card_Yuly .img{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: .6s;
+  z-index: 99;
+  cursor: pointer;
+}
+.profile-card_Yuly:hover .img{
+  transform: translateY(-90px);
+}
+.profile-card_Yuly:hover img{
+  border-radius: 10px;
+}
+.profile-card_Yuly:hover .caption{
+  opacity: 1;
+}
+
+
+/* Yesid Molina */
+
+
+.profile-card_Yesid{
+  margin-bottom: 20px;
+  position: relative;
+  width: 250px;
+  height: 250px;
+  background: #fff;
+  padding: 30px;
+  border-radius: 50%;
+  box-shadow: 0 0 22px #3336;
+  transition: .6s;
+  margin: 0 25px;
+
+  display: block; 
+  margin-top: 900px;
+  transform: translateY(-483px);
+  right: 890px;
+}
+
+.profile-card_Yesid:hover{
+  border-radius: 10px;
+  height: 260px;
+}
+.profile-card_Yesid .img{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: .6s;
+  z-index: 99;
+  cursor: pointer;
+}
+.profile-card_Yesid:hover .img{
+  transform: translateY(-90px);
+}
+.profile-card_Yesid:hover img{
+  border-radius: 10px;
+}
+.profile-card_Yesid:hover .caption{
+  opacity: 1;
+}
+
+/* 
+Ander Beltrán */
+
+.profile-card_Ander {
+  position: relative;
+  width: 250px;
+  height: 250px;
+  background: #fff;
+  padding: 30px;
+  border-radius: 50%;
+  box-shadow: 0 0 22px #3336;
+  transition: .6s;
+  margin: 0 25px; /* Ajusta el margen derecho e izquierdo */
+  transform: translateY(-487px);
+  right: 600px;
+}
+
+.profile-card_Ander:hover {
+  border-radius: 10px;
+  height: 260px;
+}
+
+.profile-card_Ander .img {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: .6s;
+  z-index: 99;
+  cursor: pointer;
+}
+
+.profile-card_Ander:hover .img {
+  transform: translateY(-90px);
+}
+
+.profile-card_Ander:hover img {
+  border-radius: 10px;
+}
+
+.profile-card_Ander:hover .caption {
+  opacity: 1;
+}

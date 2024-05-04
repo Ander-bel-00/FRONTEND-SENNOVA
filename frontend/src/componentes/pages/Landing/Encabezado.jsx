@@ -27,10 +27,11 @@ function Encabezado() {
 
     <header className="header">
 
-        <a className="btn" href="#ingreso"><button><strong>Ingresar</strong></button></a>
-        <a className="btn" href="#semilleros-cont"><button><strong>Semilleros</strong></button></a>
-        <a className="btn" href="#objective"><button><strong>Objetivos</strong></button></a>
-        <a className="btn" href="#teinnova"><button><strong>TEINNOVA</strong></button></a>
+
+        <a className="btn" href="#"><button><strong>Semilleros</strong></button></a>
+        <a className="btn" href="#"><button><strong>Objetivos</strong></button></a>
+        <a className="btn" href="#"><button><strong>TEINNOVA</strong></button></a>
+        <a className="requis" href="#"><button><strong>Ingresar</strong></button></a>
         
     </header>
 

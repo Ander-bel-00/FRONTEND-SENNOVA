@@ -8,22 +8,25 @@ import Tei_Azul from './img/tei_az.jpg';
 import Cards from './Cards/Cards';
 import Encabezado from './Encabezado';
 import Footer from './Pie_de_pagina';
-import { Link } from 'react-router-dom';
+import Creadores from './Creadores';
+import btn_flotante from './btn_flotante';
+
 
 function Landing_ofi() {
     return (
         <div className='main-page'>
             <Encabezado />
 
+
             {/* Bloque 1 */}
             <img className='imagen_teinnova ' src={Imagen_Teinnova} alt="" />
 
-            <div className='main-page__container-ingreso' id='ingreso'>
+            <div className='main-page__container-ingreso'>
                 <div className='container-ficha-ingreso'>
                     <div className='container-ficha-ingreso__content'>
                         <h2>SENNOVA <br /> <br />Sistema de Investigación, <br /> Desarrollo Tecnológico e Innovación</h2> <br />
                         <p>Fortaleciendo capacidades locales en <br /> productividad, competitividad, <br /> generación de conocimiento y <br /> pertinencia de la Formación Profesional <br /> Integral Impartida</p>
-                        <Link className="btn btn--big" to='/login'><button>Ingresar</button></Link>
+                        <a className="btn btn--big" href="#"><button>Ingresar</button></a>
 
                     </div>
                 </div>
@@ -33,7 +36,10 @@ function Landing_ofi() {
             {/* Se hace el llamado del componente Cards */}
             <Cards />
             {/* Bloque 2 */}
-            <div className='content-que-semilleros' id='semilleros-cont'>
+            <div className='content-que-semilleros'>
+             
+
+
                 <div className='row_2'>
                     <div className='imgWrapper_2'><img src={Imagen_Uno} alt="" />
                     <h2>¿QUÉ SON LOS SEMILLEROS <br></br> DE INVESTIGACIÓN?</h2>
@@ -55,7 +61,7 @@ function Landing_ofi() {
                 <br />
                 {/* Bloque 3 */}
             </div>
-            <div className='info_objetivo_senn' id='objective'>
+            <div className='info_objetivo_senn'>
                 <h1><strong>OBJETIVO SENNOVA</strong></h1><br />
                 <p>SENNOVA adelanta iniciativas que impulsan el programa de desarrollo tecnológico a través de las líneas programáticas generando capacidades de Ciencia, Tecnología e Innovación en los Centros de Formación como estrategia para impactar y resolver las necesidades inmediatas del sector productivo y en las regiones del país.</p>
             </div>
@@ -64,7 +70,7 @@ function Landing_ofi() {
 
             {/* Bloque 4 */}
 
-            <div className='row_3' id='teinnova'>
+            <div className='row_3'>
                 <div className='contentWrapper_3'>
                     <div className='content_3'>
                         <h2>Grupo de investigación TEINNOVA<br />
@@ -77,7 +83,16 @@ function Landing_ofi() {
                 </div>
 
             </div>
+
+            {/* Se hace el llamado del componente Creadores. */}
+
+       <Creadores/>
+       
+                {/* Este componente está pendiente. */}
+        
+            {/* Se hace el llamado del componente pie de página. */}
         <Footer />
+
         </div>
         
     )

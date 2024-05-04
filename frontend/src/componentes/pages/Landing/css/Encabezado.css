@@ -69,3 +69,31 @@
     color: #70B22D;
     transform: scale(1.1);
 }
+
+
+.header .requis button{
+    width: 10rem;
+    font-weight: 700;
+    color: #FFF;
+    padding: 9px 25px;
+    background: none;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+    height: 100%;
+    background-color: #00324D;
+}
+
+.header .requis button:hover{
+    background-color: #e2f1f8;
+    color: #70b22d;
+    transform: scale(1.1);
+}
+
+
+
+
+
+
+

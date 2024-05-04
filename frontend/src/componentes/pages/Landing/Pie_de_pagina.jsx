@@ -8,7 +8,7 @@ function Footer() {
 <footer>
     
     <div class="footerBottom">
-        <p> &copy;Todos los derechos reservados 2024 </p>
+        <p> &copy;Creado por Semillero de Desarrollo de Software CDITI | Todos los derechos reservados 2024 </p>
     </div>
 </footer>
 
