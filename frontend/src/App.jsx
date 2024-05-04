@@ -52,6 +52,13 @@ import Actualizar_Semillero from "./componentes/pages/actualizar-semillero/Actua
 import Añadir_Semillero from "./componentes/pages/InstructorInvestigador/añadir_semillero/Añadir_Semillero";
 import Cronograma_apr_invg from "./componentes/pages/AprendizInvestigador/Cronograma_apr_invg/Cronograma_apr_invg";
 import ListarEvento_ins_invg from "./componentes/pages/InstructorInvestigador/listarEventos_ins_invg/ListarEvento_ins_invg";
+import Listar_Proyectos_Admin from "./componentes/pages/Admin_Sennova/Listar_Proyecros_Admin/Listar_Proyectos_Admin";
+import Visualizar_Suspender_Proyecto_Admin from "./componentes/pages/Admin_Sennova/Visualizar_Suspender_Proyecto_Admin/Visualizar_Suspender_Proyecto_Admin";
+import Actualizar_Proyectos_Admin from "./componentes/pages/Admin_Sennova/Actualizar_Proyectos_Admin/Actualizar_Proyectos_Admin";
+import Crear_Proyectos_Admin from "./componentes/pages/Admin_Sennova/Crear_Proyectos_Admin/Crear_Proyectos_Admin";
+import Crear_Actividad_Admin from "./componentes/pages/Admin_Sennova/Crear_Actividad_Admin/Crear_Actividad_Admin";
+import Listar_Actividad_Admin from "./componentes/pages/Admin_Sennova/Listar_Actividad_Admin/Listar_Actividad_Admin";
+import Actualizar_Actividad_Admin from "./componentes/pages/Admin_Sennova/Actualizar_Actividad_Admin/Actualizar_Actividad_Admin";
 
 function App() {
   return (
