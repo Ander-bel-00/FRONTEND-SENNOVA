@@ -1,0 +1,47 @@
+.View-off-admin-table{
+    position: relative;
+    left: 1%;
+    width: 98%;
+    border-collapse: collapse;
+}
+
+.View-off-admin-table__tr{
+    border: 1px solid var(--color-border-bottom-tr);
+}
+
+.View-off-admin-table__tr:nth-child(even){
+    background-color: #f9f9f9;
+}
+
+.View-off-admin-table__th{
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    text-wrap: nowrap;
+    text-align: left;
+    padding: 8px;
+}
+
+.View-off-admin-table__td{
+    border: 1px solid #dddddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.View-off-admin-table__td__btns{
+    display: flex;
+    padding: 5px;
+}
+
+.View-off-admin-table__td__btn{
+    font-size: 22px;
+    margin-right: 9px;
+}
+
+.View-off-admin-table__td__btn:hover{
+    transform: scale(1.09);
+}
+
+.Header-tool-btn-go-cronograma-admin{
+    position: relative;
+    left: 20%;
+}

@@ -26,3 +26,9 @@
     padding: 8px;
     text-align: left;
 }
+
+.view-proyect-btn-return{
+    position: relative;
+    right: 13rem;
+    top: 1rem;
+}

@@ -1,4 +1,6 @@
-import { IoIosReturnLeft } from "react-icons/io";
+import { TbArrowBack } from "react-icons/tb";
+import "./css/Actualizar_Eventos.css";
+import { GiReturnArrow } from "react-icons/gi";
 import { Fragment } from "react";
 import { Link } from "react-router-dom";
 import BotonReturn from "../../common/BotonReturn";
@@ -8,15 +10,9 @@ import "./css/Actualizar_Eventos.css";
 function Actualizar_Eventos() {
   return (
     <div className="main-container__contenedor-hijo">
-      <Link>
-        <div className="btn-vs-return">
-          <BotonReturn
-            link={"/lider-semillero/Listar-eventos"}
-            icon={<IoIosReturnLeft />}
-          />
-        </div>
-      </Link>
-      
+      <div className="add-proyect-btn-return">
+        <BotonReturn icon={<GiReturnArrow />} />
+      </div>
       <Caja_formularios
         info={
           <Fragment>

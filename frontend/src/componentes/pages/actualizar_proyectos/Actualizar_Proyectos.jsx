@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 import "./css/Actualizar_Proyectos.css";
-import { IoIosReturnLeft } from "react-icons/io";
+import { GiReturnArrow } from "react-icons/gi";
 import Caja_formularios from "../../common/Caja_formularios";
 import { Link } from "react-router-dom";
 import BotonReturn from "../../common/BotonReturn";
@@ -9,14 +9,9 @@ function Actualizar_Proyectos() {
   return (
     <Fragment>
       <div className="main-container__contenedor-hijo main-container__contenedor-hijo--size">
-        <Link>
-          <div className="update-proyect-btn-return">
-            <BotonReturn
-              link={"/lider-semillero/Listar_Proyectos"}
-              icon={<IoIosReturnLeft />}
-            />
-          </div>
-        </Link>
+        <div className="add-proyect-btn-return">
+          <BotonReturn icon={<GiReturnArrow />} />
+        </div>
         <Caja_formularios
           info={
             <Fragment>

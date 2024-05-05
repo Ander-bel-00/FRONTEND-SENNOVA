@@ -10,6 +10,10 @@ import BotonVerdeAñadir from "../../../common/BotonVerde";
 import Search from "../../../common/Search";
 import BotonReturn from "../../../common/BotonReturn";
 import "./css/Visualizar_Evento_Admin.css";
+<<<<<<< HEAD
+=======
+import { GiReturnArrow } from "react-icons/gi";
+>>>>>>> main
 
 function Visualizar_Evento_Admin() {
   const Evento = [
@@ -37,10 +41,14 @@ function Visualizar_Evento_Admin() {
         Header_Tools={
           <Fragment>
             <div className="btn-vs-evento-admin">
+<<<<<<< HEAD
               <BotonReturn
                 link={"/admin/listar-eventos"}
                 icon={<IoIosReturnLeft />}
               />
+=======
+              <BotonReturn icon={<GiReturnArrow />} />
+>>>>>>> main
             </div>
             <Search icon={<FaSearch />} text={"Buscar Evento"} />
             <BotonVerdeAñadir
@@ -71,7 +79,14 @@ function Visualizar_Evento_Admin() {
             <tbody>
               {Evento.map((Contenido, index) => (
                 <tr className="vis-event-table__tr-admin" key={index}>
+<<<<<<< HEAD
                   <td className="vis-event-table__td-admin"> {Contenido.nombre}</td>
+=======
+                  <td className="vis-event-table__td-admin">
+                    {" "}
+                    {Contenido.nombre}
+                  </td>
+>>>>>>> main
                   <td className="vis-event-table__td-admin">
                     {" "}
                     {Contenido.fecha_inicio}{" "}
@@ -84,8 +99,19 @@ function Visualizar_Evento_Admin() {
                     {" "}
                     {Contenido.cantidad}{" "}
                   </td>
+<<<<<<< HEAD
                   <td className="vis-event-table__td-admin"> {Contenido.lugar} </td>
                   <td className="vis-event-table__td-admin"> {Contenido.tipo} </td>
+=======
+                  <td className="vis-event-table__td-admin">
+                    {" "}
+                    {Contenido.lugar}{" "}
+                  </td>
+                  <td className="vis-event-table__td-admin">
+                    {" "}
+                    {Contenido.tipo}{" "}
+                  </td>
+>>>>>>> main
                   <td className="vis-event-table__td-admin">
                     <div className="vis-actividad-table__td__btns-admin">
                       <Link to={"/admin/actualizar-eventos"}>

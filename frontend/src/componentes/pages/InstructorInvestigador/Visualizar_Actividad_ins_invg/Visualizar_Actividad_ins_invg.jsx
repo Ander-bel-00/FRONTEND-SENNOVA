@@ -1,4 +1,3 @@
-import { IoIosReturnLeft } from "react-icons/io";
 import { FaFileArrowUp } from "react-icons/fa6";
 import { LuCalendarDays } from "react-icons/lu";
 import { AiOutlinePlus } from "react-icons/ai";
@@ -10,7 +9,8 @@ import BotonBlanco from "../../../common/BotonReporte";
 import BotonVerdeAñadir from "../../../common/BotonVerde";
 import Search from "../../../common/Search";
 import "./css/Visualizar_Actividad_ins_invg.css";
-
+import BotonReturn from "../../../common/BotonReturn";
+import { GiReturnArrow } from "react-icons/gi";
 
 function Visualizar_Actividad_ins_invg() {
   const Contenido = [
@@ -37,10 +37,29 @@ function Visualizar_Actividad_ins_invg() {
       <Header_ToolBar
         Header_Tools={
           <Fragment>
-            <div className="btn-vs-actividades-instructor">
+            <div className="btn-vs-actividades-aprendiz">
+              <BotonReturn icon={<GiReturnArrow />} />
             </div>
+<<<<<<< HEAD
             <BotonBlanco icon={<FaFileArrowUp />} text={"Reporte"} clase={'btn-blanco btn-blanco--modify btn-verde'} />
             <><BotonBlanco icon={<LuCalendarDays />} text={"Ir al Cronograma"} clase={'btn-blanco btn-blanco--modify btn-azul'} /><Search icon={<FaSearch />} text={"Buscar Actividades"} /><BotonVerdeAñadir icon={<AiOutlinePlus />} text={"Añadir Actividad"} /></>
+=======
+            <BotonBlanco
+              icon={<FaFileArrowUp />}
+              text={"Reporte"}
+              clase={"btn-blanco btn-blanco--modify btn-verde"}
+            />
+            <BotonBlanco
+              icon={<LuCalendarDays />}
+              text={"Ir al Cronograma"}
+              clase={"btn-blanco btn-blanco--modify btn-azul"}
+            />
+            <Search icon={<FaSearch />} text={"Buscar Actividades"} />
+            <BotonVerdeAñadir
+              icon={<AiOutlinePlus />}
+              text={"Añadir Actividad"}
+            />
+>>>>>>> main
           </Fragment>
         }
       />

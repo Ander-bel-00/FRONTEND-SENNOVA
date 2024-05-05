@@ -1,0 +1,85 @@
+.create-activity-admin-title{
+    top: 0rem;
+    right: 1%;
+    font-size: 24px;
+    font-weight: 400;
+}
+
+.create-activity-admin-box{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-create-activity-admin-content{
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    height: 80%;
+    justify-content: center;
+    margin-top: 3rem;
+ 
+}
+
+.create-activity-admin-title{
+    position: relative;
+    top: 24px;
+    font-size: 25px;
+}
+
+.form-create-activity-admin-content__col1__label{
+    font-weight: 400;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.form-create-activity-admin-content__col1__input{
+    width: 100%;
+    border-radius: 6px;
+    padding: 8px;
+    margin-top: 8px;
+    margin-bottom: 10px;
+    box-shadow: var(--box-shadow-inputs);
+    background-color: var(--bg-inputs);
+}
+
+.btns-crear-actividad-admin{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    justify-content: space-around;
+}
+
+.btn-create-actividad-admin{
+    background-color: var(--boton-crear-color);
+    width: 15rem;
+    padding: 8px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 11px 1px rgba(129,122,122,0.73);
+    color: var(--text-btn-color);
+    font-size: 21px;
+    margin-top: -5rem;
+}
+
+.btn-create-actividad-admin:hover{
+    background-color: var( --btn-update-bg-hover);
+}
+
+.btn-cancelar-actividad-uptd-admin{
+    background-color: var(--boton-cacelar-color);
+    width: 15rem;
+    padding: 8px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 11px 1px rgba(129,122,122,0.73);
+    color: var(--text-btn-color);
+    font-size: 21px;
+    margin-top: 2rem;
+    margin-bottom: 7rem;
+}
+
+.btn-cancelar-actividad-uptd-admin:hover{
+    background-color: var(--boton-cacelar-bg-hover);
+}

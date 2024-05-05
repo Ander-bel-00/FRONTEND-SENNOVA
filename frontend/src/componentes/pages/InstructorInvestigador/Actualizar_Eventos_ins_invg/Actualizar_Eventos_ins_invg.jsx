@@ -1,12 +1,3 @@
-
-
-
-// Este no se va a usar porque el instructor no puede ni modificar ni suspender nada en los eventos
-
-
-
-
-
 import { IoIosReturnLeft } from 'react-icons/io';
 import { Fragment } from 'react';
 import { Link } from "react-router-dom";

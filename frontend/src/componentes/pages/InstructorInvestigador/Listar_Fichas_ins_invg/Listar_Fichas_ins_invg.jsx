@@ -40,7 +40,7 @@ function Listar_Fichas_ins_invg() {
                 icon={<IoIosReturnLeft />}
               />
             </div>
-            <BotonBlanco icon={<FaFileArrowUp />} text={"Reporte"} />
+            <BotonBlanco icon={<FaFileArrowUp />} text={"Reporte"} clase={'btn-blanco btn-blanco--modify btn-verde'}/>
             <Search text={"Buscar proyecto"} />
           </Fragment>
         }

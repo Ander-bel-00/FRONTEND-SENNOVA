@@ -11,6 +11,7 @@ function BotonReturn({icon, link}) {
   return (
     <Link to={link} className='btn-return' onClick={handleGoBack}>
         <p className='btn-return__icon'>{icon}</p>
+        <p className='btn-return__text'>Regresar</p>
     </Link>
   )
 }

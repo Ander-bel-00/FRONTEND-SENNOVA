@@ -17,8 +17,9 @@
 }
 
 .create-perfil-title{
-    font-size: 35px;
-    text-align: center;
+    font-size: 25px;
+    position: relative;
+    top: 4%;
 }
 
 

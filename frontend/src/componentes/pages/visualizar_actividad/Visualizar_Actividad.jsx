@@ -1,5 +1,7 @@
 import { IoAdd, IoTrashOutline } from "react-icons/io5";
-import { IoIosReturnLeft } from "react-icons/io";
+import { GiReturnArrow } from "react-icons/gi";
+import { FaFileArrowUp } from "react-icons/fa6";
+import { CiCalendar } from "react-icons/ci";
 import { FaSearch } from "react-icons/fa";
 import { LuCalendarDays } from "react-icons/lu";
 import { FaFileArrowUp } from "react-icons/fa6";
@@ -39,14 +41,19 @@ function Visualizar_Actividad() {
       <Header_ToolBar
         Header_Tools={
           <Fragment>
-            <div className="btn-vs-actividades">
-              <BotonReturn
-                link={"/lider-semillero/Listar_Actividad"}
-                icon={<IoIosReturnLeft />}
-              />
+            <div className="btn-vs-actividades-aprendiz">
+              <BotonReturn icon={<GiReturnArrow />} />
             </div>
-            <BotonBlanco icon={<FaFileArrowUp />} text={"Reporte"} clase={'btn-blanco btn-blanco--modify btn-verde'} />
-            <BotonBlanco icon={<LuCalendarDays />} text={"calendario"} clase={'btn-blanco btn-blanco--modify btn-azul'} />
+            <BotonBlanco
+              icon={<FaFileArrowUp/>}
+              text={"Reporte"}
+              clase={"btn-blanco btn-blanco--modify btn-verde"}
+            />
+            <BotonBlanco
+              icon={<CiCalendar />}
+              text={"calendario"}
+              clase={"btn-blanco btn-blanco--modify btn-azul"}
+            />
             <Search icon={<FaSearch />} text={"Buscar Actividades"} />
             <BotonVerdeAñadir
               icon={<IoAdd />}
@@ -102,7 +109,7 @@ function Visualizar_Actividad() {
                   </td>
                   <td className="vis-actividad-table__td">
                     <div className="vis-actividad-table__td__btns">
-                      <Link to={"/lider-semillero/Actualizar_Actividad"}>
+                      <Link to={"../actualizar-actividad"}>
                         <FaRegEdit className="vis-actividad-table__td__btn" />
                       </Link>
                       <Link>
