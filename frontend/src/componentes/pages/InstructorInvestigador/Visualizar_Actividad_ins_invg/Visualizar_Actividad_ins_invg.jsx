@@ -40,26 +40,8 @@ function Visualizar_Actividad_ins_invg() {
             <div className="btn-vs-actividades-aprendiz">
               <BotonReturn icon={<GiReturnArrow />} />
             </div>
-<<<<<<< HEAD
             <BotonBlanco icon={<FaFileArrowUp />} text={"Reporte"} clase={'btn-blanco btn-blanco--modify btn-verde'} />
             <><BotonBlanco icon={<LuCalendarDays />} text={"Ir al Cronograma"} clase={'btn-blanco btn-blanco--modify btn-azul'} /><Search icon={<FaSearch />} text={"Buscar Actividades"} /><BotonVerdeAñadir icon={<AiOutlinePlus />} text={"Añadir Actividad"} /></>
-=======
-            <BotonBlanco
-              icon={<FaFileArrowUp />}
-              text={"Reporte"}
-              clase={"btn-blanco btn-blanco--modify btn-verde"}
-            />
-            <BotonBlanco
-              icon={<LuCalendarDays />}
-              text={"Ir al Cronograma"}
-              clase={"btn-blanco btn-blanco--modify btn-azul"}
-            />
-            <Search icon={<FaSearch />} text={"Buscar Actividades"} />
-            <BotonVerdeAñadir
-              icon={<AiOutlinePlus />}
-              text={"Añadir Actividad"}
-            />
->>>>>>> main
           </Fragment>
         }
       />

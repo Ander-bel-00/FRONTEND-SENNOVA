@@ -4,24 +4,16 @@ import { Fragment } from "react";
 import { Link } from "react-router-dom";
 import BotonReturn from "../../../common/BotonReturn";
 import "./css/Crear_Eventos_Admin.css";
-<<<<<<< HEAD
-=======
-import { GiReturnArrow } from "react-icons/gi";
->>>>>>> main
 
 function Crear_Eventos_Admin() {
   return (
     <div className="main-container__contenedor-hijo">
       <Link>
         <div className="add-creat-btn-return-admin">
-<<<<<<< HEAD
           <BotonReturn
             link={"/admin/listar-eventos"}
             icon={<IoIosReturnLeft />}
           />
-=======
-          <BotonReturn icon={<GiReturnArrow />} />
->>>>>>> main
         </div>
       </Link>
       <Caja_formularios
@@ -36,13 +28,9 @@ function Crear_Eventos_Admin() {
                   Tipo <p className="rojo-required">*</p>
                 </label>
                 <select className="form-add-event-container__input-admin">
-<<<<<<< HEAD
                   <option selected>
                     Seleccione el tipo de evento
                   </option>
-=======
-                  <option selected>Seleccione el tipo de evento</option>
->>>>>>> main
                   <option>Asistente</option>
                   <option>Ponente</option>
                 </select>
@@ -92,14 +80,7 @@ function Crear_Eventos_Admin() {
                 />
 
                 <div className="btns-crear-evento-admin">
-<<<<<<< HEAD
                   <button type="button" className="btnEvents__crear--green-admin">
-=======
-                  <button
-                    type="button"
-                    className="btnEvents__crear--green-admin"
-                  >
->>>>>>> main
                     Crear
                   </button>
 

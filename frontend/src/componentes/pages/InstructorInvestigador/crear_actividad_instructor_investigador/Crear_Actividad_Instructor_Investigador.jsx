@@ -96,17 +96,7 @@ function Crear_Actividad_Instructor_Investigador() {
                     id="esponsable-actividad"
                     className="form-create-activity-instructor-content__col1__input"
                   />
-                  <label
-                    htmlFor="producto-actividad"
-                    className="form-create-activity-instructor-content__col1__label"
-                  >
-                    Producto
-                  </label>
-                  <input 
-                    type="file" 
-                    id="producto-actividad"
-                    className="form-create-activity-instructor-content__col1__input"
-                  />
+                  
                   <div className="btns-crear-instructor-actividad">
                     <Link to={"/instructor-investigador/"}>
                       <button

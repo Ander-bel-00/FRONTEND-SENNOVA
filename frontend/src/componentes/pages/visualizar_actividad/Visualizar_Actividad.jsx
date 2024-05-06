@@ -1,6 +1,5 @@
 import { IoAdd, IoTrashOutline } from "react-icons/io5";
 import { GiReturnArrow } from "react-icons/gi";
-import { FaFileArrowUp } from "react-icons/fa6";
 import { CiCalendar } from "react-icons/ci";
 import { FaSearch } from "react-icons/fa";
 import { LuCalendarDays } from "react-icons/lu";
@@ -58,7 +57,7 @@ function Visualizar_Actividad() {
             <BotonVerdeAñadir
               icon={<IoAdd />}
               text={"Añadir Actividad"}
-              link={"/lider-semillero/Crear_Actividad"}
+              link={"/lider-semillero/crear-actividad"}
             />
           </Fragment>
         }

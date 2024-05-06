@@ -24,29 +24,12 @@ function Visualizar_Programa_Formacion() {
   return (
     <div className="main-container__contenedor-hijo">
       <Header_ToolBar
-<<<<<<< HEAD
       Header_Tools={
         <Fragment>
           <BotonBlanco icon={<BiSolidReport/>} text={"reporte"} clase={'btn-blanco btn-blanco--modify btn-verde'}/>
           <BotonVerdeAñadir icon={<IoAdd/>} text={"Crear Programa de Formación"} link={'/lider-semillero/Crear-programa-formacion'}/>
         </Fragment>
       }
-=======
-        Header_Tools={
-          <Fragment>
-            <BotonBlanco
-              icon={<FaFileArrowUp />}
-              text={"Reporte"}
-              clase={"btn-blanco btn-blanco--modify btn-verde"}
-            />
-            <BotonVerdeAñadir
-              icon={<IoAdd />}
-              text={"Crear Programa de Formación"}
-              link={"../crear-programa-formacion"}
-            />
-          </Fragment>
-        }
->>>>>>> main
       />
 
       <Caja_Blanca

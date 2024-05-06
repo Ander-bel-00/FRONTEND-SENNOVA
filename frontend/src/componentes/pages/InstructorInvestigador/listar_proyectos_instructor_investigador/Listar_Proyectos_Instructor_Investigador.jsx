@@ -36,6 +36,7 @@ function Listar_Proyectos_Instructor_Investigador() {
         proyectInvg.nombre_proyecto,
         proyectInvg.fecha_inicio,
         proyectInvg.fecha_fin,
+        proyectInvg.codigo_sgps,
         proyectInvg.descripcion
       ]),
     ];
@@ -43,6 +44,7 @@ function Listar_Proyectos_Instructor_Investigador() {
 
     // Agrega estilos de tabla a la hoja de cálculo
     ws["!cols"] = [
+      { width: 30 },
       { width: 30 },
       { width: 30 },
       { width: 30 },
@@ -96,6 +98,9 @@ function Listar_Proyectos_Instructor_Investigador() {
                   <th className="list-project-instructor-table__th">
                     Fecha Fin del Proyecto
                   </th>
+                  <th className="list-project-table__th">
+                    Código SGPS
+                  </th>
                   <th className="list-project-instructor-table__th">
                     Descripción del Proyecto
                   </th>
@@ -113,6 +118,9 @@ function Listar_Proyectos_Instructor_Investigador() {
                     </td>
                     <td className="list-project-instructor-table__td">
                       {invglist.fecha_fin}
+                    </td>
+                    <td className="list-project-table__td">
+                      {invglist.codigo_sgps}
                     </td>
                     <td className="list-project-instructor-table__td">
                       {invglist.descripcion}

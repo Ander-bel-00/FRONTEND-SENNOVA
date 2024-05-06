@@ -95,20 +95,8 @@ function Crear_Actividad() {
                     className="form-create-activity-content__col1__input"
                   />
 
-                  <label
-                    htmlFor="producto-actividad"
-                    className="form-create-activity-content__col1__label"
-                  >
-                    Producto
-                  </label>
-                  <input
-                    type="file"
-                    id="producto-actividad"
-                    className="form-create-activity-content__col1__input"
-                  />
-
                   <div className="btns-crear-actividad">
-                    <Link to={"/lider-semillero/Listar_Actividad"}>
+                    <Link to={"/lider-semillero/listar-actividad"}>
                       <button
                         className="btn-cancelar-actividad-uptd"
                         type="button"

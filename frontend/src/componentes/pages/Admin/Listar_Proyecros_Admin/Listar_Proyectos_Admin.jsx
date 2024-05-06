@@ -46,12 +46,14 @@ function Listar_Proyectos_Admin() {
         "Nombre del Proyecto",
         "Fecha Inicio del Proyecto",
         "Fecha Fin del Proyecto",
+        "Codigo SGPS",
         "Descripción del Proyecto",
       ],
       ...proyectosSemillero.map((proyect) => [
         proyect.nombre_proyecto,
         proyect.fecha_inicio,
         proyect.fecha_fin,
+        proyect.codigo_sgps,
         proyect.descripcion_proyecto,
       ]),
     ];
@@ -59,6 +61,7 @@ function Listar_Proyectos_Admin() {
 
     // Agrega estilos de tabla a la hoja de cálculo
     ws["!cols"] = [
+      { width: 40 },
       { width: 40 },
       { width: 40 },
       { width: 40 },
@@ -93,7 +96,7 @@ function Listar_Proyectos_Admin() {
               <BotonVerdeAñadir
                 icon={<AiOutlinePlus />}
                 text={"Crear"}
-                link={"../crear-proyecto"}
+                link={"../crear-proyectos"}
               />
             </Fragment>
           }
@@ -113,6 +116,9 @@ function Listar_Proyectos_Admin() {
                     Fecha Fin del Proyecto
                   </th>
                   <th className="list-project-table__th">
+                    Código SGPS
+                  </th>
+                  <th className="list-project-table__th">
                     Descripción del Proyecto
                   </th>
                   <th className="list-project-table__th">Acciones</th>
@@ -127,7 +133,12 @@ function Listar_Proyectos_Admin() {
                     <td className="list-project-table__td">
                       {list.fecha_inicio}
                     </td>
-                    <td className="list-project-table__td">{list.fecha_fin}</td>
+                    <td className="list-project-table__td">
+                      {list.fecha_fin}
+                    </td>
+                    <td className="list-project-table__td">
+                      {list.codigo_sgps}
+                    </td>
                     <td className="list-project-table__td">
                       {list.descripcion_proyecto}
                     </td>

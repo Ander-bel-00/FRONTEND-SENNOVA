@@ -17,13 +17,14 @@
     display: flex;
     justify-content: end;
     width: 100%;
+    font-weight: bold;
     align-items: center;
-    gap: 2rem;
+    gap: 3rem;
 }
 .Header-general_options{
     display: flex;
     align-items: center;
-    gap: 2rem;
+    gap: 0.5rem;
 }
 .Header-general__Search-box {
     width: 80px;
@@ -71,12 +72,13 @@
 .Header-general__logout-link__text{
     color: #04324D;
 }
+
 .Header-general__logout-link__text:hover{
     color: #063f60;
-    text-decoration: underline;
+    transform: scale(1.09);
 }
 
 .user-name{
-    color: #fff;
+    color: #04324D;
     font-weight: 500;
 }

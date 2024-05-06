@@ -1,4 +1,3 @@
-import { FaFileArrowUp } from "react-icons/fa6";
 import { LuCalendarDays } from "react-icons/lu";
 import { IoTrashOutline } from "react-icons/io5";
 import { Fragment } from "react";
