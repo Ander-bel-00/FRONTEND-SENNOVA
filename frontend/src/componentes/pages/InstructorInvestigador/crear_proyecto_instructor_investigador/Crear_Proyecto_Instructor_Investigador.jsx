@@ -18,7 +18,7 @@ function Crear_Proyecto_Instructor_Investigador() {
             <Fragment>
               <div className=" main-form-instructor-proyecto">
                 <h2 className="text-center create-project-instructor-title">
-                  Añadir Información
+                  Crear Proyecto
                 </h2>
 
                 <form className="form-add-pryect-instructor-container">

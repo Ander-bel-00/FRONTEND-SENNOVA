@@ -66,8 +66,14 @@
 }
 .semillero-main-container__campos-informacion__inputs--integrantes{
     width: 80%;
+    height: 40vh;
+    overflow-y: auto;
 }
 .semillero-main-container__campos-informacion__inputs h1{
     font-weight: 600;
 
+}
+
+.integrantes{
+    padding: 5px;
 }

@@ -1,16 +1,23 @@
 .btn-return{
+    display: flex;
     width: 1rem;
     text-decoration: none;
     color: #000;
     position: relative;
     right: 20%;
-    top: 15px;
+    bottom: 1rem;
 }
 
 .btn-return__icon{
     font-size: 28px;
+    color: #39a900;
 }
 
-.btn-return__icon:hover{
-    transform: scale(1.2);
+.btn-return__text{
+    font-weight: 600;
+    margin-left: 3px;
+}
+
+.btn-return:hover p{
+    transform: scale(1.1);
 }

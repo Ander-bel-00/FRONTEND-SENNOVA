@@ -1,4 +1,4 @@
-import { IoIosReturnLeft } from "react-icons/io";
+import { GiReturnArrow } from "react-icons/gi";
 import "./css/Crear_Eventos.css";
 import Caja_formularios from "../../common/Caja_formularios";
 import { Fragment } from "react";
@@ -8,14 +8,9 @@ import BotonReturn from "../../common/BotonReturn";
 function Crear_Eventos() {
   return (
     <div className="main-container__contenedor-hijo">
-      <Link>
-        <div className="add-creat-btn-return">
-          <BotonReturn
-            link={"/lider-semillero/Listar-eventos"}
-            icon={<IoIosReturnLeft />}
-          />
-        </div>
-      </Link>
+      <div className="add-proyect-btn-return">
+        <BotonReturn icon={<GiReturnArrow />} />
+      </div>
       <Caja_formularios
         info={
           <Fragment>

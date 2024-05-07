@@ -1,12 +1,9 @@
-import { IoAdd, IoTrashOutline } from "react-icons/io5";
-import { IoIosReturnLeft } from "react-icons/io";
-import { BiSolidReport } from "react-icons/bi";
+import { IoAdd } from "react-icons/io5";
+import { GiReturnArrow } from "react-icons/gi";
 import { FaFileArrowUp } from "react-icons/fa6";
 import { CiCalendar } from "react-icons/ci";
 import { FaSearch } from "react-icons/fa";
 import { Fragment } from "react";
-import { FaEdit } from "react-icons/fa";
-import { Link } from "react-router-dom";
 import Caja_Blanca from "../../../common/Caja_Blanca";
 import Header_ToolBar from "../../../common/Header_ToolBar";
 import BotonBlanco from "../../../common/BotonReporte";
@@ -14,7 +11,6 @@ import BotonVerdeAñadir from "../../../common/BotonVerde";
 import Search from "../../../common/Search";
 import BotonReturn from "../../../common/BotonReturn";
 import "./css/Visualizar_Actividad_apr_invg.css";
-
 
 function Visualizar_Actividad_apr_invg() {
   const Contenido = [
@@ -42,13 +38,18 @@ function Visualizar_Actividad_apr_invg() {
         Header_Tools={
           <Fragment>
             <div className="btn-vs-actividades-aprendiz">
-              <BotonReturn
-                link={"/aprendiz-investigador/Listar_Actividad"}
-                icon={<IoIosReturnLeft />}
-              />
+              <BotonReturn icon={<GiReturnArrow />} />
             </div>
-            <BotonBlanco icon={<FaFileArrowUp />} text={"Reporte"} clase={'btn-blanco btn-blanco--modify btn-verde'} />
-            <BotonBlanco icon={<CiCalendar />} text={"calendario"} clase={'btn-blanco btn-blanco--modify btn-azul'} />
+            <BotonBlanco
+              icon={<FaFileArrowUp />}
+              text={"Reporte"}
+              clase={"btn-blanco btn-blanco--modify btn-verde"}
+            />
+            <BotonBlanco
+              icon={<CiCalendar />}
+              text={"calendario"}
+              clase={"btn-blanco btn-blanco--modify btn-azul"}
+            />
             <Search icon={<FaSearch />} text={"Buscar Actividades"} />
             <BotonVerdeAñadir icon={<IoAdd />} text={"Añadir Actividad"} />
           </Fragment>
@@ -60,12 +61,16 @@ function Visualizar_Actividad_apr_invg() {
           <table className="vis-actividad-table-aprendiz">
             <thead>
               <tr className="vis-actividad-table-aprendiz__tr">
-                <th className="vis-actividad-table-aprendiz__th">Nombre Actividad</th>
+                <th className="vis-actividad-table-aprendiz__th">
+                  Nombre Actividad
+                </th>
                 <th className="vis-actividad-table-aprendiz__th">Tarea</th>
                 <th className="vis-actividad-table-aprendiz__th">Fecha</th>
                 <th className="vis-actividad-table-aprendiz__th">Resultado</th>
                 <th className="vis-actividad-table-aprendiz__th">Producto</th>
-                <th className="vis-actividad-table-aprendiz__th">Responsable de la Actividad</th>
+                <th className="vis-actividad-table-aprendiz__th">
+                  Responsable de la Actividad
+                </th>
               </tr>
             </thead>
             <tbody>

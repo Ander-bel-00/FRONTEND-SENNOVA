@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import "./css/Listar_Proyectos.css";
 import { LiaEyeSolid } from "react-icons/lia";
 import { FaRegEdit } from "react-icons/fa";
@@ -12,87 +12,64 @@ import { FaFileArrowUp } from "react-icons/fa6";
 import Caja_Blanca from "../../common/Caja_Blanca";
 import Header_ToolBar from "../../common/Header_ToolBar";
 import { Link } from "react-router-dom";
+import * as XLSX from "xlsx";
+import { useAuth } from "../../../context/AuthContext";
+import clienteAxios from "../../../config/axios";
 
 function Listar_Proyectos() {
-  const lists = [
-    {
-      nombre_proyecto: "Innovación",
-      fecha_inicio: "12 de Abril de 2024",
-      fecha_fin: "25 de Julio de 2024",
-      descripcion: "Este proyecto se esta llevando",
-    },
-    {
-      nombre_proyecto: "Tecnología",
-      fecha_inicio: "22 de Junio de 2024",
-      fecha_fin: "09 de julio de 2024",
-      descripcion: "Este proyecto se esta llevando",
-    },
-    {
-      nombre_proyecto: "Tecnología",
-      fecha_inicio: "22 de Junio de 2024",
-      fecha_fin: "09 de julio de 2024",
-      descripcion: "Este proyecto se esta llevando",
-    },
-    {
-      nombre_proyecto: "Tecnología",
-      fecha_inicio: "22 de Junio de 2024",
-      fecha_fin: "09 de julio de 2024",
-      descripcion: "Este proyecto se esta llevando",
-    },
-    {
-      nombre_proyecto: "Tecnología",
-      fecha_inicio: "22 de Junio de 2024",
-      fecha_fin: "09 de julio de 2024",
-      descripcion: "Este proyecto se esta llevando",
-    },
-    {
-      nombre_proyecto: "Tecnología",
-      fecha_inicio: "22 de Junio de 2024",
-      fecha_fin: "09 de julio de 2024",
-      descripcion: "Este proyecto se esta llevando",
-    },
-    {
-      nombre_proyecto: "Tecnología",
-      fecha_inicio: "22 de Junio de 2024",
-      fecha_fin: "09 de julio de 2024",
-      descripcion: "Este proyecto se esta llevando",
-    },
-    {
-      nombre_proyecto: "Tecnología",
-      fecha_inicio: "22 de Junio de 2024",
-      fecha_fin: "09 de julio de 2024",
-      descripcion: "Este proyecto se esta llevando",
-    },
-    {
-      nombre_proyecto: "Tecnología",
-      fecha_inicio: "22 de Junio de 2024",
-      fecha_fin: "09 de julio de 2024",
-      descripcion: "Este proyecto se esta llevando",
-    },
-    {
-      nombre_proyecto: "Tecnología",
-      fecha_inicio: "22 de Junio de 2024",
-      fecha_fin: "09 de julio de 2024",
-      descripcion: "Este proyecto se esta llevando",
-    },    {
-      nombre_proyecto: "Tecnología",
-      fecha_inicio: "22 de Junio de 2024",
-      fecha_fin: "09 de julio de 2024",
-      descripcion: "Este proyecto se esta llevando",
-    },
-    {
-      nombre_proyecto: "Tecnología",
-      fecha_inicio: "22 de Junio de 2024",
-      fecha_fin: "09 de julio de 2024",
-      descripcion: "Este proyecto se esta llevando",
-    },
-    {
-      nombre_proyecto: "Tecnología",
-      fecha_inicio: "22 de Junio de 2024",
-      fecha_fin: "09 de julio de 2024",
-      descripcion: "Este proyecto se esta llevando",
-    },
-  ];
+  const {userProfile} = useAuth();
+
+  const SemilleroID = userProfile ? userProfile.semillero : null;
+
+  const [proyectosSemillero, setProyectosSemillero] = useState([]);
+
+  useEffect(() => {
+    const obtenerProyectosSemillero = async () => {
+      try {
+        if (SemilleroID) {
+          const res = await clienteAxios.get("/proyectos/");
+          setProyectosSemillero(res.data);
+        }
+      } catch (error) {
+        console.error('Error al obtener los proyectos del semillero', error);
+      }
+    }
+  
+    obtenerProyectosSemillero();
+  }, [SemilleroID]);
+  
+
+  const exportToExcel = () => {
+    const wb = XLSX.utils.book_new();
+    const wsData = [
+      [
+        "Nombre del Proyecto",
+        "Fecha Inicio del Proyecto",
+        "Fecha Fin del Proyecto",
+        "Descripción del Proyecto",
+      ],
+      ...proyectosSemillero.map((proyect) => [
+        proyect.nombre_proyecto,
+        proyect.fecha_inicio,
+        proyect.fecha_fin,
+        proyect.descripcion,
+      ]),
+    ];
+    const ws = XLSX.utils.aoa_to_sheet(wsData);
+
+    // Agrega estilos de tabla a la hoja de cálculo
+    ws["!cols"] = [
+      { width: 40 },
+      { width: 40 },
+      { width: 40 },
+      { width: 40 },
+      { width: 40 },
+    ];
+
+    // Genera el archivo Excel
+    XLSX.utils.book_append_sheet(wb, ws, "Proyectos");
+    XLSX.writeFile(wb, "proyectos.xlsx");
+  };
 
   return (
     <Fragment>
@@ -100,18 +77,23 @@ function Listar_Proyectos() {
         <Header_ToolBar
           Header_Tools={
             <Fragment>
-              <BotonBlanco icon={<FaFileArrowUp />} text={"Reporte"} clase={'btn-blanco btn-blanco--modify btn-verde'} />
+              <BotonBlanco
+                icon={<FaFileArrowUp />}
+                text={"Reporte"}
+                clase={"btn-blanco btn-blanco--modify btn-verde"}
+                onClick={exportToExcel}
+              />
               <Search text={"Buscar proyecto"} />
               <BotonBlanco
                 icon={<LuCalendarDays />}
                 text={"Ir al Cronograma"}
-                link={"/lider-semillero/cronograma"}
-                clase={'btn-blanco btn-blanco--modify btn-azul'}
+                link={"../cronograma"}
+                clase={"btn-blanco btn-blanco--modify btn-azul"}
               />
               <BotonVerdeAñadir
                 icon={<AiOutlinePlus />}
                 text={"Crear"}
-                link={"/lider-semillero/Crear_Proyecto"}
+                link={"../crear-proyecto"}
               />
             </Fragment>
           }
@@ -137,7 +119,7 @@ function Listar_Proyectos() {
                 </tr>
               </thead>
               <tbody>
-                {lists.map((list, index) => (
+                {proyectosSemillero.map((list, index) => (
                   <tr key={index} className="list-project-table__tr">
                     <td className="list-project-table__td">
                       {list.nombre_proyecto}
@@ -147,16 +129,16 @@ function Listar_Proyectos() {
                     </td>
                     <td className="list-project-table__td">{list.fecha_fin}</td>
                     <td className="list-project-table__td">
-                      {list.descripcion}
+                      {list.descripcion_proyecto}
                     </td>
                     <td className="list-project-table__td">
                       <div className="list-project-table__td__btns">
-                        <Link           // Link que permite ingresar por medio el icono LiaEyesolid teniendo un acceso a la url del archivo Visualizar_Suspender_Proyecto
-                          to={"/lider-semillero/Visualizar_Suspender_Proyecto"}  
+                        <Link // Link que permite ingresar por medio el icono LiaEyesolid teniendo un acceso a la url del archivo Visualizar_Suspender_Proyecto
+                          to={"/lider_semillero/visualizar-suspender-proyecto"}
                         >
                           <LiaEyeSolid className="list-project-table__td__btn" />
                         </Link>
-                        <Link to={"/lider-semillero/Actualizar_Proyectos"}>
+                        <Link to={"/lider_semillero/actualizar-proyectos"}>
                           <FaRegEdit className="list-project-table__td__btn" />
                         </Link>
                         <Link>
