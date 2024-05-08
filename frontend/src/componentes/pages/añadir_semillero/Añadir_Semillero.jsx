@@ -81,7 +81,7 @@ function Añadir_Semillero() {
                   >
                     Regional <p className="text-red-600">*</p>
                   </label>
-                  <select className="form-add-semillero-content__col1__input">
+                  <select onChange={handleChange} className="form-add-semillero-content__col1__input">
                     <option selected>Seleccione el centro de formación</option>
                     <option>Centro De Atención Al Sector Agropecuario </option>
                     <option>Centro De comercio Y Servicio</option>
@@ -121,17 +121,20 @@ function Añadir_Semillero() {
                   >
                     Sectores de Aplicación <p className="text-red-600">*</p>
                   </label>
-                  <select className="form-add-semillero-content__col1__input">
+                  <select onChange={handleChange} className="form-add-semillero-content__col1__input">
                     <option selected>Seleccione el sector de aplicación</option>
-                    <option>HOli</option>
-                    <option>ho</option>
-                    <option>ho</option>
+                    <option>Ingeniería y Tecnología</option>
+                    <option>Educación</option>
+                    <option>Comercial - Agrícola</option>
+                    <option>Industrias Culturales y Creativas</option>
+                    <option>Industria Farmacéutica - Salud</option>
+                    <option>Todos los demás donde se puedan aplicar Tecnologías de la Información y de las Comunicaciones</option>
                   </select>
                   <label
                     htmlFor="plan-estrategico-de-investigacion"
                     className="form-add-semillero-content__col1__label"
                   >
-                    Plan Estrategico de Investigación{" "}
+                    Plan Estratégico de Investigación{" "}
                     <p className="text-red-600">*</p>
                   </label>
                   <textarea
@@ -149,11 +152,15 @@ function Añadir_Semillero() {
                   >
                     Línea de Investigación <p className="text-red-600">*</p>
                   </label>
-                  <select className="form-add-semillero-content__col1__input">
+                  <select onChange={handleChange} className="form-add-semillero-content__col1__input">
                     <option selected>Seleccione la línea de investigación</option>
-                    <option>holi</option>
-                    <option>holi</option>
-                    <option>holi</option>
+                    <option>Telemática y Desarrollo de TIC</option>
+                    <option>Educación, Pedagogía, Transformación Social e Innovación</option>
+                    <option>Sistemas Productivos, Organizacionales e Industriales</option>
+                    <option>Sistemas Electrónicos, Automatización y Control de Procesos</option>
+                    <option>Diseño de la Moda, Manufactura Textil y Cuero</option>
+                    <option>Tecnologías para el Hábitat, las Energías Renovables y el Desarrollo Sostenible</option>
+                    <option>Diseño y Fabricación de Sistemas Mecánicos y Autotrónicos</option>
                   </select>
 
                   <div className="add-semillero-btns">

@@ -10,6 +10,7 @@ import { useAuth } from "../../../../context/AuthContext";
 import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
 
+
 function Semillero_Admin() {
   const { userProfile } = useAuth();
 
@@ -31,17 +32,29 @@ function Semillero_Admin() {
     fetchSemillero();
   }, [userProfile]);
 
-  const handleGenerarPDF = () => {  // Función para generar un reporte en PDF
+  const handleGenerarPDF = () => { // Función para generar un reporte en PDF
     const input = document.getElementById('reporte-container'); // Obtener el elemento HTML que se va a convertir en PDF
-
-    html2canvas(input).then((canvas) => {  // Convertir el elemento HTML en un canvas utilizando html2canvas
-      const imgData = canvas.toDataURL('image/png');  // Convertir el canvas en una imagen (base64)
+  
+    html2canvas(input).then((canvas) => { // Convertir el elemento HTML en un canvas utilizando html2canvas
+      const imgData = canvas.toDataURL('image/png'); // Convertir el canvas en una imagen (base64)
       const pdf = new jsPDF(); // Crear un nuevo documento PDF utilizando jsPDF
-      pdf.addImage(imgData, 'PNG', 0, 0);  // Agregar la imagen al PDF en la posición (0, 0)
-      pdf.save('reporte.pdf');  // Descargar el PDF con el nombre 'reporte.pdf'
+  
+      
+      // Agregar información del semillero al PDF
+      pdf.text("Información del Semillero", 75, 20); // Agregar texto al PDF en la posición (10, 20)
+      pdf.text(`Nombre: ${semilleros.nombre_semillero}`, 10, 30); // Agregar nombre del semillero
+      pdf.text(`Regional: ${semilleros.nombre_regional}`, 10, 40); // Agregar regional del semillero
+      // Puedes agregar más texto u otros elementos según sea necesario
+      pdf.text(`Sector de Aplicación: ${semilleros.sectores_apicacion}`, 10, 50);
+      pdf.text(`Integrantes: ${semilleros.sectores_apicacion}`, 10, 60)
+      pdf.text(`Líneas de investigación: ${semilleros.lineas_investigacion_declaradas}`, 10, 70)
+      pdf.text(`Grupo de Investigación Adscrito: ${semilleros.nombre_grupo_investigacion_adscrito}`, 10, 80)
+      pdf.text(`Centro de Fomación: ${semilleros.nombre_centro_formacion}`, 10, 90)
+      pdf.text(`Plan Estratégico de Investigación: ${semilleros.plan_estrategico_investigacion}`, 10, 100)
+      pdf.save('reporte.pdf'); // Descargar el PDF con el nombre 'reporte.pdf'
     });
   };
-
+    
   return (
     <Fragment>
       <div className="semillero-main-container__info-semillero">
@@ -51,7 +64,7 @@ function Semillero_Admin() {
               icon={<FaFileArrowUp />}
               text={"Reporte"}
               clase={"btn-blanco btn-blanco--modify btn-verde"}
-              onClick={handleGenerarPDF}  // Función para generar el PDF al hacer clic en el botón
+              onClick={handleGenerarPDF} 
             />
           </div>
 
@@ -114,11 +127,11 @@ function Semillero_Admin() {
 
             <section>
               <div className="semillero-main-container__campos-informacion__inputs">
-                <h1>Grupo adscrito: </h1>
-                <h2>{semilleros.nombre_grupo_adscrito}</h2>
+                <h1>Grupo de Investigación Adscrito: </h1>
+                <h2>{semilleros.nombre_grupo_investigacion_adscrito}</h2>
               </div>
               <div className="semillero-main-container__campos-informacion__inputs">
-                <h1>Centro Formación:</h1>
+                <h1>Centro de Formación:</h1>
                 <h2> {semilleros.nombre_centro_formacion}</h2>
               </div>
               <div className="semillero-main-container__campos-informacion__inputs">
