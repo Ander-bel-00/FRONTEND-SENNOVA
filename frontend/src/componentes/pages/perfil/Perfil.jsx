@@ -46,6 +46,7 @@ function Perfil() {
           <Fragment>
             <div className=" main-form-perfil">
               <h2 className="text-center create-perfil-title">Perfil</h2>
+              <h4 className="text-center create-rol-title">Administrador</h4>
 
               <form className="form-add-perfil-container">
                 <label

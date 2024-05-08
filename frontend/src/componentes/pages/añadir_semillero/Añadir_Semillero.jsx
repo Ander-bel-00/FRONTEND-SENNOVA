@@ -7,9 +7,7 @@ import { useNavigate } from "react-router-dom";
 
 function Añadir_Semillero() {
   const navigate = useNavigate();
-  const [formSemilleroAdd, setformSemilleroAdd] = useState({
-    estado_semillero: "Activo",
-  });
+  const [formSemilleroAdd, setformSemilleroAdd] = useState({});
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -81,33 +79,47 @@ function Añadir_Semillero() {
                   >
                     Regional <p className="text-red-600">*</p>
                   </label>
-                  <input
-                    type="text"
-                    id="nombre-regional"
+                  <select
+                    onChange={handleChange}
                     className="form-add-semillero-content__col1__input"
                     name="nombre_regional"
-                    onChange={handleChange}
-                    required
-                  />
+                  >
+                    <option selected disabled>
+                      Seleccione la Regional a la que pertenece el Semillero
+                    </option>
+                    <option value="Risaralda">Risaralda</option>
+                  </select>
+
                   <label
                     htmlFor="centro-de-formacion"
                     className="form-add-semillero-content__col1__label"
                   >
                     Centro de Formación <p className="text-red-600">*</p>
                   </label>
-                  <input
-                    type="text"
-                    id="centro-de-formacion"
+                  <select
+                    onChange={handleChange}
                     className="form-add-semillero-content__col1__input"
                     name="nombre_centro_formacion"
-                    onChange={handleChange}
-                    required
-                  />
+                  >
+                    <option selected disabled>
+                      Seleccione el centro de formación
+                    </option>
+                    <option value="Centro De Atención Al Sector Agropecuario">
+                      Centro De Atención Al Sector Agropecuario{" "}
+                    </option>
+                    <option value="Centro De comercio Y Servicio">
+                      Centro De comercio Y Servicio
+                    </option>
+                    <option value="Centro De Diseño E Innovación Tecnológica Industrial">
+                      Centro De Diseño E Innovación Tecnológica Industrial
+                    </option>
+                  </select>
                   <label
                     htmlFor="grupo-adscrito"
                     className="form-add-semillero-content__col1__label"
                   >
-                    Grupo Adscrito <p className="text-red-600">*</p>
+                    Grupo de Investigación Adscrito{" "}
+                    <p className="text-red-600">*</p>
                   </label>
                   <input
                     type="text"
@@ -123,19 +135,40 @@ function Añadir_Semillero() {
                   >
                     Sectores de Aplicación <p className="text-red-600">*</p>
                   </label>
-                  <input
-                    type="text"
-                    id="sectores-de-aplicacion"
+                  <select
+                    onChange={handleChange}
                     className="form-add-semillero-content__col1__input"
                     name="sectores_apicacion"
-                    onChange={handleChange}
-                    required
-                  />
+                  >
+                    <option selected disabled>
+                      Seleccione el sector de aplicación
+                    </option>
+                    <option value="Ingeniería y Tecnología">
+                      Ingeniería y Tecnología
+                    </option>
+                    <option value="Educación">Educación</option>
+                    <option value="Comercial - Agrícola">
+                      Comercial - Agrícola
+                    </option>
+                    <option value="Industrias Culturales y Creativas">
+                      Industrias Culturales y Creativas
+                    </option>
+                    <option value="Industria Farmacéutica - Salud">
+                      Industria Farmacéutica - Salud
+                    </option>
+                    <option
+                      value="Todos los demás donde se puedan aplicar Tecnologías de la
+                      Información y de las Comunicaciones"
+                    >
+                      Todos los demás donde se puedan aplicar Tecnologías de la
+                      Información y de las Comunicaciones
+                    </option>
+                  </select>
                   <label
                     htmlFor="plan-estrategico-de-investigacion"
                     className="form-add-semillero-content__col1__label"
                   >
-                    Plan Estrategico de Investigación{" "}
+                    Plan Estratégico de Investigación{" "}
                     <p className="text-red-600">*</p>
                   </label>
                   <textarea
@@ -153,15 +186,44 @@ function Añadir_Semillero() {
                   >
                     Línea de Investigación <p className="text-red-600">*</p>
                   </label>
-                  <textarea
-                    name="lineas_investigacion_declaradas"
-                    id="linea-de-investigacion"
-                    cols="28"
-                    rows="9"
-                    className="form-add-semillero-content__col1__textarea"
+                  <select
                     onChange={handleChange}
-                    required
-                  ></textarea>
+                    className="form-add-semillero-content__col1__input"
+                    name="lineas_investigacion_declaradas"
+                  >
+                    <option selected disabled>
+                      Seleccione la línea de investigación
+                    </option>
+                    <option value="Telemática y Desarrollo de TIC">
+                      Telemática y Desarrollo de TIC
+                    </option>
+                    <option value="Educación, Pedagogía, Transformación Social e Innovación">
+                      Educación, Pedagogía, Transformación Social e Innovación
+                    </option>
+                    <option value="Sistemas Productivos, Organizacionales e Industriales">
+                      Sistemas Productivos, Organizacionales e Industriales
+                    </option>
+                    <option
+                      value="Sistemas Electrónicos, Automatización y Control de
+                      Procesos"
+                    >
+                      Sistemas Electrónicos, Automatización y Control de
+                      Procesos
+                    </option>
+                    <option value="Diseño de la Moda, Manufactura Textil y Cuero">
+                      Diseño de la Moda, Manufactura Textil y Cuero
+                    </option>
+                    <option
+                      value="Tecnologías para el Hábitat, las Energías Renovables y el
+                      Desarrollo Sostenible"
+                    >
+                      Tecnologías para el Hábitat, las Energías Renovables y el
+                      Desarrollo Sostenible
+                    </option>
+                    <option value="Diseño y Fabricación de Sistemas Mecánicos y Autotrónicos">
+                      Diseño y Fabricación de Sistemas Mecánicos y Autotrónicos
+                    </option>
+                  </select>
 
                   <div className="add-semillero-btns">
                     <button

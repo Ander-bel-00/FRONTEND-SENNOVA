@@ -1,13 +1,13 @@
 .boton-verde{
-    background-color: #39A900;
+    background-color: #70B22D;
     display: flex;
     align-items: center;
     border-radius: 20px;
-    padding: 1rem;
+    padding: 10px;
     color: #fff;
     gap: 1rem;
 }
 
 .boton-verde:hover{
-    background-color: #349703;
+    background-color: #04324D;
 }
