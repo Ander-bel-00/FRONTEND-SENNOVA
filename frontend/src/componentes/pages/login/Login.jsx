@@ -1,8 +1,15 @@
 import React, { useEffect, useState } from "react";
 import "./css/Login.css";
 import Logo_Tei from "./img/ef_logo_tei.png";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../../../context/AuthContext";
+import LogoSennova from '../Landing/img/sennova-logo.png'
+import CDITI from '../Landing/img/CDITI.png';
+import LT_Sena from '../Landing/img/sena-logo.svg';
+import logo_app from '../Landing/img/logo-app.svg';
+import sennova from '../Landing/img/sennova.svg';
+import teinnova from '../Landing/img/teinnova.svg';
+
 
 function Login() {
   const navigate = useNavigate(); // Utilizar navigate de React-router-dom para realizar navegación:
@@ -51,13 +58,29 @@ function Login() {
   }, [errors]);
 
   return (
-    <div className="main-login">
+
+    <main className="container-main-login" >
+
+<section className='header__logos' style={{background: "#fff", borderBottom: "5px solid #70B22D"}}>
+          <img className='header__sennova' src={sennova} alt="" />
+
+          <img className='header__img-sena' src={LT_Sena} alt="" />
+          <div className='header-imgs'>
+            <img className='header__img-sennova' src={LogoSennova} alt="" />
+            <img className='header__img-cditi' src={CDITI} alt="" />
+            <img className='header__img-cditi' src={teinnova} alt="" />
+            </div>
+        </section>
+
+        
+       <div className="main-login">
+        
       <div className="container-form register">
         <div className="information">
           <div className="info-childs">
             <img
               className="logo"
-              src={Logo_Tei}
+              src={logo_app}
               width=""
               height=""
               alt="logo_tei"
@@ -70,6 +93,7 @@ function Login() {
             <h2 className="login-title">Iniciar Sesión</h2>
             <form class="form form-register" onSubmit={onSubmit}>
               <div className="caja">
+                <label for="documento">Nº Documento</label>
                 <input
                   type="number"
                   placeholder="Número documento"
@@ -77,11 +101,13 @@ function Login() {
                   value={documento}
                   required
                   onChange={onChange}
+                  id="documento"
                 />
               </div>
 
               <div className="caja2">
                 <i class="bx bx-lock-alt"></i>
+                <label for="password">Contraseña</label>
                 <input
                   type="password"
                   placeholder="Contraseña"
@@ -89,6 +115,7 @@ function Login() {
                   required
                   value={password}
                   onChange={onChange}
+                  id="password"
                 />
 
                 {errors.map((error, i) => (
@@ -121,7 +148,12 @@ function Login() {
           </div>
         </div>
       </div>
+      <Link className="ir-inicio" to="/">Ir al inicio</Link>
     </div>
+   
+
+    </main>
+   
   );
 }
 

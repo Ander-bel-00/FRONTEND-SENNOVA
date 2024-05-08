@@ -15,7 +15,17 @@
     justify-content: space-between;
     background-color: #fff;
 }
-
+.imgWrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.imgWrapper img{
+    width: 15rem;
+}
+.logo-teinnova{
+    width: 33rem !important;
+}
 .row .imgWrapper{
    width: 65%;
     overflow: hidden;
@@ -170,6 +180,7 @@
    display: flex;
    text-align: center;
    margin-top: 2rem;
+   font-weight: 500;
  
 }
 
@@ -179,18 +190,18 @@
     width: 100%;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     padding: 5rem 0 ;
-    background-color: #f5f5f5;
+    background-image: #f5f5f5;
+    align-items: center;
+    box-shadow: 0px -4px 10px 0px rgba(0, 0, 0, 0.10); 
 }
 
 .info_objetivo_senn h1{
     font-size: 27px;
     font-weight: 700;
-   color: var(--color--principal);
-   margin-left: 90px;
-   margin-right: 90px;
-   transform: translateX(390px);
-
+    color: var(--color--principal);
+    
 }
 
 .info_objetivo_senn p{
@@ -313,4 +324,84 @@
 }
 h3,h5{
     color: rgb(0, 91, 228);
+}
+.creadores{
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+    align-items: center;
+   padding-top: 2rem;
+   padding-bottom: 2rem;
+   background-image: url(../img/fondo-creadores.svg);
+   background-size: cover;
+   box-shadow: 0px -4px 10px 0px rgba(0, 0, 0, 0.30); 
+}
+.creadores__card{
+    display: flex;
+   flex-wrap: wrap;
+   gap: 1rem;
+}
+.creadores h1{
+    font-size: 3rem;
+    font-weight: 500;
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+@media only screen and (max-width: 767px) {
+    .main-page__container-ingreso{
+        flex-direction: column;
+        padding: 10px;
+
+    }
+    .logo-sen{
+        display: none;
+    }
+    .container-ficha-ingreso__content h2{
+        font-size: 1.3rem;
+    }
+    .wrapper{
+        display: none !important;
+    }
+    .row_2 .imgWrapper_2 img{
+        display: none;
+    }
+    .content-que-semilleros{
+        box-shadow: 0px -4px 10px 0px rgba(91, 91, 91, 0.1);
+        
+    }
+    .info_objetivo_senn{
+        padding: 0px;
+        padding-top: 1rem;
+    }
+    .info_objetivo_senn p{
+        margin: 0px;
+        padding-bottom: 0px;
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+    .row_3{
+        padding: 1rem;
+        flex-direction: column;
+    
+    }
+    .row_3 .contentWrapper_3{
+        width: 100%;
+        margin: 0px;
+    }
+    .row_3 .contentWrapper_3 h2{
+        font-size: 1.2rem;
+        text-wrap: wrap;
+    }
+    .row_3 .imgWrapper_2 img{
+        display: none;
+    }
+    .creadores h1{
+        font-size: 2rem;
+    }
+    .container-ficha-ingreso__content p{
+        font-weight: 500;
+    }
+    .footerBottom p{
+        font-size: 12px !important;
+    }
 }

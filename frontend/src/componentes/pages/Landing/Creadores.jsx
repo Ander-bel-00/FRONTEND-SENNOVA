@@ -36,6 +36,7 @@ export default function Creadores() {
          <h3><strong>Jorge Luis Raigosa.</strong></h3>
          <p>Líder Semillero.</p>
          <div class="social-links">
+            <p>Hola</p>
              <a href="#"><i class="fab fa-facebook"></i></a>
              <a href="#"><i class="fab fa-twitter"></i></a>
              <a href="#"><i class="fab fa-instagram"></i></a>
