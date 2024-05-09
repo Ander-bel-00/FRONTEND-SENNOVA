@@ -3,7 +3,6 @@ import "./css/Crear_Proyectos_Admin.css";
 import Caja_formularios from "../../../common/Caja_formularios";
 import { Link } from "react-router-dom";
 
-
 function Crear_Proyectos_Admin() {
   return (
     <Fragment>
@@ -17,6 +16,18 @@ function Crear_Proyectos_Admin() {
                 </h2>
 
                 <form className="form-add-pryect-admin-container">
+                  <label
+                    htmlFor="codigo-sgps"
+                    className="form-add-pryect-admin-container__col1__label"
+                  >
+                    Código SGPS (Sistema de gestión de proyectos SENNOVA){" "}
+                    <p className="rojo-required">*</p>
+                  </label>
+                  <input
+                    type="text"
+                    id="codigo-sgps"
+                    className="form-add-pryect-admin-container__col1__input"
+                  />
                   <label
                     htmlFor="tipo proyecto"
                     className="form-add-pryect-admin-container__col1__label"
@@ -53,6 +64,7 @@ function Crear_Proyectos_Admin() {
                     id="codigo-sgps"
                     className="form-add-pryect-admin-container__col1__input"
                   />
+
 
                   <label
                     htmlFor="descripción-proyecto"
@@ -97,7 +109,10 @@ function Crear_Proyectos_Admin() {
                       Crear
                     </button>
                     <Link to={"/lider-semillero/Listar_Proyectos"}>
-                      <button type="button" className="btn-cancelar-proyecto-admin">
+                      <button
+                        type="button"
+                        className="btn-cancelar-proyecto-admin"
+                      >
                         Cancelar
                       </button>
                     </Link>

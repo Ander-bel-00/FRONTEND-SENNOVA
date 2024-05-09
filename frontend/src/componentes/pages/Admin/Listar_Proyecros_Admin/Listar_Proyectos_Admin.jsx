@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect, useState } from 'react';
+import React, { Fragment, useEffect, useState } from "react";
 import "./css/Listar_Proyectos_Admin.css";
 import { AiOutlinePlus } from "react-icons/ai";
 import { LuCalendarDays } from "react-icons/lu";
@@ -10,14 +10,14 @@ import BotonBlanco from "../../../common/BotonReporte";
 import BotonVerdeAñadir from "../../../common/BotonVerde";
 import Header_ToolBar from "../../../common/Header_ToolBar";
 import Search from "../../../common/Search";
-import Caja_Blanca from '../../../common/Caja_Blanca';
-import { Link } from 'react-router-dom';
-import { useAuth } from '../../../../context/AuthContext';
-import clienteAxios from '../../../../config/axios';
+import Caja_Blanca from "../../../common/Caja_Blanca";
+import { Link } from "react-router-dom";
+import { useAuth } from "../../../../context/AuthContext";
+import clienteAxios from "../../../../config/axios";
 import * as XLSX from "xlsx";
 
 function Listar_Proyectos_Admin() {
-  const {userProfile} = useAuth();
+  const { userProfile } = useAuth();
 
   const SemilleroID = userProfile ? userProfile.semillero : null;
 
@@ -27,17 +27,18 @@ function Listar_Proyectos_Admin() {
     const obtenerProyectosSemillero = async () => {
       try {
         if (SemilleroID) {
-          const res = await clienteAxios.get(`/semillero/${SemilleroID}/proyectos/`);
+          const res = await clienteAxios.get(
+            `/semillero/${SemilleroID}/proyectos/`
+          );
           setProyectosSemillero(res.data);
         }
       } catch (error) {
-        console.error('Error al obtener los proyectos del semillero', error);
+        console.error("Error al obtener los proyectos del semillero", error);
       }
-    }
-  
+    };
+
     obtenerProyectosSemillero();
   }, [SemilleroID]);
-  
 
   const exportToExcel = () => {
     const wb = XLSX.utils.book_new();
@@ -106,6 +107,7 @@ function Listar_Proyectos_Admin() {
             <table className="list-project-table">
               <thead className="list-project-table__thead">
                 <tr className="list-project-table__tr">
+                  <th className="list-project-table__th">Código SGPS</th>
                   <th className="list-project-table__th">
                     Nombre del Proyecto
                   </th>
@@ -127,6 +129,9 @@ function Listar_Proyectos_Admin() {
               <tbody>
                 {proyectosSemillero.map((list, index) => (
                   <tr key={index} className="list-project-table__tr">
+                    <td className="list-project-table__td">
+                      {list.codigo_sgps}
+                    </td>
                     <td className="list-project-table__td">
                       {list.nombre_proyecto}
                     </td>
