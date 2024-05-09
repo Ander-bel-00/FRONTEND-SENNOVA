@@ -5,13 +5,15 @@
 }
 
 .footerBottom{
-    background-color: #04324D;
+    background-color:#70B22D ;
     padding: 20px;
     text-align: center;
     height: 80px;
 }
 .footerBottom p{
-    color: #39a900;
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: 500;
 }
 .designer{
     opacity: 0.7;
