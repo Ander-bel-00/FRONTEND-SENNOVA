@@ -22,25 +22,11 @@
     flex-direction: row;
     width: 100%;
     height: 2.3rem;
+    height: 2.3rem;
     margin-top: 1rem;
     margin-left: 5rem;
-    gap: 7rem;
-}
+    gap: 3rem;
 
-.semillero-main-container__header__btn_repor{
-    position: relative;
-    left: 2rem;
-}
-
-.semillero-main-container__header__btn_edidat{
-    position: relative;
-    left: 10rem;
-}
-
-.semillero-main-container__header__btn_crear{
-    position: relative;
-    top: -0rem;
-    left: 25rem;
 }
 
 .semillero-main-container__btn{
@@ -95,4 +81,8 @@
 
 .integrantes{
     padding: 5px;
+}
+
+.--lineas-investigacion{
+    
 }

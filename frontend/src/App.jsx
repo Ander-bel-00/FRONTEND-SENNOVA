@@ -78,6 +78,7 @@ import Listar_Usuarios_Admin from "./componentes/pages/Admin/Listar-Usuarios-Adm
 import Semillero_Admin from "./componentes/pages/Admin/Semillero_Admin/Semillero_Admin";
 import Crear_Usuario_Admin from "./componentes/pages/Admin/Crear_Usuario_Admin/Crear_Usuario_Admin";
 import Visualizar_Usuario_Admin from "./componentes/pages/Admin/Visualizar_Usuario_Admin/Visualizar_Usuario_Admin";
+import Cronograma_proyectos from "./componentes/pages/cronograma-proyectos/Cronograma_proyectos";
 
 
 function App() {
@@ -193,6 +194,16 @@ function App() {
                         <Fragment>
                           <main className="main-container">
                             <Cronograma_Admin />
+                          </main>
+                        </Fragment>
+                      }
+                    />
+                    <Route
+                      path="/cronograma-proyectos"
+                      element={
+                        <Fragment>
+                          <main className="main-container">
+                            <Cronograma_proyectos />
                           </main>
                         </Fragment>
                       }
@@ -397,6 +408,16 @@ function App() {
                         <Fragment>
                           <main className="main-container">
                             <Cronograma />
+                          </main>
+                        </Fragment>
+                      }
+                    />
+                    <Route
+                      path="/cronograma-proyectos"
+                      element={
+                        <Fragment>
+                          <main className="main-container">
+                            <Cronograma_proyectos />
                           </main>
                         </Fragment>
                       }
@@ -715,6 +736,17 @@ function App() {
                         </Fragment>
                       }
                     />
+
+                    <Route
+                      path="/cronograma-proyectos"
+                      element={
+                        <Fragment>
+                          <main className="main-container">
+                            <Cronograma_proyectos />
+                          </main>
+                        </Fragment>
+                      }
+                    />
                     <Route
                       path="/usuarios-getAll"
                       element={
@@ -793,6 +825,17 @@ function App() {
                         <Fragment>
                           <main className="main-container">
                             <Cronograma_apr_invg />
+                          </main>
+                        </Fragment>
+                      }
+                    />
+
+                    <Route
+                      path="/cronograma-proyectos"
+                      element={
+                        <Fragment>
+                          <main className="main-container">
+                            <Cronograma_proyectos />
                           </main>
                         </Fragment>
                       }

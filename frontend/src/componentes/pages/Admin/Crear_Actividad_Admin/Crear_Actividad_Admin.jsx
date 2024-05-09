@@ -84,18 +84,6 @@ function Crear_Actividad_Admin() {
                             id="responsable-actividad"
                             className="form-create-activity-admin-content__col1__input"
                         />
-                        
-                        <label
-                            htmlFor="producto-actividad"
-                            className="form-create-activity-admin-content__col1__label"
-                        >
-                            Producto
-                        </label>
-                        <input
-                            type="file"
-                            id="producto-actividad"
-                            className="form-create-activity-admin-content__col1__input"
-                        />
 
                         <div className="btns-crear-actividad-admin">
                             <Link to={"/admin/listar-actividad-admin"}>

@@ -1,0 +1,32 @@
+.Cronograma-box__calendar-container-general{
+    position: relative;
+    left: 4rem;
+    top: 2rem;
+    max-width: 80%;
+    height: 70vh;
+}
+
+/* Estilos para la vista mensual del calendario */
+.rbc-month-view {
+    border-radius: 10px; /* Radio de borde */
+    overflow: hidden; /* Asegura que los bordes redondeados se apliquen correctamente */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Sombra */
+}
+
+.rbc-month-row .rbc-day-bg {
+    background-color: #fff;
+}
+
+/* Estilo para los días anteriores y posteriores al mes */
+.rbc-month-row .rbc-off-range-bg {
+    background-color: #f2f2f2; /* Color de fondo gris */
+    color: #999999; /* Color de texto gris */
+}
+
+.rbc-month-row .rbc-today {
+    background-color: #d4e6e6; /* Cambia el color de fondo de la celda del día actual */
+}
+    
+
+  
+  

@@ -119,16 +119,12 @@ function Semillero_Admin() {
                     ))}
                 </div>
               </div>
-              <div className="semillero-main-container__campos-informacion__inputs">
-                <h1>lineas de Investigación </h1>
-                <h2>{"- " + semilleros.lineas_investigacion_declaradas}</h2>
-              </div>
             </section>
 
             <section>
               <div className="semillero-main-container__campos-informacion__inputs">
                 <h1>Grupo de Investigación Adscrito: </h1>
-                <h2>{semilleros.nombre_grupo_investigacion_adscrito}</h2>
+                <h2>{semilleros.nombre_grupo_adscrito}</h2>
               </div>
               <div className="semillero-main-container__campos-informacion__inputs">
                 <h1>Centro de Formación:</h1>
@@ -137,6 +133,10 @@ function Semillero_Admin() {
               <div className="semillero-main-container__campos-informacion__inputs">
                 <h1>Plan estrategico: </h1>
                 <h2>{"- " + semilleros.plan_estrategico_investigacion}</h2>
+              </div>
+              <div className="semillero-main-container__campos-informacion__inputs --lineas-investigacion">
+                <h1>lineas de Investigación </h1>
+                <h2>{"- " + semilleros.lineas_investigacion_declaradas}</h2>
               </div>
             </section>
           </div>

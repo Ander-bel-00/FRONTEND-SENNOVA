@@ -18,6 +18,14 @@
 
 .create-perfil-title{
     font-size: 25px;
+    
+    position: relative;
+    top: 4%;
+}
+
+.create-rol-title{
+    font-size: 20px;
+    font-weight: bold;
     position: relative;
     top: 4%;
 }

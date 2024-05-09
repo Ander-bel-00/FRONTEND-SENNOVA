@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import "./css/Listar_Actividad_Admin.css";
 import Header_ToolBar from "../../../common/Header_ToolBar";
 import { FaFileArrowUp } from "react-icons/fa6";
@@ -12,26 +12,24 @@ import Search from "../../../common/Search";
 import BotonVerdeAñadir from "../../../common/BotonVerde";
 import Caja_Blanca from "../../../common/Caja_Blanca";
 import { Link } from "react-router-dom";
+import clienteAxios from "../../../../config/axios";
+
 
 function Listar_Actividad_Admin() {
-  const adminActividades = [
-    {
-      nombre: "Desarrollo",
-      tarea: "Codificar",
-      fecha: "25 de Julio de 2024",
-      resultado: "Sistema funcional",
-      producto: "Proyecto web",
-      responsable: "Arnold",
-    },
-    {
-      nombre: "Desarrollo",
-      tarea: "Codificar",
-      fecha: "25 de Julio de 2024",
-      resultado: "Sistema funcional",
-      producto: "Proyecto web",
-      responsable: "Arnold",
-    },
-  ];
+  const [ListActivitys, setListActivitys] = useState([]);
+
+  useEffect(() => {
+    const ObtenerActividadSemillero = async () => {
+      try {
+        const res = await clienteAxios.get(`/activity-semillero/`)
+        setListActivitys(res.data);  // res(respuesta) y se guarda o actualiza en la bases de datos
+      } catch (error) {
+        console.error("Error al obtener las actividades del semillero: ", error);
+      }
+    }
+    ObtenerActividadSemillero();  // función que indica iniciar todo, es decir obtener las actividades
+  }, []);
+
   return (
     <Fragment>
       <div className="main-container__contenedor-hijo">
@@ -72,7 +70,10 @@ function Listar_Actividad_Admin() {
                     Tarea
                   </th>
                   <th className="list-activity-admin-content__table__tr__th">
-                    Fecha
+                    Fecha Inicio
+                  </th>
+                  <th className="list-activity-admin-content__table__tr__th">
+                    Fecha Fin
                   </th>
                   <th className="list-activity-admin-content__table__tr__th">
                     Resultado
@@ -84,30 +85,39 @@ function Listar_Actividad_Admin() {
                     Responsable de la Actividad
                   </th>
                   <th className="list-activity-admin-content__table__tr__th">
+                    Semillero
+                  </th>
+                  <th className="list-activity-admin-content__table__tr__th">
                     Acciones
                   </th>
                 </tr>
               </thead>
               <tbody>
-                {adminActividades.map((adminActividad, index) => (
-                  <tr key={index} className="list-activity-admin-content-table-tr">
+                {ListActivitys.map((actividad) => (
+                  <tr key={actividad.id} className="list-activity-admin-content-table-tr">
                     <td className="list-activity-admin-content-table-td">
-                      {adminActividad.nombre}
+                      {actividad.nombre_actividad}
                     </td>
                     <td className="list-activity-admin-content-table-td">
-                      {adminActividad.tarea}
+                      {actividad.tarea}
                     </td>
                     <td className="list-activity-admin-content-table-td">
-                      {adminActividad.fecha}
+                      {actividad.fecha_inicio}
                     </td>
                     <td className="list-activity-admin-content-table-td">
-                      {adminActividad.resultado}
+                      {actividad.fecha_fin}
                     </td>
                     <td className="list-activity-admin-content-table-td">
-                      {adminActividad.producto}
+                      {actividad.resultado}
                     </td>
                     <td className="list-activity-admin-content-table-td">
-                      {adminActividad.responsable}
+                      {actividad.producto}
+                    </td>
+                    <td className="list-activity-admin-content-table-td">
+                      {actividad.responsable_actividad}
+                    </td>
+                    <td className="list-activity-admin-content-table-td">
+                      {actividad.semillero}
                     </td>
                     <td className="list-activity-admin-content-table__td">
                       <div className="list-activity-admin-content-table__td__btns">

@@ -27,7 +27,7 @@ const decryptUserProfile = (encryptedProfile) => {
 export const AuthProvider = ({children}) => {
     const [isAuthenticated, setIsAuthenticated] = useState(false);
     const [userRole, setUserRole] = useState(null);
-    const [userProfile, setUserProfile] = useState(null)
+    const [userProfile, setUserProfile] = useState(null);
 
     useEffect(() => {
         const isAuthenticatedLocalStorage = localStorage.getItem('isAuthenticated');
@@ -78,7 +78,7 @@ export const AuthProvider = ({children}) => {
           console.error('Error al cerrar sesión:', error);
           throw error;
         }
-      };
+    };
       
 
     return (
