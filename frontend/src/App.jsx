@@ -316,7 +316,7 @@ function App() {
                       }
                     />
                     <Route
-                      path="/visualizar-proyecto"
+                      path="/visualizar-proyecto/:id"
                       element={
                         <main className="main-container">
                           <VisualizarProyectos/>
