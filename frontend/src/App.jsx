@@ -79,6 +79,7 @@ import Semillero_Admin from "./componentes/pages/Admin/Semillero_Admin/Semillero
 import Crear_Usuario_Admin from "./componentes/pages/Admin/Crear_Usuario_Admin/Crear_Usuario_Admin";
 import Visualizar_Usuario_Admin from "./componentes/pages/Admin/Visualizar_Usuario_Admin/Visualizar_Usuario_Admin";
 import Cronograma_proyectos from "./componentes/pages/cronograma-proyectos/Cronograma_proyectos";
+import Listar_Semilleros_Admin from "./componentes/pages/Admin/Listar_semilleros/Listar_semilleros";
 
 function App() {
   const { isAuthenticated, userRole, handleLogout } = useAuth();
@@ -133,6 +134,22 @@ function App() {
                   <Header handleLogout={handleLogout} />
                   <Sidenav />
                   <Routes>
+
+                  {/* Prueba */}
+
+                  <Route
+                      path="/prueba"
+                      element={
+                        <Fragment>
+                          <main className="main-container">
+                            <Listar_Semilleros_Admin/>
+                          </main>
+                        </Fragment>
+                      }
+                    />
+
+
+
                     <Route
                       path="/"
                       element={

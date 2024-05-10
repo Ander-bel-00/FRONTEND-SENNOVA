@@ -1,9 +1,41 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useState } from 'react';
 import "./css/Crear_Actividad_Admin.css";
 import Caja_formularios from '../../../common/Caja_formularios';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 function Crear_Actividad_Admin() {
+    const navigate = useNavigate();
+
+    const [formNewActivity, setFormNewActivity] = useState({
+       nombre_actividad: "",
+       tarea: "",
+       fecha_inicio: "",
+       fecha_fin: "",
+       resultado: "",
+       responsable_actividad: "",
+       semillero : "",
+    } );
+
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setFormNewActivity({...formNewActivity, [name]: value });
+    };
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        const anyFieldEmpty = object.values(formNewActivity).some(value => value === '');
+        if (anyFieldEmpty){
+            Swal.fire({
+                title: "Error al crear el proyecto",
+                text: 'Debes diligenciar todos los campos',
+                icon: "error",
+                confirmButtonText: "Aceptar",
+            });
+            return;
+        }
+    }
+
+
   return (
     <Fragment>
         <div className="main-container__contenedor-hijo">
