@@ -9,6 +9,7 @@ function Perfil() {
 
   // Estado local para almacenar los datos del perfil
   const [perfilData, setPerfilData] = useState({
+    rol: "",
     numeroDocumento: "",
     nombres: "",
     apellidos: "",
@@ -22,6 +23,7 @@ function Perfil() {
     if (userProfile) {
       // Actualiza el estado local con los datos del perfil
       setPerfilData({
+        rol: userProfile.rol || "",
         numeroDocumento: userProfile.documento || "",
         nombres: userProfile.name || "",
         apellidos: userProfile.last_names || "",
@@ -46,7 +48,7 @@ function Perfil() {
           <Fragment>
             <div className=" main-form-perfil">
               <h2 className="text-center create-perfil-title">Perfil</h2>
-              <h4 className="text-center create-rol-title">Administrador</h4>
+              <h4 className="text-center create-rol-title">{perfilData.rol}</h4>
 
               <form className="form-add-perfil-container">
                 <label
