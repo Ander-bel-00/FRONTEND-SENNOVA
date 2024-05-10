@@ -8,9 +8,10 @@ function Actualizar_Semillero() {
   return (
     <Fragment>
       <div className="main-container__contenedor-hijo main-container__contenedor-hijo--size">
-        <div className="add-proyect-btn-return">
-          <BotonReturn icon={<GiReturnArrow />} />
-        </div>
+       
+          <BotonReturn />
+       
+        
         <Caja_formularios
           info={
             <Fragment>

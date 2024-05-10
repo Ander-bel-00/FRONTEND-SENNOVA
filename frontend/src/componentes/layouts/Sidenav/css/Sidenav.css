@@ -10,11 +10,10 @@
     /* Establece la altura al 100% de la altura de la ventana */
     position: fixed;
     /* Cambia la posición a fija para que el menú se mantenga visible al desplazar la página */
-    top: 3.69rem;
+   top: 3.71rem;
     /* Alinea el menú en la parte superior */
     left: 0;
-    /* Alinea el menú en la parte izquierda */
-    padding-top: 20px;
+  
     /* Añade relleno al menú */
     background: var(--sidenav-bg);
     overflow-y: auto;
@@ -28,7 +27,7 @@
     padding: 0px;
     margin: 0;
     list-style: none;
-    position: relative;
+ 
     top: 40px;
     display: flex;
     flex-direction: column;
@@ -39,8 +38,7 @@
     display: flex;
     justify-content: center;
     width: 100%;
-    position: relative;
-    right: 8px;
+  
     bottom: 50px;
     border-bottom: 1px solid #f1f1f1;
 }

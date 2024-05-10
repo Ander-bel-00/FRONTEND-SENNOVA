@@ -56,7 +56,9 @@
 
 .Header-general__logout-link {
     order: 2; /* Cambia el orden del elemento */
+    
 }
+
 
 .Header-general__logout-link__icon{
     color: #fff;
@@ -64,21 +66,35 @@
 }
 
 .Header-general__user_name__icon{
-    font-size: 25px;
-    color: #04324D;
+    font-size: 1.3rem;
+    color: #fff;
     margin-left: 3px;
 }
 
 .Header-general__logout-link__text{
-    color: #04324D;
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: 400;
+    text-decoration: underline;
+    margin-right: 5px;
 }
 
 .Header-general__logout-link__text:hover{
     color: #063f60;
-    transform: scale(1.09);
+    text-decoration: underline;
 }
 
+
 .user-name{
-    color: #04324D;
+    color: #fff;
     font-weight: 500;
+    font-size: 1.3rem;
+   
+}
+.user-name:hover{
+    color: #063f60;
+    text-decoration:underline;
+}
+.Header-general__logo-app{
+    width: 12rem;
 }

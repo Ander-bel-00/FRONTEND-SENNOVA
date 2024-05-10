@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&display=swap');
+.card-info-proyecto{
+    background-color: #Ffff;
+    width: 95%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+   
+    padding: 1rem;
+    border-radius: 10px;
+    font-family: "Arimo", sans-serif;
+    
+}
+.card-info-proyecto__campo{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 1.2rem;
+    font-family: "Arimo", sans-serif;
+}
+.card-info-proyecto__campo__h1{
+   
+    color: #6b7280;
+    font-family: "Arimo", sans-serif;
+}
+.title-info{
+    font-size: 2.2rem;
+    font-weight: 500;
+    margin-bottom: 8px;
+    font-family: "Arimo", sans-serif;
+}
+.activity-card{
+    width: 50%;
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    font-family: "Arimo", sans-serif;
+    border: 1px solid #F3F4F6;
+}
+.activity-card__content{
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+.activity-card__buttons{
+    display: flex;
+    justify-content: end;
+    gap: 1rem;
+}
+.activity-card__edit-button{
+    background-color: #70B22D;
+    padding: 5px;
+    color: #fff;
+}
+.activity-card__delete-button{
+    background-color: red;
+    padding: 5px;
+    color: #fff;
+}
+.header-actividad{
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 1rem;
+    padding: 1rem;
+}
+.header-actividad h1{
+    font-size: 2rem;
+    font-weight: 500;
+    font-family: "Arimo", sans-serif;
+   
+
+}
+.activity-card__add-button{
+    background-color: #70B22D;
+    padding: 5px;
+    color: #fff;
+    border-radius: 5px;
+}
