@@ -18,7 +18,8 @@ import clienteAxios from "../../../../config/axios";
 function Listar_Actividad_Admin() {
   const [ListActivitys, setListActivitys] = useState([]);
 
-  useEffect(() => {
+  useEffect(() => { // useEffect, es un hook de react función que permite realizar un efecto una vez 
+    //el componente se haya renderizado o cargado en el navegador. Es decir realizar lo que tiene adentro
     const ObtenerActividadSemillero = async () => {
       try {
         const res = await clienteAxios.get(`/activity-semillero/`)
@@ -28,8 +29,8 @@ function Listar_Actividad_Admin() {
       }
     }
     ObtenerActividadSemillero();  // función que indica iniciar todo, es decir obtener las actividades
-  }, []);
-
+  }, []); // el efecto nunca va a depender de nada cuando este [] o de un id
+  
   return (
     <Fragment>
       <div className="main-container__contenedor-hijo">

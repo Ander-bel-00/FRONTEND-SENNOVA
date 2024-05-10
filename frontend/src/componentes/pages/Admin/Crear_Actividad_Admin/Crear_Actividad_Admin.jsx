@@ -4,6 +4,22 @@ import Caja_formularios from '../../../common/Caja_formularios';
 import { Link } from 'react-router-dom';
 
 function Crear_Actividad_Admin() {
+    const navigate = useNavigate();
+
+    const [formNewActivitySemillero, setFormNewActivitySemillero] = useState({
+        nombre_actividad: "", 
+        tarea: "", 
+        fecha_inicio: "",
+        fecha_fin: "", 
+        resultado: "", 
+        responsable_actividad: "", 
+        semillero: ""
+    })
+
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setFormNewActivitySemillero({...formNewActivitySemillero, [name]: value});
+    };
   return (
     <Fragment>
         <div className="main-container__contenedor-hijo">
@@ -24,6 +40,7 @@ function Crear_Actividad_Admin() {
                         <input
                             type="text"
                             id="nombre-actividad"
+                            name="nombre_actividad"
                             className="form-create-activity-admin-content__col1__input"
                         />
                         <label
@@ -35,6 +52,7 @@ function Crear_Actividad_Admin() {
                         <input
                             type="date"
                             id="fecha-entrega-actividad"
+                            name="fecha_inicio"
                             className="form-create-activity-admin-content__col1__input"
                         />
                         <label
@@ -46,6 +64,7 @@ function Crear_Actividad_Admin() {
                         <input
                             type="date"
                             id="fecha-entrega-actividad"
+                            name="fecha_fin"
                             className="form-create-activity-admin-content__col1__input"
                         />
 
@@ -58,6 +77,7 @@ function Crear_Actividad_Admin() {
                         <input
                             type="text"
                             id="tarea-actividad"
+                            name="tarea"
                             className="form-create-activity-admin-content__col1__input"
                             required
                         />
@@ -70,6 +90,7 @@ function Crear_Actividad_Admin() {
                         <input
                             type="text"
                             id="resultado-actividad"
+                            name="resultado"
                             className="form-create-activity-admin-content__col1__input"
                         />
                         <label
@@ -82,6 +103,7 @@ function Crear_Actividad_Admin() {
                         <input
                             type="text"
                             id="responsable-actividad"
+                            name="responsable_actividad"
                             className="form-create-activity-admin-content__col1__input"
                         />
 
