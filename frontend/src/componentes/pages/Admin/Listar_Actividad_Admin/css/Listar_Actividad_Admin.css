@@ -1,7 +1,7 @@
 .list-activity-admin-content-table{
     position: relative;
     left: 1%;
-    width: 98%;
+    width: 90%;
     border-collapse: collapse;
 }
 
@@ -13,7 +13,7 @@
     background-color: #f9f9f9;
 }
 
-.list-activity-admin-content__table__tr__t{
+.list-activity-admin-content__table__tr__th{
     background-color: #f0f0f0;
     border: 1px solid #ccc;
     text-wrap: nowrap;
@@ -25,6 +25,7 @@
     border: 1px solid #dddddd;
     padding: 8px;
     text-align: left;
+    text-wrap: wrap;
 }
 
 .list-activity-admin-content-table__td__btns{

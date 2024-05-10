@@ -104,53 +104,53 @@ function Listar_Proyectos_Admin() {
         />
         <Caja_Blanca
           content={
-            <table className="list-project-table">
-              <thead className="list-project-table__thead">
-                <tr className="list-project-table__tr">
-                  <th className="list-project-table__th">Código SGPS</th>
-                  <th className="list-project-table__th">
+            <table className="list-project-admin-table">
+              <thead className="list-project-admin-table__thead">
+                <tr className="list-project-admin-table__tr">
+                  <th className="list-project-admin-table__th">Código SGPS</th>
+                  <th className="list-project-admin-table__th">
                     Nombre del Proyecto
                   </th>
-                  <th className="list-project-table__th">
+                  <th className="list-project-admin-table__th">
                     Fecha Inicio del Proyecto
                   </th>
-                  <th className="list-project-table__th">
+                  <th className="list-project-admin-table__th">
                     Fecha Fin del Proyecto
                   </th>
-                  <th className="list-project-table__th">
+                  <th className="list-project-admin-table__th">
                     Descripción del Proyecto
                   </th>
-                  <th className="list-project-table__th">Acciones</th>
+                  <th className="list-project-admin-table__th">Acciones</th>
                 </tr>
               </thead>
               <tbody>
                 {proyectosSemillero.map((list, index) => (
-                  <tr key={index} className="list-project-table__tr">
-                    <td className="list-project-table__td">
+                  <tr key={index} className="list-project-admin-table__tr">
+                    <td className="list-project-admin-table__td">
                       {list.codigo_sgps}
                     </td>
-                    <td className="list-project-table__td">
+                    <td className="list-project-admin-table__td">
                       {list.nombre_proyecto}
                     </td>
-                    <td className="list-project-table__td">
+                    <td className="list-project-admin-table__td">
                       {list.fecha_inicio}
                     </td>
-                    <td className="list-project-table__td">{list.fecha_fin}</td>
-                    <td className="list-project-table__td">
+                    <td className="list-project-admin-table__td">{list.fecha_fin}</td>
+                    <td className="list-project-admin-table__td">
                       {list.descripcion_proyecto}
                     </td>
-                    <td className="list-project-table__td">
-                      <div className="list-project-table__td__btns">
+                    <td className="list-project-admin-table__td">
+                      <div className="list-project-admin-table__td__btns">
                         <Link // Link que permite ingresar por medio el icono LiaEyesolid teniendo un acceso a la url del archivo Visualizar_Suspender_Proyecto
                           to={"../visualizar-suspender-proyecto"}
                         >
-                          <LiaEyeSolid className="list-project-table__td__btn" />
+                          <LiaEyeSolid className="list-project-admin-table__td__btn" />
                         </Link>
                         <Link to={"../actualizar-proyectos"}>
-                          <FaRegEdit className="list-project-table__td__btn" />
+                          <FaRegEdit className="list-project-admin-table__td__btn" />
                         </Link>
                         <Link>
-                          <IoTrashOutline className="list-project-table__td__btn" />
+                          <IoTrashOutline className="list-project-admin-table__td__btn" />
                         </Link>
                       </div>
                     </td>

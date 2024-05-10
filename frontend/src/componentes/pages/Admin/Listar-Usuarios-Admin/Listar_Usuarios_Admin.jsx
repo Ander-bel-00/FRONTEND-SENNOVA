@@ -41,7 +41,7 @@ function Listar_Usuarios_Admin() {
       ObtenerusuariosSemillero();
     }, [SemilleroID]); // Dependencia que indica cuándo debe ejecutarse el efecto nuevamente
     
-  
+
     const exportToExcel = () => {
       const wb = XLSX.utils.book_new();
       const wsData = [
@@ -54,7 +54,7 @@ function Listar_Usuarios_Admin() {
         ]),
       ];
       const ws = XLSX.utils.aoa_to_sheet(wsData);
-  
+      
       // Agrega estilos de tabla a la hoja de cálculo
       ws["!cols"] = [
         { width: 30 },
