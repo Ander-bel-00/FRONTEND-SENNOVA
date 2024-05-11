@@ -9,11 +9,11 @@ import { GiReturnArrow } from "react-icons/gi";
 function Crear_Eventos_Admin() {
   return (
     <div className="main-container__contenedor-hijo">
-      <Link>
-        <div className="add-creat-btn-return-admin">
-          <BotonReturn icon={<GiReturnArrow />} />
-        </div>
-      </Link>
+  
+       
+          <BotonReturn  />
+       
+   
       <Caja_formularios
         info={
           <Fragment>

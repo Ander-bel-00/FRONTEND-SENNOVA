@@ -2,70 +2,145 @@
 
 
 
-.header{
-    background-color: #70B22D;
+.header {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    height: 70px;
-    padding: 5px 10%;
 
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: arial black;
     font-size: 20px;
-}
-
-
-.logo img{
-    height: 55px;
-    width: auto;
-    position: relative;
-    display: flex;
-    float: left;
-    right: -50px;
-    transform: translateY(10px);
-
-}
-
-.logo2 img{
-    height: 55px;
-    width: auto;
-    position: relative;
-    display: flex;
-    float: left;
-    right: -780px;
-    transform: translateY(10px);
+    flex-direction: column;
+  
     
+
 }
 
-.logo3 img{
-    height: 55px;
-    width: auto;
-    position: relative;
+.header__logos {
     display: flex;
-    float: left;
-    right: -520px;
-    transform: translateY(5px);
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 40px 0 40px;
+
+}
+
+.header-imgs {
+    display: flex;
+    align-items: center;
+}
+
+.header__img-sena {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: left;
+
 }
 
 
-.header .btn button{
-    width: 10rem;
-    font-weight: 700;
+.header__img-sennova {
+    width: 18rem;
+    height: 50px;
+}
+
+.header__img-cditi {
+    width: 15rem;
+    height: auto;
+}
+
+
+.menu {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    background-color: #70B22D;
+    justify-content: space-between;
+    padding: 5px 30px 5px 30px;
+    height: 4rem;
+    align-items: center;
+
+
+}
+
+.section-opciones {
+    display: flex;
+    width: 100%;
+    justify-content: end;
+    height: 2rem;
+    text-align: center;
+
+}
+
+.section-opciones .menu-btn {
+    font-size: 1.2rem;
     color: #fff;
-    padding: 9px 25px;
-    background: none;
-    border: none;
-    border-radius: 50px;
-    cursor: pointer;
-    transition: all 0.3s ease 0s;
-    height: 100%;
+    border-right: 1px solid #fff;
+    border-radius: 0px;
+    font-weight: 500;
+    padding: 0px 10px 0px 10px;
+ 
+
 }
 
-.header .btn button:hover{
-    background-color: #e2f1f8;
-    color: #70B22D;
-    transform: scale(1.1);
+.section-opciones .menu-btn:hover {
+    color: #00324D;
+
+}
+
+.btn--ingresar {
+    background-color: #00324D !important;
+    border: none !important;
+    width: 12rem;
+    margin-left: 1rem;
+    border-radius: 10px !important;
+
+
+}
+
+.btn--ingresar:hover {
+    background-color: #00324dcd !important;
+    color: #70B22D !important;
+    transition: all 0.3s ease 0s
+
+}
+.menu-nav--fixed {
+    position: fixed; /* Para mantener el menú fijo */
+    top: 0; /* Para que el menú esté en la parte superior de la página */
+    left: 0;
+    right: 0;
+    z-index: 101; /* Para que esté por encima del contenido */
+    background-color: #70B22D; /* Fondo del menú */
+    
+  }
+  
+.header__sennova{
+    display: none;
+}
+
+@media only screen and (max-width: 767px) {
+    .header__img-cditi, .header__img-sena, .header__img-sennova {
+        display: none;
+    }
+    .header__sennova{
+        display: block;
+        width: 80%;
+    }
+    .header__logos{
+        justify-content: center;
+        align-items: center;
+    }
+    .section-opciones{
+        display: none;
+    }
+    .menu{
+        padding: 0px;
+        border-radius: 0px 0px 20px 20px;
+    }
+}
+@media (max-width: 1200px) {
+    .section-opciones{
+        display: none;
+        border-radius: 0px 0px 20px 20px;
+    }
 }

@@ -58,8 +58,9 @@ function Semillero_Admin() {
   return (
     <Fragment>
       <div className="semillero-main-container__info-semillero">
+
         <section className="semillero-main-container__header">
-          <div id="reporte-container" className="semillero-main-container__header__btn_repor">
+          <div className="btns-semillero"><div id="reporte-container" className="semillero-main-container__header__btn_repor">
             <BotonBlanco
               icon={<FaFileArrowUp />}
               text={"Reporte"}
@@ -75,6 +76,7 @@ function Semillero_Admin() {
               text={"Editar Datos"}
               clase={"btn-blanco btn-blanco--modify btn-azul"}
             />
+          </div>
           </div>
 
           <div className="semillero-main-container__header__btn_crear">

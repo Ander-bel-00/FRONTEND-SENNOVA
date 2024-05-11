@@ -80,6 +80,7 @@ import Crear_Usuario_Admin from "./componentes/pages/Admin/Crear_Usuario_Admin/C
 import Visualizar_Usuario_Admin from "./componentes/pages/Admin/Visualizar_Usuario_Admin/Visualizar_Usuario_Admin";
 import Cronograma_proyectos from "./componentes/pages/cronograma-proyectos/Cronograma_proyectos";
 import Listar_Semilleros_Admin from "./componentes/pages/Admin/Listar_semilleros/Listar_semilleros";
+import VisualizarProyectos from "./componentes/pages/visualizar_proyectos/Visualizar_proyectos";
 
 function App() {
   const { isAuthenticated, userRole, handleLogout } = useAuth();
@@ -332,10 +333,10 @@ function App() {
                       }
                     />
                     <Route
-                      path="/visualizar-suspender-proyecto"
+                      path="/visualizar-proyecto/:id"
                       element={
                         <main className="main-container">
-                          <Visualizar_Suspender_Proyecto_Admin />
+                          <VisualizarProyectos/>
                         </main>
                       }
                     />

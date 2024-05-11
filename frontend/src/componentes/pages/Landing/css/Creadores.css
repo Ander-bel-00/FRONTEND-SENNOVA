@@ -1,0 +1,152 @@
+
+.main{
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #9CCC65;
+  
+}
+
+.profile-card:hover{
+  border-radius: 10px;
+  height: 260px;
+}
+.profile-card .img{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: .6s;
+  z-index: 99;
+  cursor: pointer;
+}
+.img img{
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  box-shadow: 0 0 22px #3336;
+  transition: .6s;
+}
+.profile-card:hover .img{
+  transform: translateY(-90px);
+}
+.profile-card:hover img{
+  border-radius: 10px;
+}
+.caption{
+  text-align: center;
+  transform: translateY(-80px);
+  opacity: 0;
+  transition: .6s;
+}
+.profile-card:hover .caption{
+  opacity: 1;
+}
+.caption h3{
+  font-size: 18px;
+  width: 100%;
+ 
+}
+.caption p{
+  font-size: 17px;
+  color: #0c52a1;
+  font-weight: bold;
+}
+.social-links{
+  display: flex;
+  gap: 1rem;
+  margin-top: 5px;
+}
+.social-links a{
+  color: #333;
+  font-size: 21px;
+  transition: .6s;
+   
+}
+i{
+  margin-top: 10px;
+  padding: 5px;
+}
+.social-links a:hover{
+  color: #0c52a1;
+}
+
+
+/* Creadores */
+
+.profile-card{
+  
+  width: 250px;
+  height: 250px;
+  background: #fff;
+  padding: 16px;
+  border-radius: 50%;
+  box-shadow: 0 0 22px rgba(152, 152, 152, 0.1);
+  transition: .6s;
+  margin: 0 25px;
+
+  
+}
+
+.profile-card:hover{
+  border-radius: 10px;
+  height: 260px;
+  background-color: #fff;
+}
+.profile-card .img {
+  width: 100%;
+}
+
+.profile-card .img img{
+
+  transition: .6s;
+  z-index: 99;
+  cursor: pointer;
+
+  width: 100%;
+}
+.profile-card:hover .img{
+  transform: translateY(-90px);
+}
+.profile-card:hover img{
+  border-radius: 100%;
+}
+.profile-card:hover .caption{
+  opacity: 1;
+}
+
+
+@media only screen and (max-width: 767px) {
+  .profile-card{
+    width: 11rem;
+    height: 11rem;
+    margin: 0px;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+}
+.profile-card:hover .img{
+  width: 5rem;
+  height: 5rem;
+}
+.profile-card:hover .img img{
+  display: none;
+}
+.profile-card:hover{
+  width: 10rem;
+  height: 10rem;
+}
+.creadores__card{
+  gap: 5px;
+}
+.caption p{
+ font-size: 13px;
+}
+.caption{
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+}
+}
