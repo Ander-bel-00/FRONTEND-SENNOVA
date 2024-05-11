@@ -2,11 +2,13 @@ import React, { Fragment } from "react";
 import "./css/Crear_Proyectos_Admin.css";
 import Caja_formularios from "../../../common/Caja_formularios";
 import { Link } from "react-router-dom";
+import BotonReturn from "../../../common/BotonReturn";
 
 function Crear_Proyectos_Admin() {
   return (
     <Fragment>
       <div className="main-container__contenedor-hijo main-container__contenedor-hijo--size">
+        <BotonReturn />
         <Caja_formularios
           info={
             <Fragment>

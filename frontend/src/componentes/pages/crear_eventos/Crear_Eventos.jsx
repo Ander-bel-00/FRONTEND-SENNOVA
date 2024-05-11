@@ -8,9 +8,9 @@ import BotonReturn from "../../common/BotonReturn";
 function Crear_Eventos() {
   return (
     <div className="main-container__contenedor-hijo">
-      <div className="add-proyect-btn-return">
-        <BotonReturn icon={<GiReturnArrow />} />
-      </div>
+      
+        <BotonReturn  />
+     
       <Caja_formularios
         info={
           <Fragment>

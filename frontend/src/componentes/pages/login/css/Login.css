@@ -1,8 +1,9 @@
 .main-login{
   display: flex;
-  height: 100vh;
   justify-content: center;
   align-items: center;
+  height: 100vh;
+  flex-direction: column;
 }
 
   
@@ -23,7 +24,7 @@
     display: flex;
     align-items: center;
     text-align: center;
-    background-color: #04324D;
+    background-color: #000;
     border-bottom-left-radius:  20px;
     border-bottom-right-radius: 70px;
     border-top-left-radius: 20px;
@@ -121,6 +122,9 @@
   
   .form {
     margin: 30px 0 0 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
   
   .form label {
@@ -216,4 +220,74 @@
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
   }
-  
+  .ir-inicio{
+    margin-top: 1rem;
+    padding: 1rem;
+    text-decoration:underline;
+    font-size: 1.2rem;
+    color: #39a900;
+ 
+  }
+  .ir-inicio:hover{
+    color: #04324d;
+  }
+  .container-main-login{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    height: 100vh;
+    background-color: #fff;
+  }
+  .container-main-login h1{
+    font-size: 2rem;
+    color: #04324d;
+    font-weight: 500;
+  }
+  @media only screen and (max-width: 767px) {
+    .container-form{
+      flex-direction: column;
+    }
+    .information{
+      position: initial;
+      width: 100%;
+      border-radius: 0px;
+      background-color: #04324d;
+      border-radius: 20px 20px 0px 0px;
+    }
+    .form-information{
+      width: 100%;
+      border-radius: 0px 0px 10px 10px;
+      height: 100vh;
+    }
+    .form-information-childs h2{
+      position: initial;
+    }
+    .form-information-childs{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      padding-bottom: 1rem;
+      padding-top: 1rem;
+    }
+    .form .caja{
+      position: initial;
+    }
+    .form .caja2{
+      position: initial;
+    }
+    .btn-login{
+      position: initial;
+    }
+    .recuperacion_contrasena a{
+      position: initial;
+    }
+    .main-login{
+      height: 100vh !important;
+    }
+    .ir-inicio{
+      margin-top: 3rem;
+    }
+  }

@@ -1,10 +1,14 @@
-import React, { Fragment } from 'react';
-import "./css/Crear_Actividad_Admin.css";
-import Caja_formularios from '../../../common/Caja_formularios';
+import React, { Fragment, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { useAuth } from '../../../../context/AuthContext';
+import Caja_formularios from '../../../common/Caja_formularios';
+import clienteAxios from '../../../../config/axios';
+import "./css/Crear_Actividad_Admin.css";
+import Swal from 'sweetalert2';
 
 function Crear_Actividad_Admin() {
 
+    const { userProfile } = useAuth();
     const navigate = useNavigate();
 
     const SemilleroID = userProfile ? userProfile.semillero : "";
@@ -26,10 +30,10 @@ function Crear_Actividad_Admin() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const anyFieldEmpty = object.values(formNewActivitySemillero).some(value => value === '');
-        if (anyFieldEmpty) {
+        const fieldEmpty = Object.values(formNewActivitySemillero).some(value => value === '');
+        if (fieldEmpty) {
             Swal.fire({
-                title: "Error al crear el Proyecto",
+                title: "Error al crear la actividad",
                 text: 'Debes diligenciar todos los campos',
                 icon: "error",
                 confirmButtonText: "Aceptar",
@@ -40,24 +44,24 @@ function Crear_Actividad_Admin() {
     try {
         const response = await clienteAxios.post("/activity-semillero/", formNewActivitySemillero);
         Swal.fire({
-            title: "Proyecto creado exitosamente",
+            title: "Activiad creada exitosamente",
             icon: "success",
             showCancelButton: false,
             confirmButtonText: "Aceptar",
-        }).then((result) => {
-            return navigate('../listar-actividades')
+        }).then((result) => { 
+            return navigate('../listar-actividad')
         });
     } catch (error) {
-        console.error("Error al crear el proyecto para el semillero", error);
-
+        console.error("Error al crear la actividad para el semillero", error);
         Swal.fire({
-            title: "Error al crear el Proyecto",
-            text: 'Hubo un error al crear el proyecto',
+            title: "Error al crear la actividad",
+            text: 'Hubo un error al crear la actividad',
             icon: "error",
             confirmButtonText: "Aceptar",
         });
     }
 }
+
     return (
         <Fragment>
             <div className="main-container__contenedor-hijo">
@@ -110,7 +114,7 @@ function Crear_Actividad_Admin() {
                                 />
 
                                 <label
-                                    htmlFor="tarea-activida"
+                                    htmlFor="tarea-actividad"
                                     className="form-create-activity-admin-content__col1__label"
                                 >
                                     Tarea <p className="rojo-required">*</p>
@@ -150,9 +154,19 @@ function Crear_Actividad_Admin() {
                                     name='responsable_actividad'
                                     onChange={handleChange}
                                 />
+                                
+                                <input
+                                    type="number"
+                                    id="semillero"
+                                    className="form-create-activity-admin-content__col1__input"
+                                    name='semillero'
+                                    onChange={handleChange}
+                                    value={formNewActivitySemillero.semillero}
+                                    hidden
+                                />
 
                                 <div className="btns-crear-actividad-admin">
-                                    <Link to={"/admin/listar-actividad-admin"}>
+                                    <Link to={"../listar-actividad"}>
                                         <button
                                             className="btn-cancelar-actividad-uptd-admin"
                                             type="button"
@@ -160,7 +174,7 @@ function Crear_Actividad_Admin() {
                                             Cancelar
                                         </button>
                                     </Link>
-                                    <button className="btn-create-actividad-admin" type="button">Crear</button>
+                                    <button className="btn-create-actividad-admin" type="submit">Crear</button>
                                 </div>
                             </form>
                         </div>

@@ -8,14 +8,11 @@ import "./css/Crear_Eventos_Admin.css";
 function Crear_Eventos_Admin() {
   return (
     <div className="main-container__contenedor-hijo">
-      <Link>
-        <div className="add-creat-btn-return-admin">
-          <BotonReturn
-            link={"/admin/listar-eventos"}
-            icon={<IoIosReturnLeft />}
-          />
-        </div>
-      </Link>
+  
+       
+          <BotonReturn  />
+       
+   
       <Caja_formularios
         info={
           <Fragment>
