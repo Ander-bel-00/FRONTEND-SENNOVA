@@ -68,7 +68,6 @@ function Perfil() {
             <div className=" main-form-perfil">
               <h2 className="text-center create-perfil-title">Perfil</h2>
               <h4 className="text-center create-rol-title">{perfilData.rol}</h4>
-              <h4 className="text-center create-rol-title">{perfilData.rol}</h4>
 
               <form className="form-add-perfil-container">
                 <label
