@@ -24,7 +24,8 @@ function Crear_Actividad_Admin() {
     });
 
     const handleChange = (e) => {
-        const { name, value } = e.target;
+        //Se refiere al elemento html de donde vienen los valores(name y value)
+        const { name, value } = e.target; 
         setFormNewActivitySemillero({ ...formNewActivitySemillero, [name]: value });
     }
 
@@ -44,7 +45,7 @@ function Crear_Actividad_Admin() {
     try {
         const response = await clienteAxios.post("/activity-semillero/", formNewActivitySemillero);
         Swal.fire({
-            title: "Activiad creada exitosamente",
+            title: "Actividad creada exitosamente",
             icon: "success",
             showCancelButton: false,
             confirmButtonText: "Aceptar",
