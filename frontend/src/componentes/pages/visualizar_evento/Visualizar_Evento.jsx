@@ -2,7 +2,7 @@ import { IoAdd, IoTrashOutline } from "react-icons/io5";
 import { GiReturnArrow } from "react-icons/gi";
 import { FaSearch } from "react-icons/fa";
 import { Fragment } from "react";
-import { FaEdit } from "react-icons/fa";
+import { FaRegEdit } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import Caja_Blanca from "../../common/Caja_Blanca";
 import Header_ToolBar from "../../common/Header_ToolBar";
@@ -43,7 +43,7 @@ function Visualizar_Evento() {
             <BotonVerdeAñadir
               icon={<IoAdd />}
               text={"Crear Evento"}
-              link={"/lider-semillero/Crear-eventos"}
+              link={"/lider_semillero/Crear-eventos"}
             />
           </Fragment>
         }
@@ -55,13 +55,14 @@ function Visualizar_Evento() {
             <thead>
               <tr className="vis-event-table__tr">
                 <th className="vis-event-table__th">Nombre </th>
-                <th className="vis-event-table__th">Fecha de Inicio</th>
-                <th className="vis-event-table__th">Fecha de Fin</th>
-                <th className="vis-event-table__th">
-                  Cantidad de Participantes
-                </th>
+                <th className="vis-event-table__th">Tipo de Evento</th>
+                <th className="vis-event-table__th">Fecha Inicio</th>
+                <th className="vis-event-table__th">Fecha Fin</th>
+                <th className="vis-event-table__th">Cantidad Participantes</th>
+                <th className="vis-event-table__th">Ponente</th>
                 <th className="vis-event-table__th">Lugar</th>
-                <th className="vis-event-table__th">Tipo</th>
+                <th className="vis-event-table__th">Semillero</th>
+                <th className="vis-event-table__th">Evidencia del Evento</th>
                 <th className="vis-event-table__th">Acciones</th>
               </tr>
             </thead>
@@ -71,22 +72,25 @@ function Visualizar_Evento() {
                   <td className="vis-event-table__td"> {Contenido.nombre}</td>
                   <td className="vis-event-table__td">
                     {" "}
+                    {Contenido.tipo_de_evento}{" "}
+                  </td>
+                  <td className="vis-event-table__td">
+                    {" "}
                     {Contenido.fecha_inicio}{" "}
                   </td>
                   <td className="vis-event-table__td">
                     {" "}
                     {Contenido.fecha_fin}{" "}
                   </td>
-                  <td className="vis-event-table__td">
-                    {" "}
-                    {Contenido.cantidad}{" "}
-                  </td>
+                  <td className="vis-event-table__td"> {Contenido.cantidad} </td>
+                  <td className="vis-event-table__td"> {Contenido.ponente} </td>
                   <td className="vis-event-table__td"> {Contenido.lugar} </td>
-                  <td className="vis-event-table__td"> {Contenido.tipo} </td>
+                  <td className="vis-event-table__td"> {Contenido.semilero} </td>
+                  <td className="vis-event-table__td"> {Contenido.evidencia} </td>
                   <td className="vis-event-table__td">
                     <div className="vis-actividad-table__td__btns">
-                      <Link to={"/lider-semillero/Actualizar-eventos"}>
-                        <FaEdit className="vis-actividad-table__td__btn" />
+                      <Link to={"/lider_semillero/Actualizar-eventos"}>
+                        <FaRegEdit className="vis-actividad-table__td__btn" />
                       </Link>
                       <Link>
                         <IoTrashOutline className="vis-actividad-table__td__btn" />

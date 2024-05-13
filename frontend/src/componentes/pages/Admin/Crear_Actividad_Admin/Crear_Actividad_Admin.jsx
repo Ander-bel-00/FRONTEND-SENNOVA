@@ -1,130 +1,189 @@
-import React, { Fragment } from 'react';
-import "./css/Crear_Actividad_Admin.css";
+import React, { Fragment, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { useAuth } from '../../../../context/AuthContext';
 import Caja_formularios from '../../../common/Caja_formularios';
-import { Link } from 'react-router-dom';
+import clienteAxios from '../../../../config/axios';
+import "./css/Crear_Actividad_Admin.css";
+import Swal from 'sweetalert2';
 
 function Crear_Actividad_Admin() {
+
+    const { userProfile } = useAuth();
     const navigate = useNavigate();
 
+    const SemilleroID = userProfile ? userProfile.semillero : "";
+
     const [formNewActivitySemillero, setFormNewActivitySemillero] = useState({
-        nombre_actividad: "", 
-        tarea: "", 
+        semillero: SemilleroID,
+        nombre_actividad: "",
+        tarea: "",
         fecha_inicio: "",
-        fecha_fin: "", 
-        resultado: "", 
-        responsable_actividad: "", 
-        semillero: ""
-    })
+        fecha_fin: "",
+        resultado: "",
+        responsable_actividad: "",
+    });
 
     const handleChange = (e) => {
         const { name, value } = e.target;
-        setFormNewActivitySemillero({...formNewActivitySemillero, [name]: value});
-    };
-  return (
-    <Fragment>
-        <div className="main-container__contenedor-hijo">
+        setFormNewActivitySemillero({ ...formNewActivitySemillero, [name]: value });
+    }
 
-            <Caja_formularios 
-             info={
-                <div  className="create-activity-admin-box">
-                    <h2 className="text-center create-activity-admin-title">
-                        Crear Actividad
-                    </h2>
-                    <form className="form-create-activity-admin-content">
-                        <label
-                            htmlFor="nombre-actividad"
-                            className="form-create-activity-admin-content__col1__label"
-                        >
-                            Nombre de la Actividad <p className="rojo-required">*</p>
-                        </label>
-                        <input
-                            type="text"
-                            id="nombre-actividad"
-                            name="nombre_actividad"
-                            className="form-create-activity-admin-content__col1__input"
-                        />
-                        <label
-                            htmlFor="fecha-entrega-actividad"
-                            className="form-create-activity-admin-content__col1__label"
-                        >
-                            Fecha Inicio <p className="rojo-required">*</p>
-                        </label>
-                        <input
-                            type="date"
-                            id="fecha-entrega-actividad"
-                            name="fecha_inicio"
-                            className="form-create-activity-admin-content__col1__input"
-                        />
-                        <label
-                            htmlFor="fecha-entrega-actividad"
-                            className="form-create-activity-admin-content__col1__label"
-                        >
-                            Fecha final <p className="rojo-required">*</p>
-                        </label>
-                        <input
-                            type="date"
-                            id="fecha-entrega-actividad"
-                            name="fecha_fin"
-                            className="form-create-activity-admin-content__col1__input"
-                        />
-
-                        <label
-                            htmlFor="tarea-activida"
-                            className="form-create-activity-admin-content__col1__label"
-                        >
-                            Tarea <p className="rojo-required">*</p>
-                        </label>
-                        <input
-                            type="text"
-                            id="tarea-actividad"
-                            name="tarea"
-                            className="form-create-activity-admin-content__col1__input"
-                            required
-                        />
-                        <label
-                            htmlFor="resultado-actividad"
-                            className="form-create-activity-admin-content__col1__label"
-                        >
-                            Resultado <p className="rojo-required">*</p>
-                        </label>
-                        <input
-                            type="text"
-                            id="resultado-actividad"
-                            name="resultado"
-                            className="form-create-activity-admin-content__col1__input"
-                        />
-                        <label
-                            htmlFor="responsable-actividad"
-                            className="form-create-activity-admin-content__col1__label"
-                        >
-                            Responsable de la Actividad{" "}
-                            <p className="rojo-required">*</p>
-                        </label>
-                        <input
-                            type="text"
-                            id="responsable-actividad"
-                            name="responsable_actividad"
-                            className="form-create-activity-admin-content__col1__input"
-                        />
-
-                        <div className="btns-crear-actividad-admin">
-                            <Link to={"/admin/listar-actividad-admin"}>
-                                <button
-                                    className="btn-cancelar-actividad-uptd-admin"
-                                    type="button"
-                                >
-                                    Cancelar
-                                </button>
-                            </Link>
-                            <button className="btn-create-actividad-admin" type="button">Crear</button>
-                        </div>
-                    </form>
-                </div>
-            }
-            />
-      </div>
-    </Fragment>
-  )
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        const fieldEmpty = Object.values(formNewActivitySemillero).some(value => value === '');
+        if (fieldEmpty) {
+            Swal.fire({
+                title: "Error al crear la actividad",
+                text: 'Debes diligenciar todos los campos',
+                icon: "error",
+                confirmButtonText: "Aceptar",
+            });
+            return;
+        }
+   
+    try {
+        const response = await clienteAxios.post("/activity-semillero/", formNewActivitySemillero);
+        Swal.fire({
+            title: "Activiad creada exitosamente",
+            icon: "success",
+            showCancelButton: false,
+            confirmButtonText: "Aceptar",
+        }).then((result) => {
+            return navigate('../listar-actividad')
+        });
+    } catch (error) {
+        console.error("Error al crear la actividad para el semillero", error);
+        Swal.fire({
+            title: "Error al crear la actividad",
+            text: 'Hubo un error al crear la actividad',
+            icon: "error",
+            confirmButtonText: "Aceptar",
+        });
+    }
 }
 
-export default Crear_Actividad_Admin;
+    return (
+        <Fragment>
+            <div className="main-container__contenedor-hijo">
+
+                <Caja_formularios
+                    info={
+                        <div className="create-activity-admin-box">
+                            <h2 className="text-center create-activity-admin-title">
+                                Crear Actividad
+                            </h2>
+                            <form className="form-create-activity-admin-content" onSubmit={handleSubmit}>
+                                <label
+                                    htmlFor="nombre-actividad"
+                                    className="form-create-activity-admin-content_col1_label"
+                                >
+                                    Nombre de la Actividad <p className="rojo-required">*</p>
+                                </label>
+                                <input
+                                    type="text"
+                                    id="nombre-actividad"
+                                    className="form-create-activity-admin-content_col1_input"
+                                    name='nombre_actividad'
+                                    onChange={handleChange}
+                                />
+                                <label
+                                    htmlFor="fecha-entrega-actividad"
+                                    className="form-create-activity-admin-content_col1_label"
+                                >
+                                    Fecha Inicio <p className="rojo-required">*</p>
+                                </label>
+                                <input
+                                    type="date"
+                                    id="fecha-entrega-actividad"
+                                    className="form-create-activity-admin-content_col1_input"
+                                    name='fecha_inicio'
+                                    onChange={handleChange}
+                                />
+                                <label
+                                    htmlFor="fecha-entrega-actividad"
+                                    className="form-create-activity-admin-content_col1_label"
+                                >
+                                    Fecha final <p className="rojo-required">*</p>
+                                </label>
+                                <input
+                                    type="date"
+                                    id="fecha-entrega-actividad"
+                                    className="form-create-activity-admin-content_col1_input"
+                                    name='fecha_fin'
+                                    onChange={handleChange}
+                                />
+
+                                <label
+                                    htmlFor="tarea-actividad"
+                                    className="form-create-activity-admin-content_col1_label"
+                                >
+                                    Tarea <p className="rojo-required">*</p>
+                                </label>
+                                <input
+                                    type="text"
+                                    id="tarea-actividad"
+                                    className="form-create-activity-admin-content_col1_input"
+                                    name='tarea'
+                                    onChange={handleChange}
+                                    required
+                                />
+                                <label
+                                    htmlFor="resultado-actividad"
+                                    className="form-create-activity-admin-content_col1_label"
+                                >
+                                    Resultado <p className="rojo-required">*</p>
+                                </label>
+                                <input
+                                    type="text"
+                                    id="resultado-actividad"
+                                    className="form-create-activity-admin-content_col1_input"
+                                    name='resultado'
+                                    onChange={handleChange}
+                                />
+                                <label
+                                    htmlFor="responsable-actividad"
+                                    className="form-create-activity-admin-content_col1_label"
+                                >
+                                    Responsable de la Actividad{" "}
+                                    <p className="rojo-required">*</p>
+                                </label>
+                                <input
+                                    type="text"
+                                    id="responsable-actividad"
+                                    className="form-create-activity-admin-content_col1_input"
+                                    name='responsable_actividad'
+                                    onChange={handleChange}
+                                />
+                               
+                                <input
+                                    type="number"
+                                    id="semillero"
+                                    className="form-create-activity-admin-content_col1_input"
+                                    name='semillero'
+                                    onChange={handleChange}
+                                    value={formNewActivitySemillero.semillero}
+                                    hidden
+                                />
+
+                                <div className="btns-crear-actividad-admin">
+                                    <Link to={"../listar-actividad"}>
+                                        <button
+                                            className="btn-cancelar-actividad-uptd-admin"
+                                            type="button"
+                                        >
+                                            Cancelar
+                                        </button>
+                                    </Link>
+                                    <button className="btn-create-actividad-admin" type="submit">Crear</button>
+                                </div>
+                            </form>
+                        </div>
+                    }
+                />
+            </div>
+        </Fragment>
+    )
+}
+
+
+    export default Crear_Actividad_Admin;

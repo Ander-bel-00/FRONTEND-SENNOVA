@@ -28,14 +28,14 @@
     font-size: 25px;
 }
 
-.form-create-activity-admin-content__col1__label{
+.form-create-activity-admin-content_col1_label{
     font-weight: 400;
     display: flex;
     align-items: center;
     gap: 5px;
 }
 
-.form-create-activity-admin-content__col1__input{
+.form-create-activity-admin-content_col1_input{
     width: 100%;
     border-radius: 6px;
     padding: 8px;
@@ -61,7 +61,7 @@
     box-shadow: 0px 4px 11px 1px rgba(129,122,122,0.73);
     color: var(--text-btn-color);
     font-size: 21px;
-    margin-top: -5rem;
+    margin-top: 1rem;
 }
 
 .btn-create-actividad-admin:hover{

@@ -31,53 +31,70 @@ function Actualizar_Eventos_Admin() {
                                     <option>Asistente</option>
                                     <option>Potente</option>
                                 </select>
-                                <div>
-                                    <label className="form-vs-evento-container__label-admin">
-                                        Nombres <p className="rojo-required">*</p>
-                                    </label>
-                                    <input
-                                        type="text"
-                                        className="form-vs-evento-container__input-admin"
-                                    />
-                                </div>
-                                <div>
-                                    <label className="form-vs-evento-container__label-admin">
-                                        Cantidad <p className="rojo-required">*</p>
-                                    </label>
-                                    <input
-                                        type="text"
-                                        className="form-vs-evento-container__input-admin"
-                                    />
-                                </div>
-                                <div>
-                                    <label className="form-vs-evento-container__label-admin">
-                                        Lugar del Evento <p className="rojo-required">*</p>
-                                    </label>
-                                    <input
-                                        type="text"
-                                        className="form-vs-evento-container__input-admin"
-                                    />
-                                </div>
+                               
+                                <label className="form-vs-evento-container__label-admin">
+                                    Nombre del evento  <p className="rojo-required">*</p>
+                                </label>
+                                <input
+                                    type="text"
+                                    className="form-vs-evento-container__input-admin"
+                                />
+                              
+                                <label className="form-vs-evento-container__label-admin">
+                                 Fecha Inicio del Evento <p className="rojo-required">*</p>
+                                </label>
+                                <input
+                                    type="text"
+                                    className="form-vs-evento-container__input-admin"
+                                />
+                              
+                                <label className="form-vs-evento-container__label-admin">
+                                 Fecha Fin del Evento <p className="rojo-required">*</p>
+                                </label>
+                                <input
+                                    type="text"
+                                    className="form-vs-evento-container__input-admin"
+                                />
 
-                                <div>
-                                    <label className="form-add-event-container__label-admin">
-                                        Fecha de Inicio del Evento <p className="rojo-required">*</p>
-                                    </label>
-                                    <input
-                                        type="text"
-                                        className="form-vs-evento-container__input-admin"
-                                    />
-                                </div>
-                                <div>
-                                    <label className="form-vs-evento-container__label-admin">
-                                        Fecha de Fin del Evento <p className="rojo-required">*</p>
-                                    </label>
-                                    <input
-                                        type="text"
-                                        className="form-vs-evento-container__input-admin"
-                                    />
-                                </div>
+                                <label className="form-add-event-container__label-admin">
+                                    Cantidad de Participantes <p className="rojo-required">*</p>
+                                </label>
+                                <input
+                                    type="text"
+                                    className="form-vs-evento-container__input-admin"
+                                />
+                         
+                                <label className="form-vs-evento-container__label-admin">
+                                    Ponente <p className="rojo-required">*</p>
+                                </label>
+                                <input
+                                    type="text"
+                                    className="form-vs-evento-container__input-admin"
+                                />
+                                
+                                <label className="form-vs-evento-container__label-admin">
+                                    Lugar del Evento <p className="rojo-required">*</p>
+                                </label>
+                                <input
+                                    type="text"
+                                    className="form-vs-evento-container__input-admin"
+                                />
 
+                                <label className="form-vs-evento-container__label-admin">
+                                    Semillero <p className="rojo-required">*</p>
+                                </label>
+                                <input
+                                    type="text"
+                                    className="form-vs-evento-container__input-admin"
+                                />
+
+                                <label className="form-vs-evento-container__label-admin">
+                                    Evidencia del Producto <p className="rojo-required">*</p>
+                                </label>
+                                <input
+                                    type="text"
+                                    className="form-vs-evento-container__input-admin"
+                                />
 
                                 <div className="form-vs-event-btns-admin">
                                     <button

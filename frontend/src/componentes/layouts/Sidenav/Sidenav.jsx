@@ -1,6 +1,7 @@
 import React, { Fragment } from "react";
 import "./css/Sidenav.css";
 import LogoTeinnovaHome from "./img/Teinnova-logo-blanco.png";
+import Logo_app from "./img/logo-app.svg";
 import { FaCalendarCheck } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { GiNotebook } from "react-icons/gi";

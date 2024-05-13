@@ -21,3 +21,18 @@
 .btn-return:hover p{
     transform: scale(1.1);
 }
+
+.btn-atras {
+    position: fixed !important;
+    top: 160px;
+    right: 10px;
+    border-radius: 100%;
+    padding: 10px;
+    width: 80px;
+    height: 25px;
+    text-align: center;
+    font-size: 13px;
+    /* font-family: helvetica neue, Helvetica, Arial, sans-serif; */
+    text-decoration: none;
+    color: #000;
+}

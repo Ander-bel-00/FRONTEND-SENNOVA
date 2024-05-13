@@ -11,12 +11,8 @@
 
 
 .caja-vs-evento__tile{
-    margin: 30px;
-    font-size: 20px;
+    font-size: 2rem;
     text-align: center;
-    position: relative;
-    bottom: 2rem;
-    font-weight: 600;
 }
 
 .form-vs-evento-container{
@@ -24,14 +20,13 @@
     flex-direction: column;
     justify-content: center;
     width: 80%;
-    margin-top: 0rem;
+    margin-top: 1rem;
 }
 
 .form-vs-evento-container__label{
     font-weight: 400;
-    padding-top: 12px;
     display: flex;
-    align-items: center;
+    margin-bottom: 10px;
     gap: 5px;
 }
 
@@ -40,7 +35,6 @@
     background-color: var(--bg-inputs);
     border-radius: 6px;
     padding: 8px;
-    margin-top: 8px;
     margin-bottom: 10px;
     box-shadow: var(--box-shadow-inputs);
 }

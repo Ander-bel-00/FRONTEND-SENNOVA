@@ -19,82 +19,96 @@ function Crear_Eventos_ins_invg() {
                 </h2>
 
                 <form className="form-add-event-container-instructor">
-
                 <label
-                    htmlFor="nombre-evento-instructor"
                     className="form-add-event-container__col1__label-instructor"
                   >
-                    Nombre del Evento  <p className="rojo-required">*</p>
-                  </label>
-                  <input
-                    type="text"
-                    id="nombre-evento"
-                    className="form-add-event-container__col1__input-instructor"
-                  />
-
-
-                  <label
-                    htmlFor="lugar-evento"
-                    className="form-add-event-container__col1__label-instructor"
-                  >
-                    Lugar del Evento  <p className="rojo-required">*</p>
-                  </label>
-                  <input
-                    type="text"
-                    id="lugar-evento"
-                    className="form-add-event-container__col1__input-instructor"
-                  />
-
-
-                  <label
-                    htmlFor="cantidad-participantes"
-                    className="form-add-event-container__col1__label-instructor"
-                  >
-                    Cantidad de Participantes  <p className="rojo-required">*</p>
-                  </label>
-                  <input
-                    type="text"
-                    id="cantidad-participantes"
-                    className="form-add-event-container__col1__input-instructor"
-                  />
-
-                  <label
-                    htmlFor="tipo evento"
-                    className="form-add-event-container__col1__label-instructor"
-                  >
-                   Tipo proyecto  <p className="rojo-required">*</p>
+                   Tipo de Evento<p className="rojo-required">*</p>
                   </label>
                   <select className="form-add-event-container-instructor__select">
-                  <option selected>Seleccione tipo de proyecto</option>
+                  <option selected>Seleccione el tipo de evento</option>
                     <option>Asistente</option>
                     <option>Ponente</option> 
                   </select>
-
-                  <label
-                    htmlFor="fecha-inicio-evento-instructor"
+                <label
                     className="form-add-event-container__col1__label-instructor"
                   >
-                    Fecha de Inicio del Evento <p className="rojo-required">*</p>
+                    Nombre del Evento <p className="rojo-required">*</p>
                   </label>
                   <input
-                    type="date"
-                    id="fecha-inicio-evento"
+                    type="text"
                     className="form-add-event-container__col1__input-instructor"
                   />
 
                   <label
-                    htmlFor="fecha-fin-evento"
                     className="form-add-event-container__col1__label-instructor"
                   >
-                    Fecha de Fin del Evento <p className="rojo-required">*</p>
+                   Fecha Inicio del Evento<p className="rojo-required">*</p>
                   </label>
                   <input
                     type="date"
-                    id="fecha-fin-evento"
                     className="form-add-event-container__col1__input-instructor"
                   />
 
+                  <label
+                    className="form-add-event-container__col1__label-instructor"
+                  >
+                    Fecha Fin del Evento<p className="rojo-required">*</p>
+                  </label>
+                  <input
+                    type="date"
+                    className="form-add-event-container__col1__input-instructor"
+                  />
 
+                  <label
+                    className="form-add-event-container__col1__label-instructor"
+                  >
+                   Cantidad de Participantes <p className="rojo-required">*</p>
+                  </label>
+                  <input
+                    type="text"
+                    className="form-add-event-container__col1__input-instructor"
+                  />
+
+                  <label
+                    className="form-add-event-container__col1__label-instructor"
+                  >
+                   Ponente <p className="rojo-required">*</p>
+                  </label>
+                  <input
+                    type="text"
+                    className="form-add-event-container__col1__input-instructor"
+                  />
+
+                  <label
+                    className="form-add-event-container__col1__label-instructor"
+                  >
+                   Lugar del Evento <p className="rojo-required">*</p>
+                  </label>
+                  <input
+                    type="text"
+                    className="form-add-event-container__col1__input-instructor"
+                  />
+
+                  <label
+                    className="form-add-event-container__col1__label-instructor"
+                  >
+                   Semillero <p className="rojo-required">*</p>
+                  </label>
+                  <input
+                    type="text"
+                    className="form-add-event-container__col1__input-instructor"
+                  />
+
+                  <label
+                    className="form-add-event-container__col1__label-instructor"
+                  >
+                   Evidencia del Producto <p className="rojo-required">*</p>
+                  </label>
+                  <input
+                    type="text"
+                    className="form-add-event-container__col1__input-instructor"
+                  />
+                  
                   <div className="btns-crear-evento">
 
                     <button className="btn-crear-evento" type="button">Crear</button>

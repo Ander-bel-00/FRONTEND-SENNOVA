@@ -9,11 +9,11 @@ import { GiReturnArrow } from "react-icons/gi";
 function Crear_Eventos_Admin() {
   return (
     <div className="main-container__contenedor-hijo">
-      <Link>
-        <div className="add-creat-btn-return-admin">
-          <BotonReturn icon={<GiReturnArrow />} />
-        </div>
-      </Link>
+  
+       
+          <BotonReturn  />
+       
+   
       <Caja_formularios
         info={
           <Fragment>
@@ -23,7 +23,7 @@ function Crear_Eventos_Admin() {
 
               <form className="form-add-event-container-admin">
                 <label className="form-add-event-container__label-admin">
-                  Tipo <p className="rojo-required">*</p>
+                  Tipo de Evento<p className="rojo-required">*</p>
                 </label>
                 <select className="form-add-event-container__input-admin">
                   <option selected>Seleccione el tipo de evento</option>
@@ -31,7 +31,7 @@ function Crear_Eventos_Admin() {
                   <option>Ponente</option>
                 </select>
                 <label className="form-add-event-container__label-admin">
-                  Nombre del evento <p className="rojo-required-">*</p>
+                  Nombre del evento <p className="rojo-required">*</p>
                 </label>
 
                 <input
@@ -40,7 +40,34 @@ function Crear_Eventos_Admin() {
                 />
 
                 <label className="form-add-event-container__label-admin">
-                  Fecha de Fin del Evento <p className="rojo-required">*</p>
+                  Fecha Inicio del Evento <p className="rojo-required">*</p>
+                </label>
+
+                <input
+                  type="date"
+                  className="form-add-event-container__input-admin"
+                />
+
+                <label className="form-add-event-container__label-admin">
+                  Fecha Fin del Evento <p className="rojo-required">*</p>
+                </label>
+
+                <input
+                  type="date"
+                  className="form-add-event-container__input-admin"
+                />
+
+                <label className="form-add-event-container__label-admin">
+                  Cantidad de Participantes <p className="rojo-required">*</p>
+                </label>
+
+                <input
+                  type="text"
+                  className="form-add-event-container__input-admin"
+                />
+
+                <label className="form-add-event-container__label-admin">
+                  Ponente <p className="rojo-required">*</p>
                 </label>
 
                 <input
@@ -58,7 +85,7 @@ function Crear_Eventos_Admin() {
                 />
 
                 <label className="form-add-event-container__label-admin">
-                  Fecha de Inicio del Evento <p className="rojo-required">*</p>
+                  Semillero <p className="rojo-required">*</p>
                 </label>
 
                 <input
@@ -67,7 +94,7 @@ function Crear_Eventos_Admin() {
                 />
 
                 <label className="form-add-event-container__label-admin">
-                  Cantidad de participantes <p className="rojo-required">*</p>
+                  Evidencia del Producto <p className="rojo-required">*</p>
                 </label>
 
                 <input

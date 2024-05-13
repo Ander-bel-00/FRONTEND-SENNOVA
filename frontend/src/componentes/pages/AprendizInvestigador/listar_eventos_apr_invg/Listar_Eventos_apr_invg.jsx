@@ -1,6 +1,6 @@
 import { LuCalendarDays } from "react-icons/lu";
 import { FaFileArrowUp } from "react-icons/fa6";
-import { Fragment } from "react";
+import { Fragment, useEffect, useState } from "react";
 import { LiaEye } from "react-icons/lia";
 import { Link } from "react-router-dom";
 import Header_ToolBar from "../../../common/Header_ToolBar";
@@ -8,26 +8,24 @@ import Caja_Blanca from "../../../common/Caja_Blanca";
 import BotonBlanco from "../../../common/BotonReporte";
 import Search from "../../../common/Search";
 import "./css/Listar_Eventos_apr_invg.css";
+import clienteAxios from "../../../../config/axios";
 
 function Listar_Eventos_apr_invg() {
-  const Events = [
-    {
-      nombre: "Mariana",
-      fecha_inicio: "18 de Abril de 2024",
-      fecha_fin: "19 de Abril de 2028",
-      cantidad_participantes: 5,
-      lugar: "Bogotá",
-      tipo_evento: "Asistente",
-    },
-    {
-      nombre: "Mariana",
-      fecha_inicio: "18 de Abril de 2024",
-      fecha_fin: "19 de Abril de 2028",
-      cantidad_participantes: 5,
-      lugar: "Bogotá",
-      tipo_evento: "Asistente",
-    },
-  ];
+  const [ListEventos, setListEventos] = useState([]);
+
+  useEffect(() => { // useEffect, es un hook de react función que permite realizar un efecto una vez 
+    //el componente se haya renderizado o cargado en el navegador. Es decir realizar lo que tiene adentro
+    const ObtenerEventoSemillero = async () => {
+      try { //Intento 
+        const response = await clienteAxios.get('/eventos/')
+        setListEventos(response.data); // res(respuesta) y se guarda o actualiza en la bases de datos
+      } catch (error) { //Fallo
+        console.error("Error al obtener los eventos del semillero: ", error);
+      }
+    }
+    ObtenerEventoSemillero(); // función que indica iniciar todo, es decir obtener las actividades
+  }, []); // el efecto nunca va a depender de nada cuando este [] (depende de algo cuando se encuentere el id)
+
 
   return (
     <div className="main-container__contenedor-hijo">
@@ -47,27 +45,33 @@ function Listar_Eventos_apr_invg() {
             <thead>
               <tr className="list-events-table-aprendiz__tr">
                 <th className="list-events-table-aprendiz__th">Nombre</th>
+                <th className="list-events-table-aprendiz__th">Tipo de Evento</th>
                 <th className="list-events-table-aprendiz__th">Fecha Inicio</th>
-                <th className="list-events-table-aprendiz__th">Fecha Fin</th>
                 <th className="list-events-table-aprendiz__th">
-                  Cantidad Participantes
+                  Fecha Fin
                 </th>
+                <th className="list-events-table-aprendiz__th">Cantidad Participantes</th>
+                <th className="list-events-table-aprendiz__th">Ponente</th>
                 <th className="list-events-table-aprendiz__th">Lugar</th>
-                <th className="list-events-table-aprendiz__th">Tipo</th>
+                <th className="list-events-table-aprendiz__th">Semillero</th>
+                <th className="list-events-table-aprendiz__th">Evidencia del Evento</th>
                 <th className="list-events-table-aprendiz__th">Acciones</th>
               </tr>
             </thead>
             <tbody>
-              {Events.map((evento, index) => (
-                <tr className="list-events-table-aprendiz__tr" key={index}>
-                  <td className="list-events-table-aprendiz__td">{evento.nombre}</td>
+              {ListEventos.map((evento) => (
+                <tr className="list-events-table-aprendiz__tr" key={evento.id}>
+                  <td className="list-events-table-aprendiz__td">{evento.nombre_evento}</td>
+                  <td className="list-events-table-aprendiz__td">{evento.tipo_de_evento}</td>
                   <td className="list-events-table-aprendiz__td">{evento.fecha_inicio}</td>
-                  <td className="list-events-table-aprendiz__td">{evento.fecha_fin}</td>
                   <td className="list-events-table-aprendiz__td">
-                    {evento.cantidad_participantes}
+                    {evento.fecha_fin}
                   </td>
-                  <td className="list-events-table-aprendiz__td">{evento.lugar}</td>
-                  <td className="list-events-table-aprendiz__td">{evento.tipo_evento}</td>
+                  <td className="list-events-table-aprendiz__td">{evento.cantidad_parcticipantes}</td>
+                  <td className="list-events-table-aprendiz__td">{evento.nombre_ponente}</td>
+                  <td className="list-events-table-aprendiz__td">{evento.lugar_evento}</td>
+                  <td className="list-events-table-aprendiz__td">{evento.semillero}</td>
+                  <td className="list-events-table-aprendiz__td">{evento.evidencia}</td>
                   <td className="list-events-table-aprendiz__td">
 
                     <div className="list-events-table-aprendiz__td__btns">

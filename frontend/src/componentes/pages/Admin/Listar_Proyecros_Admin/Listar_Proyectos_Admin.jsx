@@ -142,7 +142,7 @@ function Listar_Proyectos_Admin() {
                     <td className="list-project-table__td">
                       <div className="list-project-table__td__btns">
                         <Link // Link que permite ingresar por medio el icono LiaEyesolid teniendo un acceso a la url del archivo Visualizar_Suspender_Proyecto
-                          to={"../visualizar-suspender-proyecto"}
+                          to={`../visualizar-proyecto/${list.id}`}
                         >
                           <LiaEyeSolid className="list-project-table__td__btn" />
                         </Link>

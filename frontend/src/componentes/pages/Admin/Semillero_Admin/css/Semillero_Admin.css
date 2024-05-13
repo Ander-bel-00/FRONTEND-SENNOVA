@@ -13,21 +13,25 @@
     margin-left: 200px;
     width: 100%;
     flex-direction: column;
-    margin-top: 90px;
-    overflow: hidden;
+    margin-top: 60px;
 }
 
 .semillero-main-container__header{
     display: flex;
     flex-direction: row;
-    width: 100%;
-    height: 2.3rem;
+    width: 90%;
     height: 2.3rem;
     margin-top: 1rem;
     margin-left: 5rem;
-    gap: 3rem;
-
+    justify-content: space-between;
+    gap: 0px;
+   
 }
+.btns-semillero{
+    display: flex;
+    gap: 1rem;
+}
+
 
 .semillero-main-container__btn{
     width: 10rem;
@@ -83,6 +87,4 @@
     padding: 5px;
 }
 
-.--lineas-investigacion{
-    
-}
+

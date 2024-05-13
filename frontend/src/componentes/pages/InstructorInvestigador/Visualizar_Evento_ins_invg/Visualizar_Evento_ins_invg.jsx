@@ -41,7 +41,7 @@ function Visualizar_Evento_ins_invg() {
             <BotonVerdeAñadir
               icon={<IoAdd />}
               text={"Añadir Información"}
-              link={"/instructor-investigador/Crear-eventos"}
+              link={"/instructor_investigador/Crear-eventos"}
             />
           </Fragment>
         }
@@ -53,15 +53,13 @@ function Visualizar_Evento_ins_invg() {
             <thead>
               <tr className="vis-event-table-instructor__tr">
                 <th className="vis-event-table-instructor__th">Nombre </th>
-                <th className="vis-event-table-instructor__th">
-                  Fecha de Inicio
-                </th>
-                <th className="vis-event-table-instructor__th">Fecha de Fin</th>
-                <th className="vis-event-table-instructor__th">
-                  Cantidad de Participantes
-                </th>
+                <th className="vis-event-table-instructor__th">Tipo de Evento</th>
+                <th className="vis-event-table-instructor__th">Fecha Inicio</th>
+                <th className="vis-event-table-instructor__th">Fecha Fin</th>
+                <th className="vis-event-table-instructor__th">Cantidad Participantes</th>
+                <th className="vis-event-table-instructor__th">Ponente</th>
                 <th className="vis-event-table-instructor__th">Lugar</th>
-                <th className="vis-event-table-instructor__th">Tipo</th>
+                <th className="vis-event-table-instructor__th">Semillero</th>
               </tr>
             </thead>
             <tbody>
@@ -70,6 +68,10 @@ function Visualizar_Evento_ins_invg() {
                   <td className="vis-event-table-instructor__td">
                     {" "}
                     {Contenido.nombre}
+                  </td>
+                  <td className="vis-event-table-instructor__td">
+                    {" "}
+                    {Contenido.tipo_de_evento}{" "}
                   </td>
                   <td className="vis-event-table-instructor__td">
                     {" "}
@@ -85,11 +87,15 @@ function Visualizar_Evento_ins_invg() {
                   </td>
                   <td className="vis-event-table-instructor__td">
                     {" "}
+                    {Contenido.ponente}{" "}
+                  </td>
+                  <td className="vis-event-table-instructor__td">
+                    {" "}
                     {Contenido.lugar}{" "}
                   </td>
                   <td className="vis-event-table-instructor__td">
                     {" "}
-                    {Contenido.tipo}{" "}
+                    {Contenido.semillero}{" "}
                   </td>
                 </tr>
               ))}

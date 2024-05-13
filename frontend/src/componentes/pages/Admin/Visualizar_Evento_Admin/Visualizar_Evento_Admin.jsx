@@ -1,8 +1,7 @@
 import { IoAdd, IoTrashOutline } from "react-icons/io5";
-import { IoIosReturnLeft } from "react-icons/io";
 import { FaSearch } from "react-icons/fa";
 import { Fragment } from "react";
-import { FaEdit } from "react-icons/fa";
+import { FaRegEdit } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import Caja_Blanca from "../../../common/Caja_Blanca";
 import Header_ToolBar from "../../../common/Header_ToolBar";
@@ -56,13 +55,13 @@ function Visualizar_Evento_Admin() {
             <thead>
               <tr className="vis-event-table__tr-admin">
                 <th className="vis-event-table__th-admin">Nombre </th>
-                <th className="vis-event-table__th-admin">Fecha de Inicio</th>
-                <th className="vis-event-table__th-admin">Fecha de Fin</th>
-                <th className="vis-event-table__th-admin">
-                  Cantidad de Participantes
-                </th>
+                <th className="vis-event-table__th-admin">Tipo de Evento</th>
+                <th className="vis-event-table__th-admin">Fecha Inicio</th>
+                <th className="vis-event-table__th-admin">Fecha Fin</th>
+                <th className="vis-event-table__th-admin">Cantidad Participantes</th>
+                <th className="vis-event-table__th-admin">Ponente</th>
                 <th className="vis-event-table__th-admin">Lugar</th>
-                <th className="vis-event-table__th-admin">Tipo</th>
+                <th className="vis-event-table__th-admin">Semillero</th>
                 <th className="vis-event-table__th-admin">Acciones</th>
               </tr>
             </thead>
@@ -71,7 +70,11 @@ function Visualizar_Evento_Admin() {
                 <tr className="vis-event-table__tr-admin" key={index}>
                   <td className="vis-event-table__td-admin">
                     {" "}
-                    {Contenido.nombre}
+                    {Contenido.nombre_evento}
+                  </td>
+                  <td className="vis-event-table__td-admin">
+                    {" "}
+                    {Contenido.tipo_de_evento}{" "}
                   </td>
                   <td className="vis-event-table__td-admin">
                     {" "}
@@ -87,16 +90,20 @@ function Visualizar_Evento_Admin() {
                   </td>
                   <td className="vis-event-table__td-admin">
                     {" "}
+                    {Contenido.ponente}{" "}
+                  </td>
+                  <td className="vis-event-table__td-admin">
+                    {" "}
                     {Contenido.lugar}{" "}
                   </td>
                   <td className="vis-event-table__td-admin">
                     {" "}
-                    {Contenido.tipo}{" "}
+                    {Contenido.semilero}{" "}
                   </td>
                   <td className="vis-event-table__td-admin">
                     <div className="vis-actividad-table__td__btns-admin">
                       <Link to={"/admin/actualizar-eventos"}>
-                        <FaEdit className="vis-actividad-table__td__btn-admin" />
+                        <FaRegEdit className="vis-actividad-table__td__btn-admin" />
                       </Link>
                       <Link>
                         <IoTrashOutline className="vis-actividad-table__td__btn-admin" />

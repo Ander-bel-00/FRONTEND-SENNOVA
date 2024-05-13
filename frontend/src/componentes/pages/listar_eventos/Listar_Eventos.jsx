@@ -1,8 +1,8 @@
 import { FaFileArrowUp } from "react-icons/fa6";
 import { LuCalendarDays } from "react-icons/lu";
 import { IoTrashOutline } from "react-icons/io5";
-import { Fragment } from "react";
-import { FaEdit } from "react-icons/fa";
+import { Fragment, useEffect, useState } from "react";
+import { FaRegEdit } from "react-icons/fa";
 import { LiaEye } from "react-icons/lia";
 import { IoAdd } from "react-icons/io5";
 import { Link } from "react-router-dom";
@@ -12,26 +12,25 @@ import BotonBlanco from "../../common/BotonReporte";
 import Search from "../../common/Search";
 import BotonVerdeAñadir from "../../common/BotonVerde";
 import "./css/Listar_Eventos.css";
+import clienteAxios from "../../../config/axios";
+
 
 function Listar_Eventos() {
-  const Events = [
-    {
-      nombre: "Sofia",
-      fecha_inicio: "18 de Abril de 2024",
-      fecha_fin: "19 de Abril de 2028",
-      cantidad_participantes: 5,
-      lugar: "Bogotá",
-      tipo_evento: "Ponente",
-    },
-    {
-      nombre: "Sofia",
-      fecha_inicio: "18 de Abril de 2024",
-      fecha_fin: "19 de Abril de 2028",
-      cantidad_participantes: 5,
-      lugar: "Bogotá",
-      tipo_evento: "Ponente",
-    },
-  ];
+  const [ListEventos, setListEventos] = useState([]);
+
+  useEffect(() => { // useEffect, es un hook de react función que permite realizar un efecto una vez 
+    //el componente se haya renderizado o cargado en el navegador. Es decir realizar lo que tiene adentro
+    const ObtenerEventoSemillero = async () => {
+      try { //Intento 
+        const response = await clienteAxios.get('/eventos/')
+        setListEventos(response.data); // res(respuesta) y se guarda o actualiza en la bases de datos
+      } catch (error) { //Fallo
+        console.error("Error al obtener los eventos del semillero: ", error);
+      }
+    }
+    ObtenerEventoSemillero(); // función que indica iniciar todo, es decir obtener las actividades
+  }, []); // el efecto nunca va a depender de nada cuando este [] (depende de algo cuando se encuentere el id)
+
 
   return (
     <div className="main-container__contenedor-hijo">
@@ -65,38 +64,38 @@ function Listar_Eventos() {
             <thead>
               <tr className="list-events-table__tr">
                 <th className="list-events-table__th">Nombre</th>
+                <th className="list-events-table__th">Tipo de Evento</th>
                 <th className="list-events-table__th">Fecha Inicio</th>
-                <th className="list-events-table__th">Fecha Fin</th>
                 <th className="list-events-table__th">
-                  Cantidad Participantes
+                  Fecha Fin
                 </th>
+                <th className="list-events-table__th">Cantidad Participantes</th>
+                <th className="list-events-table__th">Ponente</th>
                 <th className="list-events-table__th">Lugar</th>
-                <th className="list-events-table__th">Tipo</th>
+                <th className="list-events-table__th">Semillero</th>
+                <th className="list-events-table__th">Evidencia del Evento</th>
                 <th className="list-events-table__th">Acciones</th>
               </tr>
             </thead>
             <tbody>
-              {Events.map((evento, index) => (
-                <tr className="list-events-table__tr" key={index}>
-                  <td className="list-events-table__td">{evento.nombre}</td>
-                  <td className="list-events-table__td">
-                    {evento.fecha_inicio}
-                  </td>
+              {ListEventos.map((evento) => (
+                <tr className="list-events-table__tr" key={evento.id}>
+                  <td className="list-events-table__td">{evento.nombre_evento}</td>
+                  <td className="list-events-table__td">{evento.tipo_de_evento}</td>
                   <td className="list-events-table__td">{evento.fecha_fin}</td>
-                  <td className="list-events-table__td">
-                    {evento.cantidad_participantes}
-                  </td>
+                  <td className="list-events-table__td">{evento.cantidad_parcticipantes}</td>
                   <td className="list-events-table__td">{evento.lugar}</td>
-                  <td className="list-events-table__td">
-                    {evento.tipo_evento}
-                  </td>
+                  <td className="list-events-table__td">{evento.nombre_ponente}</td>
+                  <td className="list-events-table__td">{evento.lugar_evento}</td>
+                  <td className="list-events-table__td">{evento.semillero}</td>
+                  <td className="list-events-table__td">{evento.evidencia}</td>
                   <td className="list-events-table__td">
                     <div className="list-events-table__td__btns">
                       <Link to={"../Visualizar-evento"}>
                         <LiaEye className="list-events-table__td__btn" />
                       </Link>
                       <Link to={"../Actualizar-eventos"}>
-                        <FaEdit className="list-events-table__td__btn" />
+                        <FaRegEdit className="list-events-table__td__btn" />
                       </Link>
                       <Link>
                         <IoTrashOutline className="list-events-table__td__btn" />

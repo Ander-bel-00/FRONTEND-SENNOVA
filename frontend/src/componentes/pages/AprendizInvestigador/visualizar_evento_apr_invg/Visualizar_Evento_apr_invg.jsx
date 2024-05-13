@@ -47,14 +47,16 @@ function Visualizar_Evento_apr_invg() {
               <tr className="vis-event-table-aprendiz__tr">
                 <th className="vis-event-table-aprendiz__th">Nombre </th>
                 <th className="vis-event-table-aprendiz__th">
-                  Fecha de Inicio
+                  Tipo de Evento
                 </th>
-                <th className="vis-event-table-aprendiz__th">Fecha de Fin</th>
+                <th className="vis-event-table-aprendiz__th">Fecha Inicio</th>
                 <th className="vis-event-table-aprendiz__th">
-                  Cantidad de Participantes
+                  Fecha Fin
                 </th>
+                <th className="vis-event-table-aprendiz__th">Cantidad Participantes</th>
+                <th className="vis-event-table-aprendiz__th">Ponente</th>
                 <th className="vis-event-table-aprendiz__th">Lugar</th>
-                <th className="vis-event-table-aprendiz__th">Tipo</th>
+                <th className="vis-event-table-aprendiz__th">Semillero</th>
               </tr>
             </thead>
             <tbody>
@@ -62,7 +64,11 @@ function Visualizar_Evento_apr_invg() {
                 <tr className="vis-event-table-aprendiz__tr" key={index}>
                   <td className="vis-event-table-aprendiz__td">
                     {" "}
-                    {Contenido.nombre}
+                    {Contenido.nombre_evento}
+                  </td>
+                  <td className="vis-event-table-aprendiz__td">
+                    {" "}
+                    {Contenido.tipo_de_evento}{" "}
                   </td>
                   <td className="vis-event-table-aprendiz__td">
                     {" "}
@@ -78,11 +84,15 @@ function Visualizar_Evento_apr_invg() {
                   </td>
                   <td className="vis-event-table-aprendiz__td">
                     {" "}
+                    {Contenido.ponente}{" "}
+                  </td>
+                  <td className="vis-event-table-aprendiz__td">
+                    {" "}
                     {Contenido.lugar}{" "}
                   </td>
                   <td className="vis-event-table-aprendiz__td">
                     {" "}
-                    {Contenido.tipo}{" "}
+                    {Contenido.semilero}{" "}
                   </td>
                 </tr>
               ))}

@@ -4,7 +4,7 @@ import Caja_formularios from "../../common/Caja_formularios";
 import clienteAxios from "../../../config/axios";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
-
+import BotonReturn from "../../common/BotonReturn";
 function Añadir_Semillero() {
   const navigate = useNavigate();
   const [formSemilleroAdd, setformSemilleroAdd] = useState({});
@@ -47,7 +47,9 @@ function Añadir_Semillero() {
   };
   return (
     <Fragment>
+
       <div className="main-container__contenedor-hijo main-container__contenedor-hijo--size">
+        <BotonReturn />
         <Caja_formularios
           info={
             <Fragment>

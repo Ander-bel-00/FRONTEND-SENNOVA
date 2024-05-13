@@ -52,9 +52,9 @@ function Crear_Programa_Formacion_Admin() {
 
   return (
     <div className="main-container__contenedor-hijo">
-      <div className="add-proyect-btn-return">
-        <BotonReturn icon={<GiReturnArrow />} />
-      </div>
+     
+        <BotonReturn />
+      
 
       <Caja_formularios
         info={

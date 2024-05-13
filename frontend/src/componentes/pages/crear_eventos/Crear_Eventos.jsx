@@ -8,9 +8,9 @@ import BotonReturn from "../../common/BotonReturn";
 function Crear_Eventos() {
   return (
     <div className="main-container__contenedor-hijo">
-      <div className="add-proyect-btn-return">
-        <BotonReturn icon={<GiReturnArrow />} />
-      </div>
+      
+        <BotonReturn  />
+     
       <Caja_formularios
         info={
           <Fragment>
@@ -20,7 +20,7 @@ function Crear_Eventos() {
 
               <form className="form-add-event-container">
                 <label className="form-add-event-container__label">
-                  Tipo <p className="rojo-required">*</p>
+                  Tipo de Evento<p className="rojo-required">*</p>
                 </label>
                 <select className="form-add-event-container__input">
                   <option className="secondColumns__op1" selected>
@@ -39,7 +39,33 @@ function Crear_Eventos() {
                 />
 
                 <label className="form-add-event-container__label">
-                  Fecha de Fin del Evento <p className="rojo-required">*</p>
+                  Fecha Inicio del Evento<p className="rojo-required">*</p>
+                </label>
+
+                <input
+                  type="date"
+                  className="form-add-event-container__input"
+                />
+
+                <label className="form-add-event-container__label">
+                 Fecha Fin del Evento<p className="rojo-required">*</p>
+                </label>
+                <input
+                  type="date"
+                  className="form-add-event-container__input"
+                />
+
+                <label className="form-add-event-container__label">
+                  Cantidad de Participantes <p className="rojo-required">*</p>
+                </label>
+
+                <input
+                  type="text"
+                  className="form-add-event-container__input"
+                />
+
+                <label className="form-add-event-container__label">
+                  Ponente <p className="rojo-required">*</p>
                 </label>
 
                 <input
@@ -57,7 +83,7 @@ function Crear_Eventos() {
                 />
 
                 <label className="form-add-event-container__label">
-                  Fecha de Inicio del Evento <p className="rojo-required">*</p>
+                  Semillero<p className="rojo-required">*</p>
                 </label>
 
                 <input
@@ -66,7 +92,7 @@ function Crear_Eventos() {
                 />
 
                 <label className="form-add-event-container__label">
-                  Cantidad de participantes <p className="rojo-required">*</p>
+                  Evidencia del Producto <p className="rojo-required">*</p>
                 </label>
 
                 <input
@@ -79,7 +105,7 @@ function Crear_Eventos() {
                     Crear
                   </button>
 
-                  <Link to={"/lider-semillero/Listar-eventos"}>
+                  <Link to={"/lider_semillero/Listar-eventos"}>
                     <button type="button" className="btnEvents__cancelar">
                       Cancelar
                     </button>
