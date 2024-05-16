@@ -2,7 +2,7 @@ import { LuCalendarDays } from "react-icons/lu";
 import { FaFileArrowUp } from "react-icons/fa6";
 import { Fragment, useEffect, useState } from "react";
 import { LiaEye } from "react-icons/lia";
-import { IoAdd } from "react-icons/io5";
+import { IoAdd, IoTrashOutline } from "react-icons/io5";
 import { Link } from "react-router-dom";
 import Header_ToolBar from "../../../common/Header_ToolBar";
 import Caja_Blanca from "../../../common/Caja_Blanca";
@@ -11,6 +11,7 @@ import Search from "../../../common/Search";
 import BotonVerdeAñadir from "../../../common/BotonVerde";
 import "./css/ListarEvento_ins_invg.css";
 import clienteAxios from "../../../../config/axios";
+import { FaRegEdit } from "react-icons/fa";
 
 function ListarEvento_ins_invg() {
   const [ListEventos, setListEventos] = useState([]);
@@ -36,7 +37,7 @@ function ListarEvento_ins_invg() {
             <BotonBlanco icon={<FaFileArrowUp />} text={"Reporte"} clase={'btn-blanco btn-blanco--modify btn-verde'} />
             <BotonBlanco icon={<LuCalendarDays />} text={"Ir al Cronograma"} clase={'btn-blanco btn-blanco--modify btn-azul'} />
             <Search text={"Buscar Eventos"} />
-            <BotonVerdeAñadir icon={<IoAdd />} text={"Crear evento"} link={"/admin/crear-eventos"}/>
+            <BotonVerdeAñadir icon={<IoAdd />} text={"Crear evento"} link={"../crear-eventos"}/>
           </Fragment>
         }
       />
@@ -75,10 +76,10 @@ function ListarEvento_ins_invg() {
                   <td className="list-events-table__td-admin">
                   
                     <div className="list-events-table__td__btns-admin">
-                      <Link to={"/admin/visualizar-evento"} >
+                      <Link to={"../visualizar-evento"} >
                         <LiaEye className="list-events-table__td__btn-admin" />
                       </Link>
-                      <Link to={"/admin/actualizar-eventos"} >
+                      <Link to={"../actualizar-eventos"} >
                         <FaRegEdit className="list-events-table__td__btn-admin" />
                       </Link>
                       <Link>
