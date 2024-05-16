@@ -3,19 +3,41 @@ import "./css/Añadir_Semillero.css";
 import Caja_formularios from "../../common/Caja_formularios";
 import clienteAxios from "../../../config/axios";
 import Swal from "sweetalert2";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import BotonReturn from "../../common/BotonReturn";
 function Añadir_Semillero() {
   const navigate = useNavigate();
-  const [formSemilleroAdd, setformSemilleroAdd] = useState({});
+  const [formSemilleroAdd, setformSemilleroAdd] = useState({
+    nombre_semillero: "",
+    nombre_regional: "",
+    nombre_centro_formacion: "",
+    nombre_grupo_adscrito: "",
+    plan_estrategico_investigacion: "",
+    lineas_investigacion_declaradas: "",
+    sectores_apicacion: "",
+  });
 
   const handleChange = (event) => {
     const { name, value } = event.target;
-    setformSemilleroAdd({ ...formSemilleroAdd, [name]: value });
+    setformSemilleroAdd({formSemilleroAdd, [name]: value });
   };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    // Verificar si algún campo está vacío
+    const anyFieldEmpty = Object.values(formSemilleroAdd).some(
+      (value) => value === ""
+    );
+    if (anyFieldEmpty) {
+      // Mostrar Sweet Alert si algún campo está vacío
+      Swal.fire({
+        title: "Error al crear el Semillero",
+        text: "Debes diligenciar todos los campos",
+        icon: "warning",
+        confirmButtonText: "Aceptar",
+      });
+      return;
+    }
 
     try {
       const response = await clienteAxios.post(
@@ -47,7 +69,6 @@ function Añadir_Semillero() {
   };
   return (
     <Fragment>
-
       <div className="main-container__contenedor-hijo main-container__contenedor-hijo--size">
         <BotonReturn />
         <Caja_formularios
@@ -73,7 +94,7 @@ function Añadir_Semillero() {
                     name="nombre_semillero"
                     className="form-add-semillero-content__col1__input"
                     onChange={handleChange}
-                    required
+                    
                   />
                   <label
                     htmlFor="nombre-regional"
@@ -129,7 +150,7 @@ function Añadir_Semillero() {
                     className="form-add-semillero-content__col1__input"
                     name="nombre_grupo_adscrito"
                     onChange={handleChange}
-                    required
+                    
                   />
                   <label
                     htmlFor="sectores-de-aplicacion"
@@ -180,7 +201,7 @@ function Añadir_Semillero() {
                     rows="9"
                     className="form-add-semillero-content__col1__textarea"
                     onChange={handleChange}
-                    required
+                    
                   />
                   <label
                     htmlFor="linea-de-investigacion"
@@ -234,13 +255,9 @@ function Añadir_Semillero() {
                     >
                       Registrar
                     </button>
-                    <button
-                      type="submit"
-                      value="Cancelar"
-                      className="btn-cancelar-añadir-semillero"
-                    >
+                    <Link to={"/"} className="btn-cancelar-añadir-semillero text-center">
                       Cancelar
-                    </button>
+                    </Link>
                   </div>
                 </form>
               </div>

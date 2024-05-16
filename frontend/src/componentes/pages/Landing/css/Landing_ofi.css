@@ -178,7 +178,7 @@
    margin-right: 90px;
    width: 100%;
    display: flex;
-   text-align: center;
+   text-align: justify;
    margin-top: 2rem;
    font-weight: 500;
  
@@ -211,7 +211,7 @@
     color: #04324D;
     margin-left: 90px;
     margin-right: 90px;
-    text-align: center;
+    text-align: justify;
 }
 
 
@@ -250,6 +250,7 @@
     line-height: 25px;
     padding-bottom: 25px;
     color: #04324D;
+    text-align: justify;
 }
 
 .row_3 .imgWrapper_2{
@@ -296,6 +297,11 @@
     flex-direction: column;
     gap: 1rem;
  }
+
+ .ingreso_p{
+    text-align: justify !important;
+ }
+
  .content p{
     font-size: 1.2rem;
  }
@@ -328,7 +334,7 @@ h3,h5{
 .creadores{
     display: flex;
     flex-direction: column;
-    gap: 4rem;
+    gap: 2rem;
     align-items: center;
    padding-top: 2rem;
    padding-bottom: 2rem;

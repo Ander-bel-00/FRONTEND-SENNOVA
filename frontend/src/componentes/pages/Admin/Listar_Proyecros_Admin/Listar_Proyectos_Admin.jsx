@@ -97,7 +97,7 @@ function Listar_Proyectos_Admin() {
               <BotonVerdeAñadir
                 icon={<AiOutlinePlus />}
                 text={"Crear"}
-                link={"../crear-proyectos"}
+                link={"../crear-proyecto"}
               />
             </Fragment>
           }
@@ -127,7 +127,7 @@ function Listar_Proyectos_Admin() {
                 {proyectosSemillero.map((list, index) => (
                   <tr key={index} className="list-project-admin-table__tr">
                     <td className="list-project-admin-table__td">
-                      {list.codigo_sgps}
+                      {list.codigo}
                     </td>
                     <td className="list-project-admin-table__td">
                       {list.nombre_proyecto}
@@ -146,7 +146,7 @@ function Listar_Proyectos_Admin() {
                         >
                           <LiaEyeSolid className="list-project-admin-table__td__btn" />
                         </Link>
-                        <Link to={"../actualizar-proyectos"}>
+                        <Link to={`../actualizar-proyecto/${list.id}`}>
                           <FaRegEdit className="list-project-admin-table__td__btn" />
                         </Link>
                         <Link>

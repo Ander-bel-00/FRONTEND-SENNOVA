@@ -6,10 +6,8 @@ import { useParams } from 'react-router-dom';
 const VisualizarProyectos = () => {
 
     const { id } = useParams();
-    console.log("este es el id", id);
-
     const [proyecto, setProyecto] = useState({});
-    const [actividades_proyecto, setActividadesProyecto] = useState({});
+    const [actividades_proyecto, setActividadesProyecto] = useState([]);
 
 
     useEffect(() => {
@@ -45,7 +43,7 @@ const VisualizarProyectos = () => {
             <div className="card-info-proyecto">
                 <div className="card-info-proyecto__campo">
                     <h1 className="card-info-proyecto__campo__h1">Código SGPS</h1>
-                    <h1>SGPS-1361</h1>
+                    <h1>{proyecto.codigo}</h1>
                 </div>
                 <div className="card-info-proyecto__campo">
                     <h1 className="card-info-proyecto__campo__h1">Nombre del  proyecto:</h1>
@@ -67,7 +65,8 @@ const VisualizarProyectos = () => {
                     <h1>{proyecto.fecha_fin}</h1>
                 </div>
 
-                <div >
+                <div className="card-info-proyecto__campo">
+                    <h1 className="card-info-proyecto__campo__h1">Descripción del Proyecto</h1>
                     {proyecto.descripcion_proyecto}
                 </div>
 
@@ -77,10 +76,10 @@ const VisualizarProyectos = () => {
                     <h1>Actividades programadas</h1>
                     <button className="activity-card__add-button">Agregar Actividad</button>
                 </div>
-{/* 
+
                 {actividades_proyecto.map((actividad) => (
                     <div key={actividad.id} className="activity-card">
-                        <h2 className="activity-card__title">{actividad.nombre_actividad}</h2>
+                        <h2 className="activity-card__title"><strong>Nombre de la Actividad: </strong>{actividad.nombre_actividad}</h2>
                         <div className="activity-card__content">
                             <p><strong>Tarea:</strong> {actividad.tarea}</p>
                             <p><strong>Fecha:</strong> {actividad.fecha_inicio}</p>
@@ -93,7 +92,7 @@ const VisualizarProyectos = () => {
                             <button className="activity-card__delete-button">Eliminar</button>
                         </div>
                     </div>
-                ))} */}
+                ))} 
 
 
 

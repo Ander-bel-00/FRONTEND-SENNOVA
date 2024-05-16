@@ -1,6 +1,6 @@
 import React, { Fragment, useEffect, useState } from "react";
 import "./css/Crear_usuario.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Caja_formularios from "../../common/Caja_formularios";
 import { GiReturnArrow } from "react-icons/gi";
 import BotonReturn from "../../common/BotonReturn";
@@ -10,6 +10,7 @@ import { useAuth } from "../../../context/AuthContext";
 
 function Crear_Usuario() {
   const { userProfile } = useAuth();
+  const navigate = useNavigate();
 
   // Verificar si userProfile es null antes de acceder a sus propiedades
   const SemilleroID = userProfile ? userProfile.semillero : "";
@@ -26,21 +27,6 @@ function Crear_Usuario() {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    // Verificar si algún campo está vacío
-    const anyFieldEmpty = Object.values(formDataUser).some(
-      (value) => value === ""
-    );
-    if (anyFieldEmpty) {
-      // Mostrar Sweet Alert si algún campo está vacío
-      Swal.fire({
-        title: "Error al crear el Usuario",
-        text: "Debes diligenciar todos los campos",
-        icon: "warning",
-        confirmButtonText: "Aceptar",
-      });
-      return;
-    }
-
     try {
       const userData = {
         ...formDataUser,
@@ -53,9 +39,7 @@ function Crear_Usuario() {
         showCancelButton: false,
         confirmButtonText: "Aceptar",
       }).then((result) => {
-        // if (result.isConfirmed) {
-        //   window.location.href = "/";
-        // }
+        return navigate("../usuarios-getAll");
       });
 
       console.log(response.data);
@@ -111,22 +95,6 @@ function Crear_Usuario() {
                 </select>
               </div>
               <form className="form-add-user-container" onSubmit={handleSubmit}>
-                {/* <label
-                  htmlFor="nombre-proyecto"
-                  className="form-add-user-container__col1__label"
-                >
-                  Tipo de Documento <p className="rojo-required">*</p>
-                </label>
-                <select
-                  type="text"
-                  id="tipo-documento"
-                  className="form-add-user-container__col1__input"
-                  onChange={handleChange}
-                >
-                  <option value="">Cédula de Ciudadania</option>
-                  <option value="">Tarjeta de Identidad</option>
-                  <option value="">Cédula de Extranjeria</option>
-                </select> */}
                 <label
                   htmlFor="documento"
                   className="form-add-user-container__col1__label"

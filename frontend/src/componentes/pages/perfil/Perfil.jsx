@@ -33,7 +33,7 @@ function Perfil() {
           rolNombre = 'Instructor Investigador';
           break;
         case 'lider_semillero':
-          rolNombre = 'Líder Semillero';
+          rolNombre = 'Líder de Semillero';
           break;
         default:
           rolNombre = userProfile.rol;

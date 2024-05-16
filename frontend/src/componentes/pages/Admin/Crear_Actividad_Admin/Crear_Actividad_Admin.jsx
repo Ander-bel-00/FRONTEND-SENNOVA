@@ -37,7 +37,7 @@ function Crear_Actividad_Admin() {
       Swal.fire({
         title: "Error al crear la actividad",
         text: "Debes diligenciar todos los campos",
-        icon: "error",
+        icon: "warning",
         confirmButtonText: "Aceptar",
       });
       return;
@@ -132,7 +132,6 @@ function Crear_Actividad_Admin() {
                   className="form-create-activity-admin-content__col1__input"
                   name="tarea"
                   onChange={handleChange}
-                  required
                 />
                 <label
                   htmlFor="resultado-actividad"
@@ -159,16 +158,6 @@ function Crear_Actividad_Admin() {
                   className="form-create-activity-admin-content__col1__input"
                   name="responsable_actividad"
                   onChange={handleChange}
-                />
-
-                <input
-                  type="number"
-                  id="semillero"
-                  className="form-create-activity-admin-content__col1__input"
-                  name="semillero"
-                  onChange={handleChange}
-                  value={formNewActivitySemillero.semillero}
-                  hidden
                 />
 
                 <div className="btns-crear-actividad-admin">

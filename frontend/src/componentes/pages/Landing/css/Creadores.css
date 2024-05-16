@@ -43,12 +43,12 @@
   opacity: 1;
 }
 .caption h3{
-  font-size: 18px;
+  font-size: 15px;
   width: 100%;
  
 }
 .caption p{
-  font-size: 17px;
+  font-size: 12px;
   color: #0c52a1;
   font-weight: bold;
 }
@@ -76,8 +76,8 @@ i{
 
 .profile-card{
   
-  width: 250px;
-  height: 250px;
+  width: 180px;
+  height: 180px;
   background: #fff;
   padding: 16px;
   border-radius: 50%;
@@ -90,7 +90,7 @@ i{
 
 .profile-card:hover{
   border-radius: 10px;
-  height: 260px;
+  height: 200px;
   background-color: #fff;
 }
 .profile-card .img {
@@ -102,13 +102,19 @@ i{
   transition: .6s;
   z-index: 99;
   cursor: pointer;
-
+object-fit: cover;
   width: 100%;
+}
+
+.profile-card .img img:hover{
+  width: 180px;
+  height: 150px;
 }
 .profile-card:hover .img{
   transform: translateY(-90px);
 }
 .profile-card:hover img{
+  width: 100%;
   border-radius: 100%;
 }
 .profile-card:hover .caption{
