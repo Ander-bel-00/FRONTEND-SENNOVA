@@ -108,6 +108,7 @@
    align-items: center;
    justify-content: center;
    gap: 3rem;
+   font-size: 2.2rem;
 
 }
 
@@ -150,6 +151,7 @@
     width: 100%;
     padding-top: 2rem;
  }
+
 .content-que-semilleros{
     display: flex;
     flex-direction: column;
@@ -168,19 +170,18 @@
 
 }
 
-
 .parrafo_semillero {
     font-size: 20px;
     padding-bottom: 25px;
     color: #04324D !important;
     align-items: center;
-    margin-left: 90px;
-   margin-right: 90px;
    width: 100%;
    display: flex;
-   text-align: center;
+   text-align: justify;
    margin-top: 2rem;
    font-weight: 500;
+   padding-left: 22px;
+   padding-right: 22px;
  
 }
 
@@ -189,6 +190,7 @@
 .info_objetivo_senn{
     width: 100%;
     display: flex;
+    font-weight: 500;
     flex-direction: column;
     justify-content: center;
     padding: 5rem 0 ;
@@ -198,10 +200,9 @@
 }
 
 .info_objetivo_senn h1{
-    font-size: 27px;
-    font-weight: 700;
+    font-size: 30px;
+    font-weight: 500;
     color: var(--color--principal);
-    
 }
 
 .info_objetivo_senn p{
@@ -211,7 +212,7 @@
     color: #04324D;
     margin-left: 90px;
     margin-right: 90px;
-    text-align: center;
+    text-align: justify;
 }
 
 
@@ -250,6 +251,8 @@
     line-height: 25px;
     padding-bottom: 25px;
     color: #04324D;
+    text-align: justify;
+    font-weight: 500;
 }
 
 .row_3 .imgWrapper_2{
@@ -347,6 +350,13 @@ h3,h5{
     color: #fff;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 }
+
+.text-sistema{
+    font-weight: 500;
+    font-size: 20px;
+    color: #04324D !important;
+    text-align: justify;
+}
 @media only screen and (max-width: 767px) {
     .main-page__container-ingreso{
         flex-direction: column;
@@ -398,9 +408,7 @@ h3,h5{
     .creadores h1{
         font-size: 2rem;
     }
-    .container-ficha-ingreso__content p{
-        font-weight: 500;
-    }
+    
     .footerBottom p{
         font-size: 12px !important;
     }

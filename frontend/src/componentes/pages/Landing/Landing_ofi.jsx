@@ -32,7 +32,7 @@ function Landing_ofi() {
                 <div className='container-ficha-ingreso'>
                     <div className='container-ficha-ingreso__content'>
                         <h2>SENNOVA <br /> <br />Sistema de Investigación, <br /> Desarrollo Tecnológico e Innovación</h2> <br />
-                        <p>Fortaleciendo capacidades locales en <br /> productividad, competitividad, <br /> generación de conocimiento y <br /> pertinencia de la Formación Profesional <br /> Integral Impartida</p>
+                        <p className='text-sistema'>Fortaleciendo capacidades locales en productividad, <br /> competitividad,  generación de conocimiento y  <br /> pertinencia de la Formación Profesional Integral  Impartida</p>
                         <Link className="btn btn--big" to="/login"><button>Ingresar</button></Link>
 
                     </div>
@@ -60,12 +60,12 @@ function Landing_ofi() {
 
                 </div>
 
-                <p className='parrafo_semillero'>Un semillero de investigación en el Sena, al igual que en cualquier otra institución de educación,
-                    se entiende como un espacio para el desarrollo de las habilidades prácticas investigativas. En él, se espera
-                    que tanto los instructores como los aprendices construyan conocimiento basado en la solución
-                    de problemas reales, particulares a su entorno y generen propuestas  de cambio y mejoramiento en múltiples dimensiones,
-                    bien sean sociales, científicas, técnicas y/o tecnológicas.  </p>
-
+                    <p className='parrafo_semillero'>Un semillero de investigación en el Sena, al igual que en cualquier otra institución de educación,
+                     se entiende como un espacio para el desarrollo de las habilidades prácticas investigativas. En él, se espera
+                        que tanto los instructores como los aprendices construyan  conocimiento basado en la solución
+                        de problemas reales, particulares a su entorno y generen propuestas  de cambio y mejoramiento 
+                        en múltiples dimensiones, bien sean sociales, científicas, técnicas y/o tecnológicas.  
+                    </p>
                 <br />
                 <br />
                 {/* Bloque 3 */}
