@@ -54,10 +54,6 @@ function Encabezado() {
 
       </header>
 
-
-
-
-
     </>
   )
 }

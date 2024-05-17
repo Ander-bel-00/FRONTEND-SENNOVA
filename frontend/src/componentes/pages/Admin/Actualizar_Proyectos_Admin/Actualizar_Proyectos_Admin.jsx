@@ -1,20 +1,72 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import "./css/Actualizar_Proyecto_Admin.css";
 import { IoIosReturnLeft } from "react-icons/io";
 import BotonReturn from "../../../common/BotonReturn";
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import Caja_formularios from "../../../common/Caja_formularios";
+import clienteAxios from "../../../../config/axios";
+import Swal from "sweetalert2";
 
 function Actualizar_Proyectos_Admin() {
+  const { id } = useParams();
+  const navigate = useNavigate();
+  const [proyectoData, setProyectoData] = useState({
+    codigo: "",
+    tipo_proyecto: "",
+    nombre_proyecto: "",
+    descripcion_proyecto: "",
+    fecha_inicio: "",
+    fecha_fin: "",
+  });
+
+  const consultarApi = async () => {
+    const res = await clienteAxios.get(`/proyectos/${id}/`);
+    setProyectoData(res.data);
+  };
+
+  useEffect(() => {
+    consultarApi();
+  }, []);
+
+  const handleChange = (e) => {
+    setProyectoData({
+      ...proyectoData,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const actualizarProyecto = async (e) => {
+    e.preventDefault();
+    try {
+      // Enviar solicitud para actualizar los datos del proyecto.
+      await clienteAxios.put(`/proyectos/${id}/`, proyectoData);
+      // Mostrar SweetAlert de éxito después de que la solicitud se complete con éxito.
+      Swal.fire({
+        icon: "success",
+        title: "El proyecto ha sido actualizado",
+        text: "La información del proyecto se ha sido actualizada correctamente.",
+        showCancelButton: false,
+        confirmButtonText: "Aceptar",
+      }).then((result) => {
+        return navigate("../listar-Proyectos");
+      });
+    } catch (error) {
+      console.error("Error al actualizar los datos del proyecto:", error);
+      // Mostrar SweetAlert de error
+      Swal.fire({
+        icon: "error",
+        title: "Hubo un error",
+        text: "Hubo un error al intentar actualizar los datos del proyecto",
+      });
+    }
+  };
+
   return (
     <Fragment>
       <div className="main-container__contenedor-hijo main-container__contenedor-hijo--size">
         <Link>
           <div className="update-proyect-btn-return">
-            <BotonReturn
-              link={"/"}
-              icon={<IoIosReturnLeft />}
-            />
+            <BotonReturn link={"/"} icon={<IoIosReturnLeft />} />
           </div>
         </Link>
         <Caja_formularios
@@ -24,7 +76,48 @@ function Actualizar_Proyectos_Admin() {
                 <h2 className="text-center actualizar-project-admin-title">
                   ACTUALIZAR PROYECTO DE INVESTIGACIÓN
                 </h2>
-                <form className="form-update-proyects-admin-content">
+                <form
+                  className="form-update-proyects-admin-content"
+                  onSubmit={actualizarProyecto}
+                >
+                  <label
+                    htmlFor="codigo"
+                    className="form-add-pryect-admin-container__col1__label"
+                  >
+                    Código SGPS (Sistema de gestión de proyectos SENNOVA){" "}
+                    <p className="rojo-required">*</p>
+                  </label>
+                  <input
+                    type="text"
+                    name="codigo"
+                    id="codigo"
+                    className="form-update-proyects-admin-content__col1__input"
+                    onChange={handleChange}
+                    defaultValue={proyectoData.codigo}
+                  />
+                  <label
+                    htmlFor="tipo proyecto"
+                    className="form-add-pryect-container__col1__label"
+                  >
+                    Tipo proyecto <p className="rojo-required">*</p>
+                  </label>
+
+                  <select
+                    className="form-add-pryect-container__select"
+                    name="tipo_proyecto"
+                    onChange={handleChange}
+                    defaultValue={proyectoData.tipo_proyecto}
+                  >
+                    <option selected disabled>
+                      Seleccione tipo de proyecto
+                    </option>
+                    <option value="Capacidad Instalada">
+                      Capacidad Instalada
+                    </option>
+                    <option value="Modernizacion">Modernizacion</option>
+                    <option value="Innovacion">Innovación</option>
+                    <option value="Aplica">Aplicación</option>
+                  </select>
                   <label
                     htmlFor="nombre-del-proyecto"
                     className="form-update-proyects-admin-content__col1__label"
@@ -35,8 +128,10 @@ function Actualizar_Proyectos_Admin() {
                     type="text"
                     id="nombre-del-proyecto"
                     className="form-update-proyects-admin-content__col1__input"
+                    onChange={handleChange}
+                    defaultValue={proyectoData.nombre_proyecto}
                   />
-                   <label
+                  <label
                     htmlFor="descripción-del-proyecto"
                     className="form-update-proyects-admin-content__col1__label"
                   >
@@ -48,6 +143,8 @@ function Actualizar_Proyectos_Admin() {
                     cols="28"
                     rows="9"
                     className="form-update-proyects-admin-content__col1__textarea"
+                    onChange={handleChange}
+                    defaultValue={proyectoData.descripcion_proyecto}
                   ></textarea>
                   <label
                     htmlFor="fecha-inicio-del-proyecto"
@@ -59,6 +156,8 @@ function Actualizar_Proyectos_Admin() {
                     type="date"
                     id="fecha-inicio-del-proyecto"
                     className="form-update-proyects-admin-content__col1__input"
+                    onChange={handleChange}
+                    defaultValue={proyectoData.fecha_inicio}
                   />
                   <label
                     htmlFor="fecha-fin-del-proyecto"
@@ -70,19 +169,22 @@ function Actualizar_Proyectos_Admin() {
                     type="date"
                     id="fecha-fin-del-proyecto"
                     className="form-update-proyects-admin-content__col1__input"
+                    onChange={handleChange}
+                    defaultValue={proyectoData.fecha_fin}
                   />
 
                   <div className="update-proyects-admin-btns">
-                  <input
+                    <input
                       type="submit"
                       value="Actualizar"
                       className="btn-actualizar-admin-proyecto"
                     />
-                    <input
-                      type="submit"
-                      value="Cancelar"
-                      className="btn-cancelar-actualizar-admin-proyect"
-                    />
+                    <Link
+                      to={"../listar-proyectos"}
+                      className="btn-cancelar-actualizar-admin-proyect text-center"
+                    >
+                      Cancelar
+                    </Link>
                   </div>
                 </form>
               </div>

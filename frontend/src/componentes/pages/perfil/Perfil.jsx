@@ -1,6 +1,5 @@
 import Caja_formularios from "../../common/Caja_formularios";
 import React, { Fragment, useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import "./css/Perfil.css";
 import { useAuth } from "../../../context/AuthContext";
 
@@ -9,7 +8,7 @@ function Perfil() {
 
   // Estado local para almacenar los datos del perfil
   const [perfilData, setPerfilData] = useState({
-    rol: "",
+    rol: '',
     numeroDocumento: "",
     nombres: "",
     apellidos: "",
@@ -21,9 +20,29 @@ function Perfil() {
   // Utiliza useEffect para actualizar el estado local cuando userProfile cambie
   useEffect(() => {
     if (userProfile) {
+      // Mapear el rol del usuario a su nombre correspondiente
+      let rolNombre;
+      switch (userProfile.rol) {
+        case 'admin':
+          rolNombre = 'Administrador';
+          break;
+        case 'aprendiz_investigador':
+          rolNombre = 'Aprendiz Investigador';
+          break;
+        case 'instructor_investigador':
+          rolNombre = 'Instructor Investigador';
+          break;
+        case 'lider_semillero':
+          rolNombre = 'Líder de Semillero';
+          break;
+        default:
+          rolNombre = userProfile.rol;
+          break;
+      }
       // Actualiza el estado local con los datos del perfil
       setPerfilData({
-        rol: userProfile.rol || "",
+        ...perfilData,
+        rol: rolNombre,
         numeroDocumento: userProfile.documento || "",
         nombres: userProfile.name || "",
         apellidos: userProfile.last_names || "",

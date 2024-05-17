@@ -40,9 +40,7 @@ function Visualizar_Actividad() {
       <Header_ToolBar
         Header_Tools={
           <Fragment>
-            <div className="btn-vs-actividades-aprendiz">
               <BotonReturn icon={<GiReturnArrow />} />
-            </div>
             <BotonBlanco
               icon={<FaFileArrowUp/>}
               text={"Reporte"}

@@ -6,10 +6,11 @@ import Caja_formularios from '../../../common/Caja_formularios';
 import BotonReturn from '../../../common/BotonReturn';
 import { GiReturnArrow } from 'react-icons/gi';
 import clienteAxios from '../../../../config/axios';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 function Crear_Usuario_Admin() {
     const { userProfile } = useAuth();
+    const navigate = useNavigate();
 
     // Verificar si userProfile es null antes de acceder a sus propiedades
     const SemilleroID = userProfile ? userProfile.semillero : "";
@@ -25,22 +26,6 @@ function Crear_Usuario_Admin() {
   
     const handleSubmit = async (event) => {
       event.preventDefault();
-  
-      // Verificar si algún campo está vacío
-      const anyFieldEmpty = Object.values(formDataUser).some(
-        (value) => value === ""
-      );
-      if (anyFieldEmpty) {
-        // Mostrar Sweet Alert si algún campo está vacío
-        Swal.fire({
-          title: "Error al crear el Usuario",
-          text: "Debes diligenciar todos los campos",
-          icon: "warning",
-          confirmButtonText: "Aceptar",
-        });
-        return;
-      }
-  
       try {
         const userData = {
           ...formDataUser,
@@ -53,9 +38,7 @@ function Crear_Usuario_Admin() {
           showCancelButton: false,
           confirmButtonText: "Aceptar",
         }).then((result) => {
-          // if (result.isConfirmed) {
-          //   window.location.href = "/";
-          // }
+          return navigate("../usuarios-getAll");
         });
   
         console.log(response.data);
@@ -242,6 +225,7 @@ function Crear_Usuario_Admin() {
                       <label
                         htmlFor="programa_formacion"
                         className="form-add-user-container__col1__label"
+                        hidden
                       >
                         Programa de Formación <p className="rojo-required">*</p>
                       </label>
@@ -250,6 +234,8 @@ function Crear_Usuario_Admin() {
                         id="programa_formacion"
                         name="programa_formacion"
                         className="form-add-user-container__col1__input"
+                        defaultValue={1}
+                        hidden
                         onChange={handleChange}
                       />
   

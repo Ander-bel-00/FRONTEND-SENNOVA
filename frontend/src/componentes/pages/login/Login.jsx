@@ -9,6 +9,7 @@ import LT_Sena from '../Landing/img/sena-logo.svg';
 import logo_app from '../Landing/img/logo-app.svg';
 import sennova from '../Landing/img/sennova.svg';
 import teinnova from '../Landing/img/teinnova.svg';
+import LogoTeinnovaHome from "../../layouts/Sidenav/img/Teinnova-logo-blanco.png";
 
 
 function Login() {
@@ -68,7 +69,7 @@ function Login() {
           <div className='header-imgs'>
             <img className='header__img-sennova' src={LogoSennova} alt="" />
             <img className='header__img-cditi' src={CDITI} alt="" />
-            <img className='header__img-cditi' src={teinnova} alt="" />
+            {/* <img className='header__img-cditi' src={teinnova} alt="" /> */}
             </div>
         </section>
 
@@ -84,9 +85,15 @@ function Login() {
               width=""
               height=""
               alt="logo_tei"
-            ></img>
+            >
+            </img>
+            <img
+              className='logoTeinnova' src={LogoTeinnovaHome} alt="Logo Teinnova"
+            >
+            </img>
           </div>
         </div>
+        
 
         <div className="form-information">
           <div class="form-information-childs">
@@ -137,7 +144,7 @@ function Login() {
                 </button>
               )}
 
-              <br />
+              
               <br />
               <div class="recuperacion_contrasena">
                 <a href="#">
@@ -148,7 +155,7 @@ function Login() {
           </div>
         </div>
       </div>
-      <Link className="ir-inicio" to="/">Ir al inicio</Link>
+      <Link className="ir-inicio" to="/">Ir al Inicio</Link>
     </div>
    
 

@@ -80,11 +80,6 @@ export default function Creadores() {
      </div>
  </div>
 
-
- 
-    
-
-
 </div>
 
     </div>

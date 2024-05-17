@@ -18,7 +18,7 @@ function Listar_Actividad_Admin() {
   
   const [listActivitys, setListActivitys] = useState([]);
 
-  useEffect (() =>{
+  useEffect(() =>{
     const Obteneractividadsemilleros = async () => {
       try {
           const res = await clienteAxios.get(`/activity-semillero/`);
@@ -31,9 +31,6 @@ function Listar_Actividad_Admin() {
     Obteneractividadsemilleros(); // Así se llama la función para obtener las actividades
   }, []);
   
-
-
-
   return (
     <Fragment>
       <div className="main-container__contenedor-hijo">
@@ -82,9 +79,7 @@ function Listar_Actividad_Admin() {
                   <th className="list-activity-admin-content__table__tr__th">
                     Resultado
                   </th>
-                  <th className="list-activity-admin-content__table__tr__th">
-                    Producto
-                  </th>
+
                   <th className="list-activity-admin-content__table__tr__th">
                     Responsable de la Actividad
                   </th>
@@ -115,9 +110,6 @@ function Listar_Actividad_Admin() {
                       {actividad.resultado}
                     </td>
                     <td className="list-activity-admin-content-table-td">
-                      {actividad.producto}
-                    </td>
-                    <td className="list-activity-admin-content-table-td">
                       {actividad.responsable_actividad}
                     </td>
                     <td className="list-activity-admin-content-table-td">
@@ -125,7 +117,7 @@ function Listar_Actividad_Admin() {
                     </td>
                     <td className="list-activity-admin-content-table__td">
                       <div className="list-activity-admin-content-table__td__btns">
-                        <Link to={"/"}>
+                        <Link to={"/visualizar-actividad"}>
                           <LiaEyeSolid className="list-activity-admin-content-table__td__btn" />
                         </Link>
                         <Link to={"/admin/actualizar-actividad"}>

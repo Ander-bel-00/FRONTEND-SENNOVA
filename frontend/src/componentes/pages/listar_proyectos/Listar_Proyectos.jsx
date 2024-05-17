@@ -34,7 +34,6 @@ function Listar_Proyectos() {
         console.error('Error al obtener los proyectos del semillero', error);
       }
     }
-  
     obtenerProyectosSemillero();
   }, [SemilleroID]);
   
@@ -53,8 +52,7 @@ function Listar_Proyectos() {
         proyect.nombre_proyecto,
         proyect.fecha_inicio,
         proyect.fecha_fin,
-        proyect.codigo_sgps,
-        proyect.descripcion,
+        proyect.descripcion_proyecto,
       ]),
     ];
     const ws = XLSX.utils.aoa_to_sheet(wsData);
@@ -145,11 +143,11 @@ function Listar_Proyectos() {
                     <td className="list-project-table__td">
                       <div className="list-project-table__td__btns">
                         <Link // Link que permite ingresar por medio el icono LiaEyesolid teniendo un acceso a la url del archivo Visualizar_Suspender_Proyecto
-                          to={"/lider-semillero/visualizar-proyecto"}
+                          to={`../visualizar-proyecto/${list.id}`}
                         >
                           <LiaEyeSolid className="list-project-table__td__btn" />
                         </Link>
-                        <Link to={"/lider-semillero/actualizar-proyectos"}>
+                        <Link to={"../actualizar-proyectos"}>
                           <FaRegEdit className="list-project-table__td__btn" />
                         </Link>
                         <Link>

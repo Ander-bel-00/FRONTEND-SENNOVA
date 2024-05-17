@@ -32,7 +32,7 @@ function Sidenav() {
           <Link to={`/${Rol}/`}>
             <li className="Sidenav-content__menu-content__menu-options">
               <FaSeedling className="inline-block mr-2" />
-              Semillero
+              Semilleros
             </li>
           </Link>
 

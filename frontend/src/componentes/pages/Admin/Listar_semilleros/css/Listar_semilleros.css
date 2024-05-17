@@ -1,0 +1,59 @@
+.list-semillero-admin-content-table{
+    position: relative;
+    left: 1%;
+    width: 98%;
+    border-collapse: collapse;
+}
+
+.list-semillero-admin-content-table-tr{
+    border: 1px solid var(--color-border-bottom-tr);
+}
+
+.list-semillero-admin-content-table-tr:nth-child(even){
+    background-color: #f9f9f9;
+}
+
+.list-semillero-admin-content__table__tr__th{
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    text-wrap: nowrap;
+    text-align: left;
+    padding: 8px;
+}
+
+.list-semillero-admin-content-table-td{
+    border: 1px solid #dddddd;
+    padding: 8px;
+    text-align: left;
+  
+}
+
+.list-semillero-admin-content-table__td__btns{
+    display: flex;
+    padding: 5px;
+    
+}
+
+.list-semillero-admin-content-table__td__btn{
+    font-size: 22px;
+    margin-right: 9px;
+    position: relative;
+    left: 110%;
+}
+
+.list-semillero-admin-content-table__td__btn:hover{
+    transform: scale(1.09);
+    
+}
+
+.puntico{
+    color: #39a900;
+    font-size: 25px;
+    position: relative;
+    top: -1.5rem;
+   left:199%;
+    
+}
+
+
+

@@ -58,4 +58,5 @@ pero solo en los estilos de la pagina a usar */
     flex-direction: column;
     padding: 2rem;
     padding-top: 10px;
+    overflow-x: hidden;
 }

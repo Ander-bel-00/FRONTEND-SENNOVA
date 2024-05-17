@@ -16,11 +16,12 @@ function Crear_Proyecto() {
 
   const [formNewProyect, setFormNewProyect] = useState({
     semillero: SemilleroID,
+    codigo: "",
     tipo_proyecto: "",
     nombre_proyecto: "",
     descripcion_proyecto: "",
     fecha_inicio: "",
-    fecha_fin: ""
+    fecha_fin: "",
   });
 
   // Esta función maneja el cambio en cualquier campo del formulario.
@@ -36,12 +37,14 @@ function Crear_Proyecto() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     // Verificar si algún campo está vacío
-    const anyFieldEmpty = Object.values(formNewProyect).some(value => value === '');
+    const anyFieldEmpty = Object.values(formNewProyect).some(
+      (value) => value === ""
+    );
     if (anyFieldEmpty) {
       // Mostrar Sweet Alert si algún campo está vacío
       Swal.fire({
         title: "Error al crear el Proyecto",
-        text: 'Debes diligenciar todos los campos',
+        text: "Debes diligenciar todos los campos",
         icon: "error",
         confirmButtonText: "Aceptar",
       });
@@ -56,14 +59,14 @@ function Crear_Proyecto() {
         showCancelButton: false,
         confirmButtonText: "Aceptar",
       }).then((result) => {
-        return navigate('../listar-Proyectos')
+        return navigate("../listar-Proyectos");
       });
     } catch (error) {
       console.error("Error al crear el proyecto para el semillero", error);
 
       Swal.fire({
         title: "Error al crear el Proyecto",
-        text: 'Hubo un error al crear el proyecto',
+        text: "Hubo un error al crear el proyecto",
         icon: "error",
         confirmButtonText: "Aceptar",
       });
@@ -84,7 +87,24 @@ function Crear_Proyecto() {
                   Crear Proyecto
                 </h2>
 
-                <form className="form-add-pryect-container" onSubmit={handleSubmit}>
+                <form
+                  className="form-add-pryect-container"
+                  onSubmit={handleSubmit}
+                >
+                  <label
+                    htmlFor="codigo"
+                    className="form-add-pryect-admin-container__col1__label"
+                  >
+                    Código SGPS (Sistema de gestión de proyectos SENNOVA){" "}
+                    <p className="rojo-required">*</p>
+                  </label>
+                  <input
+                    type="text"
+                    name="codigo"
+                    id="codigo"
+                    className="form-add-pryect-admin-container__col1__input"
+                    onChange={handleChange}
+                  />
                   <label
                     htmlFor="tipo proyecto"
                     className="form-add-pryect-container__col1__label"
