@@ -113,17 +113,13 @@ function Landing_ofi() {
                     <CreadoresPage nombre={'Karol Andrea Montoya Rendón.'} rol={'Aprendiz Investigador'} img={Karito}/>
                     <CreadoresPage nombre={'Carlos Eduardo Arias Urrego.'} rol={'Aprendiz Investigador'} img={Carlitos}/>
                 </div>
-            </section>
 
-            <section className='creadores' id='creadores'>
                 <h2>Directivos</h2>
-
                 <div className='creadores__card'>
                     <CreadoresPage nombre={'Subdirectora.'} rol={'Subdirecora.'} img={Juan_Carlos} is_git={false}/>
                     <CreadoresPage nombre={'Coordinador.'} rol={'Coordinador.'} img={J_Raigosa} is_git={false} />
                 </div>
             </section>
-        
 
             {/* Se hace el llamado del componente pie de página. */}
             <Footer />
