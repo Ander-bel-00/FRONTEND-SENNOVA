@@ -101,7 +101,7 @@ function Crear_Proyecto() {
                     type="text"
                     name="codigo"
                     id="codigo"
-                    className="form-add-pryect-admin-container__col1__input"
+                    className="form-add-pryect-container__col1__input"
                     onChange={handleChange}
                   />
                   <label

@@ -77,10 +77,10 @@ function Listar_Eventos_Admin() {
                   <td className="list-events-table__td-admin">
                   
                     <div className="list-events-table__td__btns-admin">
-                      <Link to={"/admin/visualizar-evento"} >
+                      <Link to={`../visualizar-evento/${evento.id}`} >
                         <LiaEye className="list-events-table__td__btn-admin" />
                       </Link>
-                      <Link to={"/admin/actualizar-eventos"} >
+                      <Link to={`../actualizar-eventos/${evento.id}`} >
                         <FaRegEdit className="list-events-table__td__btn-admin" />
                       </Link>
                       <Link>

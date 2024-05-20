@@ -117,10 +117,10 @@ function Listar_Actividad_Admin() {
                     </td>
                     <td className="list-activity-admin-content-table__td">
                       <div className="list-activity-admin-content-table__td__btns">
-                        <Link to={"/visualizar-actividad"}>
+                        <Link to={"../visualizar-actividad"}>
                           <LiaEyeSolid className="list-activity-admin-content-table__td__btn" />
                         </Link>
-                        <Link to={"/admin/actualizar-actividad"}>
+                        <Link to={`../actualizar-actividad/${actividad.id}`}>
                           <FaRegEdit className="list-activity-admin-content-table__td__btn" />
                         </Link>
                         <Link>
