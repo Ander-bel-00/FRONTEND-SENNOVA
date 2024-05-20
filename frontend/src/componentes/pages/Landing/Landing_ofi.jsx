@@ -1,18 +1,18 @@
 import React from 'react'
 import './css/Landing_ofi.css';
-import Imagen_Teinnova from './img/teinnova.jpg';
-import Circulo_Sennova from './img/duo_senn.jpg';
+import Imagen_Teinnova from './img/TEINNOVA.png';
+// import Circulo_Sennova from './img/duo_senn.jpg';
 import Imagen_Uno from './img/pagina_princi.jpg';
 import Gif from './img/buscar_5.gif';
 import Tei_Azul from './img/tei_az.png';
 import Cards from './Cards/Cards';
 import Encabezado from './Encabezado';
 import Footer from './Pie_de_pagina';
-import Creadores from './Creadores';
 import btn_flotante from './btn_flotante';
 import logo_circulo from './img/logo-circulo-sen.webp';
 import CreadoresPage from './creadores_page';
 
+// Fotos Creadores
 import Juan_Carlos from './img/juanca.jpg';
 import Yesid from './img/Y_Molina.jpg';
 import Ander from './img/A_Beltran_2.jpg';
@@ -102,19 +102,18 @@ function Landing_ofi() {
                 <h1>Nuestros Creadores</h1>
 
                 <div className='creadores__card'>
-                    <CreadoresPage nombre={'Juan Carlos García.'} rol={'Lider SENNOVA.'} img={Juan_Carlos} is_git={false}/>
+                    <CreadoresPage nombre={'Juan Carlos García Buitrago.'} rol={'Lider SENNOVA.'} img={Juan_Carlos} is_git={false}/>
                     <CreadoresPage nombre={'Jorge Luis Raigosa Barahona.'} rol={'Lider Semillero.'} img={J_Raigosa} />
-                    <CreadoresPage nombre={'Yuly Paulín Sáenz.'} rol={'Instructor Investigador.'}  img={Yuly}/>
+                    <CreadoresPage nombre={'Yuly Paulín Sáenz Agudelo.'} rol={'Instructora Investigadora.'}  img={Yuly}/>
                     <CreadoresPage nombre={'Yesid Molina Becerra.'} rol={'Aprendiz Investigador'} img={Yesid} />
-                    <CreadoresPage nombre={'Jhon Anderson Beltran.'} rol={'Aprendiz Investigador'} img={Ander} />
-                    <CreadoresPage nombre={'Johan Sebastian Valle.'} rol={'Aprendiz Investigador'} img={S_valle} />
-                    <CreadoresPage nombre={'Isaac Echeverry.'} rol={'Aprendiz Investigador'} img={isaac}/>
-                    <CreadoresPage nombre={'Stephania Duque.'} rol={'Aprendiz Investigador'} img={Stepha}/>
-                    <CreadoresPage nombre={'Karol Andrea Montoya.'} rol={'Aprendiz Investigador'} img={Karito}/>
-                    <CreadoresPage nombre={'Carlos Eduardo Arias .'} rol={'Aprendiz Investigador'} img={Carlitos}/>
+                    <CreadoresPage nombre={'Jhon Anderson Beltran Echavarria.'} rol={'Aprendiz Investigador'} img={Ander} />
+                    <CreadoresPage nombre={'Johan Sebastian Valle Barbaran.'} rol={'Aprendiz Investigador'} img={S_valle} />
+                    <CreadoresPage nombre={'Isaac Echeverry García.'} rol={'Aprendiz Investigador'} img={isaac}/>
+                    <CreadoresPage nombre={'Stephania Herrera Duque.'} rol={'Aprendiz Investigador'} img={Stepha}/>
+                    <CreadoresPage nombre={'Karol Andrea Montoya Rendón.'} rol={'Aprendiz Investigador'} img={Karito}/>
+                    <CreadoresPage nombre={'Carlos Eduardo Arias Urrego.'} rol={'Aprendiz Investigador'} img={Carlitos}/>
                 </div>
             </section>
-        
 
             {/* Se hace el llamado del componente pie de página. */}
             <Footer />

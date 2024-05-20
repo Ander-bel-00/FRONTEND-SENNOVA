@@ -7,7 +7,7 @@ import BotonVerdeAñadir from "../../../common/BotonVerde";
 import { IoPersonAddSharp } from "react-icons/io5";
 import clienteAxios from "../../../../config/axios";
 import { useAuth } from "../../../../context/AuthContext";
-import html2canvas from 'html2canvas';
+import html2canvas from 'html2canvas'; 
 import jsPDF from 'jspdf';
 
 

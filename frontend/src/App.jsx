@@ -443,14 +443,14 @@ function App() {
                       }
                     />
 
-                    <Route
-                      path="/users-update"
-                      element={
-                        <main className="main-container">
-                          <ModificarUsuario />
-                        </main>
-                      }
-                    />
+                  <Route
+                    path="/users-update"
+                    element={
+                      <main className="main-container">
+                        <ModificarUsuario />
+                      </main>
+                    }
+                  />
 
                     <Route
                       path="/visualizar-suspender-proyecto"

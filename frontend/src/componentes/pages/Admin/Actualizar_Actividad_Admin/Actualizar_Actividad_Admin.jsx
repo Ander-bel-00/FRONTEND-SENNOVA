@@ -94,10 +94,10 @@ function Actualizar_Actividad_Admin() {
                   <label
                     htmlFor="nombre-actividad"
                     className="form-update-activity-admin-content__col1__label"
-                  >
+                    >
                     Nombre de la Actividad <p className="text-red-600">*</p>
-                  </label>
-                  <input
+                    </label>
+                    <input
                     type="text"
                     id="nombre_actividad"
                     className="form-update-activity-admin-content__col1__input"
@@ -147,10 +147,10 @@ function Actualizar_Actividad_Admin() {
                   <label
                     htmlFor="tarea-activida"
                     className="form-update-activity-admin-content__col1__label"
-                  >
+                    >
                     Tarea <p className="text-red-600">*</p>
-                  </label>
-                  <input
+                    </label>
+                    <input
                     type="text"
                     id="tarea"
                     name="tarea"
@@ -161,11 +161,13 @@ function Actualizar_Actividad_Admin() {
                   <label
                     htmlFor="resultado"
                     className="form-update-activity-admin-content__col1__label"
-                  >
+                    >
                     Resultado <p className="text-red-600">*</p>
-                  </label>
-                  <input
+                    </label>
+                    <input
                     type="text"
+                    id="resultado"
+                    name="resultado"
                     id="resultado"
                     name="resultado"
                     className="form-update-activity-admin-content__col1__input"
@@ -175,11 +177,11 @@ function Actualizar_Actividad_Admin() {
                   <label
                     htmlFor="responsable_actividad"
                     className="form-update-activity-admin-content__col1__label"
-                  >
+                    >
                     Responsable de la Actividad{" "}
                     <p className="text-red-600">*</p>
-                  </label>
-                  <input
+                    </label>
+                    <input
                     type="text"
                     id="responsable_actividad"
                     name="responsable_actividad"

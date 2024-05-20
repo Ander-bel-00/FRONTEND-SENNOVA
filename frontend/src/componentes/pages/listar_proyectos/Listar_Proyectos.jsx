@@ -45,6 +45,7 @@ function Listar_Proyectos() {
         "Nombre del Proyecto",
         "Fecha Inicio del Proyecto",
         "Fecha Fin del Proyecto",
+        "Codigo SGPS",
         "Descripción del Proyecto",
       ],
       ...proyectosSemillero.map((proyect) => [
@@ -58,6 +59,7 @@ function Listar_Proyectos() {
 
     // Agrega estilos de tabla a la hoja de cálculo
     ws["!cols"] = [
+      { width: 40 },
       { width: 40 },
       { width: 40 },
       { width: 40 },
@@ -112,6 +114,9 @@ function Listar_Proyectos() {
                     Fecha Fin del Proyecto
                   </th>
                   <th className="list-project-table__th">
+                    Código SGPS
+                  </th>
+                  <th className="list-project-table__th">
                     Descripción del Proyecto
                   </th>
                   <th className="list-project-table__th">Acciones</th>
@@ -126,7 +131,12 @@ function Listar_Proyectos() {
                     <td className="list-project-table__td">
                       {list.fecha_inicio}
                     </td>
-                    <td className="list-project-table__td">{list.fecha_fin}</td>
+                    <td className="list-project-table__td">
+                      {list.fecha_fin}
+                    </td>
+                    <td className="list-project-table__td">
+                      {list.codigo_sgps}
+                    </td>
                     <td className="list-project-table__td">
                       {list.descripcion_proyecto}
                     </td>

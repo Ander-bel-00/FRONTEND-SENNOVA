@@ -92,7 +92,7 @@ function Actualizar_Actividad() {
                     <button className="btn-actualizar-actividad">
                       Actualizar
                     </button>
-                    <Link to={"/lider-semillero/Listar_Actividad"}>
+                    <Link to={"/lider-semillero/listar-actividad"}>
                       <button
                         className="btn-cancelar-actividad-uptd"
                         type="button"

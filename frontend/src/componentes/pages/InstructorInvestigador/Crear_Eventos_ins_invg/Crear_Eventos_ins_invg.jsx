@@ -8,6 +8,7 @@ import Swal from "sweetalert2";
 import BotonReturn from "../../../common/BotonReturn";
 
 function Crear_Eventos_ins_invg() {
+  
   const { userProfile } = useAuth();
   const navigate = useNavigate();
 
@@ -90,7 +91,7 @@ return (
               />
 
               <label className="form-add-event-container__label-admin">
-                Tipo <p className="rojo-required">*</p>
+                Tipo de Evento<p className="rojo-required">*</p>
               </label>
               <select className="form-add-event-container__input-admin"
                   name='tipo_de_evento'
@@ -99,8 +100,8 @@ return (
                 <option selected>
                   Seleccione el tipo de evento
                 </option>
-                <option>Asistente</option>
-                <option>Ponente</option>
+                <option value='Ponente'>Ponente</option>
+                <option value='CTI'>CTI</option>
               </select>
               
               <label className="form-add-event-container__label-admin">

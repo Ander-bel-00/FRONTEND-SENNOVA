@@ -90,8 +90,10 @@
     color: red;
 }
 .form-add-event-container-instructor__select{
+    margin-top: 8px;
+    margin-bottom: 5px;
     background-color: var(--bg-inputs);
-    height: 2rem;
+    height: 2.5rem;
     border-radius: 5px;
 
 }

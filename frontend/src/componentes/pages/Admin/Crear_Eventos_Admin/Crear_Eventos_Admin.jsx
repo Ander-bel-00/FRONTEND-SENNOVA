@@ -1,4 +1,3 @@
-import { IoIosReturnLeft } from "react-icons/io";
 import Caja_formularios from "../../../common/Caja_formularios";
 import { Fragment, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
@@ -9,6 +8,7 @@ import Swal from "sweetalert2";
 import { useAuth } from "../../../../context/AuthContext";
 
 function Crear_Eventos_Admin() {
+  
   const { userProfile } = useAuth();
   const navigate = useNavigate();
 
@@ -96,7 +96,7 @@ function Crear_Eventos_Admin() {
                 />
 
                 <label className="form-add-event-container__label-admin">
-                  Tipo <p className="rojo-required">*</p>
+                  Tipo de Evento <p className="rojo-required">*</p>
                 </label>
                 <select
                   className="form-add-event-container__input-admin"
@@ -108,6 +108,7 @@ function Crear_Eventos_Admin() {
                   <option value="CTI">CTI</option>
                 </select>
 
+                
                 <label className="form-add-event-container__label-admin">
                   Fecha de Inicio del Evento <p className="rojo-required">*</p>
                 </label>
@@ -121,6 +122,7 @@ function Crear_Eventos_Admin() {
                 <label className="form-add-event-container__label-admin">
                   Fecha de Fin del Evento <p className="rojo-required">*</p>
                 </label>
+
                 <input
                   type="date"
                   className="form-add-event-container__input-admin"
