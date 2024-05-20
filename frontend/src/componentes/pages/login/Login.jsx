@@ -4,7 +4,7 @@ import Logo_Tei from "./img/ef_logo_tei.png";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../../../context/AuthContext";
 import LogoSennova from '../Landing/img/sennova-logo.png'
-import CDITI from '../Landing/img/CDITI.png';
+import CDITI2 from '../Landing/img/CDITI2.png';
 import LT_Sena from '../Landing/img/sena-logo.svg';
 import logo_app from '../Landing/img/logo-app.svg';
 import sennova from '../Landing/img/sennova.svg';
@@ -67,7 +67,7 @@ function Login() {
           <img className='header__img-sena' src={LT_Sena} alt="" />
           <div className='header-imgs'>
             <img className='header__img-sennova' src={LogoSennova} alt="" />
-            <img className='header__img-cditi' src={CDITI} alt="" />
+            <img className='header__img-cditi' src={CDITI2} alt="" />
             <img className='header__img-cditi' src={teinnova} alt="" />
             </div>
         </section>

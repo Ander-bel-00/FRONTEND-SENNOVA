@@ -13,6 +13,7 @@ import { FaFileArrowUp } from "react-icons/fa6";
 import { LuCalendarDays } from "react-icons/lu";
 import BotonReturn from "../../../common/BotonReturn";
 import "./css/Visualizar_Actividad_Admin.css";
+import * as XLSX from "xlsx";
 
 function Visualizar_Actividad_Admin() {
   const Contenido = [
@@ -34,6 +35,43 @@ function Visualizar_Actividad_Admin() {
     },
   ];
 
+  const exportToExcel = () => {
+    const wb = XLSX.utils.book_new();
+    const wsData = [
+      [
+        "Nombre Actividad",
+        "Tarea",
+        "Fecha",
+        "Resultado",
+        "Producto",
+        "Responsable de la Actividad",
+      ],
+      ...Contenido.map((Contenidos) => [
+        Contenidos.nombre,
+        Contenidos.tarea,
+        Contenidos.fecha,
+        Contenidos.resultado,
+        Contenidos.producto,
+        Contenidos.responsable,
+      ]),
+    ];
+    const ws = XLSX.utils.aoa_to_sheet(wsData);
+
+    // Agrega estilos de tabla a la hoja de cálculo
+    ws["!cols"] = [
+      { width: 30 },
+      { width: 30 },
+      { width: 30 },
+      { width: 30 },
+      { width: 30 },
+      { width: 30 },
+    ];
+
+    // Genera el archivo Excel
+    XLSX.utils.book_append_sheet(wb, ws, "Contenido-Actividad");
+    XLSX.writeFile(wb, "contenido-actividad.xlsx");
+  };
+
   return (
     <div className="main-container__contenedor-hijo">
       <Header_ToolBar
@@ -45,7 +83,7 @@ function Visualizar_Actividad_Admin() {
                 icon={<IoIosReturnLeft />}
               />
             </div>
-            <BotonBlanco icon={<FaFileArrowUp />} text={"Reporte"} clase={'btn-blanco btn-blanco--modify btn-verde'} />
+            <BotonBlanco icon={<FaFileArrowUp />} text={"Reporte"} clase={'btn-blanco btn-blanco--modify btn-verde'} onClick={exportToExcel}/>
             <BotonBlanco icon={<LuCalendarDays />} text={"Ir al Cronograma"} clase={'btn-blanco btn-blanco--modify btn-azul'}/>
             <Search icon={<FaSearch />} text={"Buscar Actividades"} />
             <BotonVerdeAñadir

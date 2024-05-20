@@ -13,11 +13,16 @@ import btn_flotante from './btn_flotante';
 import logo_circulo from './img/logo-circulo-sen.webp';
 import CreadoresPage from './creadores_page';
 
-import Juan_Carlos from './img/J_Carlos.jpg';
+import Juan_Carlos from './img/juanca.jpg';
 import Yesid from './img/Y_Molina.jpg';
 import Ander from './img/A_Beltran_2.jpg';
 import J_Raigosa from './img/J_Raigosa.jpg'
-import S_valle from './img/S_Valle.jpg'
+import S_valle from './img/barbaran.jpg';
+import Carlitos from './img/carlitos.jpg';
+import Karito from './img/karito.jpg';
+import Stepha from './img/stephania.jpg';
+import Yuly from './img/yuly_saenz.jpg';
+import isaac from './img/isaac.jpg';
 import { Link } from 'react-router-dom';
 
 function Landing_ofi() {
@@ -32,9 +37,8 @@ function Landing_ofi() {
                 <div className='container-ficha-ingreso'>
                     <div className='container-ficha-ingreso__content'>
                         <h2>SENNOVA <br /> <br />Sistema de Investigación, <br /> Desarrollo Tecnológico e Innovación</h2> <br />
-                        <p className='text-sistema'>Fortaleciendo capacidades locales en productividad, <br /> competitividad,  generación de conocimiento y  <br /> pertinencia de la Formación Profesional Integral  Impartida</p>
+                        <p className='text-sistema'>Fortaleciendo capacidades locales en productividad, </p> <p className='text-sistema'>competitividad, generación de conocimiento y </p>  <p className='text-sistema'>pertinencia de la Formación Profesional Integral</p>   <p className='text-sistema'>Impartida</p>
                         <Link className="btn btn--big" to="/login"><button>Ingresar</button></Link>
-
                     </div>
                 </div>
                 <div className='imgWrapper'>
@@ -51,7 +55,7 @@ function Landing_ofi() {
 
                 <div className='row_2' id='semilleros'>
                     <div className='imgWrapper_2'><img src={Imagen_Uno} alt="" />
-                        <h2>¿QUÉ SON LOS SEMILLEROS <br></br> DE INVESTIGACIÓN?</h2>
+                        <h2 className='titulo-semilleros'>¿QUÉ SON LOS SEMILLEROS <br></br> DE INVESTIGACIÓN?</h2>
                     </div>
 
                     {/* <img className='Gif' src={Gif} alt="" /> */}
@@ -91,7 +95,6 @@ function Landing_ofi() {
                 <div className='imgWrapper_2'>
                     <img src={Tei_Azul} alt="" />
                 </div>
-
             </div>
 
             <section className='creadores' id='creadores'>
@@ -100,14 +103,14 @@ function Landing_ofi() {
                 <div className='creadores__card'>
                     <CreadoresPage nombre={'Juan Carlos García.'} rol={'Lider SENNOVA.'} img={Juan_Carlos} is_git={false}/>
                     <CreadoresPage nombre={'Jorge Luis Raigosa Barahona.'} rol={'Lider Semillero.'} img={J_Raigosa} />
-                    <CreadoresPage nombre={'Yuly Paulín Sáenz.'} rol={'Instructor Investigador.'}  />
+                    <CreadoresPage nombre={'Yuly Paulín Sáenz.'} rol={'Instructor Investigador.'}  img={Yuly}/>
                     <CreadoresPage nombre={'Yesid Molina Becerra.'} rol={'Aprendiz Investigador'} img={Yesid} />
                     <CreadoresPage nombre={'Jhon Anderson Beltran.'} rol={'Aprendiz Investigador'} img={Ander} />
                     <CreadoresPage nombre={'Johan Sebastian Valle.'} rol={'Aprendiz Investigador'} img={S_valle} />
-                    <CreadoresPage nombre={'Isaac Echeverry.'} rol={'Aprendiz Investigador'} />
-                    <CreadoresPage nombre={'Stephania Duque.'} rol={'Aprendiz Investigador'} />
-                    <CreadoresPage nombre={'Karol Andrea Montoya.'} rol={'Aprendiz Investigador'} />
-                    <CreadoresPage nombre={'Carlos Eduardo Arias .'} rol={'Aprendiz Investigador'} />
+                    <CreadoresPage nombre={'Isaac Echeverry.'} rol={'Aprendiz Investigador'} img={isaac}/>
+                    <CreadoresPage nombre={'Stephania Duque.'} rol={'Aprendiz Investigador'} img={Stepha}/>
+                    <CreadoresPage nombre={'Karol Andrea Montoya.'} rol={'Aprendiz Investigador'} img={Karito}/>
+                    <CreadoresPage nombre={'Carlos Eduardo Arias .'} rol={'Aprendiz Investigador'} img={Carlitos}/>
                 </div>
             </section>
         

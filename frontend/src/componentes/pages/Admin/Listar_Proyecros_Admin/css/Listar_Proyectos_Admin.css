@@ -1,6 +1,6 @@
 .list-project-admin-table{
     position: relative;
-    left: 1%;
+    left: 0%;
     width: 98%;
     border-collapse: collapse;
 }
@@ -21,3 +21,23 @@
     padding: 8px;
 }
 
+.list-project-admin-table__td{
+    border: 1px solid #dddddd;
+    padding: 8px;
+    text-align: left;
+}
+
+
+.list-project-admin-table__td__btns{
+    display: flex;
+    padding: 5px;
+}
+
+.list-project-admin-table__td__btn{
+    font-size: 22px;
+    margin-right: 9px;
+}
+
+.list-project-admin-table__td__btn:hover{
+    transform: scale(1.09);
+}

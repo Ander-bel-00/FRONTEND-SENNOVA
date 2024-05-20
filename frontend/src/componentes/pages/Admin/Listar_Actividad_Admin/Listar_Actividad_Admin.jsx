@@ -13,24 +13,65 @@ import BotonVerdeAñadir from "../../../common/BotonVerde";
 import Caja_Blanca from "../../../common/Caja_Blanca";
 import { Link } from "react-router-dom";
 import clienteAxios from "../../../../config/axios";
-
+import * as XLSX from "xlsx";
 
 function Listar_Actividad_Admin() {
-  const [ListActivitys, setListActivitys] = useState([]);
+  
+  const [listActivitys, setListActivitys] = useState([]);
 
-  useEffect(() => { // useEffect, es un hook de react función que permite realizar un efecto una vez 
-    //el componente se haya renderizado o cargado en el navegador. Es decir realizar lo que tiene adentro
-    const ObtenerActividadSemillero = async () => {
+  useEffect(() =>{
+    const Obteneractividadsemilleros = async () => {
       try {
-        const res = await clienteAxios.get(`/activity-semillero/`) 
-        setListActivitys(res.data);  // res(respuesta) y se guarda o actualiza en la bases de datos
-      } catch (error) {
-        console.error("Error al obtener las actividades del semillero: ", error);
+          const res = await clienteAxios.get(`/activity-semillero/`);
+          setListActivitys(res.data);
+        }
+        catch (error) {
+        console.error('Error al obtener las actividades del Semillero:', error);
       }
     }
-    ObtenerActividadSemillero();  // función que indica iniciar todo, es decir obtener las actividades
-  }, []); // el efecto nunca va a depender de nada cuando este [] o de un id
-   
+    Obteneractividadsemilleros(); // Así se llama la función para obtener las actividades
+  }, []);
+
+
+  const exportToExcel = () => {
+    const wb = XLSX.utils.book_new();
+    const wsData = [
+      [
+        "Nombre Actividad",
+        "Tarea",
+        "Fecha de Inicio",
+        "Fecha de Fin",
+        "Resultado",
+        "Responsable de la Actividad",
+        "Semillero",
+      ],
+      ...listActivitys.map((actividad) => [
+        actividad.nombre_actividad,
+        actividad.tarea,
+        actividad.fecha_inicio,
+        actividad.fecha_fin,
+        actividad.resultado,
+        actividad.responsable_actividad,
+        actividad.semillero,
+      ]),
+    ];
+    const ws = XLSX.utils.aoa_to_sheet(wsData);
+
+    // Agrega estilos de tabla a la hoja de cálculo
+    ws["!cols"] = [
+      { width: 40 },
+      { width: 40 },
+      { width: 40 },
+      { width: 40 },
+      { width: 40 },
+      { width: 40 },
+    ];
+
+    // Genera el archivo Excel
+    XLSX.utils.book_append_sheet(wb, ws, "Actividades");
+    XLSX.writeFile(wb, "actividades.xlsx");
+  };
+
   return (
     <Fragment>
       <div className="main-container__contenedor-hijo">
@@ -41,6 +82,7 @@ function Listar_Actividad_Admin() {
                 icon={<FaFileArrowUp />}
                 text={"Reporte"}
                 clase={"btn-blanco btn-blanco--modify btn-verde"}
+                onClick={exportToExcel}
               />
 
               <BotonBlanco
@@ -71,17 +113,15 @@ function Listar_Actividad_Admin() {
                     Tarea
                   </th>
                   <th className="list-activity-admin-content__table__tr__th">
-                    Fecha Inicio
+                    Fecha de Inicio
                   </th>
                   <th className="list-activity-admin-content__table__tr__th">
-                    Fecha Fin
+                    Fecha de Fin
                   </th>
                   <th className="list-activity-admin-content__table__tr__th">
                     Resultado
                   </th>
-                  <th className="list-activity-admin-content__table__tr__th">
-                    Producto
-                  </th>
+
                   <th className="list-activity-admin-content__table__tr__th">
                     Responsable de la Actividad
                   </th>
@@ -94,7 +134,7 @@ function Listar_Actividad_Admin() {
                 </tr>
               </thead>
               <tbody>
-                {ListActivitys.map((actividad) => (
+                {listActivitys.map((actividad) => (
                   <tr key={actividad.id} className="list-activity-admin-content-table-tr">
                     <td className="list-activity-admin-content-table-td">
                       {actividad.nombre_actividad}
@@ -112,9 +152,6 @@ function Listar_Actividad_Admin() {
                       {actividad.resultado}
                     </td>
                     <td className="list-activity-admin-content-table-td">
-                      {actividad.producto}
-                    </td>
-                    <td className="list-activity-admin-content-table-td">
                       {actividad.responsable_actividad}
                     </td>
                     <td className="list-activity-admin-content-table-td">
@@ -122,10 +159,10 @@ function Listar_Actividad_Admin() {
                     </td>
                     <td className="list-activity-admin-content-table__td">
                       <div className="list-activity-admin-content-table__td__btns">
-                        <Link to={"/"}>
+                        <Link to={"/admin/visualizar-actividad"}>
                           <LiaEyeSolid className="list-activity-admin-content-table__td__btn" />
                         </Link>
-                        <Link to={"/admin/actualizar-actividad"}>
+                        <Link to={`../actualizar-actividad/${actividad.id}`}>
                           <FaRegEdit className="list-activity-admin-content-table__td__btn" />
                         </Link>
                         <Link>

@@ -61,16 +61,13 @@ import { ProtectedRoute } from "./ProtectedRoute";
 import Perfil from "./componentes/pages/perfil/Perfil";
 import Visualizar_Programa_Formacion_Admin from "./componentes/pages/Admin/Visualizar_Programa_Formacion_Admin/Visualizar_Programa_Formacion_Admin";
 import Crear_Programa_Formacion_Admin from "./componentes/pages/Admin/Crear_Programa_Formacion_Admin/Crear_Programa_Formacion_Admin";
-import Visualizar_Actividad_Admin from "./componentes/pages/Admin/Visualizar_Actividad_Admin/Visualizar_Actividad_Admin";
 import Listar_Eventos_Admin from "./componentes/pages/Admin/Listar_Eventos_Admin/Listar_Eventos_Admin";
 import Visualizar_Evento_Admin from "./componentes/pages/Admin/Visualizar_Evento_Admin/Visualizar_Evento_Admin";
 import Crear_Eventos_Admin from "./componentes/pages/Admin/Crear_Eventos_Admin/Crear_Eventos_Admin";
 import Actualizar_Eventos_Admin from "./componentes/pages/Admin/Actualizar_Eventos_Admin/Actualizar_Eventos_Admin";
-import Cronograma_Admin from "./componentes/pages/Admin/Cronograma_Admin/Cronograma_Admin";
 import Listar_Proyectos_Admin from "./componentes/pages/Admin/Listar_Proyecros_Admin/Listar_Proyectos_Admin";
 import Visualizar_Suspender_Proyecto_Admin from "./componentes/pages/Admin/Visualizar_Suspender_Proyecto_Admin/Visualizar_Suspender_Proyecto_Admin";
 import Actualizar_Proyectos_Admin from "./componentes/pages/Admin/Actualizar_Proyectos_Admin/Actualizar_Proyectos_Admin";
-import Crear_Proyectos_Admin from "./componentes/pages/Admin/Crear_Proyectos_Admin/Crear_Proyectos_Admin";
 import Crear_Actividad_Admin from "./componentes/pages/Admin/Crear_Actividad_Admin/Crear_Actividad_Admin";
 import Listar_Actividad_Admin from "./componentes/pages/Admin/Listar_Actividad_Admin/Listar_Actividad_Admin";
 import Actualizar_Actividad_Admin from "./componentes/pages/Admin/Actualizar_Actividad_Admin/Actualizar_Actividad_Admin";
@@ -80,7 +77,8 @@ import Crear_Usuario_Admin from "./componentes/pages/Admin/Crear_Usuario_Admin/C
 import Visualizar_Usuario_Admin from "./componentes/pages/Admin/Visualizar_Usuario_Admin/Visualizar_Usuario_Admin";
 import Cronograma_proyectos from "./componentes/pages/cronograma-proyectos/Cronograma_proyectos";
 import VisualizarProyectos from "./componentes/pages/visualizar_proyectos/Visualizar_proyectos";
-
+import Listar_Semilleros_Admin from "./componentes/pages/Admin/Listar_semilleros/Listar_semilleros";
+import Visualizar_Actividad_Admin from "./componentes/pages/Admin/Visualizar_Actividad_Admin/Visualizar_Actividad_Admin";
 
 function App() {
   const { isAuthenticated, userRole, handleLogout } = useAuth();
@@ -140,19 +138,23 @@ function App() {
                       element={
                         <Fragment>
                           <main className="main-container">
+                            <Listar_Semilleros_Admin />
+                          </main>
+                        </Fragment>
+                      }
+                    />
+
+                    <Route
+                      path="/semillero"
+                      element={
+                        <Fragment>
+                          <main className="main-container">
                             <Semillero_Admin />
                           </main>
                         </Fragment>
                       }
                     />
-                    <Route
-                      path="/crear-proyecto"
-                      element={
-                        <main className="main-container">
-                          <Crear_Proyecto />
-                        </main>
-                      }
-                    />
+
                     <Route
                       path="/crear-semillero"
                       element={
@@ -163,6 +165,7 @@ function App() {
                         </Fragment>
                       }
                     />
+
                     <Route
                       path="/crear-actividad"
                       element={
@@ -194,7 +197,7 @@ function App() {
                       element={
                         <Fragment>
                           <main className="main-container">
-                            <Cronograma_Admin />
+                            <Cronograma />
                           </main>
                         </Fragment>
                       }
@@ -300,7 +303,7 @@ function App() {
                     />
 
                     <Route
-                      path="/actualizar-eventos"
+                      path="/actualizar-eventos/:id"
                       element={
                         <main className="main-container">
                           <Actualizar_Eventos_Admin />
@@ -320,12 +323,12 @@ function App() {
                       path="/visualizar-proyecto/:id"
                       element={
                         <main className="main-container">
-                          <VisualizarProyectos/>
+                          <VisualizarProyectos />
                         </main>
                       }
                     />
                     <Route
-                      path="/actualizar-proyectos"
+                      path="/actualizar-proyecto/:id"
                       element={
                         <main className="main-container">
                           <Actualizar_Proyectos_Admin />
@@ -333,10 +336,10 @@ function App() {
                       }
                     />
                     <Route
-                      path="/crear-proyectos"
+                      path="/crear-proyecto"
                       element={
                         <main className="main-container">
-                          <Crear_Proyectos_Admin />
+                          <Crear_Proyecto />
                         </main>
                       }
                     />
@@ -357,7 +360,7 @@ function App() {
                       }
                     />
                     <Route
-                      path="/actualizar-actividad"
+                      path="/actualizar-actividad/:id"
                       element={
                         <main className="main-container">
                           <Actualizar_Actividad_Admin />
@@ -471,6 +474,14 @@ function App() {
                       element={
                         <main className="main-container">
                           <Crear_Proyecto />
+                        </main>
+                      }
+                    />
+                    <Route
+                      path="/visualizar-proyecto/:id"
+                      element={
+                        <main className="main-container">
+                          <VisualizarProyectos />
                         </main>
                       }
                     />
@@ -630,7 +641,7 @@ function App() {
                       path="/visualizar-actividad"
                       element={
                         <main className="main-container">
-                          <Visualizar_Actividad_ins_invg />
+                          <Visualizar_Actividad />
                         </main>
                       }
                     />
@@ -696,10 +707,10 @@ function App() {
                       }
                     />
                     <Route
-                      path="/visualizar-suspender-proyecto"
+                      path="/visualizar-proyecto/:id"
                       element={
                         <main className="main-container">
-                          <Visualizar_Suspender_Proyecto_Instructor_Investigador />
+                          <VisualizarProyectos />
                         </main>
                       }
                     />
@@ -715,7 +726,7 @@ function App() {
                       path="/listar-actividad"
                       element={
                         <main className="main-container">
-                          <Listar_Actividad_Instructor_Investigador />
+                          <Listar_Actividad />
                         </main>
                       }
                     />
@@ -732,7 +743,7 @@ function App() {
                       element={
                         <Fragment>
                           <main className="main-container">
-                            <Cronograma_ins_invg />
+                            <Cronograma />
                           </main>
                         </Fragment>
                       }
@@ -762,6 +773,14 @@ function App() {
                       element={
                         <main className="main-container">
                           <Visualizar_Usuario_ins_invg />
+                        </main>
+                      }
+                    />
+                    <Route
+                      path="/crear-proyecto"
+                      element={
+                        <main className="main-container">
+                          <Crear_Proyecto />
                         </main>
                       }
                     />
@@ -805,10 +824,10 @@ function App() {
                       }
                     />
                     <Route
-                      path="/visualizar-proyecto"
+                      path="/visualizar-proyecto/:id"
                       element={
                         <main className="main-container">
-                          <Visualizar_Proyecto_apr_invg />
+                          <VisualizarProyectos />
                         </main>
                       }
                     />
@@ -825,7 +844,7 @@ function App() {
                       element={
                         <Fragment>
                           <main className="main-container">
-                            <Cronograma_apr_invg />
+                            <Cronograma />
                           </main>
                         </Fragment>
                       }
@@ -902,79 +921,19 @@ function App() {
                         </main>
                       }
                     />
+
+                    <Route
+                      path="/visualizar-actividad"
+                      element={
+                        <main className="main-container">
+                          <Visualizar_Actividad />
+                        </main>
+                      }
+                    />
                   </Routes>
                 </Fragment>
               </ProtectedRoute>
             }
-          />
-
-          {/* admin */}
-          <Route
-           path="/admin/*"
-           element={
-            <Fragment>
-              <Header />
-              <Sidenav />
-              <Routes>
-                <Route 
-                 path="/listar-proyectos"
-                 element={
-                  <main className="main-container">
-                    <Listar_Proyectos_Admin />
-                  </main>
-                 }
-                />
-                <Route
-                 path="/visualizar-suspender-proyecto"
-                 element={
-                  <main className="main-container">
-                    <Visualizar_Suspender_Proyecto_Admin />
-                  </main>
-                 }
-                />
-                <Route
-                 path="/actualizar-proyectos"
-                 element={
-                  <main className="main-container">
-                    <Actualizar_Proyectos_Admin />
-                  </main>
-                 }
-                />
-                <Route 
-                 path="/crear-proyectos"
-                 element={
-                  <main className="main-container">
-                    <Crear_Proyectos_Admin />
-                  </main>
-                 }
-                />
-                <Route 
-                 path="/crear-actividad"
-                 element={
-                  <main className="main-container">
-                    <Crear_Actividad_Admin />
-                  </main>
-                 }
-                />
-                <Route 
-                 path="/listar-actividad"
-                 element={
-                  <main  className="main-container">
-                    <Listar_Actividad_Admin />
-                  </main>
-                 }
-                />
-                <Route
-                 path="/actualizar-actividad"
-                 element={
-                  <main className="main-container">
-                    <Actualizar_Actividad_Admin />
-                  </main>
-                 }
-                />
-              </Routes>
-            </Fragment>
-           }
           />
         </Routes>
       </BrowserRouter>

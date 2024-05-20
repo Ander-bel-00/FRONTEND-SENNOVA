@@ -1,7 +1,7 @@
 import { IoAdd, IoTrashOutline } from "react-icons/io5";
 import { GiReturnArrow } from "react-icons/gi";
 import { FaFileArrowUp } from "react-icons/fa6";
-import { CiCalendar } from "react-icons/ci";
+import { LuCalendarDays } from "react-icons/lu";
 import { FaSearch } from "react-icons/fa";
 import { Fragment } from "react";
 import { FaRegEdit } from "react-icons/fa";
@@ -34,22 +34,21 @@ function Visualizar_Actividad() {
     },
   ];
 
+  
   return (
     <div className="main-container__contenedor-hijo">
       <Header_ToolBar
         Header_Tools={
           <Fragment>
-            <div className="btn-vs-actividades-aprendiz">
               <BotonReturn icon={<GiReturnArrow />} />
-            </div>
             <BotonBlanco
               icon={<FaFileArrowUp/>}
               text={"Reporte"}
               clase={"btn-blanco btn-blanco--modify btn-verde"}
             />
             <BotonBlanco
-              icon={<CiCalendar />}
-              text={"calendario"}
+              icon={<LuCalendarDays />}
+              text={"Ir al Cronograma"}
               clase={"btn-blanco btn-blanco--modify btn-azul"}
             />
             <Search icon={<FaSearch />} text={"Buscar Actividades"} />

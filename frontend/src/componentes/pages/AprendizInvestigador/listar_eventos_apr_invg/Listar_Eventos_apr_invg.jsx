@@ -26,57 +26,61 @@ function Listar_Eventos_apr_invg() {
     ObtenerEventoSemillero(); // función que indica iniciar todo, es decir obtener las actividades
   }, []); // el efecto nunca va a depender de nada cuando este [] (depende de algo cuando se encuentere el id)
 
-
   return (
     <div className="main-container__contenedor-hijo">
       <Header_ToolBar
         Header_Tools={
           <Fragment>
-            <BotonBlanco icon={<FaFileArrowUp />} text={"Reporte"} clase={'btn-blanco btn-blanco--modify btn-verde'}  />
-            <BotonBlanco icon={<LuCalendarDays />} text={"Ir a Cronograma"} clase={'btn-blanco btn-blanco--modify btn-azul'} />
+            <BotonBlanco icon={<FaFileArrowUp />} text={"Reporte"} clase={'btn-blanco btn-blanco--modify btn-verde'} />
+            <BotonBlanco icon={<LuCalendarDays />} text={"Ir al Cronograma"} clase={'btn-blanco btn-blanco--modify btn-azul'} />
             <Search text={"Buscar Eventos"} />
+            <BotonVerdeAñadir icon={<IoAdd />} text={"Crear evento"} link={"/admin/crear-eventos"}/>
           </Fragment>
         }
       />
 
       <Caja_Blanca
         content={
-          <table className="list-events-table-aprendiz">
+          <table className="list-events-table-admin">
             <thead>
-              <tr className="list-events-table-aprendiz__tr">
-                <th className="list-events-table-aprendiz__th">Nombre</th>
-                <th className="list-events-table-aprendiz__th">Tipo de Evento</th>
-                <th className="list-events-table-aprendiz__th">Fecha Inicio</th>
-                <th className="list-events-table-aprendiz__th">
+              <tr className="list-events-table__tr-admin">
+                <th className="list-events-table__th-admin">Nombre</th>
+                <th className="list-events-table__th-admin">Tipo de Evento</th>
+                <th className="list-events-table__th-admin">Fecha Inicio</th>
+                <th className="list-events-table__th-admin">
                   Fecha Fin
                 </th>
-                <th className="list-events-table-aprendiz__th">Cantidad Participantes</th>
-                <th className="list-events-table-aprendiz__th">Ponente</th>
-                <th className="list-events-table-aprendiz__th">Lugar</th>
-                <th className="list-events-table-aprendiz__th">Semillero</th>
-                <th className="list-events-table-aprendiz__th">Evidencia del Evento</th>
-                <th className="list-events-table-aprendiz__th">Acciones</th>
+                <th className="list-events-table__th-admin">Cantidad Participantes</th>
+                <th className="list-events-table__th-admin">Ponente</th>
+                <th className="list-events-table__th-admin">Lugar</th>
+                <th className="list-events-table__th-admin">Semillero</th>
+                <th className="list-events-table__th-admin">Evidencia del Evento</th>
+                <th className="list-events-table__th-admin">Acciones</th>
               </tr>
             </thead>
             <tbody>
               {ListEventos.map((evento) => (
-                <tr className="list-events-table-aprendiz__tr" key={evento.id}>
-                  <td className="list-events-table-aprendiz__td">{evento.nombre_evento}</td>
-                  <td className="list-events-table-aprendiz__td">{evento.tipo_de_evento}</td>
-                  <td className="list-events-table-aprendiz__td">{evento.fecha_inicio}</td>
-                  <td className="list-events-table-aprendiz__td">
-                    {evento.fecha_fin}
-                  </td>
-                  <td className="list-events-table-aprendiz__td">{evento.cantidad_parcticipantes}</td>
-                  <td className="list-events-table-aprendiz__td">{evento.nombre_ponente}</td>
-                  <td className="list-events-table-aprendiz__td">{evento.lugar_evento}</td>
-                  <td className="list-events-table-aprendiz__td">{evento.semillero}</td>
-                  <td className="list-events-table-aprendiz__td">{evento.evidencia}</td>
-                  <td className="list-events-table-aprendiz__td">
-
-                    <div className="list-events-table-aprendiz__td__btns">
-                      <Link to={"/aprendiz-investigador/Visualizar-evento"} >
-                        <LiaEye className="list-events-table-aprendiz__td__btn" />
+                <tr className="list-events-table__tr-admin" key={evento.id}>
+                  <td className="list-events-table__td-admin">{evento.nombre_evento}</td>
+                  <td className="list-events-table__td-admin">{evento.tipo_de_evento}</td>
+                  <td className="list-events-table__td-admin">{evento.fecha_inicio}</td>
+                  <td className="list-events-table__td-admin">{evento.fecha_fin}</td>
+                  <td className="list-events-table__td-admin">{evento.cantidad_parcticipantes}</td>
+                  <td className="list-events-table__td-admin">{evento.nombre_ponente}</td>
+                  <td className="list-events-table__td-admin">{evento.lugar_evento}</td>
+                  <td className="list-events-table__td-admin">{evento.semillero}</td>
+                  <td className="list-events-table__td-admin">{evento.evidencia}</td>
+                  <td className="list-events-table__td-admin">
+                  
+                    <div className="list-events-table__td__btns-admin">
+                      <Link to={"/admin/visualizar-evento"} >
+                        <LiaEye className="list-events-table__td__btn-admin" />
+                      </Link>
+                      <Link to={"/admin/actualizar-eventos"} >
+                        <FaRegEdit className="list-events-table__td__btn-admin" />
+                      </Link>
+                      <Link>
+                        <IoTrashOutline className="list-events-table__td__btn-admin" />
                       </Link>
                     </div>
 

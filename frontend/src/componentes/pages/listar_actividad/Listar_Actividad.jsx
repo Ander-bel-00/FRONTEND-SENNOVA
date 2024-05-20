@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";import "./css/Listar_Actividad.css";
+import React, { Fragment, useEffect, useState } from "react";import "./css/Listar_Actividad.css";
 import { LiaEyeSolid } from "react-icons/lia";
 import { FaRegEdit } from "react-icons/fa";
 import { IoTrashOutline } from "react-icons/io5";
@@ -12,38 +12,40 @@ import Header_ToolBar from "../../common/Header_ToolBar";
 import Caja_Blanca from "../../common/Caja_Blanca";
 import { Link } from "react-router-dom";
 import "./css/Listar_Actividad.css";
+import clienteAxios from "../../../config/axios";
 
 function Listar_Actividad() {
-  const Actividades = [
-    {
-      nombre: 'Desarrollo',
-      tarea: 'Codificar',
-      fecha: '25 de Julio de 2024',
-      resultado: 'Sistema funcional',
-      producto: 'Proyecto web',
-      responsable: 'Arnold'
-    },
-    {
-      nombre: 'Desarrollo',
-      tarea: 'Codificar',
-      fecha: '25 de Julio de 2024',
-      resultado: 'Sistema funcional',
-      producto: 'Proyecto web',
-      responsable: 'Arnold'
-    },
-  ];
+  const [listActivitys, setListActivitys] = useState([]);
+
+  useEffect(() =>{
+    const Obteneractividadsemilleros = async () => {
+      try {
+          const res = await clienteAxios.get(`/activity-semillero/`);
+          setListActivitys(res.data);
+        }
+        catch (error) {
+        console.error('Error al obtener las actividades del Semillero:', error);
+      }
+    }
+    Obteneractividadsemilleros(); // Así se llama la función para obtener las actividades
+  }, []);
+  
   return (
     <Fragment>
       <div className="main-container__contenedor-hijo">
         <Header_ToolBar
           Header_Tools={
             <Fragment>
-              <BotonBlanco icon={<FaFileArrowUp />} text={"Reporte"}  clase={'btn-blanco btn-blanco--modify btn-verde'}/>
+              <BotonBlanco
+                icon={<FaFileArrowUp />}
+                text={"Reporte"}
+                clase={"btn-blanco btn-blanco--modify btn-verde"}
+              />
 
               <BotonBlanco
                 icon={<LuCalendarDays />}
                 text={"Ir al Cronograma"}
-                clase={'btn-blanco btn-blanco--modify btn-azul'}
+                clase={"btn-blanco btn-blanco--modify btn-azul"}
               />
 
               <Search text={"Buscar Actividades"} />
@@ -51,72 +53,77 @@ function Listar_Actividad() {
               <BotonVerdeAñadir
                 icon={<AiOutlinePlus />}
                 text={"Crear Actividad"}
-                link={"/lider-semillero/crear-actividad"}
+                link={"../crear-actividad"}
               />
             </Fragment>
           }
         />
         <Caja_Blanca
           content={
-            <table className="list-activity-content-table">
+            <table className="list-activity-admin-content-table">
               <thead>
-                <tr className="list-activity-content-table-tr">
-                  <th className="list-activity-content__table__tr__th">
+                <tr className="list-activity-admin-content-table-tr">
+                  <th className="list-activity-admin-content__table__tr__th">
                     Nombre Actividad
                   </th>
-                  <th className="list-activity-content__table__tr__th">
+                  <th className="list-activity-admin-content__table__tr__th">
                     Tarea
                   </th>
-                  <th className="list-activity-content__table__tr__th">
-                    Fecha
+                  <th className="list-activity-admin-content__table__tr__th">
+                    Fecha de Inicio
                   </th>
-                  <th className="list-activity-content__table__tr__th">
+                  <th className="list-activity-admin-content__table__tr__th">
+                    Fecha de Fin
+                  </th>
+                  <th className="list-activity-admin-content__table__tr__th">
                     Resultado
                   </th>
-                  <th className="list-activity-content__table__tr__th">
-                    Producto
-                  </th>
-                  <th className="list-activity-content__table__tr__th">
+
+                  <th className="list-activity-admin-content__table__tr__th">
                     Responsable de la Actividad
                   </th>
-                  <th  className="list-activity-content__table__tr__th">
+                  <th className="list-activity-admin-content__table__tr__th">
+                    Semillero
+                  </th>
+                  <th className="list-activity-admin-content__table__tr__th">
                     Acciones
                   </th>
                 </tr>
               </thead>
               <tbody>
-                {Actividades.map((Actividad, index) => (
-                  <tr key={index} className="list-activity-content-table-tr">
-                    <td className="list-activity-content-table-td">
-                      {Actividad.nombre}
+                {listActivitys.map((actividad) => (
+                  <tr key={actividad.id} className="list-activity-admin-content-table-tr">
+                    <td className="list-activity-admin-content-table-td">
+                      {actividad.nombre_actividad}
                     </td>
-                    <td className="list-activity-content-table-td">
-                      {Actividad.tarea}
+                    <td className="list-activity-admin-content-table-td">
+                      {actividad.tarea}
                     </td>
-                    <td className="list-activity-content-table-td">
-                      {Actividad.fecha}
+                    <td className="list-activity-admin-content-table-td">
+                      {actividad.fecha_inicio}
                     </td>
-                    <td className="list-activity-content-table-td">
-                      {Actividad.resultado}
+                    <td className="list-activity-admin-content-table-td">
+                      {actividad.fecha_fin}
                     </td>
-                    <td className="list-activity-content-table-td">
-                      {Actividad.producto}
+                    <td className="list-activity-admin-content-table-td">
+                      {actividad.resultado}
                     </td>
-                    <td className="list-activity-content-table-td">
-                      {Actividad.responsable}
+                    <td className="list-activity-admin-content-table-td">
+                      {actividad.responsable_actividad}
                     </td>
-                    <td className="list-activity-content-table__td">
-                      <div className="list-activity-content-table__td__btns">
-                        <Link
-                          to={"/lider_semillero/visualizar-actividad"}
-                        >
-                          <LiaEyeSolid className="list-activity-content-table__td__btn" />
+                    <td className="list-activity-admin-content-table-td">
+                      {actividad.semillero}
+                    </td>
+                    <td className="list-activity-admin-content-table__td">
+                      <div className="list-activity-admin-content-table__td__btns">
+                        <Link to={"../visualizar-actividad"}>
+                          <LiaEyeSolid className="list-activity-admin-content-table__td__btn" />
                         </Link>
-                        <Link to={"/lider_semillero/actualizar-actividad"}>
-                          <FaRegEdit className="list-activity-content-table__td__btn" />
+                        <Link to={"../actualizar-actividad"}>
+                          <FaRegEdit className="list-activity-admin-content-table__td__btn" />
                         </Link>
                         <Link>
-                          <IoTrashOutline className="list-activity-content-table__td__btn" />
+                          <IoTrashOutline className="list-activity-admin-content-table__td__btn" />
                         </Link>
                       </div>
                     </td>

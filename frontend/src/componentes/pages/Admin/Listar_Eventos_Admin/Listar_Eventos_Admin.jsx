@@ -13,6 +13,7 @@ import Search from "../../../common/Search";
 import BotonVerdeAñadir from "../../../common/BotonVerde";
 import "./css/Listar_Eventos_Admin.css";
 import clienteAxios from "../../../../config/axios";
+import * as XLSX from "xlsx";
 
 function Listar_Eventos_Admin() {
   const [ListEventos, setListEventos] = useState([]);
@@ -30,12 +31,55 @@ function Listar_Eventos_Admin() {
     ObtenerEventoSemillero(); // función que indica iniciar todo, es decir obtener las actividades
   }, []); // el efecto nunca va a depender de nada cuando este [] (depende de algo cuando se encuentere el id)
 
+  const exportToExcel = () => {
+    const wb = XLSX.utils.book_new();
+    const wsData = [
+      [
+        "Nombre",
+        "Tipo de Evento",
+        "Fecha Inicio",
+        "Fecha Fin",
+        "Cantidad Participantes",
+        "Ponente",
+        "Lugar",
+        "Semillero",
+        "Evidencia del Evento",
+      ],
+      ...ListEventos.map((evento) => [
+        evento.nombre_evento,
+        evento.tipo_de_evento,
+        evento.fecha_inicio,
+        evento.fecha_fin,
+        evento.cantidad_parcticipantes,
+        evento.nombre_ponente,
+        evento.lugar_evento,
+        evento.semillero,
+        evento.evidencia,
+      ]),
+    ];
+    const ws = XLSX.utils.aoa_to_sheet(wsData);
+
+    // Agrega estilos de tabla a la hoja de cálculo
+    ws["!cols"] = [
+      { width: 40 },
+      { width: 40 },
+      { width: 40 },
+      { width: 40 },
+      { width: 40 },
+      { width: 40 },
+    ];
+
+    // Genera el archivo Excel
+    XLSX.utils.book_append_sheet(wb, ws, "Eventos");
+    XLSX.writeFile(wb, "eventos.xlsx");
+  };
+
   return (
     <div className="main-container__contenedor-hijo">
       <Header_ToolBar
         Header_Tools={
           <Fragment>
-            <BotonBlanco icon={<FaFileArrowUp />} text={"Reporte"} clase={'btn-blanco btn-blanco--modify btn-verde'} />
+            <BotonBlanco icon={<FaFileArrowUp />} text={"Reporte"} clase={'btn-blanco btn-blanco--modify btn-verde'} onClick={exportToExcel}/>
             <BotonBlanco icon={<LuCalendarDays />} text={"Ir al Cronograma"} clase={'btn-blanco btn-blanco--modify btn-azul'} />
             <Search text={"Buscar Eventos"} />
             <BotonVerdeAñadir icon={<IoAdd />} text={"Crear evento"} link={"/admin/crear-eventos"}/>
@@ -77,10 +121,10 @@ function Listar_Eventos_Admin() {
                   <td className="list-events-table__td-admin">
                   
                     <div className="list-events-table__td__btns-admin">
-                      <Link to={"/admin/visualizar-evento"} >
+                      <Link to={`../visualizar-evento/${evento.id}`}>
                         <LiaEye className="list-events-table__td__btn-admin" />
                       </Link>
-                      <Link to={"/admin/actualizar-eventos"} >
+                      <Link to={`../actualizar-eventos/${evento.id}`} >
                         <FaRegEdit className="list-events-table__td__btn-admin" />
                       </Link>
                       <Link>
