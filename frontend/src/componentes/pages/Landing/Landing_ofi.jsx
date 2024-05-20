@@ -12,13 +12,18 @@ import Creadores from './Creadores';
 import btn_flotante from './btn_flotante';
 import logo_circulo from './img/logo-circulo-sen.webp';
 import CreadoresPage from './creadores_page';
+import imagen_grupo_sennova from './img/grupo_sennova.jpg';
 
 import Juan_Carlos from './img/J_Carlos.jpg';
 import Yesid from './img/Y_Molina.jpg';
 import Ander from './img/A_Beltran_2.jpg';
 import J_Raigosa from './img/J_Raigosa.jpg'
 import S_valle from './img/S_Valle.jpg'
+import martha from './img/martha.jpg'
+import amarillo from './img/amarillo.jpg';
+import subdi from './img/subdirectora.jpeg';
 import { Link } from 'react-router-dom';
+import Equipo_Ejecutor from './equipo_ejecutor';
 
 function Landing_ofi() {
     return (
@@ -50,7 +55,7 @@ function Landing_ofi() {
 
 
                 <div className='row_2' id='semilleros'>
-                    <div className='imgWrapper_2'><img src={Imagen_Uno} alt="" />
+                    <div className='imgWrapper_2'><img src={imagen_grupo_sennova} alt="" />
                         <h2>¿QUÉ SON LOS SEMILLEROS <br></br> DE INVESTIGACIÓN?</h2>
                     </div>
 
@@ -98,7 +103,7 @@ function Landing_ofi() {
                 <h1>Nuestros Creadores</h1>
 
                 <div className='creadores__card'>
-                    <CreadoresPage nombre={'Juan Carlos García.'} rol={'Lider SENNOVA.'} img={Juan_Carlos} is_git={false}/>
+                    <CreadoresPage nombre={'Juan Carlos García Buitrago.'} rol={'Lider SENNOVA.'} img={Juan_Carlos} is_git={false}/>
                     <CreadoresPage nombre={'Jorge Luis Raigosa Barahona.'} rol={'Lider Semillero.'} img={J_Raigosa} />
                     <CreadoresPage nombre={'Yuly Paulín Sáenz.'} rol={'Instructor Investigador.'}  />
                     <CreadoresPage nombre={'Yesid Molina Becerra.'} rol={'Aprendiz Investigador'} img={Yesid} />
@@ -110,7 +115,30 @@ function Landing_ofi() {
                     <CreadoresPage nombre={'Carlos Eduardo Arias .'} rol={'Aprendiz Investigador'} />
                 </div>
             </section>
+            <br/>
+            <br/>
+            <br/>
+            
+           
+
+            <section className='equipo_ejecutor' id='equipo_ejecutor'>
+                <h1>Equipo Ejecutor</h1>
+
+                <div className='equipo_ejecutor__card'>
+                    <Equipo_Ejecutor nombre={'Sandra Yulieth García Gonzales.'} rol={'Subdirectora Centro de Formación.'} img={subdi}/>
+                    <Equipo_Ejecutor nombre={'Pendiente'} rol={'Coordinador Académico.'} img={amarillo} />
+                    <Equipo_Ejecutor nombre={'Martha Elizabeth Cortés Rico.'} rol={'Instructora SENNOVA.'} img={martha}/>
+                    <Equipo_Ejecutor nombre={'Luis Fernando Rincón Amarillo.'} rol={'Instructor SENNOVA.'} img={amarillo} />
+                </div>
+            </section>
         
+            
+
+
+
+
+
+
 
             {/* Se hace el llamado del componente pie de página. */}
             <Footer />

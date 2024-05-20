@@ -1,6 +1,6 @@
 import { IoIosReturnLeft } from 'react-icons/io';
 import { Fragment, useState } from 'react';
-import { Link } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import BotonReturn from "../../../common/BotonReturn";
 import Caja_formularios from '../../../common/Caja_formularios';
 import './css/Crear_Programa_Formacion_Admin.css';
@@ -10,6 +10,8 @@ import { GiReturnArrow } from 'react-icons/gi';
 
 function Crear_Programa_Formacion_Admin() {
   const [formNewProgram, setFormNewProgram] = useState({});
+
+  const navigate = useNavigate();
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -37,7 +39,11 @@ function Crear_Programa_Formacion_Admin() {
         icon: "success",
         showCancelButton: false,
         confirmButtonText: "Aceptar",
-      });
+        //Indicar el después de la acción
+      }).then((result)=>{
+        //Redireccionar
+        return navigate("../visualizar-programa-formacion")
+      })
     } catch (error) {
       console.error("Error al crear el programa de Formación", error);
 

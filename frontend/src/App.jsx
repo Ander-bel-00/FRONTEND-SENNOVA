@@ -81,6 +81,8 @@ import Visualizar_Usuario_Admin from "./componentes/pages/Admin/Visualizar_Usuar
 import Cronograma_proyectos from "./componentes/pages/cronograma-proyectos/Cronograma_proyectos";
 import Listar_Semilleros_Admin from "./componentes/pages/Admin/Listar_semilleros/Listar_semilleros";
 import VisualizarProyectos from "./componentes/pages/visualizar_proyectos/Visualizar_proyectos";
+import Listar_Programa_Formacion_Admin from "./componentes/pages/Admin/Listar_Programa_Formacion/Listar_Programa_Formacion";
+import ReporteExcel from "./componentes/pages/Landing/reporte/reporte_excel";
 
 function App() {
   const { isAuthenticated, userRole, handleLogout } = useAuth();
@@ -149,6 +151,17 @@ function App() {
                       }
                     />
 
+                    <Route
+                      path="/reporte"
+                      element={
+                        <Fragment>
+                          <main className="main-container">
+                            <ReporteExcel/>
+                          </main>
+                        </Fragment>
+                      }
+                    />
+
 
 
                     <Route
@@ -210,7 +223,7 @@ function App() {
                       element={
                         <Fragment>
                           <main className="main-container">
-                            <Cronograma_Admin />
+                            <Cronograma />
                           </main>
                         </Fragment>
                       }
@@ -265,7 +278,7 @@ function App() {
                       path="/visualizar-programa-formacion"
                       element={
                         <main className="main-container">
-                          <Visualizar_Programa_Formacion_Admin />
+                          <Visualizar_Programa_Formacion_Admin/>
                         </main>
                       }
                     />

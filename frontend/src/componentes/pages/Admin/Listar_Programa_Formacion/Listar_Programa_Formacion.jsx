@@ -4,11 +4,11 @@ import Header_ToolBar from "../../../common/Header_ToolBar";
 import Caja_Blanca from "../../../common/Caja_Blanca";
 import BotonBlanco from "../../../common/BotonReporte";
 import BotonVerdeAñadir from "../../../common/BotonVerde";
-import './css/Visualizar_Programa_Formacion_Admin.css';
-import { Fragment, useEffect, useState } from "react";
-import clienteAxios from "../../../../config/axios";
+import './css/Listar_Programa_Formacion.css';
+import { Fragment } from "react";
 
-function Visualizar_Programa_Formacion_Admin() {
+function Listar_Programa_Formacion_Admin() {
+  
   const [programaFormacion, setProgramaFormacion] = useState([]);
 
   useEffect(() => {
@@ -26,6 +26,11 @@ function Visualizar_Programa_Formacion_Admin() {
     obtenerprogramaformacion();
   }, []);
 
+  
+
+
+
+
 
   return (
     <div className="main-container__contenedor-hijo">
@@ -42,7 +47,7 @@ function Visualizar_Programa_Formacion_Admin() {
         content={
           <table className="list-visualize-table-admin">
             <thead>
-            <tr className="list-visualize-table__tr-admin">
+              <tr className="list-visualize-table__tr-admin">
                 <th className= "list-visualize-table__th-admin" >Código del Programa</th>
                 <th className= "list-visualize-table__th-admin" >Versión del Programa</th>
                 <th className= "list-visualize-table__th-admin" >Nombre del Programa</th>
@@ -53,8 +58,8 @@ function Visualizar_Programa_Formacion_Admin() {
             </thead>
 
             <tbody>
-                {programaFormacion.map((Visualizar, index) => (
-                <tr className="list-visualize-table__tr-admin" key={index}>
+              {programaFormacion.map((Visualizar, index) => (
+              <tr className="list-visualize-table__tr-admin" key={index}>
                 <td className= "list-visualize-table__td-admin"  >{Visualizar.codigo_programa_formacion} </td>
                 <td className= "list-visualize-table__td-admin" > {Visualizar.version_programa_formacion} </td>
                 <td className= "list-visualize-table__td-admin" > {Visualizar.nombre_programa_formacion} </td>
@@ -70,4 +75,4 @@ function Visualizar_Programa_Formacion_Admin() {
     </div>
   );
 }
-export default Visualizar_Programa_Formacion_Admin;
+export default Listar_Programa_Formacion_Admin;

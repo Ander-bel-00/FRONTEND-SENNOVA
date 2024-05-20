@@ -37,6 +37,44 @@ const VisualizarProyectos = () => {
         getActividadesProyecto()
     }, [id]);
 
+
+    const exportToExcel = () => {
+        const wb = XLSX.utils.book_new();
+        const wsData = [
+          [
+            "Nombre del Proyecto",
+            "Fecha Inicio del Proyecto",
+            "Fecha Fin del Proyecto",
+            "Codigo SGPS",
+            "Descripción del Proyecto",
+          ],
+          ...proyectosSemillero.map((proyect) => [
+            proyect.nombre_proyecto,
+            proyect.fecha_inicio,
+            proyect.fecha_fin,
+            proyect.codigo_sgps,
+            proyect.descripcion_proyecto,
+          ]),
+        ];
+        const ws = XLSX.utils.aoa_to_sheet(wsData);
+    
+        // Agrega estilos de tabla a la hoja de cálculo
+        ws["!cols"] = [
+          { width: 40 },
+          { width: 40 },
+          { width: 40 },
+          { width: 40 },
+          { width: 40 },
+          { width: 40 },
+        ];
+    
+        // Genera el archivo Excel
+        XLSX.utils.book_append_sheet(wb, ws, "Proyectos");
+        XLSX.writeFile(wb, "proyectos.xlsx");
+      };
+
+
+
     return (
         <div style={{ background: "#fff", height: "100vh" }} className="main-container__contenedor-hijo">
             <BotonReturn />
@@ -76,6 +114,9 @@ const VisualizarProyectos = () => {
                 <div className="header-actividad">
                     <h1>Actividades programadas</h1>
                     <button className="activity-card__add-button">Agregar Actividad</button>
+                    
+                    <button className="activity-card__add-button">Generar Reporte</button>
+  
                 </div>
 {/* 
                 {actividades_proyecto.map((actividad) => (
