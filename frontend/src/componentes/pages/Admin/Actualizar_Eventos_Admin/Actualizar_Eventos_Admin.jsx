@@ -1,6 +1,3 @@
-import { IoIosReturnLeft } from "react-icons/io";
-import { Fragment, useEffect, useState } from "react";
-import { Link, useNavigate, useParams } from "react-router-dom";
 import { Fragment, useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import BotonReturn from "../../../common/BotonReturn";
