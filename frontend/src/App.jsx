@@ -302,7 +302,7 @@ function App() {
                     />
 
                     <Route
-                      path="/actualizar-eventos"
+                      path="/actualizar-eventos/:id"
                       element={
                         <main className="main-container">
                           <Actualizar_Eventos_Admin />
@@ -359,7 +359,7 @@ function App() {
                       }
                     />
                     <Route
-                      path="/actualizar-actividad"
+                      path="/actualizar-actividad/:id"
                       element={
                         <main className="main-container">
                           <Actualizar_Actividad_Admin />

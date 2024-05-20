@@ -349,12 +349,6 @@ h3,h5{
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-.creadores h2{
-    font-size: 2.8rem;
-    font-weight: 500;
-    color: #fff;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-}
 @media only screen and (max-width: 767px) {
     .main-page__container-ingreso{
         flex-direction: column;
