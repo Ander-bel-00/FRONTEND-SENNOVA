@@ -11,6 +11,7 @@ import Footer from './Pie_de_pagina';
 import btn_flotante from './btn_flotante';
 import logo_circulo from './img/logo-circulo-sen.webp';
 import CreadoresPage from './creadores_page';
+import imagen_grupo_sennova from './img/grupo_sennova.jpg';
 
 // Fotos Creadores
 import Juan_Carlos from './img/juanca.jpg';
@@ -24,6 +25,10 @@ import Stepha from './img/stephania.jpg';
 import Yuly from './img/yuly_saenz.jpg';
 import isaac from './img/isaac.jpg';
 import { Link } from 'react-router-dom';
+import Equipo_Ejecutor from './equipo_ejecutor';
+import martha from './img/martha.jpg'
+import amarillo from './img/amarillo.jpg';
+import subdi from './img/subdirectora.jpeg';
 
 function Landing_ofi() {
     return (
@@ -55,10 +60,9 @@ function Landing_ofi() {
 
 
                 <div className='row_2' id='semilleros'>
-                    <div className='imgWrapper_2'><img src={Imagen_Uno} alt="" />
+                <div className='imgWrapper_2'><img src={imagen_grupo_sennova} alt="" />
                         <h2>¿QUÉ SON LOS SEMILLEROS <br></br> DE INVESTIGACIÓN?</h2>
                     </div>
-
                     {/* <img className='Gif' src={Gif} alt="" /> */}
 
 
@@ -112,6 +116,19 @@ function Landing_ofi() {
                     <CreadoresPage nombre={'Stephania Herrera Duque.'} rol={'Aprendiz Investigador'} img={Stepha}/>
                     <CreadoresPage nombre={'Karol Andrea Montoya Rendón.'} rol={'Aprendiz Investigador'} img={Karito}/>
                     <CreadoresPage nombre={'Carlos Eduardo Arias Urrego.'} rol={'Aprendiz Investigador'} img={Carlitos}/>
+                </div>
+            </section>
+            
+           
+
+            <section className='equipo_ejecutor' id='equipo_ejecutor'>
+                <h1>Equipo Ejecutor</h1>
+
+                <div className='equipo_ejecutor__card'>
+                    <Equipo_Ejecutor nombre={'Sandra Yulieth García Gonzales.'} rol={'Subdirectora Centro de Formación.'} img={subdi}/>
+                    <Equipo_Ejecutor nombre={'Pendiente'} rol={'Coordinador Académico.'} img={amarillo} />
+                    <Equipo_Ejecutor nombre={'Martha Elizabeth Cortés Rico.'} rol={'Instructora SENNOVA.'} img={martha}/>
+                    <Equipo_Ejecutor nombre={'Luis Fernando Rincón Amarillo.'} rol={'Instructor SENNOVA.'} img={amarillo} />
                 </div>
             </section>
 
