@@ -12,6 +12,8 @@
   "dependencies": {
     "@emotion/react": "^11.11.4",
     "@emotion/styled": "^11.11.5",
+    "@fortawesome/free-solid-svg-icons": "^6.5.2",
+    "@fortawesome/react-fontawesome": "^0.2.1",
     "@mui/lab": "^5.0.0-alpha.170",
     "@mui/material": "^5.15.15",
     "@mui/x-date-pickers": "^7.2.0",
@@ -24,8 +26,6 @@
     "bootstrap": "^5.3.3",
     "crypto-js": "^4.2.0",
     "dayjs": "^1.11.10",
-    "html2canvas": "^1.4.1",
-    "jspdf": "^2.5.1",
     "html2canvas": "^1.4.1",
     "jspdf": "^2.5.1",
     "popper.js": "^1.16.1",
