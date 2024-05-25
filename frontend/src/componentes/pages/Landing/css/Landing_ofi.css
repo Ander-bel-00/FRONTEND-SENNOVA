@@ -178,7 +178,6 @@
   width: 100%;
   display: flex;
   text-align: justify;
-  text-align: justify;
   margin-top: 2rem;
   font-weight: 500;
   padding-left: 22px;
@@ -382,6 +381,20 @@ h5 {
   font-weight: 500;
   color: #fff;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Importación de estilos de tailwind. */
+@keyframes scroll {
+	0% {
+		transform: translateX(0);
+	}
+	100% {
+		transform: translateX(calc(-400px * 5 - 0.5rem * 10));
+	}
+}
+
+.animate-scroll {
+	animation: scroll 60s linear infinite;
 }
 @media only screen and (max-width: 767px) {
   .main-page__container-ingreso {

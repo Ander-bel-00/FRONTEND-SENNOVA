@@ -54,19 +54,6 @@ function Crear_Proyectos_Admin() {
                     id="nombre-proyecto"
                     className="form-add-pryect-admin-container__col1__input"
                   />
-                  
-                  <label
-                    htmlFor="codigo-sgps"
-                    className="form-add-pryect-admin-container__col1__label"
-                  >
-                    Código SGPS (Sistema de gestión de proyectos SENNOVA) <p className="rojo-required">*</p>
-                  </label>
-                  <input
-                    type="text"
-                    id="codigo-sgps"
-                    className="form-add-pryect-admin-container__col1__input"
-                  />
-
 
                   <label
                     htmlFor="descripción-proyecto"
