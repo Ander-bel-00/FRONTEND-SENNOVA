@@ -1,0 +1,15 @@
+.boton-year{
+    background-color: #04324D;
+    display: flex;
+    align-items: center;
+    border-radius: 20px;
+    padding: 10px;
+    color: #fff;
+    gap: 1rem;
+    height: 2.5rem;
+    width: 6rem;
+}
+
+.boton-year:hover{
+    background-color: #70B22D;
+}

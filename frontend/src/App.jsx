@@ -79,6 +79,9 @@ import Cronograma_proyectos from "./componentes/pages/cronograma-proyectos/Crono
 import VisualizarProyectos from "./componentes/pages/visualizar_proyectos/Visualizar_proyectos";
 import Listar_Semilleros_Admin from "./componentes/pages/Admin/Listar_semilleros/Listar_semilleros";
 import Visualizar_Actividad_Admin from "./componentes/pages/Admin/Visualizar_Actividad_Admin/Visualizar_Actividad_Admin";
+import Listar_Horas_Admin from "./componentes/pages/Horas_Admin/Listar_Horas_Admin/Listar_Horas_Admin";
+import Asignar_Horas_Admin from "./componentes/pages/Horas_Admin/Asignar_Horas_Admin/Asignar_Horas_Admin";
+import Visualizar_Horas_Admin from "./componentes/pages/Horas_Admin/Visualizar_Horas_Admin/Visualizar_Horas_Admin";
 
 function App() {
   const { isAuthenticated, userRole, handleLogout } = useAuth();
@@ -366,6 +369,30 @@ function App() {
                           <Actualizar_Actividad_Admin />
                         </main>
                       }
+                    />
+                    <Route 
+                      path="/listar-horas"
+                      element={
+                        <main className="main-container">
+                          <Listar_Horas_Admin />
+                        </main>
+                      }
+                    />
+                    <Route
+                     path="/asignar-horas"
+                     element={
+                      <main className="main-container">
+                        <Asignar_Horas_Admin />
+                      </main>
+                     }
+                    />
+                    <Route
+                     path="/visualizar-horas"
+                     element={
+                      <main className="main-container">
+                        <Visualizar_Horas_Admin />
+                      </main>
+                     }
                     />
                   </Routes>
                 </Fragment>

@@ -118,6 +118,7 @@ function Listar_Semilleros_Admin() {
                        
                         <Link to={"../semillero"}>
                           <LiaEyeSolid className="list-semillero-admin-content-table__td__btn" />
+                          <span className="tooltip">Visualizar</span>
                         </Link>
 
                       </div>

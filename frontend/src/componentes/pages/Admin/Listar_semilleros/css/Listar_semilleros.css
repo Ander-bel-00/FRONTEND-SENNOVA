@@ -38,7 +38,8 @@
     font-size: 22px;
     margin-right: 9px;
     position: relative;
-    left: 110%;
+    top: 8%;
+    left: 85%;
 }
 
 .list-semillero-admin-content-table__td__btn:hover{
@@ -54,6 +55,9 @@
    left:199%;
     
 }
+
+
+
 
 
 
