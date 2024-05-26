@@ -88,6 +88,7 @@ function Listar_Actividad_Admin() {
               <BotonBlanco
                 icon={<LuCalendarDays />}
                 text={"Ir al Cronograma"}
+                link={"../cronograma"}
                 clase={"btn-blanco btn-blanco--modify btn-azul"}
               />
 

@@ -82,80 +82,80 @@ function Crear_Actividad_Admin() {
               >
                 <label
                   htmlFor="nombre-actividad"
-                  className="form-create-activity-admin-content__col1__label"
+                  className="form-create-activity-admin-content_col1_label"
                 >
                   Nombre de la Actividad <p className="rojo-required">*</p>
                 </label>
                 <input
                   type="text"
                   id="nombre-actividad"
-                  className="form-create-activity-admin-content__col1__input"
+                  className="form-create-activity-admin-content_col1_input"
                   name="nombre_actividad"
                   onChange={handleChange}
                 />
                 <label
                   htmlFor="fecha-entrega-actividad"
-                  className="form-create-activity-admin-content__col1__label"
+                  className="form-create-activity-admin-content_col1_label"
                 >
                   Fecha Inicio <p className="rojo-required">*</p>
                 </label>
                 <input
                   type="date"
                   id="fecha-entrega-actividad"
-                  className="form-create-activity-admin-content__col1__input"
+                  className="form-create-activity-admin-content_col1_input"
                   name="fecha_inicio"
                   onChange={handleChange}
                 />
                 <label
                   htmlFor="fecha-entrega-actividad"
-                  className="form-create-activity-admin-content__col1__label"
+                  className="form-create-activity-admin-content_col1_label"
                 >
                   Fecha final <p className="rojo-required">*</p>
                 </label>
                 <input
                   type="date"
                   id="fecha-entrega-actividad"
-                  className="form-create-activity-admin-content__col1__input"
+                  className="form-create-activity-admin-content_col1_input"
                   name="fecha_fin"
                   onChange={handleChange}
                 />
 
                 <label
                   htmlFor="tarea-actividad"
-                  className="form-create-activity-admin-content__col1__label"
+                  className="form-create-activity-admin-content_col1_label"
                 >
                   Tarea <p className="rojo-required">*</p>
                 </label>
                 <input
                   type="text"
                   id="tarea-actividad"
-                  className="form-create-activity-admin-content__col1__input"
+                  className="form-create-activity-admin-content_col1_input"
                   name="tarea"
                   onChange={handleChange}
                 />
                 <label
                   htmlFor="resultado-actividad"
-                  className="form-create-activity-admin-content__col1__label"
+                  className="form-create-activity-admin-content_col1_label"
                 >
                   Resultado <p className="rojo-required">*</p>
                 </label>
                 <input
                   type="text"
                   id="resultado-actividad"
-                  className="form-create-activity-admin-content__col1__input"
+                  className="form-create-activity-admin-content_col1_input"
                   name="resultado"
                   onChange={handleChange}
                 />
                 <label
                   htmlFor="responsable-actividad"
-                  className="form-create-activity-admin-content__col1__label"
+                  className="form-create-activity-admin-content_col1_label"
                 >
                   Responsable de la Actividad <p className="rojo-required">*</p>
                 </label>
                 <input
                   type="text"
                   id="responsable-actividad"
-                  className="form-create-activity-admin-content__col1__input"
+                  className="form-create-activity-admin-content_col1_input"
                   name="responsable_actividad"
                   onChange={handleChange}
                 />

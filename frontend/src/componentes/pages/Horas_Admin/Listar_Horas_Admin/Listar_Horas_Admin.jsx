@@ -13,6 +13,7 @@ import { FaAngleRight } from 'react-icons/fa'; // Importa el ícono de la librer
 import Caja_Blanca from '../../../common/Caja_Blanca';
 import { Link, Route, BrowserRouter, Routes } from 'react-router-dom';  // Importa componentes necesarios para el enrutamiento
 import { LiaEyeSolid } from "react-icons/lia";
+import * as XLSX from "xlsx";
 
 function Listar_Horas_Admin() {
     const horasProyecto = [
@@ -27,7 +28,37 @@ function Listar_Horas_Admin() {
     const handleToggle = () => {
         setShowTrimestres(!showTrimestres);
     };
+
+    const exportToExcel = () => {
+        const wb = XLSX.utils.book_new();
+        const wsData = [
+          [
+            "Item",
+            "Año",
+            "Nombre del Proyecto",
+            "Instructores Asignados",
+          ],
+          ...horasProyecto.map((litsHoras) => [
+            litsHoras.item,
+            litsHoras.ano,
+            litsHoras.nombre_proyecto,
+            litsHoras.instructor_asignado,
+          ]),
+        ];
+        const ws = XLSX.utils.aoa_to_sheet(wsData);
     
+        // Agrega estilos de tabla a la hoja de cálculo
+        ws["!cols"] = [
+          { width: 30 },
+          { width: 30 },
+          { width: 30 },
+          { width: 30 },
+        ];
+    
+        // Genera el archivo Excel
+        XLSX.utils.book_append_sheet(wb, ws, "Horas_Investigacion");
+        XLSX.writeFile(wb, "horas_Investigacion.xlsx");
+    };
   return (
     <Fragment>
         <div className="main-container__contenedor-hijo">
@@ -38,6 +69,7 @@ function Listar_Horas_Admin() {
                          icon={<FaFileArrowUp />}
                          text={"Reporte"}
                          clase={"btn-blanco btn-blanco--modify btn-verde"}
+                         onClick={exportToExcel}
                         />
 
                         <Search text={"Buscar Proyecto"} />
@@ -45,6 +77,7 @@ function Listar_Horas_Admin() {
                         <BotonVerdeAñadir
                          icon={<Ri24HoursLine />}
                          text={"Asignar Horas"}
+                         link={"/admin/asignar-horas"}
                         />
                         
                         <Botonyear
@@ -102,7 +135,7 @@ function Listar_Horas_Admin() {
                                 </td>
                                 <td className='list-horas-admin-table__td'>
                                     <div className='list-horas-admin-table__td__btns'>
-                                        <Link>
+                                        <Link to={"../visualizar-horas"}>
                                             <LiaEyeSolid className='list-horas-admin-table__td__btn'/>
                                         </Link>
                                     </div>

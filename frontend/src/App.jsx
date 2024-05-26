@@ -21,7 +21,6 @@ import Crear_Programa_Formacion from "./componentes/pages/crear_programa_formaci
 import Crear_Eventos from "./componentes/pages/crear_eventos/Crear_Eventos";
 import Actualizar_Eventos from "./componentes/pages/actualizar_eventos/Actualizar_Eventos";
 import Listar_Fichas from "./componentes/pages/listar_fichas/Listar_Fichas";
-import Visualizar_Actividad_ins_invg from "./componentes/pages/InstructorInvestigador/Visualizar_Actividad_ins_invg/Visualizar_Actividad_ins_invg";
 import Crear_Eventos_ins_invg from "./componentes/pages/InstructorInvestigador/Crear_Eventos_ins_invg/Crear_Eventos_ins_invg";
 import Visualizar_Evento_ins_invg from "./componentes/pages/InstructorInvestigador/Visualizar_Evento_ins_invg/Visualizar_Evento_ins_invg";
 import Visualizar_Programa_Formacion_ins_invg from "./componentes/pages/InstructorInvestigador/Visualizar_Programa_Formacion_ins_invg/Visualizar_Programa_Formacion_ins_invg";
@@ -811,6 +810,22 @@ function App() {
                         </main>
                       }
                     />
+                    {/* <Route
+                     path="/litar-horas"
+                     element={
+                      <main className="main-container">
+                        <Listar_Horas_ins_invg/>
+                      </main>
+                     }
+                    />
+                    <Route
+                     path="visualizar-horas"
+                     element={
+                      <main className="main-container">
+                        <Visualizar_Horas_ins_invg/>
+                      </main>
+                     }
+                    /> */}
                   </Routes>
                 </Fragment>
               </ProtectedRoute>

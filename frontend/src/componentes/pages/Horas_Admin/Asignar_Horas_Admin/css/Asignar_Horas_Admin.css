@@ -46,13 +46,15 @@
     gap: 5px;
 }
 
-.form-assign-hours-admin-content__col1__span{
+.menu-despliegue{
+    margin-top: 1rem;
     width: 100%;
     background-color: var(--bg-inputs);
     border-radius: 6px;
     padding: 8px;
     box-shadow: var(--box-shadow-inputs);
 }
+
 
 .form-assign-hours-admin-content__col1__input{
     width: 100%;
@@ -88,7 +90,7 @@
 }
 
 .icon-ins{
-    margin-left: 1rem;
+    margin-left: 2rem;
 }
 .instructor-name {
     font-weight: bold;
@@ -101,6 +103,8 @@
     padding: 5px 10px;
     border-radius: 4px;
     cursor: pointer;
+    position: relative;
+    right: 3rem;
 }
 
 .asignar-horas {
@@ -122,12 +126,13 @@
     text-align: center;
     cursor: pointer;
     margin-bottom: 10px;
+    font-size: 19px;
 }
 
 .asignar-list {
     background: #F3F3F3;
     padding: 10px;
-    border-radius: 10px;
+    border-radius: 1rem; 
 }
 
   
@@ -136,14 +141,34 @@
     justify-content: space-between;
     align-items: center;
     margin-bottom: 10px;
-
+    padding: 7px 0;
+    position: relative;
+    left: 5rem;
 }
 
-.asignar-title {
-    font-weight: bold;
-    margin-bottom: 10px;
+.icon{
+    margin-left: -3rem;
 }
 
+.input-container{
+    position: relative;
+    width: 12rem; /* Ajusta según sea necesario */
+    overflow: hidden;
+    background: white; /* Fondo blanco fijo */
+    border-radius: 1rem;
+    left: 2rem;
+}
+
+.horas{
+    position: relative;
+    left: 3rem;
+    height: 1.6rem;
+}
+
+.list-horas{
+    position: relative;
+    right: 11rem;
+}
 
 .asig-horas-btns{
     display: flex;

@@ -1,8 +1,8 @@
 import React, { Fragment } from 'react';
-import './css/Visualizar_Horas_Admin.css';
+import './css/Visualizar_Horas_ins_invg.css';
 import Caja_Blanca_v2 from '../../../common/Caja_Blanca_v2';
 
-function Visualizar_Horas_Admin() {
+function Visualizar_Horas_ins_invg() {
     const contenidoHoras = [
         {
             horas_semana_sennova: "16 horas Asignadas",
@@ -64,4 +64,4 @@ function Visualizar_Horas_Admin() {
   )
 }
 
-export default Visualizar_Horas_Admin
+export default Visualizar_Horas_ins_invg;

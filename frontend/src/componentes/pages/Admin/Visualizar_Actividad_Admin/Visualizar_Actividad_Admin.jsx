@@ -140,7 +140,7 @@ function Visualizar_Actividad_Admin() {
                   </td>
                   <td className="vis-actividad-table__td-admin">
                     <div className="vis-actividad-table__td__btns-admin">
-                      <Link to={"/admin/actualizar-actividad"}>
+                      <Link to={"/admin/actualizar-actividad/:id"}>
                         <FaRegEdit className="vis-actividad-table__td__btn-admin" />
                       </Link>
                       <Link>

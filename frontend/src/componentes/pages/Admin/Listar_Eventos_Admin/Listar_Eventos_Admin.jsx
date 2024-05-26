@@ -80,7 +80,7 @@ function Listar_Eventos_Admin() {
         Header_Tools={
           <Fragment>
             <BotonBlanco icon={<FaFileArrowUp />} text={"Reporte"} clase={'btn-blanco btn-blanco--modify btn-verde'} onClick={exportToExcel}/>
-            <BotonBlanco icon={<LuCalendarDays />} text={"Ir al Cronograma"} clase={'btn-blanco btn-blanco--modify btn-azul'} />
+            <BotonBlanco icon={<LuCalendarDays />} text={"Ir al Cronograma"}  link={"../cronograma"} clase={'btn-blanco btn-blanco--modify btn-azul'} />
             <Search text={"Buscar Eventos"} />
             <BotonVerdeAñadir icon={<IoAdd />} text={"Crear evento"} link={"/admin/crear-eventos"}/>
           </Fragment>

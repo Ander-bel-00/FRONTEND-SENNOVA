@@ -97,7 +97,7 @@ function Actualizar_Proyectos_Admin() {
                   />
                   <label
                     htmlFor="tipo proyecto"
-                    className="form-add-pryect-container__col1__label"
+                    className="form-add-pryect-admin-container__col1__label"
                   >
                     Tipo proyecto <p className="rojo-required">*</p>
                   </label>
@@ -120,7 +120,7 @@ function Actualizar_Proyectos_Admin() {
                   </select>
                   <label
                     htmlFor="nombre-del-proyecto"
-                    className="form-update-proyects-admin-content__col1__label"
+                    className="form-add-pryect-admin-container__col1__label"
                   >
                     Nombre del Proyecto <p className="text-red-600">*</p>
                   </label>
@@ -133,7 +133,7 @@ function Actualizar_Proyectos_Admin() {
                   />
                   <label
                     htmlFor="descripción-del-proyecto"
-                    className="form-update-proyects-admin-content__col1__label"
+                    className="form-add-pryect-admin-container__col1__label"
                   >
                     Descripción del Proyecto <p className="text-red-600">*</p>
                   </label>
@@ -148,7 +148,7 @@ function Actualizar_Proyectos_Admin() {
                   ></textarea>
                   <label
                     htmlFor="fecha-inicio-del-proyecto"
-                    className="form-update-proyects-admin-content__col1__label"
+                    className="form-add-pryect-admin-container__col1__label"
                   >
                     Fecha inicio del Proyecto <p className="text-red-600">*</p>
                   </label>
@@ -161,7 +161,7 @@ function Actualizar_Proyectos_Admin() {
                   />
                   <label
                     htmlFor="fecha-fin-del-proyecto"
-                    className="form-update-proyects-admin-content__col1__label"
+                    className="form-add-pryect-admin-container__col1__label"
                   >
                     Fecha Fin del Proyecto <p className="text-red-600">*</p>
                   </label>

@@ -1,12 +1,13 @@
 .caja-blanca {
     background-color: var(--list-user-bg);
     width: 100%;
-    position: relative;
+    position: relative; /* Necesario para aplicar z-index */
     top: 10px;
     left: 0%;
     height: 65vh;
     padding: 1rem;
     border-radius: 10px;
     overflow-y: auto;
+    z-index: 1;  /* Caja blanca en el fondo */
 }
   

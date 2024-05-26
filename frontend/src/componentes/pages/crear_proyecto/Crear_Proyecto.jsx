@@ -75,9 +75,9 @@ function Crear_Proyecto() {
   return (
     <Fragment>
       <div className="main-container__contenedor-hijo main-container__contenedor-hijo--size">
-        <div className="add-proyect-btn-return">
+        {/* <div className="add-proyect-btn-return">
           <BotonReturn icon={<GiReturnArrow />} />
-        </div>
+        </div> */}
         <Caja_formularios
           info={
             <Fragment>
@@ -101,12 +101,12 @@ function Crear_Proyecto() {
                     type="text"
                     name="codigo"
                     id="codigo"
-                    className="form-add-pryect-admin-container__col1__input"
+                    className="form-add-pryect-container__col1__input"
                     onChange={handleChange}
                   />
                   <label
                     htmlFor="tipo proyecto"
-                    className="form-add-pryect-container__col1__label"
+                    className="form-add-pryect-admin-container__col1__label"
                   >
                     Tipo proyecto <p className="rojo-required">*</p>
                   </label>
@@ -128,7 +128,7 @@ function Crear_Proyecto() {
                   </select>
                   <label
                     htmlFor="nombre-proyecto"
-                    className="form-add-pryect-container__col1__label"
+                    className="form-add-pryect-admin-container__col1__label"
                   >
                     Nombre del Proyecto <p className="rojo-required">*</p>
                   </label>
@@ -141,7 +141,7 @@ function Crear_Proyecto() {
                   />
                   <label
                     htmlFor="descripción-proyecto"
-                    className="form-add-pryect-container__col1__label"
+                    className="form-add-pryect-admin-container__col1__label"
                   >
                     Descripción del Proyecto <p className="rojo-required">*</p>
                   </label>
@@ -156,7 +156,7 @@ function Crear_Proyecto() {
 
                   <label
                     htmlFor="fecha-inicio-proyecto"
-                    className="form-add-pryect-container__col1__label"
+                    className="form-add-pryect-admin-container__col1__label"
                   >
                     Fecha inicio del Proyecto <p className="rojo-required">*</p>
                   </label>
@@ -170,7 +170,7 @@ function Crear_Proyecto() {
 
                   <label
                     htmlFor="fecha-fin-proyecto"
-                    className="form-add-pryect-container__col1__label"
+                    className="form-add-pryect-admin-container__col1__label"
                   >
                     Fecha Fin del Proyecto <p className="rojo-required">*</p>
                   </label>

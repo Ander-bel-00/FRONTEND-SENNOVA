@@ -8,9 +8,9 @@ function Asignar_Horas_Admin() {
   const [asignarHoras, setAsignarHoras] = useState(false);
 
   const instructores = [
-    { nombre: "Jorge Raigosa", horas: 16 },
-    { nombre: "Yuly Paulín", horas: 16 },
-    { nombre: "Sebas Duque", horas: 16 },
+    { nombre: "Jorge Luis Raigosa Barahona", horas: 16 },
+    { nombre: "Yuly Paulin Saenz Agudelo", horas: 16 },
+    { nombre: "Jhoan Sebastian Duque Vera", horas: 16 },
   ];
 
   return (
@@ -37,7 +37,7 @@ function Asignar_Horas_Admin() {
                     <option selected disabled>
                       Seleccione el semillero de insvestigación
                     </option>
-                    <option value="">.</option>
+                    <option value="">Informatica Diseño y Desarrollo de Software</option>
                     <option value="">.</option>
                   </select>
                   <label
@@ -53,8 +53,8 @@ function Asignar_Horas_Admin() {
                     <option selected disabled>
                       Seleccione el proyecto de investigación
                     </option>
-                    <option value="">.</option>
-                    <option value="">.</option>
+                    <option value="">Capacidad Instalada</option>
+                    <option value="">Modernización</option>
                   </select>
                   <label
                     htmlFor="trimestre"
@@ -85,7 +85,7 @@ function Asignar_Horas_Admin() {
                     onClick={() => setMostrarInstructores(!mostrarInstructores)}
                     className="menu-despliegue"
                   >
-                    <span className="form-assign-hours-admin-content__col1__span">Seleccionar Instructorres</span>
+                    <span className="form-assign-hours-admin-content__col1__span">Seleccionar Instructores</span>
                   </div>
                   {mostrarInstructores && (
                     <div className="list-instructor">
@@ -114,7 +114,10 @@ function Asignar_Horas_Admin() {
                                <div key={index} className="asignar-item">
                                     <BsPersonFillAdd  className="icon" />
                                     <span className="instructor-name">{instructor.nombre}</span>
-                                    <input type="number" defaultValue={instructor.horas} /> horas
+                                    <div className="input-container">
+                                     <input type="number" defaultValue={instructor.horas} className="horas"/>
+                                    </div>
+                                    <div className="list-horas">horas</div>
                                </div>
                             ))}
                         </div>

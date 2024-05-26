@@ -91,7 +91,7 @@ function Listar_Proyectos_Admin() {
               <BotonBlanco
                 icon={<LuCalendarDays />}
                 text={"Ir al Cronograma"}
-                link={"../cronograma"}
+                link={"../cronograma-proyectos"}
                 clase={"btn-blanco btn-blanco--modify btn-azul"}
               />
               <BotonVerdeAñadir
