@@ -78,6 +78,11 @@ import Visualizar_Usuario_Admin from "./componentes/pages/Admin/Visualizar_Usuar
 import Cronograma_proyectos from "./componentes/pages/cronograma-proyectos/Cronograma_proyectos";
 import VisualizarProyectos from "./componentes/pages/visualizar_proyectos/Visualizar_proyectos";
 import Listar_Semilleros_Admin from "./componentes/pages/Admin/Listar_semilleros/Listar_semilleros";
+import Visualizar_Horas_Admin from "./componentes/pages/Admin/Visualizar_Horas_Admin/Visualizar_Horas_Admin";
+import Listar_Horas_Admin from "./componentes/pages/Admin/Listar_Horas_Admin/Listar_Horas_Admin";
+import Asignar_Horas_Admin from "./componentes/pages/Admin/Asignar_Horas_Admin/Asignar_Horas_Admin";
+import Listar_Horas_ins_invg from "./componentes/pages/InstructorInvestigador/Listar_Horas_ins_invg/Listar_Horas_ins_invg";
+import Visualizar_Horas_ins_invg from "./componentes/pages/InstructorInvestigador/Visualizar_Horas_ins_invg/Visualizar_Horas_ins_invg";
 
 function App() {
   const { isAuthenticated, userRole, handleLogout } = useAuth();
@@ -354,10 +359,38 @@ function App() {
                       path="/listar-actividad"
                       element={
                         <main className="main-container">
-                          <Listar_Actividad_Admin />
+                          <Listar_Actividad_Admin/>
                         </main>
                       }
                     />
+
+                    <Route
+                      path="/listar-horas"
+                      element={
+                        <main className="main-container">
+                          <Listar_Horas_Admin/>
+                        </main>
+                      }
+                    />
+
+                    <Route
+                      path="/visualizar-horas"
+                      element={
+                        <main className="main-container">
+                          <Visualizar_Horas_Admin/>
+                        </main>
+                      }
+                    />
+
+                    <Route
+                      path="/Asignar-horas"
+                      element={
+                        <main className="main-container">
+                          <Asignar_Horas_Admin/>
+                        </main>
+                      }
+                    />
+
                     <Route
                       path="/actualizar-actividad/:id"
                       element={
@@ -749,6 +782,24 @@ function App() {
                     />
 
                     <Route
+                      path="/listar-horas"
+                      element={
+                        <main className="main-container">
+                          <Listar_Horas_ins_invg />
+                        </main>
+                      }
+                    />
+
+                    <Route
+                      path="/visualizar-horas"
+                      element={
+                        <main className="main-container">
+                          <Visualizar_Horas_ins_invg/>
+                        </main>
+                      }
+                    />
+
+                    <Route
                       path="/cronograma-proyectos"
                       element={
                         <Fragment>
@@ -775,6 +826,7 @@ function App() {
                         </main>
                       }
                     />
+
                     <Route
                       path="/crear-proyecto"
                       element={

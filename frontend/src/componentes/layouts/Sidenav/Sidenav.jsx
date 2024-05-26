@@ -9,10 +9,11 @@ import { ImUsers } from "react-icons/im";
 import { FaSeedling } from "react-icons/fa";
 import { FaProjectDiagram } from "react-icons/fa";
 import { FaRegClock } from "react-icons/fa";
-import { FaChartGantt } from "react-icons/fa6";
+import { FaChartGantt, FaRegHourglassHalf } from "react-icons/fa6";
 import { FaList } from "react-icons/fa6";
 import { FaUsers } from "react-icons/fa";
 import { useAuth } from "../../../context/AuthContext";
+
 
 
 function Sidenav() {
@@ -71,6 +72,12 @@ function Sidenav() {
           <Link to={`/${Rol}/usuarios-getAll`}>
             <li className="Sidenav-content__menu-content__menu-options">
               <FaUsers className="inline-block" /> Integrantes
+            </li>
+          </Link>
+
+          <Link to={`/${Rol}/listar-horas`}>
+            <li className="Sidenav-content__menu-content__menu-options">
+            <FaRegHourglassHalf className="inline-block mr-2"/>Horas
             </li>
           </Link>
         </ul>
