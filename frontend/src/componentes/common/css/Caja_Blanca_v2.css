@@ -1,0 +1,11 @@
+.caja_blanca_v2{
+    background-color: var(--list-user-bg);
+    width: 100%;
+    position: relative;
+    top: 6rem;
+    left: 0%;
+    height: 65vh;
+    padding: 1rem;
+    border-radius: 10px;
+    overflow-y: auto;
+}

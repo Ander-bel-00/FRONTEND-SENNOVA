@@ -71,7 +71,6 @@ function Actualizar_Actividad_Admin() {
     }
   };
 
-  console.log(actividadInfo)
   return (
     <Fragment>
       <div className="main-container__contenedor-hijo">
@@ -90,14 +89,17 @@ function Actualizar_Actividad_Admin() {
                 <h1 className="text-center actualizar-actividades-admin-title">
                   ACTUALIZAR ACTIVIDAD
                 </h1>
-                <form className="form-update-activity-admin-content" onSubmit={actualizarActividad}>
+                <form
+                  className="form-update-activity-admin-content"
+                  onSubmit={actualizarActividad}
+                >
                   <label
                     htmlFor="nombre-actividad"
                     className="form-update-activity-admin-content__col1__label"
-                    >
+                  >
                     Nombre de la Actividad <p className="text-red-600">*</p>
-                    </label>
-                    <input
+                  </label>
+                  <input
                     type="text"
                     id="nombre_actividad"
                     className="form-update-activity-admin-content__col1__input"
@@ -147,10 +149,10 @@ function Actualizar_Actividad_Admin() {
                   <label
                     htmlFor="tarea-activida"
                     className="form-update-activity-admin-content__col1__label"
-                    >
+                  >
                     Tarea <p className="text-red-600">*</p>
-                    </label>
-                    <input
+                  </label>
+                  <input
                     type="text"
                     id="tarea"
                     name="tarea"
@@ -161,13 +163,11 @@ function Actualizar_Actividad_Admin() {
                   <label
                     htmlFor="resultado"
                     className="form-update-activity-admin-content__col1__label"
-                    >
+                  >
                     Resultado <p className="text-red-600">*</p>
-                    </label>
-                    <input
+                  </label>
+                  <input
                     type="text"
-                    id="resultado"
-                    name="resultado"
                     id="resultado"
                     name="resultado"
                     className="form-update-activity-admin-content__col1__input"
@@ -177,11 +177,11 @@ function Actualizar_Actividad_Admin() {
                   <label
                     htmlFor="responsable_actividad"
                     className="form-update-activity-admin-content__col1__label"
-                    >
+                  >
                     Responsable de la Actividad{" "}
                     <p className="text-red-600">*</p>
-                    </label>
-                    <input
+                  </label>
+                  <input
                     type="text"
                     id="responsable_actividad"
                     name="responsable_actividad"
@@ -199,13 +199,13 @@ function Actualizar_Actividad_Admin() {
                     onChange={handleChange}
                   />
 
-                  <div className="update-activity-admin-btns">
-                    <button className="btn-actualizar-actividad-admin">
+                  <div className="update-activity-btns">
+                    <button className="btn-actualizar-actividad">
                       Actualizar
                     </button>
-                    <Link to={"/admin/listar-actividad"}>
+                    <Link to={"../listar-actividad"}>
                       <button
-                        className="btn-cancelar-actividad-uptd-admin"
+                        className="btn-cancelar-actividad-uptd"
                         type="button"
                       >
                         Cancelar

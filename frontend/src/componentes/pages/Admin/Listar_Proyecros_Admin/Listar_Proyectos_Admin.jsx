@@ -26,6 +26,8 @@ function Listar_Proyectos_Admin() {
 
   const [selectedProjectId, setSelectedProjectId] = useState(null); // Nuevo estado para almacenar el ID del proyecto seleccionado
 
+  const [filteredProyectos, setFilteredProyectos] = useState([]);
+
   useEffect(() => {
     const obtenerProyectosSemillero = async () => {
       try {
@@ -34,6 +36,7 @@ function Listar_Proyectos_Admin() {
             `/semillero/${SemilleroID}/proyectos/`
           );
           setProyectosSemillero(res.data);
+          setFilteredProyectos(res.data); // Inicialmente muestra todos los proyectos
         }
       } catch (error) {
         console.error("Error al obtener los proyectos del semillero", error);
@@ -53,7 +56,7 @@ function Listar_Proyectos_Admin() {
         "Codigo SGPS",
         "Descripción del Proyecto",
       ],
-      ...proyectosSemillero.map((proyect) => [
+      ...filteredProyectos.map((proyect) => [
         proyect.nombre_proyecto,
         proyect.fecha_inicio,
         proyect.fecha_fin,
@@ -114,6 +117,14 @@ function Listar_Proyectos_Admin() {
     suspenderProyecto(projectId);
   };
 
+  const handleFilter = (query) => {
+    const filtered = proyectosSemillero.filter(
+      (project) =>
+        project.nombre_proyecto.toLowerCase().includes(query.toLowerCase()) ||
+        project.descripcion_proyecto.toLowerCase().includes(query.toLowerCase())
+    );
+    setFilteredProyectos(filtered);
+  };
   return (
     <Fragment>
       <div className="main-container__contenedor-hijo">
@@ -126,11 +137,15 @@ function Listar_Proyectos_Admin() {
                 clase={"btn-blanco btn-blanco--modify btn-verde"}
                 onClick={exportToExcel}
               />
-              <Search text={"Buscar proyecto"} />
+              <Search
+                text={"Buscar proyecto"}
+                onFilter={handleFilter}
+                data={proyectosSemillero}
+              />
               <BotonBlanco
                 icon={<LuCalendarDays />}
                 text={"Ir al Cronograma"}
-                link={"../cronograma"}
+                link={"../cronograma-proyectos"}
                 clase={"btn-blanco btn-blanco--modify btn-azul"}
               />
               <BotonVerdeAñadir
@@ -163,7 +178,7 @@ function Listar_Proyectos_Admin() {
                 </tr>
               </thead>
               <tbody>
-                {proyectosSemillero.map((list, index) => (
+                {filteredProyectos.map((list, index) => (
                   <tr key={index} className="list-project-admin-table__tr">
                     <td className="list-project-admin-table__td">
                       {list.codigo}
@@ -191,7 +206,7 @@ function Listar_Proyectos_Admin() {
                           <FaRegEdit className="list-project-admin-table__td__btn" />
                         </Link>
                         <IoTrashOutline
-                          className="list-project-admin-table__td__btn"
+                          className="list-project-admin-table__td__btn cursor-pointer"
                           onClick={() => handleSuspenderProyecto(list.id)} // Llama a handleSuspenderProyecto con el ID del proyecto
                         />
                       </div>

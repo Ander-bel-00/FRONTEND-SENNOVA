@@ -78,6 +78,9 @@ import Visualizar_Usuario_Admin from "./componentes/pages/Admin/Visualizar_Usuar
 import Cronograma_proyectos from "./componentes/pages/cronograma-proyectos/Cronograma_proyectos";
 import VisualizarProyectos from "./componentes/pages/visualizar_proyectos/Visualizar_proyectos";
 import Listar_Semilleros_Admin from "./componentes/pages/Admin/Listar_semilleros/Listar_semilleros";
+import Listar_Horas_Admin from "./componentes/pages/Coordinador/Listar_Horas_Admin/Listar_Horas_Admin";
+import Asignar_Horas_Admin from "./componentes/pages/Coordinador/Asignar_Horas_Admin/Asignar_Horas_Admin";
+import Visualizar_Horas_Admin from "./componentes/pages/Coordinador/Visualizar_Horas_Admin/Visualizar_Horas_Admin";
 
 function App() {
   const { isAuthenticated, userRole, handleLogout } = useAuth();
@@ -149,6 +152,36 @@ function App() {
                         <Fragment>
                           <main className="main-container">
                             <Semillero_Admin />
+                          </main>
+                        </Fragment>
+                      }
+                    />
+                    <Route
+                      path="/horas-investigadores"
+                      element={
+                        <Fragment>
+                          <main className="main-container">
+                            <Listar_Horas_Admin />
+                          </main>
+                        </Fragment>
+                      }
+                    />
+                    <Route
+                      path="/asignar-horas"
+                      element={
+                        <Fragment>
+                          <main className="main-container">
+                            <Asignar_Horas_Admin />
+                          </main>
+                        </Fragment>
+                      }
+                    />
+                    <Route
+                      path="/visualizar-horas"
+                      element={
+                        <Fragment>
+                          <main className="main-container">
+                            <Visualizar_Horas_Admin />
                           </main>
                         </Fragment>
                       }
@@ -260,7 +293,7 @@ function App() {
                       path="/crear-programa-formacion"
                       element={
                         <main className="main-container">
-                          <Crear_Programa_Formacion_Admin />
+                          <Crear_Programa_Formacion/>
                         </main>
                       }
                     />
@@ -278,7 +311,7 @@ function App() {
                       path="/listar-eventos"
                       element={
                         <main className="main-container">
-                          <Listar_Eventos_Admin />
+                          <Listar_Eventos />
                         </main>
                       }
                     />
@@ -354,7 +387,7 @@ function App() {
                       path="/listar-actividad"
                       element={
                         <main className="main-container">
-                          <Listar_Actividad_Admin />
+                          <Listar_Actividad />
                         </main>
                       }
                     />
@@ -443,14 +476,14 @@ function App() {
                       }
                     />
 
-                  <Route
-                    path="/users-update"
-                    element={
-                      <main className="main-container">
-                        <ModificarUsuario />
-                      </main>
-                    }
-                  />
+                    <Route
+                      path="/users-update"
+                      element={
+                        <main className="main-container">
+                          <ModificarUsuario />
+                        </main>
+                      }
+                    />
 
                     <Route
                       path="/visualizar-suspender-proyecto"
@@ -485,7 +518,7 @@ function App() {
                       }
                     />
                     <Route
-                      path="/actualizar-proyectos"
+                      path="/actualizar-proyecto/:id"
                       element={
                         <main className="main-container">
                           <Actualizar_Proyectos />
@@ -509,7 +542,7 @@ function App() {
                       }
                     />
                     <Route
-                      path="/actualizar-actividad"
+                      path="/actualizar-actividad/:id"
                       element={
                         <main className="main-container">
                           <Actualizar_Actividad />
@@ -518,7 +551,7 @@ function App() {
                     />
 
                     <Route
-                      path="/visualizar-actividad"
+                      path="/visualizar-actividad/:id"
                       element={
                         <main className="main-container">
                           <Visualizar_Actividad />
@@ -557,7 +590,7 @@ function App() {
                       path="/visualizar-programa-formacion"
                       element={
                         <main className="main-container">
-                          <Visualizar_Programa_Formacion />
+                          <Visualizar_Programa_Formacion_Admin />
                         </main>
                       }
                     />
@@ -575,7 +608,7 @@ function App() {
                       path="/actualizar-eventos"
                       element={
                         <main className="main-container">
-                          <Actualizar_Eventos />
+                          <Actualizar_Eventos_Admin />
                         </main>
                       }
                     />

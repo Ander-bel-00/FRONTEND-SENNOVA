@@ -1,6 +1,6 @@
 import { GiReturnArrow } from "react-icons/gi";
 import { Fragment, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import BotonReturn from "../../common/BotonReturn";
 import Caja_formularios from "../../common/Caja_formularios";
 import "./css/Crear_Programa_Formacion.css";
@@ -9,6 +9,7 @@ import Swal from "sweetalert2";
 
 function Crear_Programa_Formacion() {
   const [formNewProgram, setFormNewProgram] = useState({});
+  const navigate = useNavigate();
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -36,7 +37,9 @@ function Crear_Programa_Formacion() {
         icon: "success",
         showCancelButton: false,
         confirmButtonText: "Aceptar",
-      });
+      }).then((result) => {
+        return navigate('../visualizar-programa-formacion')
+      })
     } catch (error) {
       console.error("Error al crear el programa de Formación", error);
 
