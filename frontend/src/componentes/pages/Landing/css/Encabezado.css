@@ -28,6 +28,8 @@
 .header-imgs {
     display: flex;
     align-items: center;
+    position: relative;
+    left: 55rem;
 }
 
 .header__img-sena {
@@ -73,7 +75,7 @@
 }
 
 .section-opciones .menu-btn {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     color: #fff;
     border-right: 1px solid #fff;
     border-radius: 0px;

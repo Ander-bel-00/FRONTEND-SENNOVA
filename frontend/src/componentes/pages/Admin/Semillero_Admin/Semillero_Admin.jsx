@@ -7,9 +7,8 @@ import BotonVerdeAñadir from "../../../common/BotonVerde";
 import { IoPersonAddSharp } from "react-icons/io5";
 import clienteAxios from "../../../../config/axios";
 import { useAuth } from "../../../../context/AuthContext";
-import html2canvas from 'html2canvas';
-import jsPDF from 'jspdf';
-
+import html2canvas from "html2canvas";
+import jsPDF from "jspdf";
 
 function Semillero_Admin() {
   const { userProfile } = useAuth();
@@ -32,55 +31,79 @@ function Semillero_Admin() {
     fetchSemillero();
   }, [userProfile]);
 
-  const handleGenerarPDF = () => { // Función para generar un reporte en PDF
-    const input = document.getElementById('reporte-container'); // Obtener el elemento HTML que se va a convertir en PDF
-  
-    html2canvas(input).then((canvas) => { // Convertir el elemento HTML en un canvas utilizando html2canvas
-      const imgData = canvas.toDataURL('image/png'); // Convertir el canvas en una imagen (base64)
+  const handleGenerarPDF = () => {
+    // Función para generar un reporte en PDF
+    const input = document.getElementById("reporte-container"); // Obtener el elemento HTML que se va a convertir en PDF
+
+    html2canvas(input).then((canvas) => {
+      // Convertir el elemento HTML en un canvas utilizando html2canvas
+      const imgData = canvas.toDataURL("image/png"); // Convertir el canvas en una imagen (base64)
       const pdf = new jsPDF(); // Crear un nuevo documento PDF utilizando jsPDF
-  
-      
+
       // Agregar información del semillero al PDF
       pdf.text("Información del Semillero", 75, 20); // Agregar texto al PDF en la posición (10, 20)
       pdf.text(`Nombre: ${semilleros.nombre_semillero}`, 10, 30); // Agregar nombre del semillero
       pdf.text(`Regional: ${semilleros.nombre_regional}`, 10, 40); // Agregar regional del semillero
       // Puedes agregar más texto u otros elementos según sea necesario
-      pdf.text(`Sector de Aplicación: ${semilleros.sectores_apicacion}`, 10, 50);
-      pdf.text(`Integrantes: ${semilleros.sectores_apicacion}`, 10, 60)
-      pdf.text(`Líneas de investigación: ${semilleros.lineas_investigacion_declaradas}`, 10, 70)
-      pdf.text(`Grupo de Investigación Adscrito: ${semilleros.nombre_grupo_investigacion_adscrito}`, 10, 80)
-      pdf.text(`Centro de Fomación: ${semilleros.nombre_centro_formacion}`, 10, 90)
-      pdf.text(`Plan Estratégico de Investigación: ${semilleros.plan_estrategico_investigacion}`, 10, 100)
-      pdf.save('reporte.pdf'); // Descargar el PDF con el nombre 'reporte.pdf'
+      pdf.text(
+        `Sector de Aplicación: ${semilleros.sectores_apicacion}`,
+        10,
+        50
+      );
+      pdf.text(`Integrantes: ${semilleros.sectores_apicacion}`, 10, 60);
+      pdf.text(
+        `Líneas de investigación: ${semilleros.lineas_investigacion_declaradas}`,
+        10,
+        70
+      );
+      pdf.text(
+        `Grupo de Investigación Adscrito: ${semilleros.nombre_grupo_investigacion_adscrito}`,
+        10,
+        80
+      );
+      pdf.text(
+        `Centro de Fomación: ${semilleros.nombre_centro_formacion}`,
+        10,
+        90
+      );
+      pdf.text(
+        `Plan Estratégico de Investigación: ${semilleros.plan_estrategico_investigacion}`,
+        10,
+        100
+      );
+      pdf.save("reporte.pdf"); // Descargar el PDF con el nombre 'reporte.pdf'
     });
   };
-    
+
   return (
     <Fragment>
       <div className="semillero-main-container__info-semillero">
-
         <section className="semillero-main-container__header">
-          <div className="btns-semillero"><div id="reporte-container" className="semillero-main-container__header__btn_repor">
-            <BotonBlanco
-              icon={<FaFileArrowUp />}
-              text={"Reporte"}
-              clase={"btn-blanco btn-blanco--modify btn-verde"}
-              onClick={handleGenerarPDF} 
-            />
-          </div>
+          <div className="btns-semillero">
+            <div
+              id="reporte-container"
+              className="semillero-main-container__header__btn_repor"
+            >
+              <BotonBlanco
+                icon={<FaFileArrowUp />}
+                text={"Reporte"}
+                clase={"btn-blanco btn-blanco--modify btn-verde"}
+                onClick={handleGenerarPDF}
+              />
+            </div>
 
-          <div className="semillero-main-container__header__btn_edidat">
-            <BotonBlanco
-              icon={<GrDocumentUpdate />}
-              link={"../actualizar-semillero"}
-              text={"Editar Datos"}
-              clase={"btn-blanco btn-blanco--modify btn-azul"}
-            />
-          </div>
+            <div className="semillero-main-container__header__btn_edidat">
+              <BotonBlanco
+                icon={<GrDocumentUpdate />}
+                link={"../actualizar-semillero"}
+                text={"Editar Datos"}
+                clase={"btn-blanco btn-blanco--modify btn-azul"}
+              />
+            </div>
           </div>
 
           <div className="semillero-main-container__header__btn_crear">
-            <BotonVerdeAñadir  
+            <BotonVerdeAñadir
               icon={<IoPersonAddSharp />}
               text={"Crear Semillero"}
               link={"../crear-semillero"}

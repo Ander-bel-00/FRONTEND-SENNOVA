@@ -12,16 +12,16 @@
     --box-shadow-btns: 0px 4px 11px 1px rgba(129,122,122,0.73);
     --box-shadow-users-box: -1px 3px 5px 6px rgba(0,0,0,0.09);
     --box-shadow-inputs:  -1px 3px 5px 6px rgba(0,0,0,0.01);
-    --btn-user-add-box-bg: #39a900;
+    --btn-user-add-box-bg: #70B22D;
     --sidenav-bg: #04324D;
     --update-users-box-bg: #fff;
-    --btn-update-bg: #39a900;
-    --btn-update-bg-hover: #339302;
+    --btn-update-bg: #70B22D;
+    --btn-update-bg-hover: #349703;
     --boton-cacelar-color: #D4212C;
     --boton-cacelar-bg-hover: #c31e29;
     --color--container-inputs: #E7E7E7;
-    --boton-crear-color: #39A900;
-    --boton-crear-bg-hover: #339302;
+    --boton-crear-color: #70B22D;
+    --boton-crear-bg-hover: #349703;
     --boton-cancelar-color: #D4212C;
     --boton-cancelar-bg-hover: #c31e29;
     --bg-inputs: #ECEFF1;    
@@ -60,3 +60,4 @@ pero solo en los estilos de la pagina a usar */
     padding-top: 10px;
     overflow-x: hidden;
 }
+

@@ -70,10 +70,6 @@ function Semillero_apr_invg() {
                     ))}
                 </div>
               </div>
-              <div className="semillero-main-container__campos-informacion__inputs">
-                <h1>lineas de Investigación </h1>
-                <h2>{"- " + semilleros.lineas_investigacion_declaradas}</h2>
-              </div>
             </section>
 
             <section>
@@ -88,6 +84,10 @@ function Semillero_apr_invg() {
               <div className="semillero-main-container__campos-informacion__inputs">
                 <h1>Plan estrategico: </h1>
                 <h2>{"- " + semilleros.plan_estrategico_investigacion}</h2>
+              </div>
+              <div className="semillero-main-container__campos-informacion__inputs">
+                <h1>lineas de Investigación </h1>
+                <h2>{"- " + semilleros.lineas_investigacion_declaradas}</h2>
               </div>
             </section>
           </div>

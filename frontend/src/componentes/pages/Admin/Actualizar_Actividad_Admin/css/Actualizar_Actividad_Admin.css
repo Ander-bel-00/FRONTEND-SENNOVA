@@ -18,7 +18,7 @@
 
 .actualizar-actividades-admin-title{
     font-size: 25px;
-    font-weight: 500;
+    font-weight: 750;
     position: relative;
     top: 1rem;
 }
@@ -63,7 +63,7 @@
     background-color: var(--btn-update-bg-hover);
 }
 
-.btn-cancelar-actividad-admin-uptd{
+.btn-cancelar-actividad-uptd{
     background-color: var(--boton-cacelar-color);
     width: 15rem;
     padding: 8px;
@@ -76,7 +76,7 @@
     text-align: center;
 }
 
-.btn-cancelar-actividad-admin-uptd:hover{
+.btn-cancelar-actividad-uptd:hover{
     cursor: pointer;
     background-color: var(--boton-cacelar-bg-hover);
 }

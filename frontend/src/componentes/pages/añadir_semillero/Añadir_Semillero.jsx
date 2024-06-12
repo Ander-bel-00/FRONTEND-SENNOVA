@@ -205,7 +205,7 @@ function Añadir_Semillero() {
                     <option>Sistemas Electrónicos, Automatización y Control de Procesos</option>
                     <option>Diseño de la Moda, Manufactura Textil y Cuero</option>
                     <option>Tecnologías para el Hábitat, las Energías Renovables y el Desarrollo Sostenible</option>
-                    <option>Diseño y Fabricación de Sistemas Mecánicos y Autotrónicos</option>
+                    <option>Diseño e Innovación Mecatronica de Automotores</option>
                   </select>
 
                   <div className="add-semillero-btns">

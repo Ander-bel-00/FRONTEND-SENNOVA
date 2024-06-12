@@ -67,6 +67,9 @@ function Listar_Eventos_Admin() {
       { width: 40 },
       { width: 40 },
       { width: 40 },
+      { width: 40 },
+      { width: 40 },
+      { width: 40 },
     ];
 
     // Genera el archivo Excel
@@ -74,13 +77,14 @@ function Listar_Eventos_Admin() {
     XLSX.writeFile(wb, "eventos.xlsx");
   };
 
+
   return (
     <div className="main-container__contenedor-hijo">
       <Header_ToolBar
         Header_Tools={
           <Fragment>
             <BotonBlanco icon={<FaFileArrowUp />} text={"Reporte"} clase={'btn-blanco btn-blanco--modify btn-verde'} onClick={exportToExcel}/>
-            <BotonBlanco icon={<LuCalendarDays />} text={"Ir al Cronograma"}  link={"../cronograma"} clase={'btn-blanco btn-blanco--modify btn-azul'} />
+            <BotonBlanco icon={<LuCalendarDays />} text={"Ir al Cronograma"} clase={'btn-blanco btn-blanco--modify btn-azul'} link={"../cronograma"}/>
             <Search text={"Buscar Eventos"} />
             <BotonVerdeAñadir icon={<IoAdd />} text={"Crear evento"} link={"/admin/crear-eventos"}/>
           </Fragment>
@@ -121,7 +125,7 @@ function Listar_Eventos_Admin() {
                   <td className="list-events-table__td-admin">
                   
                     <div className="list-events-table__td__btns-admin">
-                      <Link to={`../visualizar-evento/${evento.id}`}>
+                      <Link to={`../visualizar-evento/${evento.id}`} >
                         <LiaEye className="list-events-table__td__btn-admin" />
                       </Link>
                       <Link to={`../actualizar-eventos/${evento.id}`} >

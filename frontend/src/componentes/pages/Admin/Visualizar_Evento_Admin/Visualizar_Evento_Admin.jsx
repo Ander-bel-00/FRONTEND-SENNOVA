@@ -9,7 +9,6 @@ import BotonVerdeAñadir from "../../../common/BotonVerde";
 import Search from "../../../common/Search";
 import BotonReturn from "../../../common/BotonReturn";
 import "./css/Visualizar_Evento_Admin.css";
-import { GiReturnArrow } from "react-icons/gi";
 
 function Visualizar_Evento_Admin() {
   const Evento = [
@@ -37,7 +36,10 @@ function Visualizar_Evento_Admin() {
         Header_Tools={
           <Fragment>
             <div className="btn-vs-evento-admin">
-              <BotonReturn icon={<GiReturnArrow />} />
+              <BotonReturn
+                link={"/admin/listar-eventos"}
+                icon={<IoIosReturnLeft />}
+              />
             </div>
             <Search icon={<FaSearch />} text={"Buscar Evento"} />
             <BotonVerdeAñadir
@@ -68,6 +70,7 @@ function Visualizar_Evento_Admin() {
             <tbody>
               {Evento.map((Contenido, index) => (
                 <tr className="vis-event-table__tr-admin" key={index}>
+                  <td className="vis-event-table__td-admin"> {Contenido.nombre}</td>
                   <td className="vis-event-table__td-admin">
                     {" "}
                     {Contenido.nombre_evento}
@@ -90,15 +93,11 @@ function Visualizar_Evento_Admin() {
                   </td>
                   <td className="vis-event-table__td-admin">
                     {" "}
-                    {Contenido.ponente}{" "}
-                  </td>
-                  <td className="vis-event-table__td-admin">
-                    {" "}
                     {Contenido.lugar}{" "}
                   </td>
                   <td className="vis-event-table__td-admin">
                     {" "}
-                    {Contenido.semilero}{" "}
+                    {Contenido.tipo}{" "}
                   </td>
                   <td className="vis-event-table__td-admin">
                     <div className="vis-actividad-table__td__btns-admin">

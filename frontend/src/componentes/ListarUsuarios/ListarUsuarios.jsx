@@ -16,14 +16,12 @@ function ListarUsuarios() {
     {
       nombres: "Juan",
       apellidos: "Perez",
-      tipoDocumento: "Cédula",
       numeroDocumento: "123456789",
       rol: "Admin",
     },
     {
       nombres: "María",
       apellidos: "Gómez",
-      tipoDocumento: "Pasaporte",
       numeroDocumento: "987654321",
       rol: "Usuario",
     },
@@ -34,7 +32,7 @@ function ListarUsuarios() {
         <Header_ToolBar
           Header_Tools={
             <Fragment>
-              <BotonBlanco icon={<FaFileArrowUp />} text={"Reporte"} clase={'btn-blanco btn-blanco--modify btn-azul'}/>
+              <BotonBlanco icon={<FaFileArrowUp />} text={"Reporte"} clase={'btn-blanco btn-blanco--modify btn-verde'} />
               <Search text={"Buscar usuarios"} />
               <BotonVerdeAñadir
                 icon={<IoPersonAddSharp />}
@@ -51,7 +49,6 @@ function ListarUsuarios() {
                 <tr>
                   <th className="user-table__header">Nombres</th>
                   <th className="user-table__header">Apellidos</th>
-                  <th className="user-table__header">Tipo documento</th>
                   <th className="user-table__header">Número documento</th>
                   <th className="user-table__header">Rol</th>
                   <th className="user-table__header">Acciones</th>
@@ -62,7 +59,6 @@ function ListarUsuarios() {
                   <tr key={index} className="user-table__row">
                     <td className="user-table__cell">{user.nombres}</td>
                     <td className="user-table__cell">{user.apellidos}</td>
-                    <td className="user-table__cell">{user.tipoDocumento}</td>
                     <td className="user-table__cell">{user.numeroDocumento}</td>
                     <td className="user-table__cell">{user.rol}</td>
                     <td className="user-table__cell">

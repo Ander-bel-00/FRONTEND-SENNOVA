@@ -1,15 +1,15 @@
 import { IoIosReturnLeft } from 'react-icons/io';
 import { Fragment, useState } from 'react';
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import BotonReturn from "../../../common/BotonReturn";
 import Caja_formularios from '../../../common/Caja_formularios';
 import './css/Crear_Programa_Formacion_Admin.css';
+import Swal from "sweetalert2";
 import clienteAxios from '../../../../config/axios';
-import Swal from 'sweetalert2';
-import { GiReturnArrow } from 'react-icons/gi';
 
 function Crear_Programa_Formacion_Admin() {
   const [formNewProgram, setFormNewProgram] = useState({});
+  const navigate = useNavigate();
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -37,7 +37,9 @@ function Crear_Programa_Formacion_Admin() {
         icon: "success",
         showCancelButton: false,
         confirmButtonText: "Aceptar",
-      });
+      }).then((result) => {
+        return navigate('../visualizar-programa-formacion')
+      })
     } catch (error) {
       console.error("Error al crear el programa de Formación", error);
 
@@ -59,87 +61,76 @@ function Crear_Programa_Formacion_Admin() {
       <Caja_formularios
         info={
           <Fragment>
-            <div className="inputBoxes">
-              <h3 className="inputBoxes__titlecaja">
-                Crear Programa de formación
-              </h3>
-              <form className="inputBoxes__olderbox" onSubmit={handleSubmit}>
-                <label className="unputBoxes__label">
+            <div className='inputBoxes-admin'>
+              <h3 className='inputBoxes__titlecaja-admin'>Crear Programa de formación</h3>
+              <form className="inputBoxes__olderbox-admin" onSubmit={handleSubmit}>
+                <label className='unputBoxes__label-admin'>
                   Código Programa de formación<p className="rojo-required">*</p>
                 </label>
-                <input
-                  type="number"
-                  className="unputBoxes__input"
-                  name="codigo_programa_formacion"
+                <input 
+                  type="number" 
+                  className='unputBoxes__input-admin'
+                  name="codigo_programa_formacion" 
                   onChange={handleChange}
                 />
 
-                <label className="unputBoxes__label">
-                  Versión Programa de formación
-                  <p className="rojo-required">*</p>
+                <label className='unputBoxes__label-admin'>
+                  Versión Programa de formación<p className="rojo-required">*</p>
                 </label>
-                <input
-                  type="text"
-                  className="unputBoxes__input"
+                <input 
+                  type='text' 
+                  className='unputBoxes__input-admin'
                   name="version_programa_formacion"
                   onChange={handleChange}
                 />
 
-                <label className="unputBoxes__label">
+                <label className='unputBoxes__label-admin'>
                   Nombre Programa de formación<p className="rojo-required">*</p>
                 </label>
-                <input
-                  type="text"
-                  className="unputBoxes__input"
+                <input 
+                  type='text' 
+                  className='unputBoxes__input-admin' 
                   name="nombre_programa_formacion"
                   onChange={handleChange}
                 />
-                <div />
 
-                <label className="unputBoxes__label">
+                <label className='unputBoxes__label-admin'>
                   Número de Ficha<p className="rojo-required">*</p>
                 </label>
-                <input
+                <input 
                   type="number"
-                  className="unputBoxes__input"
+                  className='unputBoxes__input-admin' 
                   name="ficha"
                   onChange={handleChange}
                 />
 
-                <label className="unputBoxes__label">
+                <label className='unputBoxes__label-admin'>
                   Fecha de Inicio Lectiva<p className="rojo-required">*</p>
                 </label>
-                <input
+                <input 
                   type="date"
-                  className="unputBoxes__input"
+                  className='unputBoxes__input-admin' 
                   name="inicio_lectiva"
                   onChange={handleChange}
                 />
 
-                <label className="unputBoxes__label">
+                <label className='unputBoxes__label-admin'>
                   Fecha Fin Lectiva<p className="rojo-required">*</p>
                 </label>
-                <input
+                <input 
                   type="date"
-                  className="unputBoxes__input"
+                  className='unputBoxes__input-admin' 
                   name="fin_lectiva"
                   onChange={handleChange}
                 />
-
-                <div className="buttonsCreating">
-                  <button
-                    className="buttonsCreating__crear--green"
-                    type="submit"
-                  >
-                    Crear
-                  </button>
-                  <Link to={"../visualizar-programa-formacion"}>
-                    <button className="buttonsCreating__cancelar" type="button">
-                      Cancelar
-                    </button>
-                  </Link>
-                </div>
+                <div />
               </form>
+              {/* Botones principales */}
+              <div className='buttonsCreating-admin'>
+                <button className='buttonsCreating__crear--green-admin'>  Crear</button>
+                <button className='buttonsCreating__cancelar-admin'> Cancelar</button>
+
+              </div>
             </div>
           </Fragment>
         }

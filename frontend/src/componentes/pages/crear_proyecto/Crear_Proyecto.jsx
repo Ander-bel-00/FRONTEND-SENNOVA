@@ -36,20 +36,7 @@ function Crear_Proyecto() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // Verificar si algún campo está vacío
-    const anyFieldEmpty = Object.values(formNewProyect).some(
-      (value) => value === ""
-    );
-    if (anyFieldEmpty) {
-      // Mostrar Sweet Alert si algún campo está vacío
-      Swal.fire({
-        title: "Error al crear el Proyecto",
-        text: "Debes diligenciar todos los campos",
-        icon: "error",
-        confirmButtonText: "Aceptar",
-      });
-      return;
-    }
+    
 
     try {
       const response = await clienteAxios.post("/proyectos/", formNewProyect);
@@ -72,6 +59,7 @@ function Crear_Proyecto() {
       });
     }
   };
+  
   return (
     <Fragment>
       <div className="main-container__contenedor-hijo main-container__contenedor-hijo--size">
@@ -94,7 +82,7 @@ function Crear_Proyecto() {
                     htmlFor="codigo"
                     className="form-add-pryect-admin-container__col1__label"
                   >
-                    Código SGPS (Sistema de gestión de proyectos SENNOVA){" "}
+                    Código SGPS (Sistema de gestión de proyectos SENNOVA)
                     <p className="rojo-required">*</p>
                   </label>
                   <input
@@ -139,6 +127,7 @@ function Crear_Proyecto() {
                     onChange={handleChange}
                     className="form-add-pryect-container__col1__input"
                   />
+                  
                   <label
                     htmlFor="descripción-proyecto"
                     className="form-add-pryect-admin-container__col1__label"

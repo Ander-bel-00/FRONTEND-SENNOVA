@@ -33,12 +33,23 @@
   }
   
   .info-childs {
+    height: 100%;
     width: 100%;
     padding: 0 30px;
   }
-  
-  
-  
+
+  .logo{
+    position: relative;
+    top: 120px;
+  }
+
+  .logoTeinnova{
+    position: relative;
+    top: 210px;
+    left: 60px;
+    width: 65%;
+  }
+
   .login-title {
     font-size: 20px;
     color: #333;
@@ -91,8 +102,8 @@
   }
   
   .form-information-childs h2:hover{
-  color: #04324d;
-  transition: .7s;
+    color: #04324d;
+    transition: .7s;
   }
   
   
@@ -160,7 +171,7 @@
     padding: 7px 25px;
     cursor: pointer;
     transition: .5s;
-    margin-top: 10px;
+    margin-top: 30px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, .1);
     position: relative;
     left: 1.5rem;
@@ -220,17 +231,19 @@
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
   }
+
   .ir-inicio{
-    margin-top: 1rem;
-    padding: 1rem;
-    text-decoration:underline;
+    margin-top: 2rem;
     font-size: 1.2rem;
+    font-weight: 500;
     color: #39a900;
- 
   }
+
   .ir-inicio:hover{
     color: #04324d;
+    transform: scale(1.09);
   }
+  
   .container-main-login{
     display: flex;
     flex-direction: column;
@@ -244,6 +257,7 @@
     color: #04324d;
     font-weight: 500;
   }
+
   @media only screen and (max-width: 767px) {
     .container-form{
       flex-direction: column;

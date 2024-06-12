@@ -1,15 +1,14 @@
-import { IoIosReturnLeft } from "react-icons/io";
 import Caja_formularios from "../../../common/Caja_formularios";
 import { Fragment, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import BotonReturn from "../../../common/BotonReturn";
 import "./css/Crear_Eventos_Admin.css";
-
 import clienteAxios from "../../../../config/axios";
 import Swal from "sweetalert2";
 import { useAuth } from "../../../../context/AuthContext";
 
 function Crear_Eventos_Admin() {
+  
   const { userProfile } = useAuth();
   const navigate = useNavigate();
 
@@ -24,6 +23,7 @@ function Crear_Eventos_Admin() {
     cantidad_parcticipantes: "",
     nombre_ponente: "",
     lugar_evento: "",
+    semillero: " ",
   });
 
   const handleChange = (e) => {
@@ -87,7 +87,7 @@ function Crear_Eventos_Admin() {
                 onSubmit={handleSubmit}
               >
                 <label className="form-add-event-container__label-admin">
-                  Nombre del evento <p className="rojo-required-">*</p>
+                  Nombre del evento <p className="rojo-required">*</p>
                 </label>
                 <input
                   type="text"
@@ -97,7 +97,7 @@ function Crear_Eventos_Admin() {
                 />
 
                 <label className="form-add-event-container__label-admin">
-                  Tipo de Evento<p className="rojo-required">*</p>
+                  Tipo de Evento <p className="rojo-required">*</p>
                 </label>
                 <select
                   className="form-add-event-container__input-admin"
@@ -109,8 +109,9 @@ function Crear_Eventos_Admin() {
                   <option value="CTI">CTI</option>
                 </select>
 
+                
                 <label className="form-add-event-container__label-admin">
-                  Nombre del evento <p className="rojo-required-">*</p>
+                  Fecha de Inicio del Evento <p className="rojo-required">*</p>
                 </label>
                 <input
                   type="date"
@@ -120,8 +121,9 @@ function Crear_Eventos_Admin() {
                 />
 
                 <label className="form-add-event-container__label-admin">
-                  Ponente <p className="rojo-required">*</p>
+                  Fecha de Fin del Evento <p className="rojo-required">*</p>
                 </label>
+
                 <input
                   type="date"
                   className="form-add-event-container__input-admin"
@@ -140,7 +142,7 @@ function Crear_Eventos_Admin() {
                 />
 
                 <label className="form-add-event-container__label-admin">
-                  Fecha de Inicio del Evento <p className="rojo-required">*</p>
+                  Nombre del Ponente <p className="rojo-required">*</p>
                 </label>
                 <input
                   type="text"
@@ -150,12 +152,31 @@ function Crear_Eventos_Admin() {
                 />
 
                 <label className="form-add-event-container__label-admin">
-                  Cantidad de participantes <p className="rojo-required">*</p>
+                  Lugar del Evento <p className="rojo-required">*</p>
                 </label>
                 <input
                   type="text"
                   className="form-add-event-container__input-admin"
                   name="lugar_evento"
+                  onChange={handleChange}
+                />
+
+                <input
+                  type="text"
+                  className="form-add-event-container__input-admin"
+                  name="lugar_evento"
+                  onChange={handleChange}
+                  value={formNewEventoSemillero.semillero}
+                  hidden
+                />
+                
+                <label className="form-add-event-container__label-admin">
+                  Semillero <p className="rojo-required">*</p>
+                </label>
+                <input
+                  type="text"
+                  className="form-add-event-container__input-admin"
+                  name="semillero"
                   onChange={handleChange}
                 />
 

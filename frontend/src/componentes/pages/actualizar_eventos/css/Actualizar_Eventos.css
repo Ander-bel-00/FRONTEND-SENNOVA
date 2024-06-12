@@ -8,8 +8,6 @@
     padding-bottom: 2rem;
 }
 
-
-
 .caja-vs-evento__tile{
     font-size: 2rem;
     text-align: center;
@@ -45,7 +43,7 @@
     padding-top: 12px;
 }
 
-.update-event-btns{
+.form-vs-event-btns{
     display: flex;
     flex-direction: row;
     align-items: center;

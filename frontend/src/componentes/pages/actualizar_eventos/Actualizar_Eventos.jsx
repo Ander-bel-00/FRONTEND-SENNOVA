@@ -103,6 +103,16 @@ function Actualizar_Eventos() {
                   />
 
                 <div className="update-event-btns">
+                </div>
+
+                <label className="form-vs-evento-container__label">
+                  Tipo de Evento <p className="text-red-600">*</p>
+                </label>
+                <select className="form-vs-evento-container__input">
+                  <option className="columnTwo__op1">Asistente</option>
+                  <option className="columnTwo__op2">Potente</option>
+                </select>
+                <div className="form-vs-event-btns">
                   <button
                     type="button"
                     className="btn-vs-evento-container__crear--green"

@@ -30,7 +30,6 @@ function Encabezado() {
         <section className='header__logos'>
           <img className='header__sennova' src={sennova} alt="" />
 
-          <img className='header__img-sena' src={LT_Sena} alt="" />
           <div className='header-imgs'>
             <img className='header__img-sennova' src={LogoSennova} alt="" />
             <img className='header__img-cditi' src={CDITI2} alt="" />

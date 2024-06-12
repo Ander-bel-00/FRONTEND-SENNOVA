@@ -75,6 +75,7 @@
     background-color: #d4212c;
     font-size: medium;
     padding: 8px 20px;
+    width: 15rem;
 }
 
 
@@ -89,6 +90,7 @@
     font-size: medium;
     padding: 8px 30px;
     left: 10%; 
+    width: 15rem;
 }
 
 .buttonsCreating__crear--green-admin:hover{

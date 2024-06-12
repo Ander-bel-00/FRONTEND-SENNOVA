@@ -1,5 +1,5 @@
-import React, { Fragment } from "react";
-import './css/Listar_semilleros.css';
+import React, { Fragment, useEffect, useState } from "react";
+import "./css/Listar_semilleros.css";
 import Header_ToolBar from "../../../common/Header_ToolBar";
 import { FaFileArrowUp } from "react-icons/fa6";
 import { AiOutlinePlus } from "react-icons/ai";
@@ -11,31 +11,35 @@ import Caja_Blanca from "../../../common/Caja_Blanca";
 import { Link } from "react-router-dom";
 import { TbPointFilled } from "react-icons/tb";
 import * as XLSX from "xlsx";
+import clienteAxios from '../../../../config/axios';
 
 function Listar_Semilleros_Admin() {
-  const ListSemilleros = [
-    {
-      nombre: "Informática Diseño y Desarrollo de Software.",
-      responsable: "Jorge Luis Raigosa Barahona",
-      estado: "Activo", 
-     
-   
-    },
-  
-  ];
+  const [semillero, setSemillero] = useState(null);
+
+  useEffect(() => {
+    const ObtenerSemilleros = async () => {
+      try {
+        const res = await clienteAxios.get('/semilleros/');
+        setSemillero(res.data);
+      } catch (error) {
+        console.error('Hubo un error al obtener los semilleros', error);
+      }
+    };
+    ObtenerSemilleros();
+  }, []);
 
   const exportToExcel = () => {
     const wb = XLSX.utils.book_new();
     const wsData = [
       [
         "Nombre Semillero",
-        "Responsable Semillero",
+        "Nombre Regional",
         "Estado",
       ],
-      ...ListSemilleros.map((adminActividad) => [
-        adminActividad.nombre,
-        adminActividad.responsable,
-        adminActividad.estado,
+      ...semillero.map((semillero) => [
+        semillero.nombre_semillero,
+        semillero.nombre_regional,
+        semillero.estado_semillero,
       ]),
     ];
     const ws = XLSX.utils.aoa_to_sheet(wsData);
@@ -51,6 +55,7 @@ function Listar_Semilleros_Admin() {
     XLSX.utils.book_append_sheet(wb, ws, "Semilleros");
     XLSX.writeFile(wb, "semilleros.xlsx");
   };
+
   return (
     <Fragment>
       <div className="main-container__contenedor-hijo">
@@ -63,10 +68,7 @@ function Listar_Semilleros_Admin() {
                 clase={"btn-blanco btn-blanco--modify btn-verde"}
                 onClick={exportToExcel}
               />
-
-
               <Search text={"Buscar Semillero"} />
-
               <BotonVerdeAñadir
                 icon={<AiOutlinePlus />}
                 text={"Crear Semillero"}
@@ -84,48 +86,44 @@ function Listar_Semilleros_Admin() {
                     Nombre Semillero
                   </th>
                   <th className="list-semillero-admin-content__table__tr__th">
-                    Responsable Semillero
-                  </th> 
+                    Nombre Regional
+                  </th>
                   <th className="list-semillero-admin-content__table__tr__th">
                     Estado
                   </th>
                   <th className="list-semillero-admin-content__table__tr__th">
-                    Acciones 
+                    Acciones
                   </th>
                 </tr>
               </thead>
               <tbody>
-                {ListSemilleros.map((adminActividad, index) => (
-                  <tr key={index} className="list-semillero-admin-content-table-tr">
+                {semillero ? (
+                  <tr className="list-semillero-admin-content-table-tr">
                     <td className="list-semillero-admin-content-table-td">
-                      {adminActividad.nombre}
+                      {semillero.nombre_semillero}
                     </td>
                     <td className="list-semillero-admin-content-table-td">
-                      {adminActividad.responsable}
+                      {semillero.nombre_regional}
                     </td>
                     <td className="list-semillero-admin-content-table-td">
-                      {adminActividad.estado}
-
-                    <th>
-                      < TbPointFilled className="puntico"/>
-                    
-                    </th>
-                      
+                      {semillero.estado_semillero}
+                      <th>
+                        <TbPointFilled className="puntico" />
+                      </th>
                     </td>
                     <td className="list-semillero-admin-content-table__td">
                       <div className="list-semillero-admin-content-table__td__btns">
-                    
-                       
                         <Link to={"../semillero"}>
                           <LiaEyeSolid className="list-semillero-admin-content-table__td__btn" />
-                          <span className="tooltip">Visualizar</span>
                         </Link>
-
                       </div>
-                      
                     </td>
                   </tr>
-                ))}
+                ) : (
+                  <tr>
+                    <td colSpan="4">Cargando...</td>
+                  </tr>
+                )}
               </tbody>
             </table>
           }

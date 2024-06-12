@@ -1,70 +1,70 @@
-import React, { Fragment, useEffect, useState } from 'react';
-import "./css/Actualizar_Actividad_Admin.css"
+import React, { Fragment, useEffect, useState } from "react";
+import "./css/Actualizar_Actividad_Admin.css";
 import { IoIosReturnLeft } from "react-icons/io";
 import BotonReturn from "../../../common/BotonReturn";
-import { Link, useNavigate, useParams } from 'react-router-dom';
-import Caja_formularios from '../../../common/Caja_formularios';
-import clienteAxios from '../../../../config/axios';
-import Swal from 'sweetalert2';
-
+import { Link, useNavigate, useParams } from "react-router-dom";
+import Caja_formularios from "../../../common/Caja_formularios";
+import clienteAxios from "../../../../config/axios";
+import Swal from "sweetalert2";
 
 function Actualizar_Actividad_Admin() {
-  //Extraer la variable id que se pasa por la url
-  const {id} = useParams();
-  //Constante que permite realizar navegaciones co el Hook (usenavegate.)
+  // Extraer la variable id que se pasa por la url.
+  const { id } = useParams();
+  // Constante que permitirá realizar navegaciones con el Hook (useNavigate).
   const navigate = useNavigate();
-  //Estado que guardaria la información de la actividad.
+  // Estado que guardará la infomación de la actividad.
   const [actividadInfo, setActividadInfo] = useState({
-    nombre_actividad: '', 
-    tarea: '',
-    fecha_inicio: '',
-    fecha_fin: '',
-    resultado: '', 
-    responsable_actividad: '',
+    nombre_actividad: "",
+    tarea: "",
+    fecha_inicio: "",
+    fecha_fin: "",
+    resultado: "",
+    responsable_actividad: "",
   });
-
-  //Función para realizar una silicutud a la api y traer los datos de la actividad por su id.
+  // Función para realizar una solicitud a la api y traer los datos de la actividad por su id.
   const consultarApi = async () => {
-    //Solicitud que me trae los datos de la actividad que se busca por su id
+    // Solicitud que me trae los datos de la actividad que se busca por su id.
     const res = await clienteAxios.get(`/activity-semillero/${id}/`);
+    // Actualizar el estado actividadInfo con la información obtenida de res (respuesta de la solicitud).
     setActividadInfo(res.data);
-  }
+  };
 
-  //Efecto que realizara una acción una vez se cargue completamente el camponente.
+  // Efecto que realizará una acción una vez se cargue completamente el componente.
   useEffect(() => {
-    //Llamar la función consultarApi para ejecutar tood de ella.
+    // Llamar la función consultarApi para ejecutar todo dentro de ella.
     consultarApi();
   }, []);
 
+  // Función de evento, que permitirá realizar actualización en el estado (actividadInfo), con lo nuevo escrtio en cada input.
   const handleChange = (e) => {
-    //Actualizar el estado con los nuevos valores recibidos.
+    // Actualizar el estado con lso nuevos valores recibidos.
     setActividadInfo({
-      //Copiamos todos los campos del estado y los actualizamos por los nuevos valores. 
+      // Copiamos todos los campos del estado y lso actualizamos por lo nuevos valores.
       ...actividadInfo,
-      //Buscar la etiqueta html donde el name coincida con cada campo del estado y extraer su valor. 
-      [e.target.name]: e.target.value
+      // Buscar la etiqueta html donde el name coinicida con cada campo del estado y extraer su valor.
+      [e.target.name]: e.target.value,
     });
   };
 
   const actualizarActividad = async (e) => {
-    e.preventDefaul();
+    e.preventDefault();
     try {
       await clienteAxios.put(`/activity-semillero/${id}/`, actividadInfo);
 
       Swal.fire({
-        incon: "success",
+        icon: "success",
         title: "La actividad ha sido actualizada",
-        text: "La información de la actividad ha sido actualizada correctamente",
+        text: "La información de la actividad ha sido actualizada correctamente.",
         showCancelButton: false,
         confirmButtonText: "Aceptar",
-      }).then(() => {
+      }).then((result) => {
         return navigate("../listar-actividad");
       });
     } catch (error) {
       console.error("Error al actualizar los datos de la actividad", error);
-      //Mostrar sweetAlert de error
+      // Mostrar SweetAlert de error
       Swal.fire({
-        incon: "error",
+        icon: "error",
         title: "Hubo un error",
         text: "Hubo un error al intentar actualizar los datos de la actividad",
       });
@@ -74,7 +74,7 @@ function Actualizar_Actividad_Admin() {
   return (
     <Fragment>
       <div className="main-container__contenedor-hijo">
-      <Link>
+        <Link>
           <div className="update-proyect-btn-return">
             <BotonReturn
               link={"/lider-semillero/Listar_Actividad"}
@@ -83,13 +83,16 @@ function Actualizar_Actividad_Admin() {
           </div>
         </Link>
         <Caja_formularios
-         info={
-          <Fragment>
-            <div className="update-activity-admin-main">
-            <h1 className="text-center actualizar-actividades-admin-title">
+          info={
+            <Fragment>
+              <div className="update-activity-admin-main">
+                <h1 className="text-center actualizar-actividades-admin-title">
                   ACTUALIZAR ACTIVIDAD
                 </h1>
-                <form className="form-update-activity-admin-content" onSubmit={actualizarActividad}>
+                <form
+                  className="form-update-activity-admin-content"
+                  onSubmit={actualizarActividad}
+                >
                   <label
                     htmlFor="nombre-actividad"
                     className="form-update-activity-admin-content__col1__label"
@@ -100,18 +103,20 @@ function Actualizar_Actividad_Admin() {
                     type="text"
                     id="nombre_actividad"
                     className="form-update-activity-admin-content__col1__input"
+                    name="nombre_actividad"
                     onChange={handleChange}
                     defaultValue={actividadInfo.nombre_actividad}
                   />
-                   <label
+                  <label
                     htmlFor="fecha-entrega-actividad"
                     className="form-update-activity-admin-content__col1__label"
                   >
-                    Fecha Inicio<p className="text-red-600">*</p>
+                    Fecha inicio<p className="text-red-600">*</p>
                   </label>
                   <input
                     type="date"
                     id="fecha_inicio"
+                    name="fecha_inicio"
                     className="form-update-activity-admin-content__col1__input"
                     onChange={handleChange}
                     defaultValue={actividadInfo.fecha_inicio}
@@ -126,24 +131,37 @@ function Actualizar_Actividad_Admin() {
                     type="date"
                     id="fecha_fin"
                     className="form-update-activity-admin-content__col1__input"
+                    name="fecha_fin"
                     onChange={handleChange}
                     defaultValue={actividadInfo.fecha_fin}
                   />
-                  <label
-                    htmlFor="fecha-entrega-actividad"
+                  {/* <label
+                    htmlFor="producto-actividad"
                     className="form-update-activity-admin-content__col1__label"
                   >
-                    Tarea<p className="text-red-600">*</p>
+                    Producto <p className="text-red-600">*</p>
+                  </label>
+                  <input
+                    type="text"
+                    id="producto-actividad"
+                    className="form-update-activity-admin-content__col1__input"
+                  /> */}
+                  <label
+                    htmlFor="tarea-activida"
+                    className="form-update-activity-admin-content__col1__label"
+                  >
+                    Tarea <p className="text-red-600">*</p>
                   </label>
                   <input
                     type="text"
                     id="tarea"
+                    name="tarea"
                     className="form-update-activity-admin-content__col1__input"
                     onChange={handleChange}
                     defaultValue={actividadInfo.tarea}
                   />
                   <label
-                    htmlFor="resultado-actividad"
+                    htmlFor="resultado"
                     className="form-update-activity-admin-content__col1__label"
                   >
                     Resultado <p className="text-red-600">*</p>
@@ -151,54 +169,57 @@ function Actualizar_Actividad_Admin() {
                   <input
                     type="text"
                     id="resultado"
+                    name="resultado"
                     className="form-update-activity-admin-content__col1__input"
                     onChange={handleChange}
                     defaultValue={actividadInfo.resultado}
                   />
-    
                   <label
-                    htmlFor="fecha-entrega-actividad"
+                    htmlFor="responsable_actividad"
                     className="form-update-activity-admin-content__col1__label"
                   >
-                    Responsable Actividad<p className="text-red-600">*</p>
+                    Responsable de la Actividad{" "}
+                    <p className="text-red-600">*</p>
                   </label>
                   <input
                     type="text"
                     id="responsable_actividad"
+                    name="responsable_actividad"
                     className="form-update-activity-admin-content__col1__input"
                     onChange={handleChange}
                     defaultValue={actividadInfo.responsable_actividad}
                   />
-                 
-                    
                   <input
-                    hidden
-                    type="date"
+                    type="text"
                     id="semillero"
+                    name="semillero"
+                    defaultValue={actividadInfo.semillero}
+                    hidden
                     className="form-update-activity-admin-content__col1__input"
                     onChange={handleChange}
-                    defaultValue={actividadInfo.semillero}
                   />
 
-                    <div className="update-activity-admin-btns">
-                      <button className="btn-actualizar-actividad-admin">
-                        Actualizar
-                      </button>
-                      <Link to={"/admin/listar-actividad"}>
-                      <button className="btn-cancelar-actividad-uptd-admin" type="button">
+                  <div className="update-activity-btns">
+                    <button className="btn-actualizar-actividad">
+                      Actualizar
+                    </button>
+                    <Link to={"../listar-actividad"}>
+                      <button
+                        className="btn-cancelar-actividad-uptd"
+                        type="button"
+                      >
                         Cancelar
                       </button>
                     </Link>
                   </div>
                 </form>
-            </div>
-          </Fragment>
-         }
+              </div>
+            </Fragment>
+          }
         />
       </div>
     </Fragment>
-  )
+  );
 }
 
 export default Actualizar_Actividad_Admin;
-

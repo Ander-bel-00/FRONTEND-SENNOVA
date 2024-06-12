@@ -1,8 +1,9 @@
 import { IoAdd, IoTrashOutline } from "react-icons/io5";
 import { GiReturnArrow } from "react-icons/gi";
-import { FaFileArrowUp } from "react-icons/fa6";
-import { LuCalendarDays } from "react-icons/lu";
+import { CiCalendar } from "react-icons/ci";
 import { FaSearch } from "react-icons/fa";
+import { LuCalendarDays } from "react-icons/lu";
+import { FaFileArrowUp } from "react-icons/fa6";
 import { Fragment } from "react";
 import { FaRegEdit } from "react-icons/fa";
 import { Link } from "react-router-dom";
@@ -34,7 +35,6 @@ function Visualizar_Actividad() {
     },
   ];
 
-  
   return (
     <div className="main-container__contenedor-hijo">
       <Header_ToolBar
@@ -47,15 +47,15 @@ function Visualizar_Actividad() {
               clase={"btn-blanco btn-blanco--modify btn-verde"}
             />
             <BotonBlanco
-              icon={<LuCalendarDays />}
-              text={"Ir al Cronograma"}
+              icon={<CiCalendar />}
+              text={"calendario"}
               clase={"btn-blanco btn-blanco--modify btn-azul"}
             />
             <Search icon={<FaSearch />} text={"Buscar Actividades"} />
             <BotonVerdeAñadir
               icon={<IoAdd />}
               text={"Añadir Actividad"}
-              link={"/lider-semillero/Crear_Actividad"}
+              link={"/lider-semillero/crear-actividad"}
             />
           </Fragment>
         }
