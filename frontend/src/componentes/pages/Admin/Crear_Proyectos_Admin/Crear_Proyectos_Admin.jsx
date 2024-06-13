@@ -20,10 +20,9 @@ function Crear_Proyectos_Admin() {
                 <form className="form-add-pryect-admin-container">
                   <label
                     htmlFor="codigo-sgps"
-                    className="form-add-pryect-admin-container__col1__label"
+                    className="form-add-pryect-admin-container__col1__label espaciado"
                   >
-                    Código SGPS (Sistema de gestión de proyectos SENNOVA){" "}
-                    <p className="rojo-required">*</p>
+                    Código SGPS (Sistema de gestión de proyectos SENNOVA) <p className="rojo-required">*</p>
                   </label>
                   <input
                     type="text"
