@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import './css/Encabezado.css';
 // import LogoSennova from './img/logo-sennova.svg';
 import LogoSennova from './img/sennova-logo.png';
-import CDITI from './img/CDITI.png';
+import CDITI2 from './img/CDITI2.png';
 import LT_Sena from './img/sena-logo.svg';
 import logo_app from './img/logo-app.svg';
 import sennova from './img/sennova.svg';
@@ -33,7 +33,7 @@ function Encabezado() {
           <img className='header__img-sena' src={LT_Sena} alt="" />
           <div className='header-imgs'>
             <img className='header__img-sennova' src={LogoSennova} alt="" />
-            <img className='header__img-cditi' src={CDITI} alt="" />
+            <img className='header__img-cditi' src={CDITI2} alt="" />
             </div>
         </section>
       )}
@@ -53,6 +53,10 @@ function Encabezado() {
         </nav>
 
       </header>
+
+
+
+
 
     </>
   )

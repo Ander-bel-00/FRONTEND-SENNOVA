@@ -36,20 +36,7 @@ function Crear_Proyecto() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // Verificar si algún campo está vacío
-    const anyFieldEmpty = Object.values(formNewProyect).some(
-      (value) => value === ""
-    );
-    if (anyFieldEmpty) {
-      // Mostrar Sweet Alert si algún campo está vacío
-      Swal.fire({
-        title: "Error al crear el Proyecto",
-        text: "Debes diligenciar todos los campos",
-        icon: "error",
-        confirmButtonText: "Aceptar",
-      });
-      return;
-    }
+    
 
     try {
       const response = await clienteAxios.post("/proyectos/", formNewProyect);
@@ -95,14 +82,14 @@ function Crear_Proyecto() {
                     htmlFor="codigo"
                     className="form-add-pryect-admin-container__col1__label"
                   >
-                    Código SGPS (Sistema de gestión de proyectos SENNOVA){" "}
+                    Código SGPS (Sistema de gestión de proyectos SENNOVA)
                     <p className="rojo-required">*</p>
                   </label>
                   <input
                     type="text"
                     name="codigo"
                     id="codigo"
-                    className="form-add-pryect-admin-container__col1__input"
+                    className="form-add-pryect-container__col1__input"
                     onChange={handleChange}
                   />
                   <label
@@ -139,18 +126,6 @@ function Crear_Proyecto() {
                     name="nombre_proyecto"
                     onChange={handleChange}
                     className="form-add-pryect-container__col1__input"
-                  />
-
-                  <label
-                    htmlFor="codigo-sgps"
-                    className="form-add-pryect-admin-container__col1__label"
-                  >
-                    Código SGPS (Sistema de gestión de proyectos SENNOVA)<p className="rojo-required">*</p>
-                  </label>
-                  <input
-                    type="text"
-                    id="codigo-sgps"
-                    className="form-add-pryect-admin-container__col1__input"
                   />
                   
                   <label

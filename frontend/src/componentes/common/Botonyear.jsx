@@ -1,14 +1,13 @@
-import { Link } from 'react-router-dom';
-import './css/Botonyear.css';
+import { Link } from "react-router-dom";
+import "./css/Botonyear.css";
 
-
-const Botonyear = ({text, link, icon}) => {
+const Botonyear = ({ text, link, icon }) => {
   return (
-    <Link to={link} className='boton-year'>
+    <Link to={link} className="boton-year" >
       {icon}
       {text}
     </Link>
-  )
-}
+  );
+};
 
-export default Botonyear
+export default Botonyear;

@@ -36,7 +36,7 @@ function Listar_Eventos_Admin() {
         Header_Tools={
           <Fragment>
             <BotonBlanco icon={<FaFileArrowUp />} text={"Reporte"} clase={'btn-blanco btn-blanco--modify btn-verde'} />
-            <BotonBlanco icon={<LuCalendarDays />} text={"Ir al Cronograma"} clase={'btn-blanco btn-blanco--modify btn-azul'} />
+            <BotonBlanco icon={<LuCalendarDays />} text={"Ir al Cronograma"} clase={'btn-blanco btn-blanco--modify btn-azul'} link={"../cronograma"}/>
             <Search text={"Buscar Eventos"} />
             <BotonVerdeAñadir icon={<IoAdd />} text={"Crear evento"} link={"/admin/crear-eventos"}/>
           </Fragment>
@@ -77,7 +77,7 @@ function Listar_Eventos_Admin() {
                   <td className="list-events-table__td-admin">
                   
                     <div className="list-events-table__td__btns-admin">
-                      <Link to={"/admin/visualizar-evento"} >
+                      <Link to={`../visualizar-evento/${evento.id}`} >
                         <LiaEye className="list-events-table__td__btn-admin" />
                       </Link>
                       <Link to={`../actualizar-eventos/${evento.id}`} >

@@ -1,0 +1,98 @@
+.horas-view-header {
+    display: flex;
+    justify-content: space-between; /* Espacia los elementos a los extremos */
+    align-items: center; /* Centra los elementos verticalmente */
+    gap: 20px; /* Espacio entre los contenedores de la izquierda y la derecha */
+    margin-bottom: 20px; /* Margen inferior para separar del contenido siguiente */
+}
+  
+.header-left {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Espacio entre el título y el nombre */
+    position: relative;
+    left: 30%;
+}
+  
+.title-trimestre {
+    font-size: 2rem;
+    font-weight: 620;
+    background-color: #e4e2e2;
+    width: 14rem;
+    border-radius: 1.5rem;
+    padding: 9px 19px;
+    text-align: center; /* Centra el texto */
+}
+  
+.title-instructor {
+    font-size: 2rem;
+    font-weight: 530;
+    margin-top: 1rem;
+}
+  
+.semaforo-container {
+    display: flex;
+    flex-direction: column; /* Coloca los elementos en una columna */
+    gap: 10px; /* Espacio entre las cajas de colores */
+    text-align: center;
+}
+  
+.semaforo-box {
+    padding: 10px 20px;
+    color: white;
+    border-radius: 10px;
+    text-align: center;
+}
+  
+.green {
+    background-color: #4CAF50;
+}
+  
+.orange {
+    background-color: #FF9800;
+}
+  
+.red {
+    background-color: #F44336;
+}
+  
+.visu-horas-table-admin {
+    width: 98%;
+    border-collapse: collapse;
+    margin: 0 auto; /* Centra la tabla */
+}
+  
+.visu-horas-table__tr-admin {
+    border: 1px solid var(--color-border-bottom-tr);
+}
+  
+.visu-horas-table__tr-admin:nth-child(even) {
+    background-color: #f9f9f9;
+}
+  
+.visu-horas-table__th-admin {
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    text-wrap: nowrap;
+    text-align: left;
+    padding: 8px;
+}
+  
+.visu-horas-table__td-admin {
+    border: 1px solid #dddddd;
+    padding: 8px;
+    text-align: left;
+}
+  
+/* Añade las clases para los colores de las filas */
+.row-green {
+    background-color: #4CAF50;
+}
+  
+.row-orange {
+    background-color: #FF9800;
+}
+  
+.row-red {
+    background-color: #F44336;
+}

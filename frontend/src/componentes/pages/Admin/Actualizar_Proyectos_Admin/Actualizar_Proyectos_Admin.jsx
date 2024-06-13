@@ -44,7 +44,7 @@ function Actualizar_Proyectos_Admin() {
       Swal.fire({
         icon: "success",
         title: "El proyecto ha sido actualizado",
-        text: "La información del proyecto se ha sido actualizada correctamente.",
+        text: "La información del proyecto ha sido actualizada correctamente.",
         showCancelButton: false,
         confirmButtonText: "Aceptar",
       }).then((result) => {
@@ -126,10 +126,19 @@ function Actualizar_Proyectos_Admin() {
                   </label>
                   <input
                     type="text"
-                    id="nombre-del-proyecto"
+                    id="nombre_proyecto"
+                    name="nombre_proyecto"
                     className="form-update-proyects-admin-content__col1__input"
                     onChange={handleChange}
                     defaultValue={proyectoData.nombre_proyecto}
+                  />
+                  <input
+                    type="text"
+                    hidden
+                    id="semillero"
+                    className="form-update-proyects-admin-content__col1__input"
+                    onChange={handleChange}
+                    defaultValue={proyectoData.semillero}
                   />
                   <label
                     htmlFor="descripción-del-proyecto"
@@ -138,7 +147,7 @@ function Actualizar_Proyectos_Admin() {
                     Descripción del Proyecto <p className="text-red-600">*</p>
                   </label>
                   <textarea
-                    name="text"
+                    name="descripcion_proyecto"
                     id="descripcion-del-proyecto"
                     cols="28"
                     rows="9"
@@ -154,6 +163,7 @@ function Actualizar_Proyectos_Admin() {
                   </label>
                   <input
                     type="date"
+                    name="fecha_inicio"
                     id="fecha-inicio-del-proyecto"
                     className="form-update-proyects-admin-content__col1__input"
                     onChange={handleChange}
@@ -166,6 +176,7 @@ function Actualizar_Proyectos_Admin() {
                     Fecha Fin del Proyecto <p className="text-red-600">*</p>
                   </label>
                   <input
+                  name="fecha_fin"
                     type="date"
                     id="fecha-fin-del-proyecto"
                     className="form-update-proyects-admin-content__col1__input"

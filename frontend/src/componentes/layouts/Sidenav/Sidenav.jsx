@@ -13,18 +13,17 @@ import { FaChartGantt, FaRegHourglassHalf } from "react-icons/fa6";
 import { FaList } from "react-icons/fa6";
 import { FaUsers } from "react-icons/fa";
 import { useAuth } from "../../../context/AuthContext";
-
+import { Ri24HoursLine } from "react-icons/ri";
 
 
 function Sidenav() {
   const { userProfile } = useAuth();
   // Verificar si userProfile es null antes de acceder a sus propiedades
-  const Rol = userProfile ? userProfile.rol : '';
+  const Rol = userProfile ? userProfile.rol : "";
   return (
     <Fragment>
       <div className="Sidenav-content">
         <ul className="list-group Sidenav-content__menu-content">
-
           <li>
             <div className="Sidenav-content__menu-content__Logo-Teinnova">
               <img src={LogoTeinnovaHome} alt="Logo Teinnova" />
@@ -36,6 +35,16 @@ function Sidenav() {
               Semilleros
             </li>
           </Link>
+          {Rol && Rol === "admin" ? (
+            <Link to={`/${Rol}/horas-investigadores`}>
+              <li className="Sidenav-content__menu-content__menu-options">
+                <Ri24HoursLine className="inline-block mr-2" />
+                Horas de Investiagción
+              </li>
+            </Link>
+          ) : (
+            <li className="" hidden></li>
+          )}
 
           <Link to={`/${Rol}/listar-Proyectos`}>
             <li className="Sidenav-content__menu-content__menu-options">
@@ -67,7 +76,6 @@ function Sidenav() {
               Programa
             </li>
           </Link>
-
 
           <Link to={`/${Rol}/usuarios-getAll`}>
             <li className="Sidenav-content__menu-content__menu-options">
