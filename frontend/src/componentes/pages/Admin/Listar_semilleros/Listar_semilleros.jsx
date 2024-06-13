@@ -13,12 +13,12 @@ import { TbPointFilled } from "react-icons/tb";
 import clienteAxios from '../../../../config/axios';
 
 function Listar_Semilleros_Admin() {
-  const [semillero, setSemillero] = useState(null);
+  const [semillero, setSemillero] = useState([]);
 
   useEffect(() => {
     const ObtenerSemilleros = async () => {
       try {
-        const res = await clienteAxios.get('/semilleros/');
+        const res = await clienteAxios.get('/lista-semilleros/');
         setSemillero(res.data);
       } catch (error) {
         console.error('Hubo un error al obtener los semilleros', error);
@@ -67,33 +67,18 @@ function Listar_Semilleros_Admin() {
                 </tr>
               </thead>
               <tbody>
-                {semillero ? (
+                {semillero.map(semillero => (
                   <tr className="list-semillero-admin-content-table-tr">
-                    <td className="list-semillero-admin-content-table-td">
-                      {semillero.nombre_semillero}
-                    </td>
-                    <td className="list-semillero-admin-content-table-td">
-                      {semillero.nombre_regional}
-                    </td>
+                    <td className="list-semillero-admin-content-table-td">{semillero.nombre_semillero}</td>
+                    <td className="list-semillero-admin-content-table-td">{semillero.nombre_regional}</td>
                     <td className="list-semillero-admin-content-table-td">
                       {semillero.estado_semillero}
                       <th>
                         <TbPointFilled className="puntico" />
                       </th>
                     </td>
-                    <td className="list-semillero-admin-content-table__td">
-                      <div className="list-semillero-admin-content-table__td__btns">
-                        <Link to={"../semillero"}>
-                          <LiaEyeSolid className="list-semillero-admin-content-table__td__btn" />
-                        </Link>
-                      </div>
-                    </td>
                   </tr>
-                ) : (
-                  <tr>
-                    <td colSpan="4">Cargando...</td>
-                  </tr>
-                )}
+                ))}
               </tbody>
             </table>
           }
