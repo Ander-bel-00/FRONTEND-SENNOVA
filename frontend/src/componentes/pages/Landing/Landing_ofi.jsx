@@ -13,7 +13,7 @@ import Footer from "./Pie_de_pagina";
 import btn_flotante from "./btn_flotante";
 import logo_circulo from "./img/logo-circulo-sen.webp";
 import CreadoresPage from "./creadores_page";
-import imagen_grupo_sennova from "./img/semilleros.jpg";
+import imagen_grupo_sennova from "./img/collage_2.png";
 
 // Fotos Creadores
 import Juan_Carlos from "./img/garcia.jpg";
