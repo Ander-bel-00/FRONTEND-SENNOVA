@@ -9,17 +9,18 @@ import clienteAxios from "../../../../config/axios";
 import { useAuth } from "../../../../context/AuthContext";
 import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
+import { useParams } from "react-router-dom";
 
 function Semillero_Admin() {
-  const { userProfile } = useAuth();
+  const {id_semillero} = useParams();
 
   const [semilleros, setSemilleros] = useState([]);
   useEffect(() => {
     const fetchSemillero = async () => {
       try {
-        if (userProfile && userProfile.semillero) {
+        if (id_semillero) {
           const response = await clienteAxios.get(
-            `/semilleros/${userProfile.semillero}/`
+            `/semilleros/${id_semillero}/`
           );
           setSemilleros(response.data);
         }
@@ -29,7 +30,9 @@ function Semillero_Admin() {
     };
 
     fetchSemillero();
-  }, [userProfile]);
+  }, [id_semillero]);
+
+  console.log(id_semillero)
 
   const handleGenerarPDF = () => {
     // Función para generar un reporte en PDF

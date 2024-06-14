@@ -147,7 +147,7 @@ function App() {
                     />
 
                     <Route
-                      path="/semillero"
+                      path="/semillero/:id_semillero"
                       element={
                         <Fragment>
                           <main className="main-container">
@@ -209,7 +209,7 @@ function App() {
                       }
                     />
                     <Route
-                      path="/actualizar-semillero"
+                      path="/actualizar-semillero/:id_semillero"
                       element={
                         <main className="main-container">
                           <Actualizar_Semillero />
