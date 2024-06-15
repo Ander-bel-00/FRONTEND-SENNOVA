@@ -8,10 +8,8 @@ function Actualizar_Semillero() {
   return (
     <Fragment>
       <div className="main-container__contenedor-hijo main-container__contenedor-hijo--size">
-       
-          <BotonReturn />
-       
-        
+        <BotonReturn />
+
         <Caja_formularios
           info={
             <Fragment>

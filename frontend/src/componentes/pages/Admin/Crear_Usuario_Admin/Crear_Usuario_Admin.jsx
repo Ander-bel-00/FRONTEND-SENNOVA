@@ -154,6 +154,7 @@ function Crear_Usuario_Admin() {
                     Aprendiz Investigador
                   </option>
                   <option value="lider_semillero">Lider Semillero</option>
+                  <option value="coordinador">Coordinador</option>
                 </select>
               </div>
               <form className="form-add-user-container" onSubmit={handleSubmit}>
