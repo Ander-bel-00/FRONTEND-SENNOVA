@@ -74,41 +74,41 @@ function Listar_Proyectos_Instructor_Investigador() {
     XLSX.writeFile(wb, "proyectos.xlsx");
   };
 
-  const suspenderProyecto = async (projectId) => {
-    try {
-      const result = await Swal.fire({
-        title: "Estás seguro de suspender el Proyecto?",
-        text: "Esta acción no se puede revertir",
-        icon: "warning",
-        showCancelButton: true,
-        confirmButtonColor: "#3085d6",
-        cancelButtonColor: "#d33",
-        confirmButtonText: "Si, suspender el Proyecto",
-      });
+  // const suspenderProyecto = async (projectId) => {
+  //   try {
+  //     const result = await Swal.fire({
+  //       title: "Estás seguro de suspender el Proyecto?",
+  //       text: "Esta acción no se puede revertir",
+  //       icon: "warning",
+  //       showCancelButton: true,
+  //       confirmButtonColor: "#3085d6",
+  //       cancelButtonColor: "#d33",
+  //       confirmButtonText: "Si, suspender el Proyecto",
+  //     });
 
-      if (result.isConfirmed) {
-        await clienteAxios.delete(`/proyectos/${projectId}/`);
-        Swal.fire({
-          title: "Proyecto suspendido",
-          text: "El proyecto ha sido suspendido exitosamente.",
-          icon: "success",
-        });
-        setProyectosSemillero((prev) =>
-          prev.filter((project) => project.id !== projectId)
-        );
-        setFilteredProyectos((prev) =>
-          prev.filter((project) => project.id !== projectId)
-        );
-      }
-    } catch (error) {
-      console.log("Hubo un error al intentar suspender el proyecto", error);
-      Swal.fire({
-        icon: "error",
-        title: "Hubo un error",
-        text: "Ocurrió un error al intentar suspender el proyecto",
-      });
-    }
-  };
+  //     if (result.isConfirmed) {
+  //       await clienteAxios.delete(`/proyectos/${projectId}/`);
+  //       Swal.fire({
+  //         title: "Proyecto suspendido",
+  //         text: "El proyecto ha sido suspendido exitosamente.",
+  //         icon: "success",
+  //       });
+  //       setProyectosSemillero((prev) =>
+  //         prev.filter((project) => project.id !== projectId)
+  //       );
+  //       setFilteredProyectos((prev) =>
+  //         prev.filter((project) => project.id !== projectId)
+  //       );
+  //     }
+  //   } catch (error) {
+  //     console.log("Hubo un error al intentar suspender el proyecto", error);
+  //     Swal.fire({
+  //       icon: "error",
+  //       title: "Hubo un error",
+  //       text: "Ocurrió un error al intentar suspender el proyecto",
+  //     });
+  //   }
+  // };
 
   const handleFilter = (query) => {
     const filtered = proyectosSemillero.filter(
@@ -144,8 +144,8 @@ function Listar_Proyectos_Instructor_Investigador() {
               />
               <BotonVerdeAñadir
                 icon={<AiOutlinePlus />}
-                text={"Añadir Información"}
-                link={"/instructor-investigador/crear-proyecto"}
+                text={"Crear Proyecto"}
+                link={"/instructor_investigador/crear-proyecto"}
               />
             </Fragment>
           }

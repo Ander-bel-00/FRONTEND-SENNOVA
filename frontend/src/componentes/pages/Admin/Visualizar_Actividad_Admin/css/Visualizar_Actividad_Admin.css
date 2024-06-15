@@ -1,7 +1,7 @@
 .vis-actividad-table-admin{
     position: relative;
     left: 1%;
-    width: 98%;
+    width: 96%;
     border-collapse: collapse;
 }
 
@@ -43,6 +43,5 @@
 
 
 .btn-vs-actividades-admin{
-    position: relative;
-    right: 3%;
+    z-index: 2;
 }

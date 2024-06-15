@@ -124,7 +124,7 @@ function Actualizar_Eventos_Admin() {
                     className="form-vs-evento-container__input-admin"
                     name="nombre_ponente"
                     onChange={handleChange}
-                    defaultValue={eventosInfo.cantidad_parcticipantes}
+                    defaultValue={eventosInfo.nombre_ponente}
                   />
                 </div>
                 <div>

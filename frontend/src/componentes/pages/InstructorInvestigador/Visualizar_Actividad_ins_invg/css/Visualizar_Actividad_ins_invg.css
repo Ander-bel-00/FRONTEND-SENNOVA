@@ -1,7 +1,7 @@
 .vis-actividad-table-instructor{
     position: relative;
     left: 1%;
-    width: 98%;
+    width: 95%;
     border-collapse: collapse;
 }
 
@@ -25,4 +25,8 @@
     border: 1px solid #dddddd;
     padding: 8px;
     text-align: left;
+}
+
+.btn-vs-actividades-instructor{
+    z-index: 2;
 }

@@ -12,12 +12,12 @@ function Visualizar_Programa_Formacion_ins_invg() {
     {
       codigo: 15248,
       version: "mt09",
-      nombre: "Rinoceronte"
+      nombre: "Juan Diego"
     },
     {
       codigo: 15248,
       version: "mt09",
-      nombre: "Rinoceronte"
+      nombre: "Juan Diego"
     }
   ]
 
@@ -27,7 +27,7 @@ function Visualizar_Programa_Formacion_ins_invg() {
       Header_Tools={
         <Fragment>
           <BotonBlanco icon={<FaFileArrowUp/>} text={"Reporte"} clase={'btn-blanco btn-blanco--modify btn-verde'} />
-          <BotonVerdeAñadir icon={<IoAdd/>} text={"Crear Programa de Formación"} link={'/instructor-investigador/Crear-programa-formacion'}/>
+          <BotonVerdeAñadir icon={<IoAdd/>} text={"Crear Programa de Formación"} link={'/instructor_investigador/Crear-programa-formacion'}/>
         </Fragment>
       }
       />

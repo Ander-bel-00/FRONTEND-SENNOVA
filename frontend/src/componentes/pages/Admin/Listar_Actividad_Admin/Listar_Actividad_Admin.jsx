@@ -83,9 +83,7 @@ function Listar_Actividad_Admin() {
                   <th className="list-activity-admin-content__table__tr__th">
                     Responsable de la Actividad
                   </th>
-                  <th className="list-activity-admin-content__table__tr__th">
-                    Semillero
-                  </th>
+                  
                   <th className="list-activity-admin-content__table__tr__th">
                     Acciones
                   </th>
@@ -112,9 +110,7 @@ function Listar_Actividad_Admin() {
                     <td className="list-activity-admin-content-table-td">
                       {actividad.responsable_actividad}
                     </td>
-                    <td className="list-activity-admin-content-table-td">
-                      {actividad.semillero}
-                    </td>
+                    
                     <td className="list-activity-admin-content-table__td">
                       <div className="list-activity-admin-content-table__td__btns">
                         <Link to={`../visualizar-actividad/${actividad.id}`}>

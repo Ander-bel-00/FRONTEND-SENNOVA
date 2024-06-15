@@ -108,7 +108,7 @@ return (
                 Fecha de Inicio del Evento <p className="rojo-required">*</p>
               </label>
               <input
-                type="text"
+                type="date"
                 className="form-add-event-container__input-admin"
                 name='fecha_inicio'
                 onChange={handleChange}
@@ -118,7 +118,7 @@ return (
                 Fecha de Fin del Evento <p className="rojo-required">*</p>
               </label>
               <input
-                type="text"
+                type="date"
                 className="form-add-event-container__input-admin"
                 name='fecha_fin'
                 onChange={handleChange}
@@ -128,7 +128,7 @@ return (
                 Cantidad de participantes <p className="rojo-required">*</p>
               </label>
               <input
-                type="text"
+                type="number"
                 className="form-add-event-container__input-admin"
                 name='cantidad_parcticipantes'
                 onChange={handleChange}

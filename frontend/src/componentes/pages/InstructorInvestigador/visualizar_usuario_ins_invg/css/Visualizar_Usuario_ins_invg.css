@@ -1,5 +1,3 @@
 .user-btn-return{
-    position: relative;
-    right: 3rem;
-    top: 1rem;
+    z-index: 2;
 }

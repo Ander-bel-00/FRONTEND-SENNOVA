@@ -1,144 +1,88 @@
-.title-vs-evento__instructor{
+.caja-vs-evento__tile-instructor{
+    font-size: 2rem;
     text-align: center;
-    font-weight: bold;
-    font-size: 25px;
 }
 
-
-.caja-vs-evento-instructor__tile{
-    margin: 30px;
-    font-size: 20px;
-    text-align: center;
-    position: relative;
-    bottom: 2rem;
+.caja-vs-evento-instructor{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    flex-direction: column;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
 }
 
 .form-vs-evento-container-instructor{
     display: flex;
-    width: 100%;
-    height: 80%;
-    position: relative;
-    bottom: 3rem;
-}
-
-
-/* Primera columna del formulario*/
-.columnOne__instructor{
-    display: flex;
     flex-direction: column;
-    text-wrap: nowrap;
-    width: 25%;
-    position: relative;
-    left: 10%;
-    top: 10px;
+    justify-content: center;
+    width: 80%;
+    margin-top: 1rem;
 }
 
-.form-vs-evento-container-instructor__label{
+.form-vs-evento-container__label-instructor{
     font-weight: 400;
-    padding-top: 12px;
+    display: flex;
+    margin-bottom: 10px;
+    gap: 5px;
 }
 
-.form-vs-evento-container-instructor__input{
-    width: 15rem;
-    border: 1px solid #000;
+.form-vs-evento-container__input-instructor{
+    width: 100%;
+    background-color: var(--bg-inputs);
     border-radius: 6px;
     padding: 8px;
-    margin-top: 8px;
     margin-bottom: 10px;
     box-shadow: var(--box-shadow-inputs);
 }
 
-.form-vs-evento-container-instructor__label-select{
+.form-vs-event-btns-instructor{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    justify-content: space-around;
+    margin-top: 2rem;
+}
+
+.form-add-event-container__label-instructor-select{
     display: block;
     font-weight: 400;
     padding-top: 12px;
 }
 
 
-/* segunda columna del formulario*/
-.columnTwo__instructor{
-    display: flex;
-    flex-direction: column;
-    text-wrap: nowrap;
-    width: 25%;
-    position: relative;
-    left: 28%;
-    top: 10px;
-}
+/* Botones principales */
 
-
-.columnTwo-instructor__op1,
-.columnTwo-instructor__op2{
-    text-align: center;
-}
-
-/* botones */
-
-.btn-vs-evento-container-instructor__cancelar{
+.btn-vs-evento-container__cancelar-instructor{
     background-color: var(--boton-cacelar-color);
     width: 15rem;
     height: 45px;
     border-radius: 8px;
     box-shadow: 0px 4px 11px 1px rgba(129,122,122,0.73);
-    position: relative;
-    top: 1rem;
     color: var(--text-btn-color);
     font-size: 21px;
 }
 
-.btn-vs-evento-container-instructor__cancelar:hover{
+.btn-vs-evento-container__cancelar-instructor:hover{
     background-color: var(--boton-cacelar-bg-hover);
 }
 
 
-.btn-vs-evento-container-instructor__crear--green{
+.btn-vs-evento-container__crear--green-instructor{
     background-color: var(--boton-crear-color);
     width: 15rem;
     height: 45px;
     border-radius: 8px;
     box-shadow: 0px 4px 11px 1px rgba(129,122,122,0.73);
-    position: relative;
-    top: 1.2rem;
     color: var(--text-btn-color);
     font-size: 21px;
 }
 
-.btn-vs-evento-container-instructor__crear--green:hover{   
+.btn-vs-evento-container__crear--green-instructor:hover{   
     background-color: var(--boton-crear-bg-hover);
 }
 
-.btn-vs-return__instructor{
-    width: 5rem;
-}
-
-.btn-vs-return__instructor a{
-    position: relative;
-    left: 10%;
-}
-
-.btn-vs-return__instructor:hover{
-    transform: scale(1.09);
-}
 
 
-
-/* responsive */
-
-@media screen and (min-width: 1338.18px) {
-    .caja-vs-evento-instructor__tile{
-        margin: 30px;
-        font-size: 20px;
-        text-align: center;
-        position: relative;
-        top: 2rem;
-    }
-
-    .form-vs-evento-container-instructor{
-        display: flex;
-        width: 100%;
-        height: 80%;
-        position: relative;
-        left: 6%;
-        top: 3rem;
-    }
-}

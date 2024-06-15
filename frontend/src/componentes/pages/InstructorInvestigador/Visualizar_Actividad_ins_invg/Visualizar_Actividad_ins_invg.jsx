@@ -37,11 +37,30 @@ function Visualizar_Actividad_ins_invg() {
       <Header_ToolBar
         Header_Tools={
           <Fragment>
-            <div className="btn-vs-actividades-aprendiz">
+            <div className="btn-vs-actividades-instructor">
               <BotonReturn icon={<GiReturnArrow />} />
             </div>
-            <BotonBlanco icon={<FaFileArrowUp />} text={"Reporte"} clase={'btn-blanco btn-blanco--modify btn-verde'} />
-            <><BotonBlanco icon={<LuCalendarDays />} text={"Ir al Cronograma"} clase={'btn-blanco btn-blanco--modify btn-azul'} /><Search icon={<FaSearch />} text={"Buscar Actividades"} /><BotonVerdeAñadir icon={<AiOutlinePlus />} text={"Añadir Actividad"} /></>
+
+            <BotonBlanco 
+              icon={<FaFileArrowUp />} 
+              text={"Reporte"} 
+              clase={'btn-blanco btn-blanco--modify btn-verde'} />
+
+            <BotonBlanco 
+              icon={<LuCalendarDays />} 
+              text={"Ir al Cronograma"} 
+              clase={'btn-blanco btn-blanco--modify btn-azul'} />
+
+            <Search 
+              icon={<FaSearch />} 
+              text={"Buscar Actividades"} />
+
+            <BotonVerdeAñadir 
+              icon={<AiOutlinePlus />} 
+              text={"Añadir Actividad"}
+              link={'/instructor_investigador/crear-actividad'} 
+            />
+            
           </Fragment>
         }
       />
@@ -50,13 +69,13 @@ function Visualizar_Actividad_ins_invg() {
         content={
           <table className="vis-actividad-table-instructor">
             <thead>
-              <tr className="vis-actividad-table__tr">
-                <th className="vis-actividad-table__th">Nombre Actividad</th>
-                <th className="vis-actividad-table__th">Tarea</th>
-                <th className="vis-actividad-table__th">Fecha</th>
-                <th className="vis-actividad-table__th">Resultado</th>
-                <th className="vis-actividad-table__th">Producto</th>
-                <th className="vis-actividad-table__th">
+              <tr className="vis-actividad-table-instructor__tr">
+                <th className="vis-actividad-table-instructor__th">Nombre Actividad</th>
+                <th className="vis-actividad-table-instructor__th">Tarea</th>
+                <th className="vis-actividad-table-instructor__th">Fecha</th>
+                <th className="vis-actividad-table-instructor__th">Resultado</th>
+                <th className="vis-actividad-table-instructor__th">Producto</th>
+                <th className="vis-actividad-table-instructor__th">
                   Responsable de la Actividad
                 </th>
               </tr>

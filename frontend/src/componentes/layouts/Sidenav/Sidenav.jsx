@@ -35,16 +35,6 @@ function Sidenav() {
               Semilleros
             </li>
           </Link>
-          {Rol && Rol === "admin" ? (
-            <Link to={`/${Rol}/horas-investigadores`}>
-              <li className="Sidenav-content__menu-content__menu-options">
-                <Ri24HoursLine className="inline-block mr-2" />
-                Horas de Investiagción
-              </li>
-            </Link>
-          ) : (
-            <li className="" hidden></li>
-          )}
 
           <Link to={`/${Rol}/listar-Proyectos`}>
             <li className="Sidenav-content__menu-content__menu-options">
@@ -82,12 +72,16 @@ function Sidenav() {
               <FaUsers className="inline-block" /> Integrantes
             </li>
           </Link>
-
-          <Link to={`/${Rol}/listar-horas`}>
-            <li className="Sidenav-content__menu-content__menu-options">
-            <FaRegHourglassHalf className="inline-block mr-2"/>Horas
-            </li>
-          </Link>
+          {Rol && Rol === "admin" ? (
+            <Link to={`/${Rol}/horas-investigadores`}>
+              <li className="Sidenav-content__menu-content__menu-options">
+                <Ri24HoursLine className="inline-block mr-2" />
+                Horas de Investigación
+              </li>
+            </Link>
+          ) : (
+            <li className="" hidden></li>
+          )}
         </ul>
       </div>
     </Fragment>

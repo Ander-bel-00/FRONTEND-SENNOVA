@@ -8,6 +8,8 @@ import BotonVerdeAñadir from "../../../common/BotonVerde";
 import Search from "../../../common/Search";
 import BotonReturn from "../../../common/BotonReturn";
 import "./css/Visualizar_Evento_ins_invg.css";
+import BotonBlanco from "../../../common/BotonReporte";
+import { FaFileArrowUp } from "react-icons/fa6";
 
 function Visualizar_Evento_ins_invg() {
   const Evento = [
@@ -37,11 +39,20 @@ function Visualizar_Evento_ins_invg() {
             <div className="btn-vs-evento-instructor">
               <BotonReturn icon={<GiReturnArrow />} />
             </div>
-            <Search icon={<FaSearch />} text={"Buscar Evento"} />
+
+            <BotonBlanco 
+            icon={<FaFileArrowUp />} 
+            text={"Reporte"} 
+            clase={'btn-blanco btn-blanco--modify btn-verde'} />
+
+            <Search 
+              icon={<FaSearch />} 
+              text={"Buscar Evento"} />
+
             <BotonVerdeAñadir
               icon={<IoAdd />}
-              text={"Añadir Información"}
-              link={"/instructor-investigador/Crear-eventos"}
+              text={"Editar Evento"}
+              link={"/instructor_investigador/Crear-eventos"}
             />
           </Fragment>
         }

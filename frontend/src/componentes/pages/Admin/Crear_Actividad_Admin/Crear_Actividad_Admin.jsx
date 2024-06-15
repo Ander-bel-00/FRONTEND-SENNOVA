@@ -110,7 +110,7 @@ function Crear_Actividad_Admin() {
                   htmlFor="fecha-entrega-actividad"
                   className="form-create-activity-admin-content__col1__label"
                 >
-                  Fecha final <p className="rojo-required">*</p>
+                  Fecha fin <p className="rojo-required">*</p>
                 </label>
                 <input
                   type="date"

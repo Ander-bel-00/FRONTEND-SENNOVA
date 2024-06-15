@@ -1,7 +1,7 @@
 .vis-event-table-instructor{
     position: relative;
     left: 1%;
-    width: 98%;
+    width: 95%;
     border-collapse: collapse;
 }
 
@@ -44,13 +44,9 @@
 /* botones */
 
 .btn-vs-evento-instructor{
-    position: relative;
-    right: 9%;
-    top: 1rem;
+    z-index: 2;
 }
 
-.btn-vs-evento-instructor:hover{
-    transform: scale(1.09);
-}
+
 
 

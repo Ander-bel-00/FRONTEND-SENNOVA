@@ -40,11 +40,7 @@ function Visualizar_Usuario_ins_invg() {
               clase={"btn-blanco btn-blanco--modify btn-verde"}
             />
             <Search text={"Buscar usuarios"} />
-            <BotonVerdeAñadir
-              icon={<IoPersonAddSharp />}
-              text={"Crear Usuario"}
-              link={"../crear-usuario"}
-            />
+            
           </Fragment>
         }
       />
@@ -80,11 +76,8 @@ function Visualizar_Usuario_ins_invg() {
                       <Link to={"../usuario"}>
                         <LiaEyeSolid className="user-table__cell__btn" />
                       </Link>
-                      <Link to={"/lider-semillero/users-update"}>
+                      <Link to={"/instructor_investigador/users-update"}>
                         <FaRegEdit className="user-table__cell__btn" />
-                      </Link>
-                      <Link>
-                        <IoTrashOutline className="user-table__cell__btn" />
                       </Link>
                     </div>
                   </td>

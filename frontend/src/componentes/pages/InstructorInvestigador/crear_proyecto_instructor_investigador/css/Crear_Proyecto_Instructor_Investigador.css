@@ -23,7 +23,7 @@
     padding-bottom: 2rem;
 }
 
-.form-add-pryect-intructor-container{
+.form-add-pryect-instructor-container{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -71,6 +71,7 @@
     width: 100%;
     height: 5rem;
     border-radius: 8px;
+    padding: 5px;
 }
 
 .btns-crear-instructor-projecto{
@@ -94,7 +95,7 @@
     text-align: center;
 }
 
-.btn-crear-instructor-projecto{
+.btn-crear-instructor-projecto:hover{
     background-color: var(--btn-update-bg-hover);
 }
 
@@ -117,8 +118,12 @@
     color: red;
 }
 
-.form-add-pryect-intructor-container__select{
+.form-add-pryect-instructor-container__select{
     background-color: var(--bg-inputs);
     height: 2rem;
     border-radius: 5px;
+    margin-top: 8px;
+    margin-bottom: 10px;
 }
+
+   

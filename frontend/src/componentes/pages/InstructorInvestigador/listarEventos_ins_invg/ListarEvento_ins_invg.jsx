@@ -14,20 +14,19 @@ import clienteAxios from "../../../../config/axios";
 import { FaRegEdit } from "react-icons/fa";
 
 function ListarEvento_ins_invg() {
-  const [ListEventos, setListEventos] = useState([]);
+  const [eventosListar, setEventosListar] = useState([]);
 
-  useEffect(() => { // useEffect, es un hook de react función que permite realizar un efecto una vez 
-    //el componente se haya renderizado o cargado en el navegador. Es decir realizar lo que tiene adentro
+  useEffect(() => { 
     const ObtenerEventoSemillero = async () => {
-      try { //Intento 
+      try {
         const response = await clienteAxios.get('/eventos/')
-        setListEventos(response.data); // res(respuesta) y se guarda o actualiza en la bases de datos
-      } catch (error) { //Fallo
+        setEventosListar(response.data); 
+      } catch (error) {
         console.error("Error al obtener los eventos del semillero: ", error);
       }
     }
-    ObtenerEventoSemillero(); // función que indica iniciar todo, es decir obtener las actividades
-  }, []); // el efecto nunca va a depender de nada cuando este [] (depende de algo cuando se encuentere el id)
+    ObtenerEventoSemillero(); 
+  }, []); 
 
   return (
     <div className="main-container__contenedor-hijo">
@@ -50,9 +49,7 @@ function ListarEvento_ins_invg() {
                 <th className="list-events-table__th-admin">Nombre</th>
                 <th className="list-events-table__th-admin">Tipo de Evento</th>
                 <th className="list-events-table__th-admin">Fecha Inicio</th>
-                <th className="list-events-table__th-admin">
-                  Fecha Fin
-                </th>
+                <th className="list-events-table__th-admin">Fecha Fin</th>
                 <th className="list-events-table__th-admin">Cantidad Participantes</th>
                 <th className="list-events-table__th-admin">Ponente</th>
                 <th className="list-events-table__th-admin">Lugar</th>
@@ -62,7 +59,7 @@ function ListarEvento_ins_invg() {
               </tr>
             </thead>
             <tbody>
-              {ListEventos.map((evento) => (
+              {eventosListar.map((evento) => (
                 <tr className="list-events-table__tr-admin" key={evento.id}>
                   <td className="list-events-table__td-admin">{evento.nombre_evento}</td>
                   <td className="list-events-table__td-admin">{evento.tipo_de_evento}</td>
@@ -76,10 +73,10 @@ function ListarEvento_ins_invg() {
                   <td className="list-events-table__td-admin">
                   
                     <div className="list-events-table__td__btns-admin">
-                      <Link to={"../visualizar-evento"} >
+                    <Link to={`../visualizar-evento/`}> {/* falta el id del evento */}
                         <LiaEye className="list-events-table__td__btn-admin" />
                       </Link>
-                      <Link to={"../actualizar-eventos"} >
+                      <Link to={`../actualizar-eventos/`}> {/* falta el id del evento */}
                         <FaRegEdit className="list-events-table__td__btn-admin" />
                       </Link>
                       <Link>

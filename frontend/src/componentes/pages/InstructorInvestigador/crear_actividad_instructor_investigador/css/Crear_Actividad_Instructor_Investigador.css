@@ -91,6 +91,6 @@
     top: 3rem;
 }
 
-.btn-cancelar-instructor-actividad-uptd{
+.btn-cancelar-instructor-actividad-uptd:hover{
     background-color: var(--boton-cacelar-bg-hover);
 }

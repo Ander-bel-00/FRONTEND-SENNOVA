@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import "./css/Listar_Actividad_Instructor_Investigador.css";
 import { FaFileArrowUp } from "react-icons/fa6";
 import { LuCalendarDays } from "react-icons/lu";
@@ -10,26 +10,47 @@ import BotonVerdeAñadir from "../../../common/BotonVerde";
 import Caja_Blanca from "../../../common/Caja_Blanca";
 import { LiaEyeSolid } from "react-icons/lia";
 import { Link } from "react-router-dom";
+import clienteAxios from "../../../../config/axios";
 
 function Listar_Actividad_Instructor_Investigador() {
-  const invgActividades = [
-    {
-      nombre: "Desarrollo",
-      tarea: "Codificar",
-      fecha: "25 de Julio de 2024",
-      resultado: "Sistema funcional",
-      producto: "Proyecto web",
-      responsable: "Arnold",
-    },
-    {
-      nombre: "Desarrollo",
-      tarea: "Codificar",
-      fecha: "25 de Julio de 2024",
-      resultado: "Sistema funcional",
-      producto: "Proyecto web",
-      responsable: "Arnold",
-    },
-  ];
+
+  const [listarActividades, setListarActividades] = useState([]);
+
+  useEffect(() =>{
+    const Obteneractividades = async () => {
+      try {
+          const res = await clienteAxios.get(`/activity-semillero/`);
+          setListarActividades(res.data);
+        }
+        catch (error) {
+        console.error('Error al obtener las actividades del Semillero:', error);
+      }
+    }
+    Obteneractividades(); // Así se llama la función para obtener las actividades
+  }, []);
+  
+
+
+
+  // const invgActividades = [
+  //   {
+  //     nombre: "Desarrollo",
+  //     tarea: "Codificar",
+  //     fecha: "25 de Julio de 2024",
+  //     resultado: "Sistema funcional",
+  //     producto: "Proyecto web",
+  //     responsable: "Arnold",
+  //   },
+  //   {
+  //     nombre: "Desarrollo",
+  //     tarea: "Codificar",
+  //     fecha: "25 de Julio de 2024",
+  //     resultado: "Sistema funcional",
+  //     producto: "Proyecto web",
+  //     responsable: "Arnold",
+  //   },
+  // ];
+
   return (
     <Fragment>
       <div className="main-container__contenedor-hijo">
@@ -53,8 +74,8 @@ function Listar_Actividad_Instructor_Investigador() {
 
               <BotonVerdeAñadir
                 icon={<AiOutlinePlus />}
-                text={"Añadir Información"}
-                link={"/instructor-investigador/crear-actividad"}
+                text={"Crear Actividad"}
+                link={"/instructor_investigador/crear-actividad"}
               />
             </Fragment>
           }
@@ -71,13 +92,13 @@ function Listar_Actividad_Instructor_Investigador() {
                     Tarea
                   </th>
                   <th className="list-activity-instructor-content__table__tr__th">
-                    Fecha
+                    Fecha Inicio
+                  </th>
+                  <th className="list-activity-instructor-content__table__tr__th">
+                    Fecha Fin
                   </th>
                   <th className="list-activity-instructor-content__table__tr__th">
                     Resultado
-                  </th>
-                  <th className="list-activity-instructor-content__table__tr__th">
-                    Producto
                   </th>
                   <th className="list-activity-instructor-content__table__tr__th">
                     Responsable de la Actividad
@@ -88,33 +109,34 @@ function Listar_Actividad_Instructor_Investigador() {
                 </tr>
               </thead>
               <tbody>
-                {invgActividades.map((invgActividad, index) => (
+                {listarActividades.map((actividades) => (
                   <tr
-                    key={index}
+                    key={actividades.id}
                     className="list-activity-instructor-content-table-tr"
                   >
                     <td className="list-activity-instructor-content-table-td">
-                      {invgActividad.nombre}
+                      {actividades.nombre_actividad}
                     </td>
                     <td className="list-activity-instructor-content-table-td">
-                      {invgActividad.tarea}
+                      {actividades.tarea}
                     </td>
                     <td className="list-activity-instructor-content-table-td">
-                      {invgActividad.fecha}
+                      {actividades.fecha_inicio}
                     </td>
                     <td className="list-activity-instructor-content-table-td">
-                      {invgActividad.resultado}
+                      {actividades.fecha_fin}
                     </td>
                     <td className="list-activity-instructor-content-table-td">
-                      {invgActividad.producto}
+                      {actividades.resultado}
                     </td>
                     <td className="list-activity-instructor-content-table-td">
-                      {invgActividad.responsable}
+                      {actividades.responsable_actividad}
                     </td>
+                    
                     <td className="list-activity-instructor-content-table__td">
                       <div className="list-activity-instructor-content-table__td__btns">
                         <Link
-                          to={"/instructor-investigador/Visualizar-actividad"}
+                          to={"/instructor_investigador/visualizar-actividad"}
                         >
                           <LiaEyeSolid className="list-activity-instructor-content-table__td__btn" />
                         </Link>
