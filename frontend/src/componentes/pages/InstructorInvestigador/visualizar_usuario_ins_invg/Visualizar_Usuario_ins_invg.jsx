@@ -73,9 +73,6 @@ function Visualizar_Usuario_ins_invg() {
                   <td className="user-table__cell">{user.rol}</td>
                   <td className="user-table__cell">
                     <div className="user-table__cell__buttons">
-                      <Link to={"../usuario"}>
-                        <LiaEyeSolid className="user-table__cell__btn" />
-                      </Link>
                       <Link to={"/instructor_investigador/users-update"}>
                         <FaRegEdit className="user-table__cell__btn" />
                       </Link>
