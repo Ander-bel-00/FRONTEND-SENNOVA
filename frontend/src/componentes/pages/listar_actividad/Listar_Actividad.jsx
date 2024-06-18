@@ -13,6 +13,7 @@ import Header_ToolBar from "../../common/Header_ToolBar";
 import Caja_Blanca from "../../common/Caja_Blanca";
 import { Link } from "react-router-dom";
 import clienteAxios from "../../../config/axios";
+import Swal from "sweetalert2";
 
 function Listar_Actividad() {
   const [listActivitys, setListActivitys] = useState([]);
@@ -47,6 +48,38 @@ function Listar_Actividad() {
     };
     Obteneractividadsemilleros();
   }, []);
+
+  const suspenderActividad = async (actividadId) => {
+    try {
+      const result = await Swal.fire({
+        title: "Estás seguro de suspender la Actividad?",
+        text: "Esta acción no se puede revertir",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Si, suspender la Actividad",
+      });
+
+      if (result.isConfirmed) {
+        await clienteAxios.delete(`/activity-semillero/${actividadId}/`);
+        Swal.fire({
+          title: "Actividad suspendido",
+          text: "La Actividad ha sido suspendida exitosamente.",
+          icon: "success",
+        });
+        setListActivitys((prev) => prev.filter((actividad) => actividad.id !== actividadId));
+        setFilteredActivitys((prev) => prev.filter((actividad) => actividad.id !== actividadId));
+      }
+    } catch (error) {
+      console.log("Hubo un error al intentar suspender la Actividad", error);
+      Swal.fire({
+        icon: "error",
+        title: "Hubo un error",
+        text: "Ocurrió un error al intentar suspender la Actividad",
+      });
+    }
+  };
 
   const handleFilter = (query) => {
     const filtered = listActivitys.filter(
@@ -85,7 +118,7 @@ function Listar_Actividad() {
               <BotonVerdeAñadir
                 icon={<AiOutlinePlus />}
                 text={"Crear Actividad"}
-                link={"/admin/crear-actividad"}
+                link={"../crear-actividad"}
               />
             </Fragment>
           }
@@ -113,9 +146,6 @@ function Listar_Actividad() {
 
                   <th className="list-activity-admin-content__table__tr__th">
                     Responsable de la Actividad
-                  </th>
-                  <th className="list-activity-admin-content__table__tr__th">
-                    Semillero
                   </th>
                   <th className="list-activity-admin-content__table__tr__th">
                     Acciones
@@ -148,7 +178,7 @@ function Listar_Actividad() {
                         {actividad.responsable_actividad}
                       </td>
                       <td className="list-activity-admin-content-table-td">
-                        {semilleroInfo[actividad.semillero]}
+                        
                       </td>
                       <td className="list-activity-admin-content-table__td">
                         <div className="list-activity-admin-content-table__td__btns">
@@ -163,7 +193,7 @@ function Listar_Actividad() {
                             <FaRegEdit className="list-activity-admin-content-table__td__btn" />
                           </Link>
                           <Link>
-                            <IoTrashOutline className="list-activity-admin-content-table__td__btn" />
+                            <IoTrashOutline className="list-activity-admin-content-table__td__btn" onClick={() => suspenderActividad(actividad.id)} />
                           </Link>
                         </div>
                       </td>

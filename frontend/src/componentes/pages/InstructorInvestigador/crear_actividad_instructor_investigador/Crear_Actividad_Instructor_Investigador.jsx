@@ -76,26 +76,18 @@ function Crear_Actividad_Instructor_Investigador() {
     <Fragment>
       <div className="main-container__contenedor-hijo">
 
-
         <Link>
-          <div className="update-proyect-btn-return">
-            <BotonReturn
-              icon={<IoIosReturnLeft />}
-              link={
-                "/instructor-investigador/Listar_Actividad_Instructor_Investigador"
-              }
-            />
+          <div className="btn-return-actividad-instructor">
+            <BotonReturn/>
           </div>
         </Link>
-
-
 
         <Caja_formularios
           info={
             <Fragment>
               <div className="create-activity-instructor-box">
-                <h2 className="text-center create-activity-instructor-title">
-                  Añadir Información
+                <h2 className="create-activity-instructor-title">
+                  Crear Actividad
                 </h2>
                 <form className="form-create-activity-instructor-content" onSubmit={handleSubmit}>
                   <label
@@ -179,7 +171,7 @@ function Crear_Actividad_Instructor_Investigador() {
                     onChange={handleChange}
                   />
                   
-                  <div className="btns-crear-instructor-actividad">
+                  <div className="btns-instructor-actividad">
                     <button
                       className="btn-crear-instructor-actividad"
                       type="button"
@@ -189,7 +181,7 @@ function Crear_Actividad_Instructor_Investigador() {
                     
                     <Link to={"../listar-actividad/"}>
                       <button
-                        className="btn-cancelar-instructor-actividad-uptd"
+                        className="btn-cancelar-instructor-actividad"
                         type="button"
                       >
                         Cancelar

@@ -109,7 +109,7 @@ function Crear_Usuario() {
 
   return (
     <div className="main-container__contenedor-hijo">
-      <div className="add-proyect-btn-return">
+      <div className="btn-return-usuarios">
         <BotonReturn icon={<GiReturnArrow />} />
       </div>
       <Caja_formularios

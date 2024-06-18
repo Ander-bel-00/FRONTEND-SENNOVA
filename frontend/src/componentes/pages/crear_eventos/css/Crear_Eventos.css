@@ -1,9 +1,8 @@
 .mainsBoxes__tile{
- 
     font-size: 2rem;
     text-align: center;
-
 }
+
 .mainsBoxes{
     display: flex;
     justify-content: center;
@@ -13,6 +12,7 @@
     padding-top: 2rem;
     padding-bottom: 2rem;
 }
+
 .form-add-event-container{
     display: flex;
     flex-direction: column;
@@ -48,6 +48,16 @@
 
 /* Botones principales */
 
+.btns-crear-evento{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    justify-content: space-around;
+    margin-top: 2rem;
+}
+
+
 .btnEvents__cancelar{
     background-color: var(--boton-cacelar-color);
     width: 15rem;
@@ -79,24 +89,8 @@
     background-color: var(--boton-crear-bg-hover);
 }
 
-
-.add-creat-btn-return{
-    width: 5rem;
+.add-creat-btn-return {
+    z-index: 2;
 }
 
-.add-creat-btn-return a{
-    position: relative;
-    left: 10%;
-}
 
-.add-creat-btn-return:hover{
-    transform: scale(1.09);
-}
-.btns-crear-evento{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    width: 100%;
-    justify-content: space-around;
-    margin-top: 2rem;
-}

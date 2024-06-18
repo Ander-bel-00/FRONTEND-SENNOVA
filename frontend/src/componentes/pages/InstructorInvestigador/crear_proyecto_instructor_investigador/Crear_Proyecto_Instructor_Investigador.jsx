@@ -69,7 +69,8 @@ function Crear_Proyecto_Instructor_Investigador() {
     <Fragment>
       <div className="main-container__contenedor-hijo main-container__contenedor-hijo--size">
         <Link>
-          <div className="add-proyect-btn-return">
+          <div className="btn-return-proyecto-instructor">
+            <BotonReturn />
           </div>
         </Link>
 
@@ -183,7 +184,7 @@ function Crear_Proyecto_Instructor_Investigador() {
                   <div className="btns-crear-instructor-projecto">
                     <button type="submit" className="btn-crear-instructor-projecto">Crear</button>
                     <Link to={"../listar-proyectos"}>
-                    <button type="submit" className="btn-cancelar-instructor-proyecto">Cancelar</button>
+                      <button type="submit" className="btn-cancelar-instructor-proyecto">Cancelar</button>
                     </Link>
                   </div>
                 </form>

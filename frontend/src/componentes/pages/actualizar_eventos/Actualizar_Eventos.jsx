@@ -10,7 +10,7 @@ import "./css/Actualizar_Eventos.css";
 function Actualizar_Eventos() {
   return (
     <div className="main-container__contenedor-hijo">
-      <div className="add-proyect-btn-return">
+      <div className="btn-return-actualizar">
         <BotonReturn icon={<GiReturnArrow />} />
       </div>
       <Caja_formularios

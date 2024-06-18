@@ -75,7 +75,7 @@ return (
         <Fragment>
           {/* Formulario y caja */}
           <div className="mainsBoxes-admin">
-            <h3 className="mainsBoxes__tile-admin">Crear Eventos CTI</h3>
+            <h3 className="mainsBoxes__tile-admin">Crear Eventos</h3>
 
             <form className="form-add-event-container-admin" onSubmit={handleSubmit}>
               

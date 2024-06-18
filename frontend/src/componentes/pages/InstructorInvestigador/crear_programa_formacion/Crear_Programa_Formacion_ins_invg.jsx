@@ -9,7 +9,7 @@ import { GiReturnArrow } from "react-icons/gi";
 function Crear_Programa_Formacion_ins_invg() {
   return (
     <div className="main-container__contenedor-hijo">
-      <div className="add-proyect-btn-return">
+      <div className="btn-return-programa">
         <BotonReturn icon={<GiReturnArrow />} />
       </div>
 
@@ -18,7 +18,7 @@ function Crear_Programa_Formacion_ins_invg() {
           <Fragment>
             <div className=" main-form-program-instructor">
               <h2 className="text-center create-program-title-instructor">
-                Nuevo Programa de Formación
+                Crear Programa de Formación
               </h2>
 
               <form className="form-add-program-container-instructor">

@@ -72,3 +72,6 @@
     background-color: var(--boton-cancelar-bg-hover);
 }
 
+.btn-return-usuarios {
+    z-index: 2;
+}

@@ -65,7 +65,7 @@ function Crear_Proyecto() {
   return (
     <Fragment>
       <div className="main-container__contenedor-hijo main-container__contenedor-hijo--size">
-        <div className="add-proyect-btn-return">
+        <div className="btn-return-proyecto">
           <BotonReturn icon={<GiReturnArrow />} />
         </div>
         <Caja_formularios
@@ -82,7 +82,7 @@ function Crear_Proyecto() {
                 >
                   <label
                     htmlFor="codigo"
-                    className="form-add-pryect-admin-container__col1__label"
+                    className="form-add-pryect-container__col1__label"
                   >
                     Código SGPS (Sistema de gestión de proyectos SENNOVA)
                     <p className="rojo-required">*</p>

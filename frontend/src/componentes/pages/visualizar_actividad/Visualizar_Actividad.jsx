@@ -39,10 +39,13 @@ function Visualizar_Actividad() {
     <div className="main-container__contenedor-hijo">
       <Header_ToolBar
         Header_Tools={
-          <Fragment>
+          <Fragment >
+            <div className="btn-return">
               <BotonReturn icon={<GiReturnArrow />} />
+            </div>
+            
             <BotonBlanco
-              icon={<FaFileArrowUp/>}
+              icon={<FaFileArrowUp />}
               text={"Reporte"}
               clase={"btn-blanco btn-blanco--modify btn-verde"}
             />

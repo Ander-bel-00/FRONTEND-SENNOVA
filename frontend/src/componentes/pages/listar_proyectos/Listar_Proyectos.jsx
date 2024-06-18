@@ -111,7 +111,7 @@ function Listar_Proyectos() {
               <BotonBlanco icon={<FaFileArrowUp />} text={"Reporte"} clase={"btn-blanco btn-blanco--modify btn-verde"} onClick={exportToExcel} />
               <Search text={"Buscar proyecto"} onFilter={handleFilter} data={proyectosSemillero} />
               <BotonBlanco icon={<LuCalendarDays />} text={"Ir al Cronograma"} link={"../cronograma-proyectos"} clase={"btn-blanco btn-blanco--modify btn-azul"} />
-              <BotonVerdeAñadir icon={<AiOutlinePlus />} text={"Crear"} link={"../crear-proyecto"} />
+              <BotonVerdeAñadir icon={<AiOutlinePlus />} text={"Crear Proyecto"} link={"../crear-proyecto"} />
             </Fragment>
           }
         />
@@ -129,8 +129,8 @@ function Listar_Proyectos() {
                 </tr>
               </thead>
               <tbody>
-                {filteredProyectos.map((list, index) => (
-                  <tr key={index} className="list-project-admin-table__tr">
+                {filteredProyectos.map((list) => (
+                  <tr key={list.id} className="list-project-admin-table__tr">
                     <td className="list-project-admin-table__td">{list.codigo}</td>
                     <td className="list-project-admin-table__td">{list.nombre_proyecto}</td>
                     <td className="list-project-admin-table__td">{list.fecha_inicio}</td>

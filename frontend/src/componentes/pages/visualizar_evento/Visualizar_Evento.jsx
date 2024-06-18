@@ -1,6 +1,6 @@
 import { IoAdd, IoTrashOutline } from "react-icons/io5";
 import { GiReturnArrow } from "react-icons/gi";
-import { FaSearch } from "react-icons/fa";
+import { FaRegEdit, FaSearch } from "react-icons/fa";
 import { Fragment } from "react";
 import { FaEdit } from "react-icons/fa";
 import { Link } from "react-router-dom";
@@ -85,8 +85,8 @@ function Visualizar_Evento() {
                   <td className="vis-event-table__td"> {Contenido.tipo} </td>
                   <td className="vis-event-table__td">
                     <div className="vis-actividad-table__td__btns">
-                      <Link to={"/lider-semillero/Actualizar-eventos"}>
-                        <FaEdit className="vis-actividad-table__td__btn" />
+                      <Link to={"../actualizar-eventos"}>
+                        <FaRegEdit className="vis-actividad-table__td__btn" />
                       </Link>
                       <Link>
                         <IoTrashOutline className="vis-actividad-table__td__btn" />

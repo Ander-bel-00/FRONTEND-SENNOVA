@@ -52,31 +52,24 @@
 
 .buttonsCreating{
     display: flex;
-    justify-content: center;
+    flex-direction: row;
+    align-items: center;
     width: 100%;
-    gap: 2rem;
+    justify-content: space-around;
     margin-top: 2rem;
 }
 
 /* Botones principales */
-.buttonsCreating__cancelar,
-.buttonsCreating__crear--green{
-    padding: 5px 15px;
-    border: none;
+.buttonsCreating__cancelar {
+    background-color: var(--boton-cacelar-color);
+    width: 15rem;
+    height: 45px;
     border-radius: 8px;
-    font-size: small;
-    cursor: pointer;
-    box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.2);
-    width: 10rem;
+    box-shadow: 0px 4px 11px 1px rgba(129,122,122,0.73);
+    top: 1rem;
+    color: var(--text-btn-color);
+    font-size: 21px;
 }
-
-.buttonsCreating__cancelar{
-    color: white;
-    background-color: #d4212c;
-    font-size: medium;
-    padding: 8px 20px;
-}
-
 
 .buttonsCreating__cancelar:hover{
     background-color: var(--boton-cacelar-bg-hover);
@@ -84,11 +77,14 @@
 
 
 .buttonsCreating__crear--green{
-    color: white;
-    background-color: #39a900;
-    font-size: medium;
-    padding: 8px 30px;
-    left: 10%; 
+    background-color: var(--boton-crear-color);
+    width: 15rem;
+    height: 45px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 11px 1px rgba(129,122,122,0.73);
+    top: 1.2rem;
+    color: var(--text-btn-color);
+    font-size: 21px;
 }
 
 .buttonsCreating__crear--green:hover{

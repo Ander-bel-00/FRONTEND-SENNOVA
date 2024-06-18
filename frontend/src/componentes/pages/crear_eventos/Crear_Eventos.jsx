@@ -6,6 +6,7 @@ import BotonReturn from "../../common/BotonReturn";
 import { useAuth } from "../../../context/AuthContext";
 import Swal from "sweetalert2";
 import clienteAxios from "../../../config/axios";
+import { GiReturnArrow } from "react-icons/gi";
 
 function Crear_Eventos() {
   
@@ -15,7 +16,7 @@ function Crear_Eventos() {
   const SemilleroID = userProfile ? userProfile.semillero : "";
 
   const [formNewEventoSemillero, setFormNewEventoSemillero] = useState({
-    semillero: SemilleroID,
+    semillero: SemilleroID.length > 0 ? SemilleroID[0] : null,
     nombre_evento: "",
     tipo_de_evento: "",
     fecha_inicio: "",
@@ -40,7 +41,7 @@ function Crear_Eventos() {
       Swal.fire({
         title: "Error al crear el evento",
         text: "Debes diligenciar todos los campos",
-        icon: "error",
+        icon: "warning",
         confirmButtonText: "Aceptar",
       });
       return;
@@ -74,14 +75,14 @@ function Crear_Eventos() {
   return (
     <div className="main-container__contenedor-hijo">
 
-      <BotonReturn />
+      <BotonReturn icon={<GiReturnArrow />}/>
 
       <Caja_formularios
         info={
           <Fragment>
             {/* Formulario y caja */}
             <div className="mainsBoxes">
-              <h3 className="mainsBoxes__tile">Crear Eventos CTI</h3>
+              <h3 className="mainsBoxes__tile">Crear Eventos</h3>
 
               <form className="form-add-event-container" onSubmit={handleSubmit}>
 
@@ -134,7 +135,7 @@ function Crear_Eventos() {
                   Cantidad de participantes <p className="rojo-required">*</p>
                 </label>
                 <input
-                  type="text"
+                  type="number"
                   className="form-add-event-container__input"
                   name="cantidad_participantes"
                   onChange={handleChange}
@@ -170,7 +171,7 @@ function Crear_Eventos() {
                 />
 
                 <div className="btns-crear-evento">
-                  <button type="button" className="btnEvents__crear--green">
+                  <button type="submit" className="btnEvents__crear--green">
                     Crear
                   </button>
 

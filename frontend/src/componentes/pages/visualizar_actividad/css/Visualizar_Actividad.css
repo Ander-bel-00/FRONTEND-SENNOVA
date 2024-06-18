@@ -1,7 +1,7 @@
 .vis-actividad-table{
     position: relative;
     left: 1%;
-    width: 98%;
+    width: 96%;
     border-collapse: collapse;
 }
 
@@ -45,4 +45,8 @@
 .btn-vs-actividades{
     position: relative;
     right: 3%;
+}
+
+.btn-return {
+    z-index: 2;
 }

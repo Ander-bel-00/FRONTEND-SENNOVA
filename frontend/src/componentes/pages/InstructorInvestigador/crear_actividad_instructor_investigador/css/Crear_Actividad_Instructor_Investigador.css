@@ -1,66 +1,52 @@
-.form-create-activity-instructor-content{
-    display: flex;
-    width: 100%;
-    height: 80%;
-    position: relative;
-    top: 1rem;
+.create-activity-instructor-title{
+    font-size: 2rem;
+    text-align: center;
 }
 
 .create-activity-instructor-box{
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
+    width: 100%;
+    flex-direction: column;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
 }
+
 
 .form-create-activity-instructor-content{
     display: flex;
     flex-direction: column;
-    width: 80%;
-    height: 80%;
     justify-content: center;
-    margin-top: 3rem;
-}
-
-.create-activity-instructor-title{
-    position: relative;
-    top: 24px;
-    font-size: 25px;
+    width: 80%;
+    margin-top: 1rem;
 }
 
 .form-create-activity-instructor-content__col1__label{
     font-weight: 400;
     display: flex;
-    align-items: center;
     gap: 5px;
 }
 
 .form-create-activity-instructor-content__col1__input{
     width: 100%;
+    background-color: var(--bg-inputs);
     border-radius: 6px;
     padding: 8px;
     margin-top: 8px;
     margin-bottom: 10px;
     box-shadow: var(--box-shadow-inputs);
-    background-color: var(--bg-inputs);
 }
 
-.form-create-activity-instructor-content__column2{
-    display: flex;
-    flex-direction: column;
-    text-wrap: nowrap;
-    width: 25%;
-    position: relative;
-    left: 31%;
-    top: 45px;
-}
 
-.btns-crear-instructor-actividad{
+
+.btns-instructor-actividad{
     display: flex;
     flex-direction: row;
     align-items: center;
     width: 100%;
     justify-content: space-around;
+    margin-top: 2rem;
 }
 
 .btn-crear-instructor-actividad{
@@ -77,20 +63,21 @@
     background-color: var( --btn-update-bg-hover);
 }
 
-.btn-cancelar-instructor-actividad-uptd{
+.btn-cancelar-instructor-actividad{
     background-color: var(--boton-cacelar-color);
     width: 15rem;
-    padding: 8px;
+    height: 45px;
     border-radius: 8px;
     box-shadow: 0px 4px 11px 1px rgba(129,122,122,0.73);
+    top: 1rem;
     color: var(--text-btn-color);
     font-size: 21px;
-    margin-top: 1rem;
-    margin-bottom: 7rem;
-    position: relative;
-    top: 3rem;
 }
 
-.btn-cancelar-instructor-actividad-uptd:hover{
+.btn-cancelar-instructor-actividad:hover{
     background-color: var(--boton-cacelar-bg-hover);
+}
+
+.btn-return-actividad-instructor {
+    z-index: 2;
 }

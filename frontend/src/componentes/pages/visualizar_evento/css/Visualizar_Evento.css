@@ -1,7 +1,7 @@
 .vis-event-table{
     position: relative;
     left: 1%;
-    width: 98%;
+    width: 96%;
     border-collapse: collapse;
 }
 
@@ -42,11 +42,10 @@
 }
 
 .btn-vs-evento{
-    position: relative;
-    right: 10%;
-    top: 1rem;
+    z-index: 2;
 }
 
-.btn-vs-evento:hover{
-    transform: scale(1.09);
+.btn-return-actualizar {
+    z-index: 2;
 }
+
