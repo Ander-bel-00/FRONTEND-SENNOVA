@@ -95,3 +95,68 @@
 .modal-delete-content-p{
     margin: 15px;
 }
+
+
+/* Modal semilleros */
+.modal-admin-semilleros {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    width: 90%;
+    z-index: 1000;
+    overflow-y: auto; /* Agrega scroll si el contenido es muy largo */
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+
+.modal-admin-semilleros h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.modal-admin-semilleros ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.modal-admin-semilleros ul li {
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    color: #000; /* Asegura que el color del texto sea visible */
+}
+
+.modal-admin-semilleros ul li:hover {
+    background-color: #f0f0f0;
+}
+
+.modal-admin-semilleros ul li:last-child {
+    border-bottom: none;
+}
+
+/* Otros estilos existentes */
+.list-project-admin-table {
+    position: relative;
+    left: 0%;
+    width: 98%;
+    border-collapse: collapse;
+}
