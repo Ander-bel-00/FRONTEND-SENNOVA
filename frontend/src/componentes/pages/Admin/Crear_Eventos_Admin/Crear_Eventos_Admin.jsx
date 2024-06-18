@@ -12,10 +12,11 @@ function Crear_Eventos_Admin() {
   const { userProfile } = useAuth();
   const navigate = useNavigate();
 
-  const SemilleroID = userProfile ? userProfile.semillero : "";
+  // Obtener el SemilleroID del userProfile
+  const SemilleroID = userProfile ? userProfile.semillero : [];
 
   const [formNewEventoSemillero, setFormNewEventoSemillero] = useState({
-    semillero: SemilleroID,
+    semillero: SemilleroID.length > 0 ? SemilleroID[0] : null, // Asignar el primer valor del array o null si no hay valores
     nombre_evento: "",
     tipo_de_evento: "",
     fecha_inicio: "",

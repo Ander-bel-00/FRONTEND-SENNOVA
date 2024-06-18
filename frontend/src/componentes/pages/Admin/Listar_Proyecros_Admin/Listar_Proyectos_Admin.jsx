@@ -1,4 +1,5 @@
 import React, { Fragment, useEffect, useState } from "react";
+import Modal from "react-modal";
 import "./css/Listar_Proyectos_Admin.css";
 import { AiOutlinePlus } from "react-icons/ai";
 import { LuCalendarDays } from "react-icons/lu";
@@ -17,23 +18,36 @@ import clienteAxios from "../../../../config/axios";
 import * as XLSX from "xlsx";
 import Swal from "sweetalert2";
 
+Modal.setAppElement("#root");
+
 function Listar_Proyectos_Admin() {
   const { userProfile } = useAuth();
 
-  const SemilleroID = userProfile ? userProfile.semillero : null;
-
+  const [semilleros, setSemilleros] = useState([]);
+  const [selectedSemilleroID, setSelectedSemilleroID] = useState(null);
   const [proyectosSemillero, setProyectosSemillero] = useState([]);
-
-  const [selectedProjectId, setSelectedProjectId] = useState(null); // Nuevo estado para almacenar el ID del proyecto seleccionado
-
   const [filteredProyectos, setFilteredProyectos] = useState([]);
+  const [isModalOpen, setIsModalOpen] = useState(true);
+
+  useEffect(() => {
+    const obtenerSemilleros = async () => {
+      try {
+        const res = await clienteAxios.get("/lista-semilleros/");
+        setSemilleros(res.data);
+      } catch (error) {
+        console.error("Error al obtener los semilleros", error);
+      }
+    };
+
+    obtenerSemilleros();
+  }, []);
 
   useEffect(() => {
     const obtenerProyectosSemillero = async () => {
       try {
-        if (SemilleroID) {
+        if (selectedSemilleroID) {
           const res = await clienteAxios.get(
-            `/semillero/${SemilleroID}/proyectos/`
+            `/semillero/${selectedSemilleroID}/proyectos/`
           );
           setProyectosSemillero(res.data);
           setFilteredProyectos(res.data); // Inicialmente muestra todos los proyectos
@@ -44,8 +58,12 @@ function Listar_Proyectos_Admin() {
     };
 
     obtenerProyectosSemillero();
-  }, [SemilleroID, selectedProjectId]);
+  }, [selectedSemilleroID]);
 
+  const handleSelectSemillero = (id) => {
+    setSelectedSemilleroID(id);
+    setIsModalOpen(false); // Cierra el modal solo cuando se selecciona un semillero
+  };
 
   const exportToExcel = () => {
     const wb = XLSX.utils.book_new();
@@ -114,7 +132,6 @@ function Listar_Proyectos_Admin() {
   };
 
   const handleSuspenderProyecto = (projectId) => {
-    setSelectedProjectId(projectId);
     suspenderProyecto(projectId);
   };
 
@@ -126,8 +143,29 @@ function Listar_Proyectos_Admin() {
     );
     setFilteredProyectos(filtered);
   };
+
   return (
     <Fragment>
+      <Modal
+        isOpen={isModalOpen}
+        onRequestClose={() => {
+          if (selectedSemilleroID) {
+            setIsModalOpen(false);
+          }
+        }}
+        className="modal-admin-semilleros"
+        overlayClassName="modal-overlay"
+      >
+        <h2>Seleccione un Semillero</h2>
+        <ul>
+          {semilleros.map((semillero) => (
+            <li key={semillero.id} onClick={() => handleSelectSemillero(semillero.id)}>
+              {semillero.nombre_semillero}
+            </li>
+          ))}
+        </ul>
+      </Modal>
+
       <div className="main-container__contenedor-hijo">
         <Header_ToolBar
           Header_Tools={
@@ -198,9 +236,7 @@ function Listar_Proyectos_Admin() {
                     </td>
                     <td className="list-project-admin-table__td">
                       <div className="list-project-admin-table__td__btns">
-                        <Link // Link que permite ingresar por medio el icono LiaEyesolid teniendo un acceso a la url del archivo Visualizar_Suspender_Proyecto
-                          to={`../visualizar-proyecto/${list.id}`}
-                        >
+                        <Link to={`../visualizar-proyecto/${list.id}`}>
                           <LiaEyeSolid className="list-project-admin-table__td__btn" />
                         </Link>
                         <Link to={`../actualizar-proyecto/${list.id}`}>
@@ -208,7 +244,7 @@ function Listar_Proyectos_Admin() {
                         </Link>
                         <IoTrashOutline
                           className="list-project-admin-table__td__btn cursor-pointer"
-                          onClick={() => handleSuspenderProyecto(list.id)} // Llama a handleSuspenderProyecto con el ID del proyecto
+                          onClick={() => handleSuspenderProyecto(list.id)}
                         />
                       </div>
                     </td>
