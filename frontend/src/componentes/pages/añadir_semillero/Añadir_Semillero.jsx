@@ -15,6 +15,7 @@ function Añadir_Semillero() {
     plan_estrategico_investigacion: "",
     lineas_investigacion_declaradas: "",
     sectores_apicacion: "",
+    estado_semillero: "", //se agrego el estado del semillero
   });
 
   const handleChange = (event) => {
@@ -206,6 +207,23 @@ function Añadir_Semillero() {
                     <option>Diseño de la Moda, Manufactura Textil y Cuero</option>
                     <option>Tecnologías para el Hábitat, las Energías Renovables y el Desarrollo Sostenible</option>
                     <option>Diseño e Innovación Mecatronica de Automotores</option>
+                  </select>
+
+                  {/* agrege el estado del semillero*/}
+                  <label
+                    htmlFor="estado_semillero"
+                    className="form-add-semillero-content__col1__label"
+                  >
+                    Estado del Semillero<p className="text-red-600">*</p>
+                  </label>
+                  <select 
+                   className="form-add-semillero-content__col1__input"
+                   name="estado_semilleros"
+                   onChange={handleChange}
+                  >
+                    <option selected>Seleccione el estado del semillero</option>
+                    <option>Activo</option>
+                    <option>Inactivo</option>
                   </select>
 
                   <div className="add-semillero-btns">

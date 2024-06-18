@@ -10,12 +10,16 @@ import { Link, useNavigate } from "react-router-dom";
 import Modal from "react-modal";
 
 function Crear_Usuario_Admin() {
-  const { userProfile } = useAuth();
   const navigate = useNavigate();
 
   const [programasFormacion, setProgramasFormacion] = useState([]);
+  const [semilleros, setSemilleros] = useState([]);
   const [modalIsOpen, setModalIsOpen] = useState(false);
-  const [nombreProgramaSeleccionado, setNombreProgramaSeleccionado] = useState("");
+  const [modalSemilleros, setModalSemilleros] = useState(false);
+  const [nombreProgramaSeleccionado, setNombreProgramaSeleccionado] =
+    useState("");
+  const [nombreSemilleroSeleccionado, setNombreSemilleroSeleccionado] =
+    useState("");
 
   useEffect(() => {
     const obtenerProgramaFormacion = async () => {
@@ -30,11 +34,20 @@ function Crear_Usuario_Admin() {
     obtenerProgramaFormacion();
   }, []);
 
-  const SemilleroID = userProfile ? userProfile.semillero : "";
+  useEffect(() => {
+    const obtenerSemilleros = async () => {
+      try {
+        const res = await clienteAxios.get("/lista-semilleros/");
+        setSemilleros(res.data);
+      } catch (error) {
+        console.log("Error al obtener todos los semilleros", error);
+      }
+    };
 
-  const [formDataUser, SetFormDataUser] = useState({
-    semillero: SemilleroID,
-  });
+    obtenerSemilleros();
+  }, []);
+
+  const [formDataUser, SetFormDataUser] = useState({});
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -90,6 +103,14 @@ function Crear_Usuario_Admin() {
     setModalIsOpen(false);
   };
 
+  const openModalSemilleros = () => {
+    setModalSemilleros(true);
+  };
+
+  const closeModalSemilleros = () => {
+    setModalSemilleros(false);
+  };
+
   const seleccionarPrograma = (programa) => {
     SetFormDataUser({
       ...formDataUser,
@@ -100,6 +121,15 @@ function Crear_Usuario_Admin() {
     });
     setNombreProgramaSeleccionado(programa.nombre_programa_formacion);
     closeModal();
+  };
+
+  const seleccionarSemillero = (semillero) => {
+    SetFormDataUser({
+      ...formDataUser,
+      semillero: semillero.id
+    });
+    setNombreSemilleroSeleccionado(semillero.nombre_semillero);
+    closeModalSemilleros();
   };
 
   return (
@@ -124,6 +154,7 @@ function Crear_Usuario_Admin() {
                     Aprendiz Investigador
                   </option>
                   <option value="lider_semillero">Lider Semillero</option>
+                  <option value="coordinador">Coordinador</option>
                 </select>
               </div>
               <form className="form-add-user-container" onSubmit={handleSubmit}>
@@ -196,20 +227,57 @@ function Crear_Usuario_Admin() {
                 <label
                   htmlFor="semillero"
                   className="form-add-user-container__col1__label"
-                  hidden
                 >
                   Semillero <p className="rojo-required">*</p>
                 </label>
                 <input
-                  type="number"
+                  type="text"
+                  id="semillero"
+                  name="semillero"
+                  className="form-add-user-container__col1__input cursor-pointer"
+                  placeholder="Presiona para seleccionar un semillero"
+                  value={nombreSemilleroSeleccionado || ""}
+                  onClick={openModalSemilleros}
+                  readOnly
+                />
+                <input
+                  type="hidden"
                   name="semillero"
                   id="semillero"
                   className="form-add-user-container__col1__input"
                   onChange={handleChange}
-                  value={SemilleroID}
-                  readOnly
-                  hidden
+                  value={formDataUser.semillero}
                 />
+                {/* Modal Semilleros */}
+                <Modal
+                  isOpen={modalSemilleros}
+                  onRequestClose={closeModalSemilleros}
+                  contentLabel="Selecciona un semillero"
+                  className="Modal-programFormacion"
+                  overlayClassName="overlay-Modal-programFormacion"
+                >
+                  <div className="modal-program-content">
+                    <h2 className="text-2xl font-bold">
+                      Seleccione un semillero
+                    </h2>
+                    {semilleros.length > 0 ? (
+                      <ul>
+                        {semilleros.map((semillero) => (
+                          <li key={semillero.id}>
+                            <button
+                              onClick={() => seleccionarSemillero(semillero)}
+                            >
+                              {semillero.id} -{" "}
+                              {semillero.nombre_semillero}
+                            </button>
+                          </li>
+                        ))}
+                      </ul>
+                    ) : (
+                      <p>No hay semilleros disponibles</p>
+                    )}
+                  </div>
+                </Modal>
                 <label
                   hidden
                   htmlFor="rol"
@@ -232,7 +300,7 @@ function Crear_Usuario_Admin() {
                       name="programa_formacion"
                       className="form-add-user-container__col1__input cursor-pointer"
                       placeholder="Presiona para seleccionar un programa de formación"
-                      value={nombreProgramaSeleccionado  || ""}
+                      value={nombreProgramaSeleccionado || ""}
                       onClick={openModal}
                       readOnly
                     />
@@ -300,7 +368,9 @@ function Crear_Usuario_Admin() {
                       overlayClassName="overlay-Modal-programFormacion"
                     >
                       <div className="modal-program-content">
-                        <h2 className="text-2xl font-bold">Seleccione un programa de formación</h2>
+                        <h2 className="text-2xl font-bold">
+                          Seleccione un programa de formación
+                        </h2>
                         {programasFormacion.length > 0 ? (
                           <ul>
                             {programasFormacion.map((programa) => (
@@ -326,7 +396,7 @@ function Crear_Usuario_Admin() {
                     Crear
                   </button>
 
-                  <Link to={"/lider-semillero/usuarios-getAll"}>
+                  <Link to={"../usuarios-getAll"}>
                     <button type="button" className="btn-cancelar-usuario">
                       Cancelar
                     </button>

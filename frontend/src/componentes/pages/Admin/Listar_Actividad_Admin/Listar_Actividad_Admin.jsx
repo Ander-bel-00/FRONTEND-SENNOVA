@@ -13,13 +13,13 @@ import BotonVerdeAñadir from "../../../common/BotonVerde";
 import Caja_Blanca from "../../../common/Caja_Blanca";
 import { Link } from "react-router-dom";
 import clienteAxios from "../../../../config/axios";
-import * as XLSX from "xlsx";
+import * as XLSX from "xlsx"; //se agrego la importación del generar reporte en excel
 
 function Listar_Actividad_Admin() {
   
   const [listActivitys, setListActivitys] = useState([]);
 
-  useEffect(() =>{
+  useEffect(() => {
     const Obteneractividadsemilleros = async () => {
       try {
           const res = await clienteAxios.get(`/activity-semillero/`);
@@ -82,7 +82,7 @@ function Listar_Actividad_Admin() {
                 icon={<FaFileArrowUp />}
                 text={"Reporte"}
                 clase={"btn-blanco btn-blanco--modify btn-verde"}
-                onClick={exportToExcel}
+                onClick={exportToExcel} // se agrego la parte del generar reporte en excel 
               />
 
               <BotonBlanco

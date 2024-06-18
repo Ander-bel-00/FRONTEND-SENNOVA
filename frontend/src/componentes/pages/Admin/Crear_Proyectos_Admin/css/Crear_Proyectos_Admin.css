@@ -1,5 +1,4 @@
-/* se  modifico un poco algunas clases*/
-.update-activity-admin-main{
+.main-form-admin-proyecto{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -9,7 +8,7 @@
     padding-bottom: 2rem;
 }
 
-.form-update-activity-admin-content{
+.form-add-pryect-admin-container{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -17,13 +16,13 @@
     margin-top: 1rem;
 }
 
-.actualizar-actividades-admin-title{
+.create-project-admin-title{
     font-size: 25px;
     position: relative;
-    top: 1rem;
+    top: 4%;
 }
 
-.form-update-activity-admin-content__col1__label{
+.form-add-pryect-admin-container__col1__label{
     font-weight: 400;
     padding-top: 12px;
     display: flex;
@@ -31,7 +30,7 @@
     gap: 5px;
 }
 
-.form-update-activity-admin-content__col1__input{
+.form-add-pryect-admin-container__col1__input{
     width: 100%;
     background-color: var(--bg-inputs);
     border-radius: 6px;
@@ -41,42 +40,56 @@
     box-shadow: var(--box-shadow-inputs);
 }
 
-.update-activity-admin-btns{
+.form-add-pryect-admin-container__col1__textarea{
+    background-color: var(--bg-inputs);
+    width: 100%;
+    height: 5rem;
+    border-radius: 8px;
+}
+
+.form-add-pryect-admin-container__select{
+    background-color: var(--bg-inputs);
+    height: 2rem;
+    border-radius: 5px;
+}
+
+.btns-crear-projecto-admin{
     display: flex;
     flex-direction: row;
     align-items: center;
     width: 100%;
     justify-content: space-around;
+    margin-top: 2rem;
 }
 
-.btn-actualizar-actividad-admin{
+.btn-crear-proyecto-admin{
     background-color: var(--btn-update-bg);
-    width: 15rem;
+    width: 12rem;
+    height: 45px;
     border-radius: 8px;
-    box-shadow: 0px 4px 11px 1px rgba(129,122,122,0.73);
+    box-shadow: 0px 4px 11px 1px rgba(129,122,122,0.3);
+    top: 2rem;
     color: var(--text-btn-color);
     font-size: 21px;
-    padding: 8px
-}
-
-.btn-actualizar-actividad-admin:hover{
-    background-color: var(--btn-update-bg-hover);
-}
-
-.btn-cancelar-actividad-uptd{
-    background-color: var(--boton-cacelar-color);
-    width: 15rem;
-    padding: 8px;
-    border-radius: 8px;
-    box-shadow: 0px 4px 11px 1px rgba(129,122,122,0.73);
-    color: var(--text-btn-color);
-    font-size: 21px;
-    position: relative;
-    top: 3rem;
     text-align: center;
 }
 
-.btn-cancelar-actividad-uptd:hover{
-    cursor: pointer;
-    background-color: var(--boton-cacelar-bg-hover);
+.btn-crear-proyecto-admin:hover{
+    background-color: var(--btn-update-bg-hover);
 }
+
+.btn-cancelar-proyecto-admin{
+    background-color: var(--boton-cancelar-color);
+    width: 12rem;
+    height: 45px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 11px 1px rgba(129,122,122,0.3);
+    top: 4rem;
+    color: var(--text-btn-color);
+    font-size: 21px;
+}
+
+.btn-cancelar-proyecto-admin:hover{
+    background-color: var(--boton-cancelar-bg-hover);
+}
+

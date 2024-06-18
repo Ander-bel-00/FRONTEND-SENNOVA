@@ -18,7 +18,7 @@ function Actualizar_Eventos_Admin() {
     cantidad_parcticipantes: "",
     nombre_ponente: "",
     lugar_evento: "",
-    semillero: "",
+    semillero: "", //se agrego el semillero
   });
 
   const consultarApi = async () => {
@@ -125,7 +125,7 @@ function Actualizar_Eventos_Admin() {
                     className="form-vs-evento-container__input-admin"
                     name="nombre_ponente"
                     onChange={handleChange}
-                    defaultValue={eventosInfo.cantidad_parcticipantes}
+                    defaultValue={eventosInfo.nombre_ponente}
                   />
                 </div>
                 <div>
@@ -140,7 +140,7 @@ function Actualizar_Eventos_Admin() {
                     defaultValue={eventosInfo.lugar_evento}
                   />
                 </div>
-                
+                {/* se agrego el semillero */}
                 <div>
                   <label className="form-vs-evento-container__label-admin">
                     Semillero<p className="rojo-required">*</p>

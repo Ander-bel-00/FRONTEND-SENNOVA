@@ -9,17 +9,18 @@ import clienteAxios from "../../../../config/axios";
 import { useAuth } from "../../../../context/AuthContext";
 import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
+import { useParams } from "react-router-dom";
 
 function Semillero_Admin() {
-  const { userProfile } = useAuth();
+  const {id_semillero} = useParams();
 
   const [semilleros, setSemilleros] = useState([]);
   useEffect(() => {
     const fetchSemillero = async () => {
       try {
-        if (userProfile && userProfile.semillero) {
+        if (id_semillero) {
           const response = await clienteAxios.get(
-            `/semilleros/${userProfile.semillero}/`
+            `/semilleros/${id_semillero}/`
           );
           setSemilleros(response.data);
         }
@@ -29,7 +30,9 @@ function Semillero_Admin() {
     };
 
     fetchSemillero();
-  }, [userProfile]);
+  }, [id_semillero]);
+
+  console.log(id_semillero)
 
   const handleGenerarPDF = () => {
     // Función para generar un reporte en PDF
@@ -71,6 +74,11 @@ function Semillero_Admin() {
         10,
         100
       );
+      pdf.text(
+        `Estado del Semillero: ${semilleros.estado_semillero}`, //se agrego el estado del semillero
+        10,
+        110
+      );
       pdf.save("reporte.pdf"); // Descargar el PDF con el nombre 'reporte.pdf'
     });
   };
@@ -95,7 +103,7 @@ function Semillero_Admin() {
             <div className="semillero-main-container__header__btn_edidat">
               <BotonBlanco
                 icon={<GrDocumentUpdate />}
-                link={"../actualizar-semillero"}
+                link={"../actualizar-semillero/:id"} //se agrego el :id 
                 text={"Editar Datos"}
                 clase={"btn-blanco btn-blanco--modify btn-azul"}
               />
@@ -160,8 +168,13 @@ function Semillero_Admin() {
                 <h2>{"- " + semilleros.plan_estrategico_investigacion}</h2>
               </div>
               <div className="semillero-main-container__campos-informacion__inputs --lineas-investigacion">
-                <h1>lineas de Investigación </h1>
+                <h1>Líneas de Investigación </h1>
                 <h2>{"- " + semilleros.lineas_investigacion_declaradas}</h2>
+              </div>
+              {/* se agrego el estado del semillero*/}
+              <div className="semillero-main-container__campos-informacion__inputs">
+                <h1>Estado del Semillero</h1>
+                <h2>{"- " + semilleros.estado_semillero}</h2> 
               </div>
             </section>
           </div>

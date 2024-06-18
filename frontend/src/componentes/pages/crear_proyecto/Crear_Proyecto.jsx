@@ -37,7 +37,6 @@ function Crear_Proyecto() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     
-
     try {
       const response = await clienteAxios.post("/proyectos/", formNewProyect);
       Swal.fire({
@@ -93,16 +92,17 @@ function Crear_Proyecto() {
                     onChange={handleChange}
                   />
                   <label
-                    htmlFor="tipo proyecto"
+                    htmlFor="tipo_proyecto"
                     className="form-add-pryect-admin-container__col1__label"
                   >
-                    Tipo proyecto <p className="rojo-required">*</p>
+                    Tipo de Proyecto <p className="rojo-required">*</p>
                   </label>
 
                   <select
                     className="form-add-pryect-container__select"
                     name="tipo_proyecto"
                     onChange={handleChange}
+                    id="tipo_proyecto"
                   >
                     <option selected disabled>
                       Seleccione tipo de proyecto

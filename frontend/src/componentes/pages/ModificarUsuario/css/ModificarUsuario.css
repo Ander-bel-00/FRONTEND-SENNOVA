@@ -1,3 +1,4 @@
+
 .update-user-main-container{
     display: flex;
     justify-content: center;
@@ -24,10 +25,11 @@
 
 .update-users-box__form-container__options-col1__label{
     font-weight: 400;
-    padding-top: 12px;
+    padding-top: -1rem;
     display: flex;
     align-items: center;
     gap: 5px;
+    position: relative;
 }
 
 .update-users-box__form-container__options-col1__input{

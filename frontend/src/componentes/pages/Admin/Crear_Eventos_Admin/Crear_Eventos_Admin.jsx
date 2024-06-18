@@ -23,7 +23,7 @@ function Crear_Eventos_Admin() {
     cantidad_parcticipantes: "",
     nombre_ponente: "",
     lugar_evento: "",
-    semillero: " ",
+    // semillero: " ",  //agrege el semillero pero lo tengo comentado ya que esta dando un error al moneto de crear 
   });
 
   const handleChange = (e) => {
@@ -34,6 +34,7 @@ function Crear_Eventos_Admin() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    // Verificar si algún campo está vacío
     const fieldEmpty = Object.values(formNewEventoSemillero).some(
       (value) => value === ""
     );
@@ -161,16 +162,7 @@ function Crear_Eventos_Admin() {
                   onChange={handleChange}
                 />
 
-                <input
-                  type="text"
-                  className="form-add-event-container__input-admin"
-                  name="lugar_evento"
-                  onChange={handleChange}
-                  value={formNewEventoSemillero.semillero}
-                  hidden
-                />
-                
-                <label className="form-add-event-container__label-admin">
+                {/* <label className="form-add-event-container__label-admin">
                   Semillero <p className="rojo-required">*</p>
                 </label>
                 <input
@@ -178,17 +170,8 @@ function Crear_Eventos_Admin() {
                   className="form-add-event-container__input-admin"
                   name="semillero"
                   onChange={handleChange}
-                />
-
-                <input
-                  type="text"
-                  className="form-add-event-container__input-admin"
-                  name="semillero"
-                  onChange={handleChange}
-                  value={formNewEventoSemillero.semillero}
-                  hidden
-                />
-
+                /> */}
+                
                 <div className="btns-crear-evento-admin">
                   <button
                     type="submit"

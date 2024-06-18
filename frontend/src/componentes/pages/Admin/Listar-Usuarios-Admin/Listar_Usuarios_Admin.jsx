@@ -24,13 +24,11 @@ function Listar_Usuarios_Admin() {
       // Definición de una función asincrónica para obtener los usuarios del semillero
       const ObtenerusuariosSemillero = async () => {
         try {
-          // Verifica si SemilleroID existe y no es nulo
-          if (SemilleroID) {
             // Realiza una solicitud GET a la API para obtener los usuarios del semillero
-            const res = await clienteAxios.get(`/semilleros/${SemilleroID}/usuarios/`);
+            const res = await clienteAxios.get(`/usuarios/`);
             // Actualiza el estado de los usuarios con los datos obtenidos de la solicitud
             setUsers(res.data);
-          }
+          
         } catch (error) {
           // Manejo de errores: si ocurre algún error en la solicitud, se muestra en la consola
           console.error('Error al obtener los usuarios del Semillero:', error);
@@ -39,8 +37,9 @@ function Listar_Usuarios_Admin() {
     
       // Llama a la función ObtenerusuariosSemillero una vez que el componente se monta o cuando SemilleroID cambia
       ObtenerusuariosSemillero();
-    }, [SemilleroID]); // Dependencia que indica cuándo debe ejecutarse el efecto nuevamente
+    }, []); // Dependencia que indica cuándo debe ejecutarse el efecto nuevamente
     
+    console.log(users)
 
     const exportToExcel = () => {
       const wb = XLSX.utils.book_new();

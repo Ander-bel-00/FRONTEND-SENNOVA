@@ -59,7 +59,7 @@ export const blogs = [
 
     {
 		id: 6,
-		title: 'DISEÑO E INNOVACIÓN MECÁNICA.',
+		title: 'DISEÑO E INNOVACIÓN MECATRÓNICA DE AUTOMOTORES.',
 		category: 'Ingeniería y tecnología.',
 		author: 'Ángel Andrés Vásquez',
 		date: '22 de Febrero - 2017',

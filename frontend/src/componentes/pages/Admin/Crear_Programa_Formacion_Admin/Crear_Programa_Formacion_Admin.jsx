@@ -6,12 +6,27 @@ import Caja_formularios from '../../../common/Caja_formularios';
 import './css/Crear_Programa_Formacion_Admin.css';
 import Swal from "sweetalert2";
 import clienteAxios from '../../../../config/axios';
+import { useAuth } from '../../../../context/AuthContext';
 
 function Crear_Programa_Formacion_Admin() {
-  const [formNewProgram, setFormNewProgram] = useState({});
+  //se implemento la integración en esta interfaz 
+  const { userProfile } = useAuth();
   const navigate = useNavigate();
 
+  const SemilleroID = userProfile ? userProfile.semillero : "";
+
+  const [formNewProgram, setFormNewProgram] = useState({
+    semillero: SemilleroID,
+    codigo_programa_formacion: "",
+    version_programa_formacion: "",
+    nombre_programa_formacion: "",
+    ficha: "",
+    inicio_lectiva: "",
+    fin_lectiva: "",
+  });
+
   const handleChange = (event) => {
+    //Se refiere al elemento html de donde vienen los valores(name y value)
     const { name, value } = event.target;
     setFormNewProgram({ ...formNewProgram, [name]: value });
   };
@@ -23,8 +38,9 @@ function Crear_Programa_Formacion_Admin() {
     if (anyFieldEmpty) {
       // Mostrar Sweet Alert si algún campo está vacío
       Swal.fire({
-        title: "Debes diligenciar todos los campos",
-        icon: "warning",
+        title: "Error al crear el evento",
+        text: "Debes diligenciar todos los campos",
+        icon: "error",
         confirmButtonText: "Aceptar",
       });
       return;
@@ -123,14 +139,24 @@ function Crear_Programa_Formacion_Admin() {
                   name="fin_lectiva"
                   onChange={handleChange}
                 />
-                <div />
-              </form>
-              {/* Botones principales */}
-              <div className='buttonsCreating-admin'>
-                <button className='buttonsCreating__crear--green-admin'>  Crear</button>
-                <button className='buttonsCreating__cancelar-admin'> Cancelar</button>
+                <div/>
+                {/* Botones principales */}
+                <div className='buttonsCreating-admin'>
+                  <button 
+                    type='submit'
+                    className='buttonsCreating__crear--green-admin'
+                  >  Crear
+                  </button>
 
-              </div>
+                  <Link to={"../visualizar-programa-formacion"}>
+                    <button 
+                      className='buttonsCreating__cancelar-admin'
+                      type='submit'
+                    > Cancelar
+                    </button>
+                  </Link>
+                </div>
+              </form>
             </div>
           </Fragment>
         }

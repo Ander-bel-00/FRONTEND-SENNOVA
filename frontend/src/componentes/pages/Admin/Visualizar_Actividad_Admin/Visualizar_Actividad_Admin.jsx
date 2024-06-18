@@ -35,6 +35,7 @@ function Visualizar_Actividad_Admin() {
     },
   ];
 
+  // se agrego la parte del generar reporte en un archivo excel
   const exportToExcel = () => {
     const wb = XLSX.utils.book_new();
     const wsData = [
@@ -84,7 +85,12 @@ function Visualizar_Actividad_Admin() {
               />
             </div>
             <BotonBlanco icon={<FaFileArrowUp />} text={"Reporte"} clase={'btn-blanco btn-blanco--modify btn-verde'} onClick={exportToExcel}/>
-            <BotonBlanco icon={<LuCalendarDays />} text={"Ir al Cronograma"} clase={'btn-blanco btn-blanco--modify btn-azul'}/>
+            <BotonBlanco 
+              icon={<LuCalendarDays />} 
+              text={"Ir al Cronograma"} 
+              link={"../cronograma"}
+              clase={'btn-blanco btn-blanco--modify btn-azul'}
+            />
             <Search icon={<FaSearch />} text={"Buscar Actividades"} />
             <BotonVerdeAñadir
               icon={<IoAdd />}

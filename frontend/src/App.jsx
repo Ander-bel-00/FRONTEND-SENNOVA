@@ -81,6 +81,9 @@ import Listar_Semilleros_Admin from "./componentes/pages/Admin/Listar_semilleros
 import Listar_Horas_Admin from "./componentes/pages/Coordinador/Listar_Horas_Admin/Listar_Horas_Admin";
 import Asignar_Horas_Admin from "./componentes/pages/Coordinador/Asignar_Horas_Admin/Asignar_Horas_Admin";
 import Visualizar_Horas_Admin from "./componentes/pages/Coordinador/Visualizar_Horas_Admin/Visualizar_Horas_Admin";
+import Crear_Proyectos_Admin from "./componentes/pages/Admin/Crear_Proyectos_Admin/Crear_Proyectos_Admin";
+import Visualizar_Actividad_Admin from "./componentes/pages/Admin/Visualizar_Actividad_Admin/Visualizar_Actividad_Admin";
+
 
 function App() {
   const { isAuthenticated, userRole, handleLogout } = useAuth();
@@ -147,7 +150,7 @@ function App() {
                     />
 
                     <Route
-                      path="/semillero"
+                      path="/semillero/:id_semillero"
                       element={
                         <Fragment>
                           <main className="main-container">
@@ -209,7 +212,7 @@ function App() {
                       }
                     />
                     <Route
-                      path="/actualizar-semillero"
+                      path="/actualizar-semillero/:id_semillero"
                       element={
                         <main className="main-container">
                           <Actualizar_Semillero />
@@ -299,10 +302,10 @@ function App() {
                     />
 
                     <Route
-                      path="/visualizar-actividad"
+                      path="/visualizar-actividad/:id"
                       element={
                         <main className="main-container">
-                          <Visualizar_Actividad />
+                          <Visualizar_Actividad_Admin />
                         </main>
                       }
                     />
@@ -380,7 +383,7 @@ function App() {
                       path="/crear-proyecto"
                       element={
                         <main className="main-container">
-                          <Crear_Proyecto />
+                          <Crear_Proyectos_Admin  />
                         </main>
                       }
                     />
