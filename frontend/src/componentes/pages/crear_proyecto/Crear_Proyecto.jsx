@@ -18,12 +18,12 @@ function Crear_Proyecto() {
   // Inicializar el estado del formulario
   const [formNewProyect, setFormNewProyect] = useState({
     semillero: SemilleroID.length > 0 ? SemilleroID[0] : null, // Asignar el primer valor del array o null si no hay valores
-    codigo: "",
-    tipo_proyecto: "",
     nombre_proyecto: "",
-    descripcion_proyecto: "",
     fecha_inicio: "",
     fecha_fin: "",
+    descripcion_proyecto: "",
+    tipo_proyecto: "",
+    codigo: "",
   });
 
   // Esta función maneja el cambio en cualquier campo del formulario.
@@ -106,7 +106,7 @@ function Crear_Proyecto() {
                     name="tipo_proyecto"
                     onChange={handleChange}
                   >
-                    <option selected disabled>
+                    <option selected>
                       Seleccione tipo de proyecto
                     </option>
                     <option value="Capacidad Instalada">

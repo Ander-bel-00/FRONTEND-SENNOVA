@@ -177,9 +177,7 @@ function Listar_Actividad() {
                       <td className="list-activity-admin-content-table-td">
                         {actividad.responsable_actividad}
                       </td>
-                      <td className="list-activity-admin-content-table-td">
-                        
-                      </td>
+                      
                       <td className="list-activity-admin-content-table__td">
                         <div className="list-activity-admin-content-table__td__btns">
                           <Link

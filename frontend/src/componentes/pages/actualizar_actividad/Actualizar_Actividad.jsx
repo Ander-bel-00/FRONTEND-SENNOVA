@@ -86,31 +86,31 @@ function Actualizar_Actividad() {
         <Caja_formularios
           info={
             <Fragment>
-              <div className="update-activity-admin-main">
-                <h1 className="text-center actualizar-actividades-admin-title">
+              <div className="update-activity-lider-main">
+                <h1 className="text-center actualizar-actividades-lider-title">
                   ACTUALIZAR ACTIVIDAD
                 </h1>
                 <form
-                  className="form-update-activity-admin-content"
+                  className="form-update-activity-lider-content"
                   onSubmit={actualizarActividad}
                 >
                   <label
                     htmlFor="nombre-actividad"
-                    className="form-update-activity-admin-content__col1__label"
+                    className="form-update-activity-lider-content__col1__label"
                   >
                     Nombre de la Actividad <p className="text-red-600">*</p>
                   </label>
                   <input
                     type="text"
                     id="nombre_actividad"
-                    className="form-update-activity-admin-content__col1__input"
+                    className="form-update-activity-lider-content__col1__input"
                     name="nombre_actividad"
                     onChange={handleChange}
                     defaultValue={actividadInfo.nombre_actividad}
                   />
                   <label
                     htmlFor="fecha-entrega-actividad"
-                    className="form-update-activity-admin-content__col1__label"
+                    className="form-update-activity-lider-content__col1__label"
                   >
                     Fecha inicio<p className="text-red-600">*</p>
                   </label>
@@ -118,38 +118,38 @@ function Actualizar_Actividad() {
                     type="date"
                     id="fecha_inicio"
                     name="fecha_inicio"
-                    className="form-update-activity-admin-content__col1__input"
+                    className="form-update-activity-lider-content__col1__input"
                     onChange={handleChange}
                     defaultValue={actividadInfo.fecha_inicio}
                   />
                   <label
                     htmlFor="fecha-entrega-actividad"
-                    className="form-update-activity-admin-content__col1__label"
+                    className="form-update-activity-lider-content__col1__label"
                   >
                     Fecha Fin<p className="text-red-600">*</p>
                   </label>
                   <input
                     type="date"
                     id="fecha_fin"
-                    className="form-update-activity-admin-content__col1__input"
+                    className="form-update-activity-lider-content__col1__input"
                     name="fecha_fin"
                     onChange={handleChange}
                     defaultValue={actividadInfo.fecha_fin}
                   />
                   {/* <label
                   htmlFor="producto-actividad"
-                  className="form-update-activity-admin-content__col1__label"
+                  className="form-update-activity-lider-content__col1__label"
                 >
                   Producto <p className="text-red-600">*</p>
                 </label>
                 <input
                   type="text"
                   id="producto-actividad"
-                  className="form-update-activity-admin-content__col1__input"
+                  className="form-update-activity-lider-content__col1__input"
                 /> */}
                   <label
                     htmlFor="tarea-activida"
-                    className="form-update-activity-admin-content__col1__label"
+                    className="form-update-activity-lider-content__col1__label"
                   >
                     Tarea <p className="text-red-600">*</p>
                   </label>
@@ -157,13 +157,13 @@ function Actualizar_Actividad() {
                     type="text"
                     id="tarea"
                     name="tarea"
-                    className="form-update-activity-admin-content__col1__input"
+                    className="form-update-activity-lider-content__col1__input"
                     onChange={handleChange}
                     defaultValue={actividadInfo.tarea}
                   />
                   <label
                     htmlFor="resultado"
-                    className="form-update-activity-admin-content__col1__label"
+                    className="form-update-activity-lider-content__col1__label"
                   >
                     Resultado <p className="text-red-600">*</p>
                   </label>
@@ -171,13 +171,13 @@ function Actualizar_Actividad() {
                     type="text"
                     id="resultado"
                     name="resultado"
-                    className="form-update-activity-admin-content__col1__input"
+                    className="form-update-activity-lider-content__col1__input"
                     onChange={handleChange}
                     defaultValue={actividadInfo.resultado}
                   />
                   <label
                     htmlFor="responsable_actividad"
-                    className="form-update-activity-admin-content__col1__label"
+                    className="form-update-activity-lider-content__col1__label"
                   >
                     Responsable de la Actividad{" "}
                     <p className="text-red-600">*</p>
@@ -186,7 +186,7 @@ function Actualizar_Actividad() {
                     type="text"
                     id="responsable_actividad"
                     name="responsable_actividad"
-                    className="form-update-activity-admin-content__col1__input"
+                    className="form-update-activity-lider-content__col1__input"
                     onChange={handleChange}
                     defaultValue={actividadInfo.responsable_actividad}
                   />
@@ -196,7 +196,7 @@ function Actualizar_Actividad() {
                     name="semillero"
                     defaultValue={actividadInfo.semillero}
                     hidden
-                    className="form-update-activity-admin-content__col1__input"
+                    className="form-update-activity-lider-content__col1__input"
                     onChange={handleChange}
                   />
 
@@ -206,7 +206,7 @@ function Actualizar_Actividad() {
                     </button>
                     <Link to={"../listar-actividad"}>
                       <button
-                        className="btn-cancelar-actividad-uptd"
+                        className="btn-cancelar-actividad"
                         type="button"
                       >
                         Cancelar

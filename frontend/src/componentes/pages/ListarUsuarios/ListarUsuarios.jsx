@@ -17,42 +17,40 @@ import clienteAxios from "../../../config/axios";
 
 function ListarUsuarios() {
   const { userProfile } = useAuth();
+
+    const SemilleroID = userProfile ? userProfile.semillero : null;
   
-  const SemilleroID = userProfile ? userProfile.semillero : null;
-
-  const [users, setUsers] = useState([]);
-
-  useEffect(() => {
-    // Definición de una función asincrónica para obtener los usuarios del semillero
-    const ObtenerusuariosSemillero = async () => {
-      try {
-        // Verifica si SemilleroID existe y no es nulo
-        if (SemilleroID) {
-          // Realiza una solicitud GET a la API para obtener los usuarios del semillero
-          const res = await clienteAxios.get(`/semilleros/${SemilleroID}/usuarios/`);
-          // Actualiza el estado de los usuarios con los datos obtenidos de la solicitud
-          setUsers(res.data);
+    const [usuarios, setUsuarios] = useState([]);
+  
+    useEffect(() => {
+      // Definición de una función asincrónica para obtener los usuarios del semillero
+      const ObtenerusuariosSemillero = async () => {
+        try {
+            // Realiza una solicitud GET a la API para obtener los usuarios del semillero
+            const res = await clienteAxios.get(`/usuarios/`);
+            // Actualiza el estado de los usuarios con los datos obtenidos de la solicitud
+            setUsuarios(res.data);
+          
+        } catch (error) {
+          // Manejo de errores: si ocurre algún error en la solicitud, se muestra en la consola
+          console.error('Error al obtener los usuarios del Semillero:', error);
         }
-      } catch (error) {
-        // Manejo de errores: si ocurre algún error en la solicitud, se muestra en la consola
-        console.error('Error al obtener los usuarios del Semillero:', error);
       }
-    }
-  
-    // Llama a la función ObtenerusuariosSemillero una vez que el componente se monta o cuando SemilleroID cambia
-    ObtenerusuariosSemillero();
-  }, [SemilleroID]); // Dependencia que indica cuándo debe ejecutarse el efecto nuevamente
+    
+      // Llama a la función ObtenerusuariosSemillero una vez que el componente se monta o cuando SemilleroID cambia
+      ObtenerusuariosSemillero();
+    }, []); // Dependencia que indica cuándo debe ejecutarse el efecto nuevamente
   
 
   const exportToExcel = () => {
     const wb = XLSX.utils.book_new();
     const wsData = [
       ["Nombres", "Apellidos", "Número documento", "Rol"],
-      ...users.map((user) => [
-        user.name,
-        user.last_names,
-        user.documento,
-        user.rol,
+      ...usuarios.map((user) => [
+        usuarios.name,
+        usuarios.last_names,
+        usuarios.documento,
+        usuarios.rol,
       ]),
     ];
     const ws = XLSX.utils.aoa_to_sheet(wsData);
@@ -105,12 +103,12 @@ function ListarUsuarios() {
                 </tr>
               </thead>
               <tbody>
-                {users.map((user, index) => (
+                {usuarios.map((usuarios, index) => (
                   <tr key={index} className="user-table__row">
-                    <td className="user-table__cell">{user.name}</td>
-                    <td className="user-table__cell">{user.last_names}</td>
-                    <td className="user-table__cell">{user.documento}</td>
-                    <td className="user-table__cell">{user.rol}</td>
+                    <td className="user-table__cell">{usuarios.name}</td>
+                    <td className="user-table__cell">{usuarios.last_names}</td>
+                    <td className="user-table__cell">{usuarios.documento}</td>
+                    <td className="user-table__cell">{usuarios.rol}</td>
                     <td className="user-table__cell">
                       <div className="user-table__cell__buttons">
                         <Link
@@ -119,7 +117,7 @@ function ListarUsuarios() {
                           <LiaEyeSolid className="user-table__cell__btn" />
                         </Link>
 
-                        <Link to={"/lider-semillero/users-update"}>
+                        <Link to={"/lider_semillero/users-update"}>
                           <FaRegEdit className="user-table__cell__btn" />
                         </Link>
                         <Link>

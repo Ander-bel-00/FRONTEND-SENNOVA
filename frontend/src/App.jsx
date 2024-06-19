@@ -313,7 +313,7 @@ function App() {
                       path="/listar-eventos"
                       element={
                         <main className="main-container">
-                          <Listar_Eventos />
+                          <Listar_Eventos_Admin/>
                         </main>
                       }
                     />
@@ -617,13 +617,23 @@ function App() {
                     />
 
                     <Route
-                      path="/visualizar-programa-formacion"
+                      path="/actualizar-eventos"
                       element={
                         <main className="main-container">
-                          <Visualizar_Programa_Formacion_Admin />
+                          <Actualizar_Eventos />
                         </main>
                       }
                     />
+
+                    <Route
+                      path="/visualizar-programa-formacion"
+                      element={
+                        <main className="main-container">
+                          <Visualizar_Programa_Formacion />
+                        </main>
+                      }
+                    />
+                    
 
                     <Route
                       path="/crear-programa-formacion"
@@ -634,15 +644,7 @@ function App() {
                       }
                     />
 
-                    <Route
-                      path="/actualizar-eventos"
-                      element={
-                        <main className="main-container">
-                          <Actualizar_Eventos_Admin />
-                        </main>
-                      }
-                    />
-
+                    
                     <Route
                       path="/listar-fichas"
                       element={

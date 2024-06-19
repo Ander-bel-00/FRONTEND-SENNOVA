@@ -336,7 +336,7 @@ function Crear_Usuario() {
                     Crear
                   </button>
 
-                  <Link to={"/lider-semillero/usuarios-getAll"}>
+                  <Link to={"/lider_semillero/usuarios-getAll"}>
                     <button type="button" className="btn-cancelar-usuario">
                       Cancelar
                     </button>

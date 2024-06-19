@@ -10,8 +10,8 @@ import { GiReturnArrow } from "react-icons/gi";
 function ModificarUsuario() {
   return (
     <div className="main-container__contenedor-hijo">
-      <div className="add-proyect-btn-return">
-        <BotonReturn icon={<GiReturnArrow />} />
+      <div className="btn-modificar">
+        <BotonReturn />
       </div>
       <Caja_formularios
         info={

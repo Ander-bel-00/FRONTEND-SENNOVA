@@ -75,7 +75,7 @@ function Actualizar_Proyectos() {
             <Fragment>
               <div className="update-proyect-admin-main">
                 <h2 className="text-center actualizar-project-admin-title">
-                  ACTUALIZAR PROYECTO DE INVESTIGACIÓN
+                  Actualizar Proyecto 
                 </h2>
                 <form
                   className="form-update-proyects-admin-content"
@@ -83,7 +83,7 @@ function Actualizar_Proyectos() {
                 >
                   <label
                     htmlFor="codigo"
-                    className="form-add-pryect-admin-container__col1__label"
+                    className="form-add-pryect-container__col1__label"
                   >
                     Código SGPS (Sistema de gestión de proyectos SENNOVA){" "}
                     <p className="rojo-required">*</p>

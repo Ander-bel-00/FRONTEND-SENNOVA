@@ -1,4 +1,9 @@
-.caja-vs-evento{
+.caja-vs-evento__tile-lider{
+    font-size: 2rem;
+    text-align: center;
+}
+
+.caja-vs-evento-lider{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -8,48 +13,31 @@
     padding-bottom: 2rem;
 }
 
-.caja-vs-evento__tile{
-    margin: 30px;
-    font-size: 20px;
-    text-align: center;
-    position: relative;
-    bottom: 2rem;
-    font-weight: 600;
-}
-
-.form-vs-evento-container{
+.form-vs-evento-container-lider{
     display: flex;
     flex-direction: column;
     justify-content: center;
     width: 80%;
-    margin-top: 0rem;
+    margin-top: 1rem;
 }
 
-.form-vs-evento-container__label{
+.form-vs-evento-container__label-lider{
     font-weight: 400;
-    padding-top: 12px;
     display: flex;
-    align-items: center;
+    margin-bottom: 10px;
     gap: 5px;
 }
 
-.form-vs-evento-container__input{
+.form-vs-evento-container__input-lider{
     width: 100%;
     background-color: var(--bg-inputs);
     border-radius: 6px;
     padding: 8px;
-    margin-top: 8px;
     margin-bottom: 10px;
     box-shadow: var(--box-shadow-inputs);
 }
 
-.form-vs-evento-container__label-select{
-    display: block;
-    font-weight: 400;
-    padding-top: 12px;
-}
-
-.form-vs-event-btns{
+.form-vs-event-btns-lider{
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -57,9 +45,17 @@
     justify-content: space-around;
     margin-top: 2rem;
 }
+
+.form-add-event-container__label-lider-select{
+    display: block;
+    font-weight: 400;
+    padding-top: 12px;
+}
+
+
 /* Botones principales */
 
-.btn-vs-evento-container__cancelar{
+.btn-vs-evento-container__cancelar-lider{
     background-color: var(--boton-cacelar-color);
     width: 15rem;
     height: 45px;
@@ -69,12 +65,12 @@
     font-size: 21px;
 }
 
-.btn-vs-evento-container__cancelar:hover{
+.btn-vs-evento-container__cancelar-lider:hover{
     background-color: var(--boton-cacelar-bg-hover);
 }
 
 
-.btn-vs-evento-container__crear--green{
+.btn-vs-evento-container__crear--green-lider{
     background-color: var(--boton-crear-color);
     width: 15rem;
     height: 45px;
@@ -84,6 +80,14 @@
     font-size: 21px;
 }
 
-.btn-vs-evento-container__crear--green:hover{   
+.btn-vs-evento-container__crear--green-lider:hover{   
     background-color: var(--boton-crear-bg-hover);
 }
+
+.btn-vs-return-lider{
+    z-index: 2;
+}
+
+
+
+

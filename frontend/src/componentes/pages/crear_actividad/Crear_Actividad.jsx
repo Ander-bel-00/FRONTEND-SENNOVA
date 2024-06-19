@@ -12,10 +12,10 @@ function Crear_Actividad() {
   const { userProfile } = useAuth();
   const navigate = useNavigate();
 
-  const SemilleroID = userProfile ? userProfile.semillero : "";
+  const SemilleroID = userProfile ? userProfile.semillero : [];
 
   const [formNewActivitySemillero, setFormNewActivitySemillero] = useState({
-    semillero: SemilleroID,
+    semillero: SemilleroID.length > 0 ? SemilleroID[0] : null,
     nombre_actividad: "",
     tarea: "",
     fecha_inicio: "",

@@ -1,4 +1,4 @@
-.update-activity-main{
+.update-activity-lider-main{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -7,7 +7,7 @@
     padding-top: 2rem;
     padding-bottom: 2rem;
 }
-.form-update-activity-content{
+.form-update-activity-lider-content{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -15,14 +15,14 @@
     margin-top: 1rem;
 }
 
-.actualizar-actividades-title{
+.actualizar-actividades-lider-title{
     font-size: 25px;
     font-weight: 750;
     position: relative;
     top: 1rem;
 }
 
-.form-update-activity-content__col1__label{
+.form-update-activity-lider-content__col1__label{
     font-weight: 400;
     padding-top: 12px;
     display: flex;
@@ -30,7 +30,7 @@
     gap: 5px;
 }
 
-.form-update-activity-content__col1__input{
+.form-update-activity-lider-content__col1__input{
     width: 100%;
     background-color: var(--bg-inputs);
     border-radius: 6px;

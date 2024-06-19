@@ -13,9 +13,9 @@ function Crear_Eventos() {
   const { userProfile } = useAuth();
   const navigate = useNavigate();
 
-  const SemilleroID = userProfile ? userProfile.semillero : "";
+  const SemilleroID = userProfile ? userProfile.semillero : [];
 
-  const [formNewEventoSemillero, setFormNewEventoSemillero] = useState({
+  const [newEventSemillero, setNewEventSemillero] = useState({
     semillero: SemilleroID.length > 0 ? SemilleroID[0] : null,
     nombre_evento: "",
     tipo_de_evento: "",
@@ -29,12 +29,12 @@ function Crear_Eventos() {
   const handleChange = (e) => {
     //Se refiere al elemento html de donde vienen los valores(name y value)
     const { name, value } = e.target;
-    setFormNewEventoSemillero({ ...formNewEventoSemillero, [name]: value });
+    setNewEventSemillero({ ...newEventSemillero, [name]: value });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const fieldEmpty = Object.values(formNewEventoSemillero).some(
+    const fieldEmpty = Object.values(newEventSemillero).some(
       (value) => value === ""
     );
     if (fieldEmpty) {
@@ -50,7 +50,7 @@ function Crear_Eventos() {
     try {
       const response = await clienteAxios.post(
         "/eventos/",
-        formNewEventoSemillero
+        newEventSemillero
       );
 
       Swal.fire({
@@ -166,7 +166,7 @@ function Crear_Eventos() {
                   className="form-add-event-container__input-admin"
                   name="semillero"
                   onChange={handleChange}
-                  value={formNewEventoSemillero.semillero}
+                  value={newEventSemillero.semillero}
                   hidden
                 />
 

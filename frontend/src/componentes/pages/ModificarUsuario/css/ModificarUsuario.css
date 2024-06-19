@@ -56,3 +56,8 @@
 .update-users-box__form-container__btn-update:hover{
     background-color: var(--btn-update-bg-hover);
 }
+
+
+.btn-modificar {
+    z-index: 2;
+}
