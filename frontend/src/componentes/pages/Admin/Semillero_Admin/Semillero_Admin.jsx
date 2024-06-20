@@ -95,8 +95,8 @@ function Semillero_Admin() {
               <BotonBlanco
                 icon={<FaFileArrowUp />}
                 text={"Reporte"}
-                clase={"btn-blanco btn-blanco--modify btn-verde"}
                 onClick={handleGenerarPDF}
+                clase={"btn-blanco btn-blanco--modify btn-verde"}
               />
             </div>
 
@@ -122,7 +122,7 @@ function Semillero_Admin() {
           <h1
             style={{ textAlign: "center", fontSize: "2rem", fontWeight: "500" }}
           >
-            SEMILLERO DE INVESTIGACIÓN <br></br> {semilleros.nombre_semillero}
+            SEMILLERO DE INVESTIGACIÓN<br></br> {semilleros.nombre_semillero}
           </h1>
 
           <div className="semillero-main-container__campos-informacion">

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Header_ToolBar from '../../../common/Header_ToolBar';
 import BotonBlanco from '../../../common/BotonReporte';
 import { FaFileArrowUp } from "react-icons/fa6";
@@ -10,18 +10,22 @@ import BotonReturn from '../../../common/BotonReturn';
 import { GiReturnArrow } from "react-icons/gi";
 import { Fragment } from "react";
 import * as XLSX from "xlsx";
+import clienteAxios from '../../../../config/axios';
 
 function Visualizar_Usuario_Admin() {
-  const Usuario = [
-    {
-      nombres: "Yesid",
-      apellidos: "Molina",
-      documento: "1059695065",
-      correo: "yesid@gmail.com",
-      telefono: "3192819219",
-      rol: "admin",
+  const [Usuario, setUsuario] =  useState([]); 
+
+  useEffect(() => {
+    const obtenerUsuario = async () => {
+      try {
+        const res = await clienteAxios.get('/usuarios/');
+        setUsuario(res.data);
+      } catch (error) {
+        console.log('Error al obtener todos los Usurios', error);
+      }
     }
-  ]
+    obtenerUsuario();
+  }, []);
 
   const exportToExcel = () => {
     const wb = XLSX.utils.book_new();

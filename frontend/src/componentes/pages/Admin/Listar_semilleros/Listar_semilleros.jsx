@@ -18,6 +18,9 @@ import { IoTrashOutline } from "react-icons/io5";
 function Listar_Semilleros_Admin() {
   const [semillero, setSemillero] = useState([]);
 
+  // Esta es la declaración del estado que almacenará el query de búsqueda
+  const [searchQuery, setSearchQuery] = useState("");
+
   useEffect(() => {
     const ObtenerSemilleros = async () => {
       try {
@@ -59,6 +62,16 @@ function Listar_Semilleros_Admin() {
     XLSX.writeFile(wb, "semilleros.xlsx");
   };
 
+  // Esta función se utiliza para actualizar el estado del query de búsqueda
+  const handleFilter = (query) => {
+    setSearchQuery(query);
+  };
+
+  // Esta es la función que filtra los eventos basados en el query de búsqueda
+  const filteredsemillero = semillero.filter((semillero)  => 
+    semillero.nombre_semillero.toLowerCase().includes(searchQuery.toLowerCase())  ||
+    semillero.estado_semillero.toLowerCase().includes(searchQuery.toLowerCase())
+  );
   return (
     <Fragment>
       <div className="main-container__contenedor-hijo">
@@ -71,7 +84,8 @@ function Listar_Semilleros_Admin() {
                 clase={"btn-blanco btn-blanco--modify btn-verde"}
                 onClick={exportToExcel}
               />
-              <Search text={"Buscar Semillero"} />
+              <Search text={"Buscar Semillero"} onFilter={handleFilter} />
+
               <BotonVerdeAñadir
                 icon={<AiOutlinePlus />}
                 text={"Crear Semillero"}
@@ -100,7 +114,7 @@ function Listar_Semilleros_Admin() {
                 </tr>
               </thead>
               <tbody>
-                {semillero.map(semillero => (
+                {filteredsemillero.map(semillero => (
                   <tr className="list-semillero-admin-content-table-tr">
                     <td className="list-semillero-admin-content-table-td">{semillero.nombre_semillero}</td>
                     <td className="list-semillero-admin-content-table-td">{semillero.nombre_regional}</td>

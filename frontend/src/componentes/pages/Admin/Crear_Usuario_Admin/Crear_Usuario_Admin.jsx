@@ -16,10 +16,8 @@ function Crear_Usuario_Admin() {
   const [semilleros, setSemilleros] = useState([]);
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [modalSemilleros, setModalSemilleros] = useState(false);
-  const [nombreProgramaSeleccionado, setNombreProgramaSeleccionado] =
-    useState("");
-  const [nombreSemilleroSeleccionado, setNombreSemilleroSeleccionado] =
-    useState("");
+  const [nombreProgramaSeleccionado, setNombreProgramaSeleccionado] = useState("");
+  const [semillerosSeleccionados, setSemillerosSeleccionados] = useState([]);
 
   useEffect(() => {
     const obtenerProgramaFormacion = async () => {
@@ -47,11 +45,11 @@ function Crear_Usuario_Admin() {
     obtenerSemilleros();
   }, []);
 
-  const [formDataUser, SetFormDataUser] = useState({});
+  const [formDataUser, setFormDataUser] = useState({});
 
   const handleChange = (event) => {
     const { name, value } = event.target;
-    SetFormDataUser({ ...formDataUser, [name]: value });
+    setFormDataUser({ ...formDataUser, [name]: value });
   };
 
   const handleSubmit = async (event) => {
@@ -60,6 +58,7 @@ function Crear_Usuario_Admin() {
       const userData = {
         ...formDataUser,
         rol: rolUsuario,
+        semillero: semillerosSeleccionados // Enviamos los semilleros seleccionados como array
       };
       const response = await clienteAxios.post("/create-user/", userData);
       Swal.fire({
@@ -84,15 +83,14 @@ function Crear_Usuario_Admin() {
     }
   };
 
-  const [rolUsuario, setRolUsuario] = useState(
-    "instructor_investigador" || "lider_semillero"
-  );
+  const [rolUsuario, setRolUsuario] = useState("instructor_investigador");
   const [mostrarCamposAprendiz, setMostrarCamposAprendiz] = useState(false);
 
   const handleRolChange = (e) => {
     const selectedRol = e.target.value;
     setRolUsuario(selectedRol);
     setMostrarCamposAprendiz(selectedRol === "aprendiz_investigador");
+    setSemillerosSeleccionados([]); // Limpiar semilleros seleccionados al cambiar el rol
   };
 
   const openModal = () => {
@@ -112,7 +110,7 @@ function Crear_Usuario_Admin() {
   };
 
   const seleccionarPrograma = (programa) => {
-    SetFormDataUser({
+    setFormDataUser({
       ...formDataUser,
       id_programa_formacion: programa.id,
       ficha: programa.ficha,
@@ -123,13 +121,24 @@ function Crear_Usuario_Admin() {
     closeModal();
   };
 
-  const seleccionarSemillero = (semillero) => {
-    SetFormDataUser({
-      ...formDataUser,
-      semillero: semillero.id
-    });
-    setNombreSemilleroSeleccionado(semillero.nombre_semillero);
-    closeModalSemilleros();
+  const seleccionarSemillero = (event, semillero) => {
+    const checked = event.target.checked;
+    if (rolUsuario === "aprendiz_investigador" || rolUsuario === "lider_semillero") {
+      setSemillerosSeleccionados([semillero.id]); // Solo uno permitido
+    } else {
+      setSemillerosSeleccionados((prev) => {
+        if (checked) {
+          return [...prev, semillero.id]; // Add to selected
+        } else {
+          return prev.filter(id => id !== semillero.id); // Deselect if already selected
+        }
+      });
+    }
+  };
+
+  const getSemilleroNombre = (id) => {
+    const semillero = semilleros.find(semillero => semillero.id === id);
+    return semillero ? semillero.nombre_semillero : "";
   };
 
   return (
@@ -147,21 +156,14 @@ function Crear_Usuario_Admin() {
                   onChange={handleRolChange}
                   className="form-add-user-container__col1__input"
                 >
-                  <option value="instructor_investigador">
-                    Instructor Investigador
-                  </option>
-                  <option value="aprendiz_investigador">
-                    Aprendiz Investigador
-                  </option>
+                  <option value="instructor_investigador">Instructor Investigador</option>
+                  <option value="aprendiz_investigador">Aprendiz Investigador</option>
                   <option value="lider_semillero">Lider Semillero</option>
-                  <option value="coordinador">Coordinador</option>
+                  <option value="cordinador">Coordinador</option>
                 </select>
               </div>
               <form className="form-add-user-container" onSubmit={handleSubmit}>
-                <label
-                  htmlFor="documento"
-                  className="form-add-user-container__col1__label"
-                >
+                <label htmlFor="documento" className="form-add-user-container__col1__label">
                   Número de Documento <p className="rojo-required">*</p>
                 </label>
                 <input
@@ -172,10 +174,7 @@ function Crear_Usuario_Admin() {
                   onChange={handleChange}
                 />
 
-                <label
-                  htmlFor="name"
-                  className="form-add-user-container__col1__label"
-                >
+                <label htmlFor="name" className="form-add-user-container__col1__label">
                   Nombres <p className="rojo-required">*</p>
                 </label>
                 <input
@@ -185,10 +184,7 @@ function Crear_Usuario_Admin() {
                   className="form-add-user-container__col1__input"
                   onChange={handleChange}
                 />
-                <label
-                  htmlFor="last_names"
-                  className="form-add-user-container__col1__label"
-                >
+                <label htmlFor="last_names" className="form-add-user-container__col1__label">
                   Apellidos <p className="rojo-required">*</p>
                 </label>
                 <input
@@ -198,10 +194,7 @@ function Crear_Usuario_Admin() {
                   className="form-add-user-container__col1__input"
                   onChange={handleChange}
                 />
-                <label
-                  htmlFor="telefono"
-                  className="form-add-user-container__col1__label"
-                >
+                <label htmlFor="telefono" className="form-add-user-container__col1__label">
                   Teléfono <p className="rojo-required">*</p>
                 </label>
                 <input
@@ -211,10 +204,7 @@ function Crear_Usuario_Admin() {
                   className="form-add-user-container__col1__input"
                   onChange={handleChange}
                 />
-                <label
-                  htmlFor="email"
-                  className="form-add-user-container__col1__label"
-                >
+                <label htmlFor="email" className="form-add-user-container__col1__label">
                   Email <p className="rojo-required">*</p>
                 </label>
                 <input
@@ -224,10 +214,7 @@ function Crear_Usuario_Admin() {
                   className="form-add-user-container__col1__input"
                   onChange={handleChange}
                 />
-                <label
-                  htmlFor="semillero"
-                  className="form-add-user-container__col1__label"
-                >
+                <label htmlFor="semillero" className="form-add-user-container__col1__label">
                   Semillero <p className="rojo-required">*</p>
                 </label>
                 <input
@@ -236,7 +223,7 @@ function Crear_Usuario_Admin() {
                   name="semillero"
                   className="form-add-user-container__col1__input cursor-pointer"
                   placeholder="Presiona para seleccionar un semillero"
-                  value={nombreSemilleroSeleccionado || ""}
+                  value={semillerosSeleccionados.map(getSemilleroNombre).join(", ") || ""}
                   onClick={openModalSemilleros}
                   readOnly
                 />
@@ -244,9 +231,7 @@ function Crear_Usuario_Admin() {
                   type="hidden"
                   name="semillero"
                   id="semillero"
-                  className="form-add-user-container__col1__input"
-                  onChange={handleChange}
-                  value={formDataUser.semillero}
+                  value={JSON.stringify(semillerosSeleccionados)}
                 />
                 {/* Modal Semilleros */}
                 <Modal
@@ -257,41 +242,35 @@ function Crear_Usuario_Admin() {
                   overlayClassName="overlay-Modal-programFormacion"
                 >
                   <div className="modal-program-content">
-                    <h2 className="text-2xl font-bold">
-                      Seleccione un semillero
-                    </h2>
+                    <h2 className="text-2xl font-bold">Seleccione un semillero</h2>
                     {semilleros.length > 0 ? (
                       <ul>
                         {semilleros.map((semillero) => (
                           <li key={semillero.id}>
-                            <button
-                              onClick={() => seleccionarSemillero(semillero)}
-                            >
-                              {semillero.id} -{" "}
-                              {semillero.nombre_semillero}
-                            </button>
+                            <label>
+                              <input
+                                type="checkbox"
+                                checked={semillerosSeleccionados.includes(semillero.id)}
+                                onChange={(e) => seleccionarSemillero(e, semillero)}
+                              />
+                              {semillero.id} - {semillero.nombre_semillero}
+                            </label>
                           </li>
                         ))}
                       </ul>
                     ) : (
                       <p>No hay semilleros disponibles</p>
                     )}
+                    <button onClick={closeModalSemilleros}>Cerrar</button>
                   </div>
                 </Modal>
-                <label
-                  hidden
-                  htmlFor="rol"
-                  className="form-add-user-container__col1__label"
-                >
+                <label hidden htmlFor="rol" className="form-add-user-container__col1__label">
                   Rol de Usuario <p className="rojo-required">*</p>
                 </label>
                 <input type="hidden" id="rol" name="rol" value={rolUsuario} />
                 {mostrarCamposAprendiz && (
                   <Fragment>
-                    <label
-                      htmlFor="programa_formacion"
-                      className="form-add-user-container__col1__label"
-                    >
+                    <label htmlFor="programa_formacion" className="form-add-user-container__col1__label">
                       Programa de Formación <p className="rojo-required">*</p>
                     </label>
                     <input
@@ -309,13 +288,10 @@ function Crear_Usuario_Admin() {
                       id="id_programa_formacion"
                       name="id_programa_formacion"
                       value={formDataUser.id_programa_formacion || ""}
-                      onChange={handleChange} // Asegúrate de tener un manejador de cambio definido si es necesario
+                      onChange={handleChange}
                     />
 
-                    <label
-                      htmlFor="ficha"
-                      className="form-add-user-container__col1__label"
-                    >
+                    <label htmlFor="ficha" className="form-add-user-container__col1__label">
                       Número de Ficha <p className="rojo-required">*</p>
                     </label>
                     <input
@@ -328,12 +304,8 @@ function Crear_Usuario_Admin() {
                       readOnly
                     />
 
-                    <label
-                      htmlFor="inicio_lectiva"
-                      className="form-add-user-container__col1__label"
-                    >
-                      Inicio Lectiva De La Ficha{" "}
-                      <p className="rojo-required">*</p>
+                    <label htmlFor="inicio_lectiva" className="form-add-user-container__col1__label">
+                      Inicio Lectiva De La Ficha <p className="rojo-required">*</p>
                     </label>
                     <input
                       type="date"
@@ -345,10 +317,7 @@ function Crear_Usuario_Admin() {
                       readOnly
                     />
 
-                    <label
-                      htmlFor="finalizacion_lectiva"
-                      className="form-add-user-container__col1__label"
-                    >
+                    <label htmlFor="finalizacion_lectiva" className="form-add-user-container__col1__label">
                       Fin Lectiva De La Ficha <p className="rojo-required">*</p>
                     </label>
                     <input
@@ -368,18 +337,13 @@ function Crear_Usuario_Admin() {
                       overlayClassName="overlay-Modal-programFormacion"
                     >
                       <div className="modal-program-content">
-                        <h2 className="text-2xl font-bold">
-                          Seleccione un programa de formación
-                        </h2>
+                        <h2 className="text-2xl font-bold">Seleccione un programa de formación</h2>
                         {programasFormacion.length > 0 ? (
                           <ul>
                             {programasFormacion.map((programa) => (
                               <li key={programa.id}>
-                                <button
-                                  onClick={() => seleccionarPrograma(programa)}
-                                >
-                                  {programa.ficha} -{" "}
-                                  {programa.nombre_programa_formacion}
+                                <button onClick={() => seleccionarPrograma(programa)}>
+                                  {programa.ficha} - {programa.nombre_programa_formacion}
                                 </button>
                               </li>
                             ))}

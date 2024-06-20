@@ -3,6 +3,8 @@ import { FaFileArrowUp } from "react-icons/fa6";
 import BotonBlanco from "../../../common/BotonReporte";
 import { useAuth } from "../../../../context/AuthContext";
 import clienteAxios from "../../../../config/axios";
+import html2canvas from "html2canvas";
+import jsPDF from "jspdf";
 
 function Semillero_apr_invg() {
   const { userProfile } = useAuth();
@@ -25,6 +27,57 @@ function Semillero_apr_invg() {
     fetchSemillero();
   }, [userProfile]);
 
+
+  const handleGenerarPDF = () => {
+    // Función para generar un reporte en PDF
+    const input = document.getElementById("reporte-container"); // Obtener el elemento HTML que se va a convertir en PDF
+
+    html2canvas(input).then((canvas) => {
+      // Convertir el elemento HTML en un canvas utilizando html2canvas
+      const imgData = canvas.toDataURL("image/png"); // Convertir el canvas en una imagen (base64)
+      const pdf = new jsPDF(); // Crear un nuevo documento PDF utilizando jsPDF
+
+      // Agregar información del semillero al PDF
+      pdf.text("Información del Semillero", 75, 20); // Agregar texto al PDF en la posición (10, 20)
+      pdf.text(`Nombre: ${semilleros.nombre_semillero}`, 10, 30); // Agregar nombre del semillero
+      pdf.text(`Regional: ${semilleros.nombre_regional}`, 10, 40); // Agregar regional del semillero
+      // Puedes agregar más texto u otros elementos según sea necesario
+      pdf.text(
+        `Sector de Aplicación: ${semilleros.sectores_apicacion}`,
+        10,
+        50
+      );
+      pdf.text(`Integrantes: ${semilleros.sectores_apicacion}`, 10, 60);
+      pdf.text(
+        `Líneas de investigación: ${semilleros.lineas_investigacion_declaradas}`,
+        10,
+        70
+      );
+      pdf.text(
+        `Grupo de Investigación Adscrito: ${semilleros.nombre_grupo_investigacion_adscrito}`,
+        10,
+        80
+      );
+      pdf.text(
+        `Centro de Fomación: ${semilleros.nombre_centro_formacion}`,
+        10,
+        90
+      );
+      pdf.text(
+        `Plan Estratégico de Investigación: ${semilleros.plan_estrategico_investigacion}`,
+        10,
+        100
+      );
+      pdf.text(
+        `Estado del Semillero: ${semilleros.estado_semillero}`, //se agrego el estado del semillero
+        10,
+        110
+      );
+      pdf.save("reporte.pdf"); // Descargar el PDF con el nombre 'reporte.pdf'
+    });
+  };
+
+
   return (
     <Fragment>
       <div className="semillero-main-container__info-semillero">
@@ -33,13 +86,14 @@ function Semillero_apr_invg() {
             icon={<FaFileArrowUp />}
             text={"Reporte"}
             clase={"btn-blanco btn-blanco--modify btn-verde"}
+            onClick={handleGenerarPDF}
           />
         </section>
         <section className="semillero-main-container__datos-semillero">
           <h1
             style={{ textAlign: "center", fontSize: "2rem", fontWeight: "500" }}
           >
-            SEMILLERO DE INVESTIGACIÓN <br></br>{" "}
+            SEMILLERO DE INVESTIGACIÓN<br></br>{" "}
             {semilleros.nombre_semillero}
           </h1>
 

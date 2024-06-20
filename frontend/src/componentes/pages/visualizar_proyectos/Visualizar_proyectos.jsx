@@ -2,7 +2,9 @@ import { useEffect, useState } from "react";
 import clienteAxios from "../../../config/axios";
 import BotonReturn from "../../common/BotonReturn";
 import './css/VisualizarProyectos.css';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
+
+
 const VisualizarProyectos = () => {
 
     const { id } = useParams();
@@ -74,7 +76,9 @@ const VisualizarProyectos = () => {
             <div>
                 <div className="header-actividad">
                     <h1>Actividades programadas</h1>
-                    <button className="activity-card__add-button">Agregar Actividad</button>
+                    <Link to={"../crear-actividad"}>
+                        <button className="activity-card__add-button" >Agregar Actividad</button>
+                    </Link>
                 </div>
 
                 {actividades_proyecto.map((actividad) => (

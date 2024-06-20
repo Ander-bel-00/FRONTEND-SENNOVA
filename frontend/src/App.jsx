@@ -81,6 +81,7 @@ import Listar_Semilleros_Admin from "./componentes/pages/Admin/Listar_semilleros
 import Listar_Horas_Admin from "./componentes/pages/Coordinador/Listar_Horas_Admin/Listar_Horas_Admin";
 import Asignar_Horas_Admin from "./componentes/pages/Coordinador/Asignar_Horas_Admin/Asignar_Horas_Admin";
 import Visualizar_Horas_Admin from "./componentes/pages/Coordinador/Visualizar_Horas_Admin/Visualizar_Horas_Admin";
+import Cronograma_Admin from "./componentes/pages/Admin/Cronograma_Admin/Cronograma_Admin";
 import Crear_Proyectos_Admin from "./componentes/pages/Admin/Crear_Proyectos_Admin/Crear_Proyectos_Admin";
 import Visualizar_Actividad_Admin from "./componentes/pages/Admin/Visualizar_Actividad_Admin/Visualizar_Actividad_Admin";
 
@@ -232,7 +233,7 @@ function App() {
                       element={
                         <Fragment>
                           <main className="main-container">
-                            <Cronograma />
+                            <Cronograma_Admin />
                           </main>
                         </Fragment>
                       }

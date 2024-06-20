@@ -18,7 +18,7 @@ function Listar_Proyectos_apr_invg() {
               <BotonBlanco
                  icon={<LuCalendarDays />}
                  text={"Ir al Cronograma"}
-                 link={"/lider-semillero/cronograma"}
+                 link={"../cronograma-proyectos"}
               />
             </Fragment>
           }

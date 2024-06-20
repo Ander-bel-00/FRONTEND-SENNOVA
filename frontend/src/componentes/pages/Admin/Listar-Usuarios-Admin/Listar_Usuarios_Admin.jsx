@@ -16,6 +16,9 @@ import { Link } from 'react-router-dom';
 function Listar_Usuarios_Admin() {
     const { userProfile } = useAuth();
 
+    // Esta es la declaración del estado que almacenará el query de búsqueda
+    const [searchQuery, setSearchQuery] = useState("");
+
     const SemilleroID = userProfile ? userProfile.semillero : null;
   
     const [users, setUsers] = useState([]);
@@ -68,6 +71,19 @@ function Listar_Usuarios_Admin() {
       XLSX.writeFile(wb, "usuarios.xlsx");
     };
   
+    // Esta función se utiliza para actualizar el estado del query de búsqueda
+    const handleFilter = (query) => {
+      setSearchQuery(query);
+    };
+
+  // Esta es la función que filtra los eventos basados en el query de búsqueda
+  const filteredusers = users.filter((user) =>
+    user.name.toLowerCase().includes(searchQuery.toLowerCase())  ||
+    user.last_names.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    user.documento.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    user.rol.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
     return (
       <Fragment>
         <div className="main-container__contenedor-hijo main-container__contenedor-hijo--color">
@@ -80,7 +96,8 @@ function Listar_Usuarios_Admin() {
                   clase={"btn-blanco btn-blanco--modify btn-verde"}
                   onClick={exportToExcel}
                 />
-                <Search text={"Buscar usuarios"} />
+                <Search text={"Buscar usuarios"} onFilter={handleFilter} />
+
                 <BotonVerdeAñadir
                   icon={<IoPersonAddSharp />}
                   text={"Crear Usuario"}
@@ -102,7 +119,7 @@ function Listar_Usuarios_Admin() {
                   </tr>
                 </thead>
                 <tbody>
-                  {users.map((user, index) => (
+                  {filteredusers.map((user, index) => (
                     <tr key={index} className="user-table__row">
                       <td className="user-table__cell">{user.name}</td>
                       <td className="user-table__cell">{user.last_names}</td>
@@ -111,7 +128,7 @@ function Listar_Usuarios_Admin() {
                       <td className="user-table__cell">
                         <div className="user-table__cell__buttons">
                           <Link
-                            to={'../usuario'}
+                            to={`../usuario/${user.id}`}
                           >
                             <LiaEyeSolid className="user-table__cell__btn" />
                           </Link>

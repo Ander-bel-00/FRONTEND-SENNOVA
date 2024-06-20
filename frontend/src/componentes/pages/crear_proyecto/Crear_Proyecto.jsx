@@ -12,10 +12,12 @@ function Crear_Proyecto() {
   const { userProfile } = useAuth();
   const navigate = useNavigate();
 
-  const SemilleroID = userProfile ? userProfile.semillero : "";
-
+  // Obtener el SemilleroID del userProfile
+  const SemilleroID = userProfile ? userProfile.semillero : [];
+  
+  // Inicializar el estado del formulario
   const [formNewProyect, setFormNewProyect] = useState({
-    semillero: SemilleroID,
+    semillero: SemilleroID.length > 0 ? SemilleroID[0] : null, // Asignar el primer valor del array o null si no hay valores
     codigo: "",
     tipo_proyecto: "",
     nombre_proyecto: "",
@@ -34,8 +36,10 @@ function Crear_Proyecto() {
     setFormNewProyect({ ...formNewProyect, [name]: value });
   };
 
+  // Esta función maneja el envío del formulario.
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     
     try {
       const response = await clienteAxios.post("/proyectos/", formNewProyect);

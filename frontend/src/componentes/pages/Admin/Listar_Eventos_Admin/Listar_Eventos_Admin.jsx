@@ -13,10 +13,14 @@ import Search from "../../../common/Search";
 import BotonVerdeAñadir from "../../../common/BotonVerde";
 import "./css/Listar_Eventos_Admin.css";
 import clienteAxios from "../../../../config/axios";
+import * as XLSX from "xlsx";
 
 function Listar_Eventos_Admin() {
   const [ListEventos, setListEventos] = useState([]);
 
+  // Esta es la declaración del estado que almacenará el query de búsqueda
+  const [searchQuery, setSearchQuery] = useState("");
+ 
   useEffect(() => {
     // useEffect, es un hook de react función que permite realizar un efecto una vez
     //el componente se haya renderizado o cargado en el navegador. Es decir realizar lo que tiene adentro
@@ -33,6 +37,64 @@ function Listar_Eventos_Admin() {
     ObtenerEventoSemillero(); // función que indica iniciar todo, es decir obtener las actividades
   }, []); // el efecto nunca va a depender de nada cuando este [] (depende de algo cuando se encuentere el id)
 
+  const exportToExcel = () => {
+    const wb = XLSX.utils.book_new();
+    const wsData = [
+      [
+        "Nombre",
+        "Tipo de Evento",
+        "Fecha de Inicio",
+        "Fecha de Fin",
+        "Cantidad participantes",
+        "Ponente",
+        "lugar",
+        "Semillero",
+        "Evidencia del Evento",
+      ],
+      ...ListEventos.map((evento) => [
+        evento.nombre_evento,
+        evento.tipo_de_evento,
+        evento.fecha_inicio,
+        actividad.fecha_fin,
+        evento.cantidad_parcticipantes,
+        actividad.responsable_actividad,
+        evento.nombre_ponente,
+        evento.lugar_evento,
+        evento.semillero,
+        evento.evidencia,
+      ]),
+    ];
+    const ws = XLSX.utils.aoa_to_sheet(wsData);
+
+    // Agrega estilos de tabla a la hoja de cálculo
+    ws["!cols"] = [
+      { width: 30 },
+      { width: 30 },
+      { width: 20 },
+      { width: 20 },
+      { width: 30 },
+      { width: 30 },
+      { width: 30 },
+      { width: 30 },
+      { width: 40 },
+    ];
+
+    // Genera el archivo Excel
+    XLSX.utils.book_append_sheet(wb, ws, "Eventos");
+    XLSX.writeFile(wb, "eventos.xlsx");
+  };
+
+  // Esta función se utiliza para actualizar el estado del query de búsqueda
+  const handleFilter = (query) => {
+    setSearchQuery(query);
+  };
+
+  // Esta es la función que filtra los eventos basados en el query de búsqueda
+  const filteredEventos = ListEventos.filter((evento) =>
+    evento.nombre_evento.toLowerCase().includes(searchQuery.toLowerCase())  ||
+    evento.tipo_de_evento.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
   return (
     <div className="main-container__contenedor-hijo">
       <Header_ToolBar
@@ -42,6 +104,7 @@ function Listar_Eventos_Admin() {
               icon={<FaFileArrowUp />}
               text={"Reporte"}
               clase={"btn-blanco btn-blanco--modify btn-verde"}
+              onClick={exportToExcel}
             />
             <BotonBlanco
               icon={<LuCalendarDays />}
@@ -49,7 +112,8 @@ function Listar_Eventos_Admin() {
               clase={"btn-blanco btn-blanco--modify btn-azul"}
               link={"../cronograma"}
             />
-            <Search text={"Buscar Eventos"} />
+            <Search text={"Buscar Eventos"} onFilter={handleFilter} />
+
             <BotonVerdeAñadir
               icon={<IoAdd />}
               text={"Crear evento"}
@@ -81,7 +145,7 @@ function Listar_Eventos_Admin() {
               </tr>
             </thead>
             <tbody>
-              {ListEventos.map((evento) => (
+              {filteredEventos.map((evento) => (
                 <tr className="list-events-table__tr-admin" key={evento.id}>
                   <td className="list-events-table__td-admin">
                     {evento.nombre_evento}

@@ -16,8 +16,10 @@ import clienteAxios from "../../../../config/axios";
 import * as XLSX from "xlsx"; //se agrego la importación del generar reporte en excel
 
 function Listar_Actividad_Admin() {
-  
   const [listActivitys, setListActivitys] = useState([]);
+
+  // Esta es la declaración del estado que almacenará el query de búsqueda
+  const [searchQuery, setSearchQuery] = useState("");
 
   useEffect(() => {
     const Obteneractividadsemilleros = async () => {
@@ -72,6 +74,18 @@ function Listar_Actividad_Admin() {
     XLSX.writeFile(wb, "actividades.xlsx");
   };
 
+  // Esta función se utiliza para actualizar el estado del query de búsqueda
+  const handleFilter = (query) => {
+    setSearchQuery(query);
+  };
+
+  // Esta es la función que filtra los eventos basados en el query de búsqueda
+  const filteredActivitys = listActivitys.filter ((actividad) => 
+    actividad.nombre_actividad.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    actividad.semillero.toLowerCase().includes(searchQuery.toLowerCase())
+)
+
+
   return (
     <Fragment>
       <div className="main-container__contenedor-hijo">
@@ -92,7 +106,7 @@ function Listar_Actividad_Admin() {
                 clase={"btn-blanco btn-blanco--modify btn-azul"}
               />
 
-              <Search text={"Buscar Actividades"} />
+              <Search text={"Buscar Actividades"}   onFilter={handleFilter} />
 
               <BotonVerdeAñadir
                 icon={<AiOutlinePlus />}
@@ -135,7 +149,7 @@ function Listar_Actividad_Admin() {
                 </tr>
               </thead>
               <tbody>
-                {listActivitys.map((actividad) => (
+                {filteredActivitys.map((actividad) => (
                   <tr key={actividad.id} className="list-activity-admin-content-table-tr">
                     <td className="list-activity-admin-content-table-td">
                       {actividad.nombre_actividad}

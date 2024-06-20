@@ -27,38 +27,56 @@ const messages = {
 };
 
 function Cronograma() {
-  const {userProfile} = useAuth();
-
-  const SemilleroID = userProfile ? userProfile.semillero : null;
-
-  moment.locale('es');
+  const { userProfile } = useAuth();
+  const [semilleroID, setSemilleroID] = useState(null);
   const [events, setEvents] = useState({
     eventos: [],
     proyectos: [],
     actividades_semillero: []
   });
-
   const [filtro, setFiltro] = useState('todo');
+
+  useEffect(() => {
+    if (userProfile) {
+      if (Array.isArray(userProfile.semillero) && userProfile.semillero.length > 0) {
+        setSemilleroID(userProfile.semillero[0]);
+      } else {
+        setSemilleroID(userProfile.semillero);
+      }
+    }
+  }, [userProfile]);
+
+  useEffect(() => {
+    const cargarEventos = async () => {
+      try {
+        if (semilleroID) {
+          const res = await clienteAxios.get(`/cronograma-semillero/${semilleroID}`);
+          setEvents({
+            eventos: res.data.eventos || [],
+            proyectos: res.data.proyectos || [],
+            actividades_semillero: res.data.actividades_semillero || []
+          });
+        }
+      } catch (error) {
+        console.error('Error al Obtener los eventos', error);
+      }
+    };
+
+    cargarEventos();
+  }, [semilleroID]);
 
   const handleFiltroChange = (nuevoFiltro) => {
     setFiltro(nuevoFiltro);
   };
 
   const transformarEventos = (eventos) => {
-    return eventos.map(evento => {
-      const eventoTransformado = {
-        title: evento.nombre_evento || evento.nombre_proyecto || evento.nombre_actividad,
-        start: moment(evento.fecha_inicio).toDate(), // Convertir a Date con la zona horaria local
-      };
-      // Verificar si fecha_fin es null antes de agregarla al objeto de evento
-      if (evento.fecha_fin) {
-        eventoTransformado.end = moment(evento.fecha_fin).toDate(); // Convertir a Date con la zona horaria local
-      }
-      return eventoTransformado;
-    });
+    return eventos.map(evento => ({
+      id: evento.id, // Asegúrate de tener un id único para cada evento
+      title: evento.nombre_evento || evento.nombre_proyecto || evento.nombre_actividad,
+      start: moment(evento.fecha_inicio).toDate(), // Convertir a Date con la zona horaria local
+      end: evento.fecha_fin ? moment(evento.fecha_fin).toDate() : null, // Convertir a Date si fecha_fin está definida
+    }));
   };
-  
-  
 
   const filtrarEventos = () => {
     switch (filtro) {
@@ -78,38 +96,7 @@ function Cronograma() {
         return [];
     }
   };
-  
-  useEffect(() => {
-    const cargarEventos = async () => {
-      try {
-        if (SemilleroID) {
-          const res = await clienteAxios.get(`/cronograma-semillero/${SemilleroID}`);
-          setEvents({
-            eventos: res.data.eventos,
-            proyectos: res.data.proyectos,
-            actividades_semillero: res.data.actividades_semillero
-          });
-        }
-      } catch (error) {
-        console.error('Error al Obtener los eventos', error);
-      }
-    }
 
-    cargarEventos();
-  }, [SemilleroID]);
-
-  const [hoveredEvent, setHoveredEvent] = useState(null);
-
-  // Esta función se llama cuando el cursor entra o sale de un evento
-  const handleEventMouseEnter = (event) => {
-    setHoveredEvent(event);
-  };
-
-  const handleEventMouseLeave = () => {
-    setHoveredEvent(null);
-  };
-
-  // Función para obtener el tipo de evento
   const obtenerTipoEvento = (evento) => {
     if (events.proyectos.find(proyecto => proyecto.id === evento.id)) {
       return 'Proyecto';
@@ -120,10 +107,19 @@ function Cronograma() {
     }
   };
 
-  // Función para obtener el contenido del tooltip
   const obtenerContenidoTooltip = (evento) => {
     const tipoEvento = obtenerTipoEvento(evento);
     return `${tipoEvento}: ${evento.title}`;
+  };
+
+  const [hoveredEvent, setHoveredEvent] = useState(null);
+
+  const handleEventMouseEnter = (event) => {
+    setHoveredEvent(event);
+  };
+
+  const handleEventMouseLeave = () => {
+    setHoveredEvent(null);
   };
 
   return (
@@ -142,9 +138,9 @@ function Cronograma() {
           endAccessor="end"
           messages={messages}
           className="calendar"
-          tooltipAccessor={obtenerContenidoTooltip} // Personaliza el contenido del tooltip
-          onMouseOverEvent={handleEventMouseEnter} // Detecta cuando el cursor entra en un evento
-          onMouseOutEvent={handleEventMouseLeave} // Detecta cuando el cursor sale de un evento
+          tooltipAccessor={obtenerContenidoTooltip}
+          onMouseOverEvent={handleEventMouseEnter}
+          onMouseOutEvent={handleEventMouseLeave}
         />
       </div>
     </div>

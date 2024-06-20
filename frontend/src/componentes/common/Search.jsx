@@ -3,7 +3,7 @@ import { Fragment, useState } from "react";
 import { IoIosSearch } from "react-icons/io";
 import './css/Search.css';
 
-const Search = ({ text, data, onFilter }) => {
+const Search = ({ text, data, onFilter  }) => {
     const [query, setQuery] = useState("");
 
     const handleInputChange = (e) => {
