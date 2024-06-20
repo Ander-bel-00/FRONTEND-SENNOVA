@@ -11,9 +11,13 @@ import { Link } from "react-router-dom";
 import BotonVerdeAñadir from "../../../common/BotonVerde";
 import { AiOutlinePlus } from "react-icons/ai";
 import clienteAxios from "../../../../config/axios";
+import * as XLSX from "xlsx"; 
 
 function Listar_Actividad_apr_invg() {
   const [listActivitys, setListActivitys] = useState([]);
+
+  // Esta es la declaración del estado que almacenará el query de búsqueda
+  const [searchQuery, setSearchQuery] = useState("");
 
   useEffect(() =>{
     const Obteneractividadsemilleros = async () => {
@@ -28,6 +32,57 @@ function Listar_Actividad_apr_invg() {
     Obteneractividadsemilleros(); // Así se llama la función para obtener las actividades
   }, []);
   
+  const exportToExcel = () => {
+    const wb = XLSX.utils.book_new();
+    const wsData = [
+      [
+        "Nombre Actividad",
+        "Tarea",
+        "Fecha de Inicio",
+        "Fecha de Fin",
+        "Resultado",
+        "Responsable de la Actividad",
+        "Semillero",
+      ],
+      ...listActivitys.map((actividad) => [
+        actividad.nombre_actividad,
+        actividad.tarea,
+        actividad.fecha_inicio,
+        actividad.fecha_fin,
+        actividad.resultado,
+        actividad.responsable_actividad,
+        actividad.semillero,
+      ]),
+    ];
+    const ws = XLSX.utils.aoa_to_sheet(wsData);
+
+    // Agrega estilos de tabla a la hoja de cálculo
+    ws["!cols"] = [
+      { width: 40 },
+      { width: 40 },
+      { width: 40 },
+      { width: 40 },
+      { width: 40 },
+      { width: 40 },
+    ];
+
+    // Genera el archivo Excel
+    XLSX.utils.book_append_sheet(wb, ws, "Actividades");
+    XLSX.writeFile(wb, "actividades.xlsx");
+  };
+
+
+  // Esta función se utiliza para actualizar el estado del query de búsqueda
+  const handleFilter = (query) => {
+    setSearchQuery(query);
+  };
+
+  // Esta es la función que filtra los eventos basados en el query de búsqueda
+  const filteredActivitys = listActivitys.filter ((actividad) => 
+    actividad.nombre_actividad.toLowerCase().includes(searchQuery.toLowerCase())  ||
+    actividad.responsable_actividad.toLowerCase().includes(searchQuery.toLowerCase())
+  )
+
   return (
     <Fragment>
       <div className="main-container__contenedor-hijo">
@@ -38,6 +93,7 @@ function Listar_Actividad_apr_invg() {
                 icon={<FaFileArrowUp />}
                 text={"Reporte"}
                 clase={"btn-blanco btn-blanco--modify btn-verde"}
+                onClick={exportToExcel}
               />
 
               <BotonBlanco
@@ -46,7 +102,7 @@ function Listar_Actividad_apr_invg() {
                 clase={"btn-blanco btn-blanco--modify btn-azul"}
               />
 
-              <Search text={"Buscar Actividades"} />
+              <Search text={"Buscar Actividades"} onFilter={handleFilter} />
 
               <BotonVerdeAñadir
                 icon={<AiOutlinePlus />}
@@ -89,7 +145,7 @@ function Listar_Actividad_apr_invg() {
                 </tr>
               </thead>
               <tbody>
-                {listActivitys.map((actividad) => (
+                {filteredActivitys.map((actividad) => (
                   <tr key={actividad.id} className="list-activity-admin-content-table-tr">
                     <td className="list-activity-admin-content-table-td">
                       {actividad.nombre_actividad}

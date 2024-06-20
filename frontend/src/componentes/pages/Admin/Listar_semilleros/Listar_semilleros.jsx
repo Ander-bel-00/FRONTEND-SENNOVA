@@ -14,6 +14,7 @@ import * as XLSX from "xlsx";
 import clienteAxios from '../../../../config/axios';
 import { FaRegEdit } from "react-icons/fa";
 import { IoTrashOutline } from "react-icons/io5";
+import Swal from "sweetalert2";
 
 function Listar_Semilleros_Admin() {
   const [semillero, setSemillero] = useState([]);
@@ -60,6 +61,41 @@ function Listar_Semilleros_Admin() {
     // Genera el archivo Excel
     XLSX.utils.book_append_sheet(wb, ws, "Semilleros");
     XLSX.writeFile(wb, "semilleros.xlsx");
+  };
+
+  const suspenderSemillero = async (semilleroID) => {
+    try {
+      const result = await Swal.fire({
+        title: "Estás seguro de suspender el Semillero?",
+        text: "Esta acción no se puede revertir",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Si, suspender el Semillero",
+      });
+
+      if (result.isConfirmed) {
+        await clienteAxios.delete(`/Semilleros/${semilleroID}`);
+        Swal.fire({
+          title: "Semillero suspendido",
+          text: "El Semillero ha sido suspendido exitosamente.",
+          icon: "success",
+        });
+        setSelectedSemilleroId(null);
+      }
+    } catch (error) {
+      console.log("Hubo un error al intentar suspender el Semillero", error);
+      Swal.fire({
+        icon: "error",
+        title: "Hubo un error",
+        text: "Ocurrió un error al intentar suspender el Semillero",
+      });
+    }
+  };
+
+  const handleSuspenderSemillero = (semilleroID) => {
+    suspenderSemillero(semilleroID);
   };
 
   // Esta función se utiliza para actualizar el estado del query de búsqueda
@@ -132,9 +168,10 @@ function Listar_Semilleros_Admin() {
                       <Link to={`../actualizar-semillero/${semillero.id}`} >
                         <FaRegEdit className="list-events-table__td__btn-admin" />
                       </Link>
-                      <Link>
-                        <IoTrashOutline className="list-events-table__td__btn-admin" />
-                      </Link>
+                      <IoTrashOutline 
+                        className="list-events-table__td__btn-admin" 
+                        onClick={() => handleSuspenderSemillero(semillero.id)}
+                      />
                     </div>
                     </td>
                   </tr>

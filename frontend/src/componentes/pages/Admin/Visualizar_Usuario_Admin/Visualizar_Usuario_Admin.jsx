@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import Header_ToolBar from '../../../common/Header_ToolBar';
 import BotonBlanco from '../../../common/BotonReporte';
 import { FaFileArrowUp } from "react-icons/fa6";

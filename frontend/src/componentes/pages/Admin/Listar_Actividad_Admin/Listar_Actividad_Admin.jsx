@@ -13,79 +13,57 @@ import BotonVerdeAñadir from "../../../common/BotonVerde";
 import Caja_Blanca from "../../../common/Caja_Blanca";
 import { Link } from "react-router-dom";
 import clienteAxios from "../../../../config/axios";
+import Swal from "sweetalert2";
 import * as XLSX from "xlsx"; //se agrego la importación del generar reporte en excel
 
 function Listar_Actividad_Admin() {
   const [listActivitys, setListActivitys] = useState([]);
+  const [FilteredActivitys, setFilteredActivitys] = useState([]);
+  const [semilleroInfo, setSemilleroInfo] = useState({});
 
-  // Esta es la declaración del estado que almacenará el query de búsqueda
-  const [searchQuery, setSearchQuery] = useState("");
-
-  useEffect(() => {
+  useEffect(() =>{
     const Obteneractividadsemilleros = async () => {
       try {
-          const res = await clienteAxios.get(`/activity-semillero/`);
-          setListActivitys(res.data);
-        }
-        catch (error) {
-        console.error('Error al obtener las actividades del Semillero:', error);
+        const res = await clienteAxios.get(`/activity-semillero/`);
+        const activities = res.data;
+        setListActivitys(activities);
+        setFilteredActivitys(activities);
+
+        // Obtener información de los semilleros
+        const semilleroPromises = activities.map(async (activity) => {
+          if (!activity.semillero) {
+            console.warn(
+              `Actividad con ID ${activity.id} no tiene semillero asignado.`
+            );
+            return null;
+          }
+
+          const semilleroRes = await clienteAxios.get(
+            `/semilleros/${activity.semillero}/`
+          );
+          return {
+            semilleroId: activity.semillero,
+            nombre_semillero: semilleroRes.data.nombre_semillero,
+          };
+        });
+
+        const semilleros = (await Promise.all(semilleroPromises)).filter(
+          Boolean
+        );
+        const semilleroMap = semilleros.reduce((map, semillero) => {
+          map[semillero.semilleroId] = semillero.nombre_semillero;
+          return map;
+        }, {});
+
+        setSemilleroInfo(semilleroMap);
+      } catch (error) {
+        console.error("Error al obtener las actividades del Semillero:", error);
       }
-    }
-    Obteneractividadsemilleros(); // Así se llama la función para obtener las actividades
+    };
+
+    Obteneractividadsemilleros();
   }, []);
-
-
-  const exportToExcel = () => {
-    const wb = XLSX.utils.book_new();
-    const wsData = [
-      [
-        "Nombre Actividad",
-        "Tarea",
-        "Fecha de Inicio",
-        "Fecha de Fin",
-        "Resultado",
-        "Responsable de la Actividad",
-        "Semillero",
-      ],
-      ...listActivitys.map((actividad) => [
-        actividad.nombre_actividad,
-        actividad.tarea,
-        actividad.fecha_inicio,
-        actividad.fecha_fin,
-        actividad.resultado,
-        actividad.responsable_actividad,
-        actividad.semillero,
-      ]),
-    ];
-    const ws = XLSX.utils.aoa_to_sheet(wsData);
-
-    // Agrega estilos de tabla a la hoja de cálculo
-    ws["!cols"] = [
-      { width: 40 },
-      { width: 40 },
-      { width: 40 },
-      { width: 40 },
-      { width: 40 },
-      { width: 40 },
-    ];
-
-    // Genera el archivo Excel
-    XLSX.utils.book_append_sheet(wb, ws, "Actividades");
-    XLSX.writeFile(wb, "actividades.xlsx");
-  };
-
-  // Esta función se utiliza para actualizar el estado del query de búsqueda
-  const handleFilter = (query) => {
-    setSearchQuery(query);
-  };
-
-  // Esta es la función que filtra los eventos basados en el query de búsqueda
-  const filteredActivitys = listActivitys.filter ((actividad) => 
-    actividad.nombre_actividad.toLowerCase().includes(searchQuery.toLowerCase()) ||
-    actividad.semillero.toLowerCase().includes(searchQuery.toLowerCase())
-)
-
-
+  
   return (
     <Fragment>
       <div className="main-container__contenedor-hijo">
@@ -149,7 +127,7 @@ function Listar_Actividad_Admin() {
                 </tr>
               </thead>
               <tbody>
-                {filteredActivitys.map((actividad) => (
+                {listActivitys.map((actividad) => (
                   <tr key={actividad.id} className="list-activity-admin-content-table-tr">
                     <td className="list-activity-admin-content-table-td">
                       {actividad.nombre_actividad}
@@ -170,7 +148,7 @@ function Listar_Actividad_Admin() {
                       {actividad.responsable_actividad}
                     </td>
                     <td className="list-activity-admin-content-table-td">
-                      {actividad.semillero}
+                      {semilleroInfo[actividad.semillero] || "No asignado"}
                     </td>
                     <td className="list-activity-admin-content-table__td">
                       <div className="list-activity-admin-content-table__td__btns">
@@ -181,7 +159,10 @@ function Listar_Actividad_Admin() {
                           <FaRegEdit className="list-activity-admin-content-table__td__btn" />
                         </Link>
                         <Link>
-                          <IoTrashOutline className="list-activity-admin-content-table__td__btn" />
+                          <IoTrashOutline
+                            className="list-activity-admin-content-table__td__btn"
+                            onClick={() => suspenderActividades(actividad.id)}
+                          />
                         </Link>
                       </div>
                     </td>

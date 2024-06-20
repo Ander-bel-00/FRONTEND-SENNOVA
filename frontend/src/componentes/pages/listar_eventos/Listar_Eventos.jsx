@@ -13,6 +13,7 @@ import BotonVerdeAñadir from '../../common/BotonVerde';
 import "./css/Listar_Eventos.css";
 import clienteAxios from "../../../config/axios";
 import { FaFileArrowUp } from "react-icons/fa6";
+import Swal from "sweetalert2";
 
 function Listar_Eventos() {
   const [ListEventos, setListEventos] = useState([]);
@@ -56,6 +57,41 @@ function Listar_Eventos() {
     ObtenerEventoSemillero(); // función que indica iniciar todo, es decir obtener las actividades
   }, []); // el efecto nunca va a depender de nada cuando este [] (depende de algo cuando se encuentere el id)
 
+
+
+  const suspenderEventos = async (eventId) => {
+    try {
+      const result = await Swal.fire({
+        title: "Estás seguro de suspender el Evento?",
+        text: "Esta acción no se puede revertir",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Si, suspender el Evento",
+      });
+
+      if (result.isConfirmed) {
+        await clienteAxios.delete(`/eventos/${eventId}/`);
+        Swal.fire({
+          title: "Evento suspendido",
+          text: "El Evento ha sido suspendido exitosamente.",
+          icon: "success",
+        });
+        setListEventos((prev) => prev.filter((evento) => evento.id !== eventId));
+        setFilteredEvents((prev) => prev.filter((evento) => evento.id !== eventId));
+      }
+    } catch (error) {
+      console.log("Hubo un error al intentar suspender el Evento", error);
+      Swal.fire({
+        icon: "error",
+        title: "Hubo un error",
+        text: "Ocurrió un error al intentar suspender el Evento",
+      });
+    }
+  };
+
+
   const handleFilter = (query) => {
     const filtered = ListEventos.filter(
       (event) =>
@@ -79,6 +115,7 @@ function Listar_Eventos() {
             <BotonBlanco
               icon={<LuCalendarDays />}
               text={"Ir al Cronograma"}
+              link={"../cronograma"}
               clase={"btn-blanco btn-blanco--modify btn-azul"}
             />
             <Search
@@ -89,7 +126,7 @@ function Listar_Eventos() {
             <BotonVerdeAñadir
               icon={<IoAdd />}
               text={"Crear evento"}
-              link={"/admin/crear-eventos"}
+              link={"../crear-eventos"}
             />
           </Fragment>
         }
@@ -118,8 +155,8 @@ function Listar_Eventos() {
             </thead>
             <tbody>
               {FilteredEvents.length > 0 ? (
-                FilteredEvents.map((evento) => (
-                  <tr className="list-events-table__tr-admin" key={evento.id}>
+                FilteredEvents.map((evento, index) => (
+                  <tr className="list-events-table__tr-admin" key={index}>
                     <td className="list-events-table__td-admin">
                       {evento.nombre_evento}
                     </td>
@@ -149,14 +186,14 @@ function Listar_Eventos() {
                     </td>
                     <td className="list-events-table__td-admin">
                       <div className="list-events-table__td__btns-admin">
-                        <Link to={`../visualizar-evento/${evento.id}`}>
+                        <Link to={`../visualizar-evento/`}>
                           <LiaEye className="list-events-table__td__btn-admin" />
                         </Link>
-                        <Link to={`../actualizar-eventos/${evento.id}`}>
+                        <Link to={`../actualizar-eventos/`}>
                           <FaRegEdit className="list-events-table__td__btn-admin" />
                         </Link>
                         <Link>
-                          <IoTrashOutline className="list-events-table__td__btn-admin" />
+                          <IoTrashOutline className="list-events-table__td__btn-admin" onClick={() => suspenderEventos(evento.id)}/>
                         </Link>
                       </div>
                     </td>
