@@ -14,7 +14,8 @@ function Crear_Proyecto() {
 
   // Obtener el SemilleroID del userProfile
   const SemilleroID = userProfile ? userProfile.semillero : [];
-  
+  const [loading, setLoading] = useState(false);
+
   // Inicializar el estado del formulario
   const [formNewProyect, setFormNewProyect] = useState({
     semillero: SemilleroID.length > 0 ? SemilleroID[0] : null, // Asignar el primer valor del array o null si no hay valores
@@ -39,7 +40,7 @@ function Crear_Proyecto() {
   // Esta función maneja el envío del formulario.
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+    setLoading(true); // Activar el estado de carga
     try {
       const response = await clienteAxios.post("/proyectos/", formNewProyect);
       Swal.fire({
@@ -59,15 +60,15 @@ function Crear_Proyecto() {
         icon: "error",
         confirmButtonText: "Aceptar",
       });
+    } finally {
+      setLoading(false); // Desactivar el estado de carga
     }
   };
-  
+
   return (
     <Fragment>
       <div className="main-container__contenedor-hijo main-container__contenedor-hijo--size">
-        <div className="add-proyect-btn-return">
-          <BotonReturn icon={<GiReturnArrow />} />
-        </div>
+        <BotonReturn icon={<GiReturnArrow />} />
         <Caja_formularios
           info={
             <Fragment>
@@ -129,7 +130,7 @@ function Crear_Proyecto() {
                     onChange={handleChange}
                     className="form-add-pryect-container__col1__input"
                   />
-                  
+
                   <label
                     htmlFor="descripción-proyecto"
                     className="form-add-pryect-container__col1__label"
@@ -175,7 +176,7 @@ function Crear_Proyecto() {
 
                   <div className="btns-crear-projecto">
                     <button className="btn-crear-proyecto" type="submit">
-                      Crear
+                      {loading ? <span className="spinner"></span> : "Crear"}
                     </button>
 
                     <Link to={"../listar-proyectos"}>

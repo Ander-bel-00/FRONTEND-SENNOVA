@@ -6,15 +6,17 @@ import BotonReturn from "../../common/BotonReturn";
 import Caja_formularios from "../../common/Caja_formularios";
 import Swal from "sweetalert2";
 import { useAuth } from "../../../context/AuthContext";
+import clienteAxios from "../../../config/axios";
 
 function Crear_Actividad() {
   const { userProfile } = useAuth();
   const navigate = useNavigate();
 
-  const SemilleroID = userProfile ? userProfile.semillero : "";
+  const SemilleroID = userProfile ? userProfile.semillero : [];
+  const [loading, setLoading] = useState(false);
 
   const [formNewActivitySemillero, setFormNewActivitySemillero] = useState({
-    semillero: SemilleroID,
+    semillero: SemilleroID.length > 0 ? SemilleroID[0] : null,
     nombre_actividad: "",
     tarea: "",
     fecha_inicio: "",
@@ -26,11 +28,12 @@ function Crear_Actividad() {
   const handleChange = (e) => {
     // e.target se refiere al elemento html de donde vienen los valores(name. value)
     const { name, value } = e.target;
-    setFormNewActivitySemillero({...formNewActivitySemillero, [name]: value });
+    setFormNewActivitySemillero({ ...formNewActivitySemillero, [name]: value });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true); // Activar el estado de carga
     const fieldEmpty = Object.values(formNewActivitySemillero).some(
       (value) => value === ""
     );
@@ -65,6 +68,8 @@ function Crear_Actividad() {
         icon: "error",
         confirmButtonText: "Aceptar",
       });
+    } finally {
+      setLoading(false); // Desactivar el estado de carga
     }
   };
 
@@ -162,6 +167,9 @@ function Crear_Actividad() {
                 />
 
                 <div className="btns-crear-actividad-admin">
+                  <button className="btn-create-actividad-admin" type="submit">
+                    {loading ? <span className="spinner"></span> : "Crear"}
+                  </button>
                   <Link to={"../listar-actividad"}>
                     <button
                       className="btn-cancelar-actividad-uptd-admin"
@@ -170,9 +178,6 @@ function Crear_Actividad() {
                       Cancelar
                     </button>
                   </Link>
-                  <button className="btn-create-actividad-admin" type="submit">
-                    Crear
-                  </button>
                 </div>
               </form>
             </div>

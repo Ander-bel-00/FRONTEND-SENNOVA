@@ -13,24 +13,92 @@ import BotonVerdeAñadir from "../../../common/BotonVerde";
 import Caja_Blanca from "../../../common/Caja_Blanca";
 import { Link } from "react-router-dom";
 import clienteAxios from "../../../../config/axios";
+import Swal from "sweetalert2";
 
 function Listar_Actividad_Admin() {
-  
   const [listActivitys, setListActivitys] = useState([]);
+  const [FilteredActivitys, setFilteredActivitys] = useState([]);
+  const [semilleroInfo, setSemilleroInfo] = useState({});
 
-  useEffect(() =>{
+  useEffect(() => {
     const Obteneractividadsemilleros = async () => {
       try {
-          const res = await clienteAxios.get(`/activity-semillero/`);
-          setListActivitys(res.data);
-        }
-        catch (error) {
-        console.error('Error al obtener las actividades del Semillero:', error);
+        const res = await clienteAxios.get(`/activity-semillero/`);
+        const activities = res.data;
+        setListActivitys(activities);
+        setFilteredActivitys(activities);
+
+        // Obtener información de los semilleros
+        const semilleroPromises = activities.map(async (activity) => {
+          if (!activity.semillero) {
+            console.warn(
+              `Actividad con ID ${activity.id} no tiene semillero asignado.`
+            );
+            return null;
+          }
+
+          const semilleroRes = await clienteAxios.get(
+            `/semilleros/${activity.semillero}/`
+          );
+          return {
+            semilleroId: activity.semillero,
+            nombre_semillero: semilleroRes.data.nombre_semillero,
+          };
+        });
+
+        const semilleros = (await Promise.all(semilleroPromises)).filter(
+          Boolean
+        );
+        const semilleroMap = semilleros.reduce((map, semillero) => {
+          map[semillero.semilleroId] = semillero.nombre_semillero;
+          return map;
+        }, {});
+
+        setSemilleroInfo(semilleroMap);
+      } catch (error) {
+        console.error("Error al obtener las actividades del Semillero:", error);
       }
-    }
-    Obteneractividadsemilleros(); // Así se llama la función para obtener las actividades
+    };
+
+    Obteneractividadsemilleros();
   }, []);
-  
+
+  const suspenderActividades = async (actividadesID) => {
+    try {
+      const result = await Swal.fire({
+        title: "Estás seguro de suspender la actividad?",
+        text: "Esta acción no se puede revertir",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Si, suspender la actividad",
+      });
+
+      if (result.isConfirmed) {
+        await clienteAxios.delete(`/activity-semillero/${actividadesID}/`);
+        Swal.fire({
+          title: "Actividad suspendida",
+          text: "La actividad se ha sido suspendido exitosamente.",
+          icon: "success",
+        });
+        setListActivitys((prev) =>
+          prev.filter((actividad) => actividad.id !== actividadesID)
+        );
+        setFilteredActivitys((prev) =>
+          prev.filter((actividad) => actividad.id !== actividadesID)
+        );
+      }
+    } catch (error) {
+      console.log("Hubo un error al intentar suspender la actividad", error);
+      Swal.fire({
+        icon: "error",
+        title: "Hubo un error",
+        text: "Ocurrió un error al intentar suspender la actividad",
+      });
+    }
+  };
+
   return (
     <Fragment>
       <div className="main-container__contenedor-hijo">
@@ -93,7 +161,10 @@ function Listar_Actividad_Admin() {
               </thead>
               <tbody>
                 {listActivitys.map((actividad) => (
-                  <tr key={actividad.id} className="list-activity-admin-content-table-tr">
+                  <tr
+                    key={actividad.id}
+                    className="list-activity-admin-content-table-tr"
+                  >
                     <td className="list-activity-admin-content-table-td">
                       {actividad.nombre_actividad}
                     </td>
@@ -113,7 +184,7 @@ function Listar_Actividad_Admin() {
                       {actividad.responsable_actividad}
                     </td>
                     <td className="list-activity-admin-content-table-td">
-                      {actividad.semillero}
+                      {semilleroInfo[actividad.semillero] || "No asignado"}
                     </td>
                     <td className="list-activity-admin-content-table__td">
                       <div className="list-activity-admin-content-table__td__btns">
@@ -124,7 +195,10 @@ function Listar_Actividad_Admin() {
                           <FaRegEdit className="list-activity-admin-content-table__td__btn" />
                         </Link>
                         <Link>
-                          <IoTrashOutline className="list-activity-admin-content-table__td__btn" />
+                          <IoTrashOutline
+                            className="list-activity-admin-content-table__td__btn"
+                            onClick={() => suspenderActividades(actividad.id)}
+                          />
                         </Link>
                       </div>
                     </td>

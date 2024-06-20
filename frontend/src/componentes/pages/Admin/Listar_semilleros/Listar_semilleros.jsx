@@ -10,12 +10,16 @@ import BotonVerdeAñadir from "../../../common/BotonVerde";
 import Caja_Blanca from "../../../common/Caja_Blanca";
 import { Link } from "react-router-dom";
 import { TbPointFilled } from "react-icons/tb";
+import * as XLSX from "xlsx";
 import clienteAxios from '../../../../config/axios';
 import { FaRegEdit } from "react-icons/fa";
 import { IoTrashOutline } from "react-icons/io5";
 
 function Listar_Semilleros_Admin() {
   const [semillero, setSemillero] = useState([]);
+
+  // Esta es la declaración del estado que almacenará el query de búsqueda
+  const [searchQuery, setSearchQuery] = useState("");
 
   useEffect(() => {
     const ObtenerSemilleros = async () => {
@@ -29,6 +33,45 @@ function Listar_Semilleros_Admin() {
     ObtenerSemilleros();
   }, []);
 
+  //se agrego la parte del reporte en excel
+  const exportToExcel = () => {
+    const wb = XLSX.utils.book_new();
+    const wsData = [
+      [
+        "Nombre Semillero",
+        "Nombre Regional",
+        "Estado",
+      ],
+      ...semillero.map((semillero) => [
+        semillero.nombre_semillero,
+        semillero.nombre_regional,
+        semillero.estado_semillero,
+      ]),
+    ];
+    const ws = XLSX.utils.aoa_to_sheet(wsData);
+
+    // Agrega estilos de tabla a la hoja de cálculo
+    ws["!cols"] = [
+      { width: 30 },
+      { width: 30 },
+      { width: 30 },
+    ];
+
+    // Genera el archivo Excel
+    XLSX.utils.book_append_sheet(wb, ws, "Semilleros");
+    XLSX.writeFile(wb, "semilleros.xlsx");
+  };
+
+  // Esta función se utiliza para actualizar el estado del query de búsqueda
+  const handleFilter = (query) => {
+    setSearchQuery(query);
+  };
+
+  // Esta es la función que filtra los eventos basados en el query de búsqueda
+  const filteredsemillero = semillero.filter((semillero)  => 
+    semillero.nombre_semillero.toLowerCase().includes(searchQuery.toLowerCase())  ||
+    semillero.estado_semillero.toLowerCase().includes(searchQuery.toLowerCase())
+  );
   return (
     <Fragment>
       <div className="main-container__contenedor-hijo">
@@ -39,8 +82,10 @@ function Listar_Semilleros_Admin() {
                 icon={<FaFileArrowUp />}
                 text={"Reporte"}
                 clase={"btn-blanco btn-blanco--modify btn-verde"}
+                onClick={exportToExcel}
               />
-              <Search text={"Buscar Semillero"} />
+              <Search text={"Buscar Semillero"} onFilter={handleFilter} />
+
               <BotonVerdeAñadir
                 icon={<AiOutlinePlus />}
                 text={"Crear Semillero"}
@@ -69,7 +114,7 @@ function Listar_Semilleros_Admin() {
                 </tr>
               </thead>
               <tbody>
-                {semillero.map(semillero => (
+                {filteredsemillero.map(semillero => (
                   <tr className="list-semillero-admin-content-table-tr">
                     <td className="list-semillero-admin-content-table-td">{semillero.nombre_semillero}</td>
                     <td className="list-semillero-admin-content-table-td">{semillero.nombre_regional}</td>

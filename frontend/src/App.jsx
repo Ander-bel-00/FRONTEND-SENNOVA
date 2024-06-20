@@ -82,6 +82,7 @@ import Listar_Horas_Admin from "./componentes/pages/Coordinador/Listar_Horas_Adm
 import Asignar_Horas_Admin from "./componentes/pages/Coordinador/Asignar_Horas_Admin/Asignar_Horas_Admin";
 import Visualizar_Horas_Admin from "./componentes/pages/Coordinador/Visualizar_Horas_Admin/Visualizar_Horas_Admin";
 import Cronograma_Admin from "./componentes/pages/Admin/Cronograma_Admin/Cronograma_Admin";
+import Crear_Proyectos_Admin from "./componentes/pages/Admin/Crear_Proyectos_Admin/Crear_Proyectos_Admin";
 
 function App() {
   const { isAuthenticated, userRole, handleLogout } = useAuth();
@@ -372,7 +373,7 @@ function App() {
                       path="/crear-proyecto"
                       element={
                         <main className="main-container">
-                          <Crear_Proyecto />
+                          <Crear_Proyectos_Admin />
                         </main>
                       }
                     />
@@ -463,7 +464,7 @@ function App() {
                       path="/usuarios-getAll"
                       element={
                         <main className="main-container">
-                          <ListarUsuarios />
+                          <Listar_Usuarios_Admin />
                         </main>
                       }
                     />
