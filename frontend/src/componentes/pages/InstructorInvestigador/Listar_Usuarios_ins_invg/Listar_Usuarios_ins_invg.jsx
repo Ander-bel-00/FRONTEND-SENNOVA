@@ -14,32 +14,30 @@ import * as XLSX from "xlsx";
 function Listar_Usuarios_ins_invg() {
   const { userProfile } = useAuth();
 
-  const SemilleroID = userProfile ? userProfile.semillero : null;
-
-  const [users, setUsers] = useState([]);
-
-  useEffect(() => {
-    // Definición de una función asincrónica para obtener los usuarios del semillero
-    const ObtenerusuariosSemillero = async () => {
-      try {
-        // Verifica si SemilleroID existe y no es nulo
-        if (SemilleroID) {
-          // Realiza una solicitud GET a la API para obtener los usuarios del semillero
-          const res = await clienteAxios.get(
-            `/semilleros/${SemilleroID}/usuarios/`
-          );
-          // Actualiza el estado de los usuarios con los datos obtenidos de la solicitud
-          setUsers(res.data);
+    const SemilleroID = userProfile ? userProfile.semillero : null;
+  
+    const [getUsuarios, setGetUsuarios] = useState([]);
+    const [filtrarUsuarios, setFiltrarUsuarios] = useState([]);
+  
+    useEffect(() => {
+      // Definición de una función asincrónica para obtener los usuarios del semillero
+      const ObtenerusuariosSemillero = async () => {
+        try {
+            // Realiza una solicitud GET a la API para obtener los usuarios del semillero
+            const res = await clienteAxios.get(`/usuarios/`);
+            // Actualiza el estado de los usuarios con los datos obtenidos de la solicitud
+            setGetUsuarios(res.data);
+            setFiltrarUsuarios(res.data);
+          
+        } catch (error) {
+          // Manejo de errores: si ocurre algún error en la solicitud, se muestra en la consola
+          console.error('Error al obtener los usuarios del Semillero:', error);
         }
-      } catch (error) {
-        // Manejo de errores: si ocurre algún error en la solicitud, se muestra en la consola
-        console.error("Error al obtener los usuarios del Semillero:", error);
       }
-    };
-
-    // Llama a la función ObtenerusuariosSemillero una vez que el componente se monta o cuando SemilleroID cambia
-    ObtenerusuariosSemillero();
-  }, [SemilleroID]); // Dependencia que indica cuándo debe ejecutarse el efecto nuevamente
+    
+      // Llama a la función ObtenerusuariosSemillero una vez que el componente se monta o cuando SemilleroID cambia
+      ObtenerusuariosSemillero();
+    }, []); // Dependencia que indica cuándo debe ejecutarse el efecto nuevamente
 
   const exportToExcel = () => {
     const wb = XLSX.utils.book_new();
@@ -68,6 +66,16 @@ function Listar_Usuarios_ins_invg() {
     XLSX.writeFile(wb, "usuarios.xlsx");
   };
 
+  const handleFilter = (query) => {
+    const filtered = getUsuarios.filter(
+      (event) =>
+        event.name.toLowerCase().includes(query.toLowerCase()) ||
+        event.documento.toLowerCase().includes(query.toLowerCase()) ||
+        event.rol.toLowerCase().includes(query.toLowerCase())
+    );
+    setFiltrarUsuarios(filtered);
+  };
+
   return (
     <Fragment>
       <div className="main-container__contenedor-hijo main-container__contenedor-hijo--color">
@@ -80,7 +88,13 @@ function Listar_Usuarios_ins_invg() {
                 clase={"btn-blanco btn-blanco--modify btn-verde"}
                 onClick={exportToExcel}
               />
-              <Search text={"Buscar usuarios"} />
+
+              <Search 
+              text={"Buscar usuarios"} 
+              onFilter={handleFilter}
+              data={getUsuarios}
+              />
+
             </Fragment>
           }
         />
@@ -97,7 +111,7 @@ function Listar_Usuarios_ins_invg() {
                 </tr>
               </thead>
               <tbody>
-                {users.map((user, index) => (
+                {filtrarUsuarios.map((user, index) => (
                   <tr key={index} className="user-table__row">
                     <td className="user-table__cell">{user.name}</td>
                     <td className="user-table__cell">{user.last_names}</td>

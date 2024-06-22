@@ -1,4 +1,4 @@
-.main-form-event-instructor{
+.mainsBoxes-instructor{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -16,14 +16,13 @@
     margin-top: 1rem;
 }
 
-.create-event-title-instructor{
-    font-size: 25px;
-    position: relative;
-    top: 4%;
+.mainsBoxes__tile-instructor{
+    font-size: 2rem;
+    text-align: center;
 }
 
 
-.form-add-event-container__col1__label-instructor{
+.form-add-event-container__label-instructor{
     font-weight: 400;
     padding-top: 12px;
     display: flex;
@@ -31,7 +30,7 @@
     gap: 5px;
 }
 
-.form-add-event-container__col1__input-instructor{
+.form-add-event-container__input-instructor{
     width: 100%;
     background-color: var(--bg-inputs);
     border-radius: 6px;
@@ -41,15 +40,15 @@
     box-shadow: var(--box-shadow-inputs);
 }
 
-.form-add-event-container__col1__textarea-instructor{
+.form-add-event-container__select-instructor{
+    margin-top: 8px;
+    margin-bottom: 5px;
     background-color: var(--bg-inputs);
-    width: 100%;
-    height: 5rem;
-    border-radius: 8px;
-   
+    height: 2.5rem;
+    border-radius: 5px;
 }
 
-.btns-crear-evento{
+.btns-crear-evento-instructor{
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -57,7 +56,7 @@
     justify-content: space-around;
     margin-top: 2rem;
 }
-.btn-crear-evento{
+.btnEvents__crear--green-instructor{
     background-color: var(--btn-update-bg);
     width: 12rem;
     height: 45px;
@@ -69,10 +68,10 @@
     text-align: center;
 }
 
-.btn-crear-evento:hover{
+.btnEvents__crear--green-instructor:hover{
     background-color: var(--btn-update-bg-hover);
 }
-.btn-cancelar-evento{
+.btnEvents__cancelar-instructor{
     background-color: var(--boton-cancelar-color);
     width: 12rem;
     height: 45px;
@@ -83,17 +82,17 @@
     font-size: 21px;
 }
 
-.btn-cancelar-evento:hover{
+.btnEvents__cancelar-instructor:hover{
     background-color: var(--boton-cancelar-bg-hover);
 }
 .rojo-required{
     color: red;
 }
-.form-add-event-container-instructor__select{
+
+.form-add-event-container__select-instructor{
     margin-top: 8px;
     margin-bottom: 5px;
     background-color: var(--bg-inputs);
     height: 2.5rem;
     border-radius: 5px;
-
 }

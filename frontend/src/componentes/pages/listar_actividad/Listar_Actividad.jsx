@@ -17,7 +17,7 @@ import Swal from "sweetalert2";
 
 function Listar_Actividad() {
   const [listActivitys, setListActivitys] = useState([]);
-  const [FilteredActivitys, setFilteredActivitys] = useState([]);
+  const [filteredActivitys, setFilteredActivitys] = useState([]);
   const [semilleroInfo, setSemilleroInfo] = useState({});
 
   useEffect(() => {
@@ -153,8 +153,8 @@ function Listar_Actividad() {
                 </tr>
               </thead>
               <tbody>
-                {FilteredActivitys.length > 0 ? (
-                  FilteredActivitys.map((actividad) => (
+                {filteredActivitys.length > 0 ? (
+                  filteredActivitys.map((actividad) => (
                     <tr
                       key={actividad.id}
                       className="list-activity-admin-content-table-tr"

@@ -15,19 +15,47 @@ import clienteAxios from "../../../../config/axios";
 function Listar_Actividad_Instructor_Investigador() {
 
   const [listarActividades, setListarActividades] = useState([]);
+  const [filtrarActividades, setfiltrarActividades] = useState([]);
+  const [semilleroInformacion, setSemilleroInformacion] = useState({});
 
-  useEffect(() =>{
+  useEffect(() => {
     const Obteneractividades = async () => {
       try {
-          const res = await clienteAxios.get(`/activity-semillero/`);
-          setListarActividades(res.data);
-        }
-        catch (error) {
-        console.error('Error al obtener las actividades del Semillero:', error);
+        const res = await clienteAxios.get(`/activity-semillero/`);
+        const activities = res.data;
+        setListarActividades(activities);
+        setfiltrarActividades(activities);
+
+        // Obtener información de los semilleros
+        const semilleroPromises = activities.map(async (activity) => {
+          const semilleroRes = await clienteAxios.get(`/semilleros/${activity.semillero}/`);
+          return { semilleroId: activity.semillero, nombre_semillero: semilleroRes.data.nombre_semillero };
+        });
+
+        const semilleros = await Promise.all(semilleroPromises);
+        const semilleroMap = semilleros.reduce((map, semillero) => {
+          map[semillero.semilleroId] = semillero.nombre_semillero;
+          return map;
+        }, {});
+
+        setSemilleroInformacion(semilleroMap);
+
+      } catch (error) {
+        console.error("Error al obtener las actividades del Semillero:", error);
       }
-    }
-    Obteneractividades(); // Así se llama la función para obtener las actividades
+    };
+    Obteneractividades();
   }, []);
+
+  const handleFilter = (query) => {
+    const filtered = listarActividades.filter(
+      (activity) =>
+        activity.nombre_actividad.toLowerCase().includes(query.toLowerCase()) ||
+        activity.tarea.toLowerCase().includes(query.toLowerCase()) ||
+        activity.responsable_actividad.toLowerCase().includes(query.toLowerCase())
+    );
+    setfiltrarActividades(filtered);
+  };
   
 
 
@@ -70,7 +98,11 @@ function Listar_Actividad_Instructor_Investigador() {
                 clase={"btn-blanco btn-blanco--modify btn-azul"}
               />
 
-              <Search text={"Buscar Actividades"} />
+              <Search 
+                text={"Buscar Actividades"} 
+                onFilter={handleFilter}
+                data={listarActividades}
+              />
 
               <BotonVerdeAñadir
                 icon={<AiOutlinePlus />}
@@ -109,7 +141,7 @@ function Listar_Actividad_Instructor_Investigador() {
                 </tr>
               </thead>
               <tbody>
-                {listarActividades.map((actividades) => (
+                {filtrarActividades.map((actividades) => (
                   <tr
                     key={actividades.id}
                     className="list-activity-instructor-content-table-tr"
@@ -136,7 +168,7 @@ function Listar_Actividad_Instructor_Investigador() {
                     <td className="list-activity-instructor-content-table__td">
                       <div className="list-activity-instructor-content-table__td__btns">
                         <Link
-                          to={"/instructor_investigador/visualizar-actividad"}
+                          to={`../visualizar-actividad/`}
                         >
                           <LiaEyeSolid className="list-activity-instructor-content-table__td__btn" />
                         </Link>

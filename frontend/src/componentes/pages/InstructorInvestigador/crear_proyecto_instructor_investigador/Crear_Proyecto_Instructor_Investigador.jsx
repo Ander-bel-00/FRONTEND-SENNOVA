@@ -8,14 +8,15 @@ import Swal from "sweetalert2";
 import clienteAxios from "../../../../config/axios";
 
 function Crear_Proyecto_Instructor_Investigador() {
-
   const { userProfile } = useAuth();
   const navigate = useNavigate();
 
-  const SemilleroID = userProfile ? userProfile.semillero : "";
-
-  const [formNewProyectoSemillero, setFormNewProyectoSemillero] = useState({
-    semillero: SemilleroID,
+  // Obtener el SemilleroID del userProfile
+  const SemilleroID = userProfile ? userProfile.semillero : [];
+  
+  // Inicializar el estado del formulario
+  const [nuevoProyecto, setNuevoProyecto] = useState({
+    semillero: SemilleroID.length > 0 ? SemilleroID[0] : null, // Asignar el primer valor del array o null si no hay valores
     nombre_proyecto: "",
     fecha_inicio: "",
     fecha_fin: "",
@@ -25,44 +26,34 @@ function Crear_Proyecto_Instructor_Investigador() {
   });
 
   const handleChange = (e) => {
-    //Se refiere al elemento html de donde vienen los valores(name y value)
     const { name, value } = e.target;
-    setFormNewProyectoSemillero({ ...formNewProyectoSemillero, [name]: value });
-  }
+    setNuevoProyecto({ ...nuevoProyecto, [name]: value });
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const fieldEmpty = Object.values(formNewProyectoSemillero).some(value => value === '');
-    if (fieldEmpty) {
-      Swal.fire({
-        title: "Error al crear el proyecto",
-        text: 'Debes diligenciar todos los campos',
-        icon: "error",
-        confirmButtonText: "Aceptar",
-      });
-      return;
-    }
 
     try {
-      const response = await clienteAxios.post("/proyectos/", formNewProyectoSemillero);
+      const response = await clienteAxios.post("/proyectos/", nuevoProyecto);
       Swal.fire({
         title: "Proyecto creado exitosamente",
         icon: "success",
         showCancelButton: false,
         confirmButtonText: "Aceptar",
       }).then((result) => {
-        return navigate('../listar-proyectos')
+        return navigate("../listar-Proyectos");
       });
     } catch (error) {
       console.error("Error al crear el proyecto para el semillero", error);
+
       Swal.fire({
-        title: "Error al crear el proyecto",
-        text: 'Hubo un error al crear el proyecto',
+        title: "Error al crear el Proyecto",
+        text: "Hubo un error al crear el proyecto",
         icon: "error",
         confirmButtonText: "Aceptar",
       });
     }
-  }
+  };
 
 
   return (
@@ -95,9 +86,9 @@ function Crear_Proyecto_Instructor_Investigador() {
                     onChange={handleChange}
                   >
                     <option selected>Seleccione tipo de proyecto</option>
-                    <option >Modernización</option>
-                    <option >Innovación</option>
-                    <option >Aplicación</option>
+                    <option value="Modernizacion">Modernización</option>
+                    <option value="Innovacion">Innovación</option>
+                    <option value="Aplica">Aplicación</option>
                   </select>
 
                   <label
@@ -177,7 +168,7 @@ function Crear_Proyecto_Instructor_Investigador() {
                     type="text"
                     name='semillero'
                     onChange={handleChange}
-                    value={formNewProyectoSemillero.semillero}
+                    value={nuevoProyecto.semillero}
                     hidden
                   />
 

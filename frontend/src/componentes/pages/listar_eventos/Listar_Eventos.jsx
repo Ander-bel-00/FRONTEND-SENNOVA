@@ -156,8 +156,8 @@ function Listar_Eventos() {
             </thead>
             <tbody>
               {FilteredEvents.length > 0 ? (
-                FilteredEvents.map((evento, index) => (
-                  <tr className="list-events-table__tr-admin" key={index}>
+                FilteredEvents.map((evento) => (
+                  <tr className="list-events-table__tr-admin" key={evento.id}>
                     <td className="list-events-table__td-admin">
                       {evento.nombre_evento}
                     </td>

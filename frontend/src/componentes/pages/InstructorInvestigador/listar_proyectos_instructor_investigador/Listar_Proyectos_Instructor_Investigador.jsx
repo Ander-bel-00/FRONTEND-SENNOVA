@@ -131,16 +131,18 @@ function Listar_Proyectos_Instructor_Investigador() {
                 clase={"btn-blanco btn-blanco--modify btn-verde"}
                 onClick={exportToExcel}
               />
-              <Search
-                text={"Buscar proyecto"}
-                onFilter={handleFilter}
-                data={proyectosSemillero}
-              />
+
               <BotonBlanco
                 icon={<LuCalendarDays />}
                 text={"Ir al Cronograma"}
                 link={"/instructor-investigador/cronograma"}
                 clase={"btn-blanco btn-blanco--modify btn-azul"}
+              />
+              
+              <Search
+                text={"Buscar proyecto"}
+                onFilter={handleFilter}
+                data={proyectosSemillero}
               />
               <BotonVerdeAñadir
                 icon={<AiOutlinePlus />}

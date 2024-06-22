@@ -32,9 +32,8 @@
 }
 
 .create-project-instructor-title{
-    font-size: 25px;
-    position: relative;
-    top: 4%;
+    font-size: 2rem;
+    text-align: center;
 }
 
 .form-add-pryect-instructor-container__col1{

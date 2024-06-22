@@ -13,10 +13,10 @@ function Crear_Actividad_Instructor_Investigador() {
   const { userProfile } = useAuth();
   const navigate = useNavigate();
 
-  const SemilleroID = userProfile ? userProfile.semillero : "";
+  const SemilleroID = userProfile ? userProfile.semillero : [];
 
-  const [formNewActividadSemillero, setFormNewActividadSemillero] = useState({
-    semillero: SemilleroID,
+  const [nuevaActividadSemillero, setNuevaActividadSemillero] = useState({
+    semillero: SemilleroID.length > 0 ? SemilleroID[0] : null,
     nombre_actividad: "",
     tarea: "",
     fecha_inicio: "",
@@ -28,12 +28,12 @@ function Crear_Actividad_Instructor_Investigador() {
   const handleChange = (e) => {
     // e.target se refiere al elemento html de donde vienen los valores(name. value)
     const { name, value } = e.target;
-    setFormNewActividadSemillero({...formNewActividadSemillero, [name]: value });
+    setNuevaActividadSemillero({ ...nuevaActividadSemillero, [name]: value });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const fieldEmpty = Object.values(formNewActividadSemillero).some(
+    const fieldEmpty = Object.values(nuevaActividadSemillero).some(
       (value) => value === ""
     );
     if (fieldEmpty) {
@@ -49,7 +49,7 @@ function Crear_Actividad_Instructor_Investigador() {
     try {
       const response = await clienteAxios.post(
         "/activity-semillero/",
-        formNewActividadSemillero
+        nuevaActividadSemillero
       );
       Swal.fire({
         title: "Actividad creada exitosamente",
@@ -174,7 +174,7 @@ function Crear_Actividad_Instructor_Investigador() {
                   <div className="btns-instructor-actividad">
                     <button
                       className="btn-crear-instructor-actividad"
-                      type="button"
+                      type="submit"
                     >
                       Crear
                     </button>
