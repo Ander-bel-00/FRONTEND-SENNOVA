@@ -17,14 +17,16 @@ function Añadir_Semillero() {
     sectores_apicacion: "",
     estado_semillero: "", //se agrego el estado del semillero
   });
+  const [loading, setLoading] = useState(false);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
-    setformSemilleroAdd({formSemilleroAdd, [name]: value });
+    setformSemilleroAdd({ ...formSemilleroAdd, [name]: value });
   };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    setLoading(true); // Activar el estado de carga
     // Verificar si algún campo está vacío
     const anyFieldEmpty = Object.values(formSemilleroAdd).some(
       (value) => value === ""
@@ -66,8 +68,11 @@ function Añadir_Semillero() {
         icon: "error",
         confirmButtonText: "Aceptar",
       });
+    } finally {
+      setLoading(false); // Desactivar el estado de carga
     }
   };
+  
   return (
     <Fragment>
       <div className="main-container__contenedor-hijo main-container__contenedor-hijo--size">
@@ -231,7 +236,11 @@ function Añadir_Semillero() {
                       type="submit"
                       className="btn-actualizar-añadir-semillero"
                     >
-                      Registrar
+                      {loading ? (
+                        <span className="spinner"></span>
+                      ) : (
+                        "Registrar "
+                      )}
                     </button>
                     <Link to={"/"} className="btn-cancelar-añadir-semillero text-center">
                       Cancelar

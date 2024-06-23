@@ -38,7 +38,7 @@ function Visualizar_Evento_Admin() {
             <div className="btn-vs-evento-admin">
               <BotonReturn
                 link={"/admin/listar-eventos"}
-                icon={<IoIosReturnLeft />}
+                icon={<IoTrashOutline />}
               />
             </div>
             <Search icon={<FaSearch />} text={"Buscar Evento"} />
@@ -101,7 +101,7 @@ function Visualizar_Evento_Admin() {
                   </td>
                   <td className="vis-event-table__td-admin">
                     <div className="vis-actividad-table__td__btns-admin">
-                      <Link to={"/admin/actualizar-eventos"}>
+                      <Link to={`/admin/actualizar-eventos/${Contenido.id}`}>
                         <FaRegEdit className="vis-actividad-table__td__btn-admin" />
                       </Link>
                       <Link>

@@ -267,7 +267,7 @@ function App() {
                     />
 
                     <Route
-                      path="/usuario"
+                      path="/usuario/:id"
                       element={
                         <main className="main-container">
                           <Visualizar_Usuario_Admin />
@@ -330,7 +330,7 @@ function App() {
                     />
 
                     <Route
-                      path="/visualizar-evento:id"
+                      path="/visualizar-evento/:id"
                       element={
                         <main className="main-container">
                           <Visualizar_Evento_Admin />

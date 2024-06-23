@@ -14,6 +14,8 @@ import { LuCalendarDays } from "react-icons/lu";
 import BotonReturn from "../../../common/BotonReturn";
 import "./css/Visualizar_Actividad_Admin.css";
 import * as XLSX from "xlsx";
+import clienteAxios from "../../../../config/axios";
+import Swal from "sweetalert2";
 
 function Visualizar_Actividad_Admin() {
   const Contenido = [
@@ -73,6 +75,37 @@ function Visualizar_Actividad_Admin() {
     XLSX.writeFile(wb, "contenido-actividad.xlsx");
   };
 
+  const suspenderActividad = async (actividadId) => {
+    try {
+      const result = await Swal.fire({
+        title: "Estás seguro de suspender la Actividad?",
+        text: "Esta acción no se puede revertir",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Si, suspender la Actividad",
+      });
+
+      if (result.isConfirmed) {
+        await clienteAxios.delete(`/activity-semillero/${actividadId}/`);
+        Swal.fire({
+          title: "Actividad suspendido",
+          text: "La Actividad ha sido suspendido exitosamente.",
+          icon: "success",
+        });
+        setListActivitys((prev) => prev.filter((actividad) => actividad.id !== actividadId));
+      }
+    } catch (error) {
+      console.log("Hubo un error al intentar suspender la actividad", error);
+      Swal.fire({
+        icon: "error",
+        title: "Hubo un error",
+        text: "Ocurrió un error al intentar suspender la actividad",
+      });
+    }
+  }; 
+ 
   return (
     <div className="main-container__contenedor-hijo">
       <Header_ToolBar
@@ -150,7 +183,10 @@ function Visualizar_Actividad_Admin() {
                         <FaRegEdit className="vis-actividad-table__td__btn-admin" />
                       </Link>
                       <Link>
-                        <IoTrashOutline className="vis-actividad-table__td__btn-admin" />
+                        <IoTrashOutline 
+                          className="vis-actividad-table__td__btn-admin" 
+                          onClick={() => suspenderActividad(actividad.id)}
+                        />
                       </Link>
                     </div>
                   </td>

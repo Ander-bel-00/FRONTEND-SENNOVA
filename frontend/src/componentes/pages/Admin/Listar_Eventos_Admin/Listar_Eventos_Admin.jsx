@@ -14,6 +14,7 @@ import BotonVerdeAñadir from "../../../common/BotonVerde";
 import "./css/Listar_Eventos_Admin.css";
 import clienteAxios from "../../../../config/axios";
 import * as XLSX from "xlsx";
+import Swal from "sweetalert2";
 
 function Listar_Eventos_Admin() {
   const [ListEventos, setListEventos] = useState([]);
@@ -82,6 +83,41 @@ function Listar_Eventos_Admin() {
     // Genera el archivo Excel
     XLSX.utils.book_append_sheet(wb, ws, "Eventos");
     XLSX.writeFile(wb, "eventos.xlsx");
+  };
+
+  const suspenderEvento = async (eventoId) => {
+    try {
+      const result = await Swal.fire({
+        title: "Estás seguro de suspender el Evento?",
+        text: "Esta acción no se puede revertir",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Si, suspender el Evento",
+      });
+
+      if (result.isConfirmed) {
+        await clienteAxios.delete(`/eventos/${eventoId}/`);
+        Swal.fire({
+          title: "Evento suspendido",
+          text: "El evento ha sido suspendido exitosamente.",
+          icon: "success",
+        });
+        setSelectedEventoId(null); // Clear the selected project ID after successful deletion
+      }
+    } catch (error) {
+      console.log("Hubo un error al intentar suspender el evento", error);
+      Swal.fire({
+        icon: "error",
+        title: "Hubo un error",
+        text: "Ocurrió un error al intentar suspender el evento",
+      });
+    }
+  };
+
+  const handleSuspenderEvento = (eventoId) => {
+    suspenderEvento(eventoId);
   };
 
   // Esta función se utiliza para actualizar el estado del query de búsqueda
@@ -183,7 +219,10 @@ function Listar_Eventos_Admin() {
                         <FaRegEdit className="list-events-table__td__btn-admin" />
                       </Link>
                       <Link>
-                        <IoTrashOutline className="list-events-table__td__btn-admin" />
+                        <IoTrashOutline
+                          className="list-events-table__td__btn-admin" 
+                          onClick={() => handleSuspenderEvento(evento.id)}
+                        />
                       </Link>
                     </div>
                   </td>

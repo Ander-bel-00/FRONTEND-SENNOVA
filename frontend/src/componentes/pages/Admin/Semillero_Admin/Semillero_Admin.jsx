@@ -53,7 +53,6 @@ function Semillero_Admin() {
         10,
         50
       );
-      pdf.text(`Integrantes: ${semilleros.sectores_apicacion}`, 10, 60);
       pdf.text(
         `Líneas de investigación: ${semilleros.lineas_investigacion_declaradas}`,
         10,

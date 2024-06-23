@@ -119,7 +119,8 @@ function Listar_Proyectos_Admin() {
           text: "El proyecto ha sido suspendido exitosamente.",
           icon: "success",
         });
-        setSelectedProjectId(null); // Clear the selected project ID after successful deletion
+        setProyectosSemillero((prev) => prev.filter((semillero) => semillero.id !== projectId));
+        setFilteredProyectos((prev) => prev.filter((semillero) => semillero.id !== projectId));
       }
     } catch (error) {
       console.log("Hubo un error al intentar suspender el proyecto", error);
@@ -131,9 +132,6 @@ function Listar_Proyectos_Admin() {
     }
   };
 
-  const handleSuspenderProyecto = (projectId) => {
-    suspenderProyecto(projectId);
-  };
 
   const handleFilter = (query) => {
     const filtered = proyectosSemillero.filter(
@@ -244,7 +242,7 @@ function Listar_Proyectos_Admin() {
                         </Link>
                         <IoTrashOutline
                           className="list-project-admin-table__td__btn cursor-pointer"
-                          onClick={() => handleSuspenderProyecto(list.id)}
+                          onClick={() => suspenderProyecto(list.id)}
                         />
                       </div>
                     </td>

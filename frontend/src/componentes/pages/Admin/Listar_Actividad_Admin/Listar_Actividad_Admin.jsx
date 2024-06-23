@@ -14,6 +14,7 @@ import Caja_Blanca from "../../../common/Caja_Blanca";
 import { Link } from "react-router-dom";
 import clienteAxios from "../../../../config/axios";
 import * as XLSX from "xlsx"; //se agrego la importación del generar reporte en excel
+import Swal from "sweetalert2";
 
 function Listar_Actividad_Admin() {
   const [listActivitys, setListActivitys] = useState([]);
@@ -74,6 +75,37 @@ function Listar_Actividad_Admin() {
     XLSX.writeFile(wb, "actividades.xlsx");
   };
 
+  const suspenderActividad = async (actividadId) => {
+    try {
+      const result = await Swal.fire({
+        title: "Estás seguro de suspender la Actividad?",
+        text: "Esta acción no se puede revertir",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Si, suspender la Actividad",
+      });
+
+      if (result.isConfirmed) {
+        await clienteAxios.delete(`/activity-semillero/${actividadId}/`);
+        Swal.fire({
+          title: "Actividad suspendido",
+          text: "La Actividad ha sido suspendido exitosamente.",
+          icon: "success",
+        });
+        setListActivitys((prev) => prev.filter((actividad) => actividad.id !== actividadId));
+      }
+    } catch (error) {
+      console.log("Hubo un error al intentar suspender la actividad", error);
+      Swal.fire({
+        icon: "error",
+        title: "Hubo un error",
+        text: "Ocurrió un error al intentar suspender la actividad",
+      });
+    }
+  }; 
+
   // Esta función se utiliza para actualizar el estado del query de búsqueda
   const handleFilter = (query) => {
     setSearchQuery(query);
@@ -82,9 +114,8 @@ function Listar_Actividad_Admin() {
   // Esta es la función que filtra los eventos basados en el query de búsqueda
   const filteredActivitys = listActivitys.filter ((actividad) => 
     actividad.nombre_actividad.toLowerCase().includes(searchQuery.toLowerCase()) ||
-    actividad.semillero.toLowerCase().includes(searchQuery.toLowerCase())
-)
-
+    actividad.responsable_actividad.toLowerCase().includes(searchQuery.toLowerCase())
+  )
 
   return (
     <Fragment>
@@ -181,7 +212,10 @@ function Listar_Actividad_Admin() {
                           <FaRegEdit className="list-activity-admin-content-table__td__btn" />
                         </Link>
                         <Link>
-                          <IoTrashOutline className="list-activity-admin-content-table__td__btn" />
+                          <IoTrashOutline 
+                            className="list-activity-admin-content-table__td__btn" 
+                            onClick={() => suspenderActividad(actividad.id)}
+                          />
                         </Link>
                       </div>
                     </td>
