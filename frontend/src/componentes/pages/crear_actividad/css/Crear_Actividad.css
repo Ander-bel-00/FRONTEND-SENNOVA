@@ -1,14 +1,15 @@
 .crear-actividades-titulo{
-    position: relative;
-    top: 24px;
-    font-size: 25px;
+    top: 0rem;
+    right: 1%;
+    font-size: 24px;
+    font-weight: 650;
 }
-
 .create-activity-box{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+ 
 }
 .form-create-activity-content{
     display: flex;
@@ -20,14 +21,21 @@
  
 }
 
-.form-create-activity-apr-content__col1__label{
+.create-activity-title{
+    position: relative;
+    top: 24px;
+    font-size: 25px;
+}
+
+
+.form-create-activity-content__col1__label{
     font-weight: 400;
     display: flex;
     align-items: center;
     gap: 5px;
 }
 
-.form-create-activity-apr-content__col1__input{
+.form-create-activity-content__col1__input{
     width: 100%;
     border-radius: 6px;
     padding: 8px;

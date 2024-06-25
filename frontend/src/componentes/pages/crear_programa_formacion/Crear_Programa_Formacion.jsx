@@ -15,15 +15,11 @@ function Crear_Programa_Formacion() {
     const { name, value } = event.target;
     setFormNewProgram({ ...formNewProgram, [name]: value });
   };
-  const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    setLoading(true); // Activar el estado de carga
     // Verificar si algún campo está vacío
-    const anyFieldEmpty = Object.values(formNewProgram).some(
-      (value) => value === ""
-    );
+    const anyFieldEmpty = Object.values(formNewProgram).some((value) => value === '');
     if (anyFieldEmpty) {
       // Mostrar Sweet Alert si algún campo está vacío
       Swal.fire({
@@ -35,35 +31,32 @@ function Crear_Programa_Formacion() {
     }
 
     try {
-      const response = await clienteAxios.post(
-        "/programaformacion/",
-        formNewProgram
-      );
+      const response = await clienteAxios.post("/programaformacion/", formNewProgram);
       Swal.fire({
         title: "Programa de Formación creado exitosamente",
         icon: "success",
         showCancelButton: false,
         confirmButtonText: "Aceptar",
       }).then((result) => {
-        return navigate("../visualizar-programa-formacion");
-      });
+        return navigate('../visualizar-programa-formacion')
+      })
     } catch (error) {
       console.error("Error al crear el programa de Formación", error);
 
       Swal.fire({
         title: "Error al crear el programa de formacion",
-        text: "Todos los campos son obligatorios",
+        text: 'Todos los campos son obligatorios',
         icon: "error",
         confirmButtonText: "Aceptar",
       });
-    } finally {
-      setLoading(false); // Desactivar el estado de carga
     }
   };
 
   return (
     <div className="main-container__contenedor-hijo">
-      <BotonReturn />
+    
+        <BotonReturn />
+  
 
       <Caja_formularios
         info={
@@ -140,7 +133,7 @@ function Crear_Programa_Formacion() {
                     className="buttonsCreating__crear--green"
                     type="submit"
                   >
-                    {loading ? <span className="spinner"></span> : "Crear"}
+                    Crear
                   </button>
                   <Link to={"../visualizar-programa-formacion"}>
                     <button className="buttonsCreating__cancelar" type="button">
