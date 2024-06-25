@@ -83,8 +83,6 @@ import Asignar_Horas_Admin from "./componentes/pages/Coordinador/Asignar_Horas_A
 import Visualizar_Horas_Admin from "./componentes/pages/Coordinador/Visualizar_Horas_Admin/Visualizar_Horas_Admin";
 import Cronograma_Admin from "./componentes/pages/Admin/Cronograma_Admin/Cronograma_Admin";
 import Crear_Proyectos_Admin from "./componentes/pages/Admin/Crear_Proyectos_Admin/Crear_Proyectos_Admin";
-import Visualizar_Actividad_Admin from "./componentes/pages/Admin/Visualizar_Actividad_Admin/Visualizar_Actividad_Admin";
-
 
 function App() {
   const { isAuthenticated, userRole, handleLogout } = useAuth();
@@ -297,25 +295,16 @@ function App() {
                       path="/crear-programa-formacion"
                       element={
                         <main className="main-container">
-                          <Crear_Programa_Formacion_Admin />
+                          <Crear_Programa_Formacion/>
                         </main>
                       }
                     />
 
                     <Route
-                      path="/visualizar-actividad/:id"
+                      path="/visualizar-actividad"
                       element={
                         <main className="main-container">
-                          <Visualizar_Actividad_Admin />
-                        </main>
-                      }
-                    />
-
-                    <Route
-                      path="/listar-eventos"
-                      element={
-                        <main className="main-container">
-                          <Listar_Eventos_Admin />
+                          <Visualizar_Actividad />
                         </main>
                       }
                     />
@@ -384,7 +373,7 @@ function App() {
                       path="/crear-proyecto"
                       element={
                         <main className="main-container">
-                          <Crear_Proyectos_Admin  />
+                          <Crear_Proyectos_Admin />
                         </main>
                       }
                     />
@@ -396,7 +385,7 @@ function App() {
                         </main>
                       }
                     />
-                     <Route
+                    <Route
                       path="/listar-actividad"
                       element={
                         <main className="main-container">
@@ -475,7 +464,7 @@ function App() {
                       path="/usuarios-getAll"
                       element={
                         <main className="main-container">
-                          <ListarUsuarios />
+                          <Listar_Usuarios_Admin />
                         </main>
                       }
                     />

@@ -14,7 +14,6 @@ import * as XLSX from "xlsx";
 import clienteAxios from '../../../../config/axios';
 import { FaRegEdit } from "react-icons/fa";
 import { IoTrashOutline } from "react-icons/io5";
-import Swal from "sweetalert2";
 
 function Listar_Semilleros_Admin() {
   const [semillero, setSemillero] = useState([]);
@@ -63,38 +62,6 @@ function Listar_Semilleros_Admin() {
     XLSX.writeFile(wb, "semilleros.xlsx");
   };
 
-  const suspenderSemillero = async (semillerosId) => {
-    try {
-      const result = await Swal.fire({
-        title: "Estás seguro de suspender el Semilero?",
-        text: "Esta acción no se puede revertir",
-        icon: "warning",
-        showCancelButton: true,
-        confirmButtonColor: "#3085d6",
-        cancelButtonColor: "#d33",
-        confirmButtonText: "Si, suspender el Semillero",
-      });
-
-      if (result.isConfirmed) {
-        await clienteAxios.delete(`/semilleros/${semillerosId}/`);
-        Swal.fire({
-          title: "Semillero suspendido",
-          text: "El Semillero ha sido suspendido exitosamente.",
-          icon: "success",
-        });
-        setSemillero((prev) => prev.filter((semillero)  => semillero.id !== semillerosId));
-      }
-    } catch (error) {
-      console.log("Hubo un error al intentar suspender el Semillero", error);
-      Swal.fire({
-        icon: "error",
-        title: "Hubo un error",
-        text: "Ocurrió un error al intentar suspender el Semillero",
-      });
-    }
-  }; 
-
- 
   // Esta función se utiliza para actualizar el estado del query de búsqueda
   const handleFilter = (query) => {
     setSearchQuery(query);
@@ -105,7 +72,6 @@ function Listar_Semilleros_Admin() {
     semillero.nombre_semillero.toLowerCase().includes(searchQuery.toLowerCase())  ||
     semillero.estado_semillero.toLowerCase().includes(searchQuery.toLowerCase())
   );
-
   return (
     <Fragment>
       <div className="main-container__contenedor-hijo">
@@ -167,10 +133,7 @@ function Listar_Semilleros_Admin() {
                         <FaRegEdit className="list-events-table__td__btn-admin" />
                       </Link>
                       <Link>
-                        <IoTrashOutline 
-                          className="list-events-table__td__btn-admin" 
-                          onClick={() => suspenderSemillero(semillero.id)}
-                        />
+                        <IoTrashOutline className="list-events-table__td__btn-admin" />
                       </Link>
                     </div>
                     </td>

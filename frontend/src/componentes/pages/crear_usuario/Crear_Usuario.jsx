@@ -14,8 +14,9 @@ function Crear_Usuario() {
   const navigate = useNavigate();
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [nombreProgramaSeleccionado, setNombreProgramaSeleccionado] =
-  useState("");
+    useState("");
   const [programasFormacion, setProgramasFormacion] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const obtenerProgramaFormacion = async () => {
@@ -44,6 +45,7 @@ function Crear_Usuario() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    setLoading(true); // Activar el estado de carga
 
     try {
       const userData = {
@@ -70,6 +72,8 @@ function Crear_Usuario() {
         icon: "error",
         confirmButtonText: "Aceptar",
       });
+    } finally {
+      setLoading(false); // Desactivar el estado de carga
     }
   };
 
@@ -228,112 +232,112 @@ function Crear_Usuario() {
 
                 {mostrarCamposAprendiz && (
                   <Fragment>
-                  <label
-                    htmlFor="programa_formacion"
-                    className="form-add-user-container__col1__label"
-                  >
-                    Programa de Formación <p className="rojo-required">*</p>
-                  </label>
-                  <input
-                    type="text"
-                    id="programa_formacion"
-                    name="programa_formacion"
-                    className="form-add-user-container__col1__input cursor-pointer"
-                    placeholder="Presiona para seleccionar un programa de formación"
-                    value={nombreProgramaSeleccionado || ""}
-                    onClick={openModal}
-                    readOnly
-                  />
-                  <input
-                    type="hidden"
-                    id="id_programa_formacion"
-                    name="id_programa_formacion"
-                    value={formDataUser.id_programa_formacion || ""}
-                    onChange={handleChange} // Asegúrate de tener un manejador de cambio definido si es necesario
-                  />
+                    <label
+                      htmlFor="programa_formacion"
+                      className="form-add-user-container__col1__label"
+                    >
+                      Programa de Formación <p className="rojo-required">*</p>
+                    </label>
+                    <input
+                      type="text"
+                      id="programa_formacion"
+                      name="programa_formacion"
+                      className="form-add-user-container__col1__input cursor-pointer"
+                      placeholder="Presiona para seleccionar un programa de formación"
+                      value={nombreProgramaSeleccionado || ""}
+                      onClick={openModal}
+                      readOnly
+                    />
+                    <input
+                      type="hidden"
+                      id="id_programa_formacion"
+                      name="id_programa_formacion"
+                      value={formDataUser.id_programa_formacion || ""}
+                      onChange={handleChange} // Asegúrate de tener un manejador de cambio definido si es necesario
+                    />
 
-                  <label
-                    htmlFor="ficha"
-                    className="form-add-user-container__col1__label"
-                  >
-                    Número de Ficha <p className="rojo-required">*</p>
-                  </label>
-                  <input
-                    type="number"
-                    id="ficha"
-                    name="ficha"
-                    className="form-add-user-container__col1__input"
-                    value={formDataUser.ficha || ""}
-                    onChange={handleChange}
-                    readOnly
-                  />
+                    <label
+                      htmlFor="ficha"
+                      className="form-add-user-container__col1__label"
+                    >
+                      Número de Ficha <p className="rojo-required">*</p>
+                    </label>
+                    <input
+                      type="number"
+                      id="ficha"
+                      name="ficha"
+                      className="form-add-user-container__col1__input"
+                      value={formDataUser.ficha || ""}
+                      onChange={handleChange}
+                      readOnly
+                    />
 
-                  <label
-                    htmlFor="inicio_lectiva"
-                    className="form-add-user-container__col1__label"
-                  >
-                    Inicio Lectiva De La Ficha{" "}
-                    <p className="rojo-required">*</p>
-                  </label>
-                  <input
-                    type="date"
-                    id="inicio_lectiva"
-                    name="inicio_lectiva"
-                    className="form-add-user-container__col1__input"
-                    value={formDataUser.inicio_lectiva || ""}
-                    onChange={handleChange}
-                    readOnly
-                  />
+                    <label
+                      htmlFor="inicio_lectiva"
+                      className="form-add-user-container__col1__label"
+                    >
+                      Inicio Lectiva De La Ficha{" "}
+                      <p className="rojo-required">*</p>
+                    </label>
+                    <input
+                      type="date"
+                      id="inicio_lectiva"
+                      name="inicio_lectiva"
+                      className="form-add-user-container__col1__input"
+                      value={formDataUser.inicio_lectiva || ""}
+                      onChange={handleChange}
+                      readOnly
+                    />
 
-                  <label
-                    htmlFor="finalizacion_lectiva"
-                    className="form-add-user-container__col1__label"
-                  >
-                    Fin Lectiva De La Ficha <p className="rojo-required">*</p>
-                  </label>
-                  <input
-                    type="date"
-                    id="finalizacion_lectiva"
-                    name="finalizacion_lectiva"
-                    className="form-add-user-container__col1__input"
-                    value={formDataUser.finalizacion_lectiva || ""}
-                    onChange={handleChange}
-                    readOnly
-                  />
-                  <Modal
-                    isOpen={modalIsOpen}
-                    onRequestClose={closeModal}
-                    contentLabel="Seleccionar Programa Formación"
-                    className="Modal-programFormacion"
-                    overlayClassName="overlay-Modal-programFormacion"
-                  >
-                    <div className="modal-program-content">
-                      <h2 className="text-2xl font-bold">
-                        Seleccione un programa de formación
-                      </h2>
-                      {programasFormacion.length > 0 ? (
-                        <ul>
-                          {programasFormacion.map((programa) => (
-                            <li key={programa.id}>
-                              <button
-                                onClick={() => seleccionarPrograma(programa)}
-                              >
-                                {programa.ficha} -{" "}
-                                {programa.nombre_programa_formacion}
-                              </button>
-                            </li>
-                          ))}
-                        </ul>
-                      ) : (
-                        <p>No hay programas disponibles</p>
-                      )}
-                    </div>
-                  </Modal>
-                </Fragment>
+                    <label
+                      htmlFor="finalizacion_lectiva"
+                      className="form-add-user-container__col1__label"
+                    >
+                      Fin Lectiva De La Ficha <p className="rojo-required">*</p>
+                    </label>
+                    <input
+                      type="date"
+                      id="finalizacion_lectiva"
+                      name="finalizacion_lectiva"
+                      className="form-add-user-container__col1__input"
+                      value={formDataUser.finalizacion_lectiva || ""}
+                      onChange={handleChange}
+                      readOnly
+                    />
+                    <Modal
+                      isOpen={modalIsOpen}
+                      onRequestClose={closeModal}
+                      contentLabel="Seleccionar Programa Formación"
+                      className="Modal-programFormacion"
+                      overlayClassName="overlay-Modal-programFormacion"
+                    >
+                      <div className="modal-program-content">
+                        <h2 className="text-2xl font-bold">
+                          Seleccione un programa de formación
+                        </h2>
+                        {programasFormacion.length > 0 ? (
+                          <ul>
+                            {programasFormacion.map((programa) => (
+                              <li key={programa.id}>
+                                <button
+                                  onClick={() => seleccionarPrograma(programa)}
+                                >
+                                  {programa.ficha} -{" "}
+                                  {programa.nombre_programa_formacion}
+                                </button>
+                              </li>
+                            ))}
+                          </ul>
+                        ) : (
+                          <p>No hay programas disponibles</p>
+                        )}
+                      </div>
+                    </Modal>
+                  </Fragment>
                 )}
                 <div className="user-add-btns">
                   <button type="submit" className="btn-crear-usuario">
-                    Crear
+                    {loading ? <span className="spinner"></span> : "Crear"}
                   </button>
 
                   <Link to={"/lider-semillero/usuarios-getAll"}>

@@ -1,20 +1,17 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../../../../context/AuthContext";
 import Caja_formularios from "../../../common/Caja_formularios";
 import clienteAxios from "../../../../config/axios";
 import "./css/Crear_Actividad_Admin.css";
 import Swal from "sweetalert2";
+import Modal from "react-modal";
+import BotonReturn from "../../../common/BotonReturn";
 
 function Crear_Actividad_Admin() {
-  const { userProfile } = useAuth();
   const navigate = useNavigate();
 
-    // Obtener el SemilleroID del userProfile
-    const SemilleroID = userProfile ? userProfile.semillero : [];
-
   const [formNewActivitySemillero, setFormNewActivitySemillero] = useState({
-    semillero: SemilleroID.length > 0 ? SemilleroID[0] : null, // Asignar el primer valor del array o null si no hay valores
     nombre_actividad: "",
     tarea: "",
     fecha_inicio: "",
@@ -23,14 +20,34 @@ function Crear_Actividad_Admin() {
     responsable_actividad: "",
   });
 
+  const [loading, setLoading] = useState(false);
+
+  const [semilleros, setSemilleros] = useState([]);
+  const [selectedNombreSemillero, setSelectedNombreSemillero] = useState([]);
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+
   const handleChange = (e) => {
     // e.target se refiere al elemento html de donde vienen los valores(name. value)
     const { name, value } = e.target;
-    setFormNewActivitySemillero({...formNewActivitySemillero, [name]: value });
+    setFormNewActivitySemillero({ ...formNewActivitySemillero, [name]: value });
   };
+
+  useEffect(() => {
+    const obtenerSemilleros = async () => {
+      try {
+        const res = await clienteAxios.get("/lista-semilleros/");
+        setSemilleros(res.data);
+      } catch (error) {
+        console.error("Error al obtener los semilleros", error);
+      }
+    };
+
+    obtenerSemilleros();
+  }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true); // Activar el estado de carga
     const fieldEmpty = Object.values(formNewActivitySemillero).some(
       (value) => value === ""
     );
@@ -65,12 +82,32 @@ function Crear_Actividad_Admin() {
         icon: "error",
         confirmButtonText: "Aceptar",
       });
+    } finally {
+      setLoading(false); // Desactivar el estado de carga
     }
+  };
+
+  const openModal = () => {
+    setModalIsOpen(true);
+  };
+
+  const closeModal = () => {
+    setModalIsOpen(false);
+  };
+
+  const seleccionarSemillero = (semillero) => {
+    setFormNewActivitySemillero({
+      ...formNewActivitySemillero,
+      semillero: semillero.id,
+    });
+    setSelectedNombreSemillero(semillero.nombre_semillero);
+    closeModal();
   };
 
   return (
     <Fragment>
       <div className="main-container__contenedor-hijo">
+      <BotonReturn />
         <Caja_formularios
           info={
             <div className="create-activity-admin-box">
@@ -81,6 +118,55 @@ function Crear_Actividad_Admin() {
                 className="form-create-activity-admin-content"
                 onSubmit={handleSubmit}
               >
+                <label className="form-add-event-container__label-admin">
+                  Semillero <p className="rojo-required">*</p>
+                </label>
+                <input
+                  type="text"
+                  className="form-add-event-container__input-admin cursor-pointer"
+                  placeholder="Presiona para seleccionar un semillero"
+                  name="semillero"
+                  onClick={openModal}
+                  value={selectedNombreSemillero}
+                  readOnly // Para evitar la edición manual
+                />
+                <input
+                  type="hidden"
+                  className="form-add-event-container__input-admin"
+                  name="semillero"
+                  value={formNewActivitySemillero.semillero}
+                  readOnly // Para evitar la edición manual
+                  onChange={handleChange}
+                />
+
+                <Modal
+                  isOpen={modalIsOpen}
+                  onRequestClose={closeModal}
+                  contentLabel="Seleccionar Semillero"
+                  className="modal-semilleros-select"
+                  overlayClassName="overlay-Modal"
+                >
+                  <div className="modal-semilleros-set-content">
+                    {semilleros.length > 0 ? (
+                      <Fragment>
+                        <h2>Selecciona un semillero</h2>
+                        <ul>
+                          {semilleros.map((semillero) => (
+                            <li key={semillero.id}>
+                              <button
+                                onClick={() => seleccionarSemillero(semillero)}
+                              >
+                                {semillero.id} - {semillero.nombre_semillero}
+                              </button>
+                            </li>
+                          ))}
+                        </ul>
+                      </Fragment>
+                    ) : (
+                      <p>No hay Semilleros disponibles</p>
+                    )}
+                  </div>
+                </Modal>
                 <label
                   htmlFor="nombre-actividad"
                   className="form-create-activity-admin-content_col1_label"
@@ -162,6 +248,9 @@ function Crear_Actividad_Admin() {
                 />
 
                 <div className="btns-crear-actividad-admin">
+                  <button className="btn-create-actividad-admin" type="submit">
+                    {loading ? <span className="spinner"></span> : "Crear"}
+                  </button>
                   <Link to={"../listar-actividad"}>
                     <button
                       className="btn-cancelar-actividad-uptd-admin"
@@ -170,9 +259,6 @@ function Crear_Actividad_Admin() {
                       Cancelar
                     </button>
                   </Link>
-                  <button className="btn-create-actividad-admin" type="submit">
-                    Crear
-                  </button>
                 </div>
               </form>
             </div>
@@ -182,6 +268,5 @@ function Crear_Actividad_Admin() {
     </Fragment>
   );
 }
-
 
 export default Crear_Actividad_Admin;

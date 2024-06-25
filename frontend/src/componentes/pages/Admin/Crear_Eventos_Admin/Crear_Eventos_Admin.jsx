@@ -1,22 +1,17 @@
 import Caja_formularios from "../../../common/Caja_formularios";
-import { Fragment, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import BotonReturn from "../../../common/BotonReturn";
 import "./css/Crear_Eventos_Admin.css";
 import clienteAxios from "../../../../config/axios";
 import Swal from "sweetalert2";
+import Modal from "react-modal";
 import { useAuth } from "../../../../context/AuthContext";
 
 function Crear_Eventos_Admin() {
-  
-  const { userProfile } = useAuth();
   const navigate = useNavigate();
 
-  // Obtener el SemilleroID del userProfile
-  const SemilleroID = userProfile ? userProfile.semillero : [];
-
   const [formNewEventoSemillero, setFormNewEventoSemillero] = useState({
-    semillero: SemilleroID.length > 0 ? SemilleroID[0] : null, // Asignar el primer valor del array o null si no hay valores
     nombre_evento: "",
     tipo_de_evento: "",
     fecha_inicio: "",
@@ -26,6 +21,10 @@ function Crear_Eventos_Admin() {
     lugar_evento: "",
     // semillero: " ",  //agrege el semillero pero lo tengo comentado ya que esta dando un error al moneto de crear 
   });
+  const [semilleros, setSemilleros] = useState([]);
+  const [selectedNombreSemillero, setSelectedNombreSemillero] = useState([]);
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {
     //Se refiere al elemento html de donde vienen los valores(name y value)
@@ -33,8 +32,23 @@ function Crear_Eventos_Admin() {
     setFormNewEventoSemillero({ ...formNewEventoSemillero, [name]: value });
   };
 
+  useEffect(() => {
+    const obtenerSemilleros = async () => {
+      try {
+        const res = await clienteAxios.get("/lista-semilleros/");
+        setSemilleros(res.data);
+      } catch (error) {
+        console.error("Error al obtener los semilleros", error);
+      }
+    };
+
+    obtenerSemilleros();
+  }, []);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+    // Verificar si algún campo está vacío
+    setLoading(true); // Activar el estado de carga
     // Verificar si algún campo está vacío
     const fieldEmpty = Object.values(formNewEventoSemillero).some(
       (value) => value === ""
@@ -71,7 +85,26 @@ function Crear_Eventos_Admin() {
         icon: "error",
         confirmButtonText: "Aceptar",
       });
+    } finally {
+      setLoading(false); // Desactivar el estado de carga
     }
+  };
+
+  const openModal = () => {
+    setModalIsOpen(true);
+  };
+
+  const closeModal = () => {
+    setModalIsOpen(false);
+  };
+
+  const seleccionarSemillero = (semillero) => {
+    setFormNewEventoSemillero({
+      ...formNewEventoSemillero,
+      semillero: semillero.id,
+    });
+    setSelectedNombreSemillero(semillero.nombre_semillero);
+    closeModal();
   };
 
   return (
@@ -89,7 +122,7 @@ function Crear_Eventos_Admin() {
                 onSubmit={handleSubmit}
               >
                 <label className="form-add-event-container__label-admin">
-                  Nombre del evento <p className="rojo-required">*</p>
+                  Nombre del evento <p className="rojo-required-">*</p>
                 </label>
                 <input
                   type="text"
@@ -111,7 +144,6 @@ function Crear_Eventos_Admin() {
                   <option value="CTI">CTI</option>
                 </select>
 
-                
                 <label className="form-add-event-container__label-admin">
                   Fecha de Inicio del Evento <p className="rojo-required">*</p>
                 </label>
@@ -163,22 +195,25 @@ function Crear_Eventos_Admin() {
                   onChange={handleChange}
                 />
 
-                {/* <label className="form-add-event-container__label-admin">
-                  Semillero <p className="rojo-required">*</p>
-                </label>
                 <input
                   type="text"
                   className="form-add-event-container__input-admin"
                   name="semillero"
                   onChange={handleChange}
-                /> */}
-                
+                  value={formNewEventoSemillero.semillero}
+                  hidden
+                />
+
                 <div className="btns-crear-evento-admin">
                   <button
                     type="submit"
                     className="btnEvents__crear--green-admin"
                   >
-                    Crear
+                    {loading ? (
+                      <span className="spinner"></span>
+                    ) : (
+                      "Crear"
+                    )}
                   </button>
 
                   <Link to={"../listar-eventos"}>

@@ -8,14 +8,15 @@ import Swal from "sweetalert2";
 import clienteAxios from "../../../config/axios";
 
 function Crear_Eventos() {
-  
   const { userProfile } = useAuth();
   const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
 
-  const SemilleroID = userProfile ? userProfile.semillero : "";
+  // Obtener el SemilleroID del userProfile
+  const SemilleroID = userProfile ? userProfile.semillero : [];
 
   const [formNewEventoSemillero, setFormNewEventoSemillero] = useState({
-    semillero: SemilleroID,
+    semillero: SemilleroID.length > 0 ? SemilleroID[0] : null,
     nombre_evento: "",
     tipo_de_evento: "",
     fecha_inicio: "",
@@ -33,19 +34,7 @@ function Crear_Eventos() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const fieldEmpty = Object.values(formNewEventoSemillero).some(
-      (value) => value === ""
-    );
-    if (fieldEmpty) {
-      Swal.fire({
-        title: "Error al crear el evento",
-        text: "Debes diligenciar todos los campos",
-        icon: "error",
-        confirmButtonText: "Aceptar",
-      });
-      return;
-    }
-
+    setLoading(true); // Activar el estado de carga
     try {
       const response = await clienteAxios.post(
         "/eventos/",
@@ -68,12 +57,13 @@ function Crear_Eventos() {
         icon: "error",
         confirmButtonText: "Aceptar",
       });
+    } finally {
+      setLoading(false); // Desactivar el estado de carga
     }
   };
 
   return (
     <div className="main-container__contenedor-hijo">
-
       <BotonReturn />
 
       <Caja_formularios
@@ -83,8 +73,10 @@ function Crear_Eventos() {
             <div className="mainsBoxes">
               <h3 className="mainsBoxes__tile">Crear Eventos CTI</h3>
 
-              <form className="form-add-event-container" onSubmit={handleSubmit}>
-
+              <form
+                className="form-add-event-container"
+                onSubmit={handleSubmit}
+              >
                 <label className="form-add-event-container__label">
                   Nombre del evento <p className="rojo-required">*</p>
                 </label>
@@ -107,8 +99,6 @@ function Crear_Eventos() {
                   <option value="Ponencia">Ponencia</option>
                   <option value="CTI">CTI</option>
                 </select>
-
-
 
                 <label className="form-add-event-container__label">
                   Fecha de Inicio del Evento <p className="rojo-required">*</p>
@@ -134,12 +124,11 @@ function Crear_Eventos() {
                   Cantidad de participantes <p className="rojo-required">*</p>
                 </label>
                 <input
-                  type="text"
+                  type="number"
                   className="form-add-event-container__input"
-                  name="cantidad_participantes"
+                  name="cantidad_parcticipantes"
                   onChange={handleChange}
                 />
-
                 <label className="form-add-event-container__label-admin">
                   Nombre del Ponente <p className="rojo-required">*</p>
                 </label>
@@ -170,8 +159,8 @@ function Crear_Eventos() {
                 />
 
                 <div className="btns-crear-evento">
-                  <button type="button" className="btnEvents__crear--green">
-                    Crear
+                  <button type="submit" className="btnEvents__crear--green">
+                    {loading ? <span className="spinner"></span> : "Crear"}
                   </button>
 
                   <Link to={"../listar-eventos"}>

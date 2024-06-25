@@ -2,16 +2,91 @@ import React, { Fragment, useState } from "react";
 import "./css/Asignar_Horas_Admin.css";
 import Caja_formularios from "../../../common/Caja_formularios";
 import { BsPersonFillAdd } from "react-icons/bs";
+import Swal from "sweetalert2";
+import clienteAxios from "../../../../config/axios";
+import { useNavigate } from "react-router-dom";
 
 function Asignar_Horas_Admin() {
+  const navigate = useNavigate();
   const [mostrarInstructores, setMostrarInstructores] = useState(false);
   const [asignarHoras, setAsignarHoras] = useState(false);
+  const [formAsignarHoras, setFormAsignarHoras] = useState({
+    semillero: "",
+    proyecto: "",
+    trimestre: "",
+    instructores: [],
+    año: ""
+  });
 
   const instructores = [
     { nombre: "Jorge Luis Raigosa Barahona", horas: 16 },
     { nombre: "Yuly Paulin Saenz Agudelo", horas: 16 },
     { nombre: "Jhoan Sebastian Duque Vera", horas: 16 },
   ];
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setFormAsignarHoras({ ...formAsignarHoras, [name]: value });
+  };
+
+  const handleInstructorChange = (index, horas) => {
+    const updatedInstructores = [...formAsignarHoras.instructores];
+    updatedInstructores[index].horas = horas;
+    setFormAsignarHoras({ ...formAsignarHoras, instructores: updatedInstructores });
+  };
+
+  const handleAddInstructor = (instructor) => {
+    setFormAsignarHoras({
+      ...formAsignarHoras,
+      instructores: [...formAsignarHoras.instructores, instructor]
+    });
+  };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    // Validar campos del formulario
+    const anyFieldEmpty = Object.values(formAsignarHoras).some(
+      (value) => value === "" || (Array.isArray(value) && value.length === 0)
+    );
+
+    if (anyFieldEmpty) {
+      Swal.fire({
+        title: "Error al asignar horas",
+        text: "Debes diligenciar todos los campos y seleccionar al menos un instructor",
+        icon: "warning",
+        confirmButtonText: "Aceptar",
+      });
+      return;
+    }
+
+    try {
+      const response = await clienteAxios.post(
+        "/horas-asignadas/",
+        formAsignarHoras
+      );
+      Swal.fire({
+        title: "Horas asignadas exitosamente",
+        icon: "success",
+        showCancelButton: false,
+        confirmButtonText: "Aceptar",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          return navigate("/horas-asignadas/");
+        }
+      });
+
+      console.log(response.data);
+    } catch (error) {
+      console.error(error);
+      Swal.fire({
+        title: "Error",
+        text: "Hubo un error al asignar las horas",
+        icon: "error",
+        confirmButtonText: "Aceptar",
+      });
+    }
+  };
 
   return (
     <Fragment>
@@ -23,7 +98,7 @@ function Asignar_Horas_Admin() {
                 <h2 className="text-center assign-hours-admin-main-title">
                   Asignar Horas
                 </h2>
-                <form className="assign-hours-admin-main-cont">
+                <form className="assign-hours-admin-main-cont" onSubmit={handleSubmit}>
                   <label
                     htmlFor="semillero"
                     className="form-assign-hours-admin-content__col1__label"
@@ -33,11 +108,12 @@ function Asignar_Horas_Admin() {
                   <select
                     className="form-assign-hours-admin-container__select"
                     name="semillero"
+                    onChange={handleChange}
                   >
                     <option selected disabled>
-                      Seleccione el semillero de insvestigación
+                      Seleccione el semillero de investigación
                     </option>
-                    <option value="">
+                    <option value="Informatica Diseño y Desarrollo de Software">
                       Informatica Diseño y Desarrollo de Software
                     </option>
                     <option value="">.</option>
@@ -51,12 +127,13 @@ function Asignar_Horas_Admin() {
                   <select
                     className="form-assign-hours-admin-container__select"
                     name="proyecto"
+                    onChange={handleChange}
                   >
                     <option selected disabled>
                       Seleccione el proyecto de investigación
                     </option>
-                    <option value="">Capacidad Instalada</option>
-                    <option value="">Modernización</option>
+                    <option value="Capacidad Instalada">Capacidad Instalada</option>
+                    <option value="Modernización">Modernización</option>
                   </select>
                   <label
                     htmlFor="nombre_proyecto"
@@ -79,12 +156,13 @@ function Asignar_Horas_Admin() {
                   <select
                     className="form-assign-hours-admin-container__select"
                     name="trimestre"
+                    onChange={handleChange}
                   >
                     <option selected disabled>
                       Seleccione el Trimestre
                     </option>
                     <option value="TrimestreI">Trimestre I</option>
-                    <option value="TrimestreII">TRimestre II</option>
+                    <option value="TrimestreII">Trimestre II</option>
                     <option value="TrimestreIII">Trimestre III</option>
                     <option value="TrimestreIV">Trimestre IV</option>
                   </select>
@@ -92,8 +170,7 @@ function Asignar_Horas_Admin() {
                     htmlFor="Instructores_investigadores"
                     className="form-assign-hours-admin-content__col1__label"
                   >
-                    Instructores Investigadores{" "}
-                    <p className="rojo-required">*</p>
+                    Instructores Investigadores <p className="rojo-required">*</p>
                   </label>
                   <div
                     onClick={() => setMostrarInstructores(!mostrarInstructores)}
@@ -114,7 +191,10 @@ function Asignar_Horas_Admin() {
                           <button
                             type="button"
                             className="establecer-button"
-                            onClick={() => setAsignarHoras(true)}
+                            onClick={() => {
+                              handleAddInstructor(instructor);
+                              setAsignarHoras(true);
+                            }}
                           >
                             Establecer
                           </button>
@@ -128,7 +208,7 @@ function Asignar_Horas_Admin() {
                         Asignar Horas
                       </button>
                       <div className="asignar-list">
-                        {instructores.map((instructor, index) => (
+                        {formAsignarHoras.instructores.map((instructor, index) => (
                           <div key={index} className="asignar-item">
                             <BsPersonFillAdd className="icon" />
                             <span className="instructor-name">
@@ -137,8 +217,11 @@ function Asignar_Horas_Admin() {
                             <div className="input-container">
                               <input
                                 type="number"
-                                defaultValue={instructor.horas}
+                                value={instructor.horas}
                                 className="horas"
+                                onChange={(e) =>
+                                  handleInstructorChange(index, e.target.value)
+                                }
                               />
                             </div>
                             <div className="list-horas">horas</div>
@@ -148,26 +231,26 @@ function Asignar_Horas_Admin() {
                     </div>
                   )}
                   <label
-                    htmlFor="year-investigacion"
+                    htmlFor="año-investigacion"
                     className="form-assign-hours-admin-content__col1__label"
                   >
                     Año <p className="rojo-required">*</p>
                   </label>
                   <input
                     type="number"
-                    id="year-investigacion"
-                    name="year-investigacion"
+                    id="año-investigacion"
+                    name="año"
                     className="form-assign-hours-admin-content__col1__input"
                     placeholder="Ingrese el año"
+                    onChange={handleChange}
                   />
 
                   <div className="asig-horas-btns">
-                    <button type="button" className="asig-cancelar-btn">
+                    <button type="button" className="asig-cancelar-btn" onClick={() => navigate("/../")}>
                       Cancelar
                     </button>
-
                     <button type="submit" className="asig-crear-btn">
-                      crear
+                      Crear
                     </button>
                   </div>
                 </form>
