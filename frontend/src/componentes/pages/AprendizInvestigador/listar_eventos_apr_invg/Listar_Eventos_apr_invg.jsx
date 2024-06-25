@@ -9,7 +9,6 @@ import BotonBlanco from "../../../common/BotonReporte";
 import Search from "../../../common/Search";
 import "./css/Listar_Eventos_apr_invg.css";
 import clienteAxios from "../../../../config/axios";
-import * as XLSX from "xlsx";
 import BotonVerdeAñadir from "../../../common/BotonVerde";
 import { IoAdd, IoTrashOutline } from "react-icons/io5";
 import { FaRegEdit } from "react-icons/fa";
@@ -66,54 +65,6 @@ function Listar_Eventos_apr_invg() {
     setFilteredEvents(filtered);
   };
 
-  const exportToExcel = () => {
-    const wb = XLSX.utils.book_new();
-    const wsData = [
-      [
-        "Nombre",
-        "Tipo de Evento",
-        "Fecha de Inicio",
-        "Fecha de Fin",
-        "Cantidad participantes",
-        "Ponente",
-        "lugar",
-        "Semillero",
-        "Evidencia del Evento",
-      ],
-      ...ListEventos.map((evento) => [
-        evento.nombre_evento,
-        evento.tipo_de_evento,
-        evento.fecha_inicio,
-        actividad.fecha_fin,
-        evento.cantidad_parcticipantes,
-        actividad.responsable_actividad,
-        evento.nombre_ponente,
-        evento.lugar_evento,
-        evento.semillero,
-        evento.evidencia,
-      ]),
-    ];
-    const ws = XLSX.utils.aoa_to_sheet(wsData);
-
-    // Agrega estilos de tabla a la hoja de cálculo
-    ws["!cols"] = [
-      { width: 30 },
-      { width: 30 },
-      { width: 20 },
-      { width: 20 },
-      { width: 30 },
-      { width: 30 },
-      { width: 30 },
-      { width: 30 },
-      { width: 40 },
-    ];
-
-    // Genera el archivo Excel
-    XLSX.utils.book_append_sheet(wb, ws, "Eventos");
-    XLSX.writeFile(wb, "eventos.xlsx");
-  };
-
-
   return (
     <div className="main-container__contenedor-hijo">
       <Header_ToolBar
@@ -123,7 +74,6 @@ function Listar_Eventos_apr_invg() {
               icon={<FaFileArrowUp />}
               text={"Reporte"}
               clase={"btn-blanco btn-blanco--modify btn-verde"}
-              onClick={exportToExcel}
             />
             <BotonBlanco
               icon={<LuCalendarDays />}

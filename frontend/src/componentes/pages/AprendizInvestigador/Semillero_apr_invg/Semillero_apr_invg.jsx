@@ -45,32 +45,33 @@ function Semillero_apr_invg() {
       pdf.text(
         `Sector de Aplicación: ${semilleros.sectores_apicacion}`,
         10,
-        40
-      );
-      pdf.text(
-        `Líneas de investigación: ${semilleros.lineas_investigacion_declaradas}`,
-        10,
         50
       );
+      pdf.text(`Integrantes: ${semilleros.sectores_apicacion}`, 10, 60);
       pdf.text(
-        `Grupo de Investigación Adscrito: ${semilleros.nombre_grupo_investigacion_adscrito}`,
-        10,
-        60
-      );
-      pdf.text(
-        `Centro de Fomación: ${semilleros.nombre_centro_formacion}`,
+        `Líneas de investigación: ${semilleros.lineas_investigacion_declaradas}`,
         10,
         70
       );
       pdf.text(
-        `Plan Estratégico de Investigación: ${semilleros.plan_estrategico_investigacion}`,
+        `Grupo de Investigación Adscrito: ${semilleros.nombre_grupo_investigacion_adscrito}`,
         10,
         80
       );
       pdf.text(
-        `Estado del Semillero: ${semilleros.estado_semillero}`, //se agrego el estado del semillero
+        `Centro de Fomación: ${semilleros.nombre_centro_formacion}`,
         10,
         90
+      );
+      pdf.text(
+        `Plan Estratégico de Investigación: ${semilleros.plan_estrategico_investigacion}`,
+        10,
+        100
+      );
+      pdf.text(
+        `Estado del Semillero: ${semilleros.estado_semillero}`, //se agrego el estado del semillero
+        10,
+        110
       );
       pdf.save("reporte.pdf"); // Descargar el PDF con el nombre 'reporte.pdf'
     });

@@ -1,7 +1,7 @@
 import { IoAdd } from "react-icons/io5";
 import { GiReturnArrow } from "react-icons/gi";
 import { FaFileArrowUp } from "react-icons/fa6";
-import { CiCalendar } from "react-icons/ci";
+import { LuCalendarDays } from "react-icons/lu";
 import { FaSearch } from "react-icons/fa";
 import { Fragment } from "react";
 import Caja_Blanca from "../../../common/Caja_Blanca";
@@ -46,12 +46,13 @@ function Visualizar_Actividad_apr_invg() {
               clase={"btn-blanco btn-blanco--modify btn-verde"}
             />
             <BotonBlanco
-              icon={<CiCalendar />}
+              icon={<LuCalendarDays />}
               text={"calendario"}
               clase={"btn-blanco btn-blanco--modify btn-azul"}
+              link={"../cronograma"}
             />
             <Search icon={<FaSearch />} text={"Buscar Actividades"} />
-            <BotonVerdeAñadir icon={<IoAdd />} text={"Añadir Actividad"} />
+            <BotonVerdeAñadir icon={<IoAdd />} text={"Añadir Actividad"} link={"../crear-actividad"} />
           </Fragment>
         }
       />

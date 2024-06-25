@@ -16,10 +16,8 @@ function Crear_Usuario_Admin() {
   const [semilleros, setSemilleros] = useState([]);
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [modalSemilleros, setModalSemilleros] = useState(false);
-  const [nombreProgramaSeleccionado, setNombreProgramaSeleccionado] =
-    useState("");
+  const [nombreProgramaSeleccionado, setNombreProgramaSeleccionado] = useState("");
   const [semillerosSeleccionados, setSemillerosSeleccionados] = useState([]);
-  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const obtenerProgramaFormacion = async () => {
@@ -56,12 +54,11 @@ function Crear_Usuario_Admin() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    setLoading(true); // Activar el estado de carga
     try {
       const userData = {
         ...formDataUser,
         rol: rolUsuario,
-        semillero: semillerosSeleccionados, // Enviamos los semilleros seleccionados como array
+        semillero: semillerosSeleccionados // Enviamos los semilleros seleccionados como array
       };
       const response = await clienteAxios.post("/create-user/", userData);
       Swal.fire({
@@ -83,8 +80,6 @@ function Crear_Usuario_Admin() {
         icon: "error",
         confirmButtonText: "Aceptar",
       });
-    } finally {
-      setLoading(false); // Desactivar el estado de carga
     }
   };
 
@@ -128,24 +123,21 @@ function Crear_Usuario_Admin() {
 
   const seleccionarSemillero = (event, semillero) => {
     const checked = event.target.checked;
-    if (
-      rolUsuario === "aprendiz_investigador" ||
-      rolUsuario === "lider_semillero"
-    ) {
+    if (rolUsuario === "aprendiz_investigador" || rolUsuario === "lider_semillero") {
       setSemillerosSeleccionados([semillero.id]); // Solo uno permitido
     } else {
       setSemillerosSeleccionados((prev) => {
         if (checked) {
           return [...prev, semillero.id]; // Add to selected
         } else {
-          return prev.filter((id) => id !== semillero.id); // Deselect if already selected
+          return prev.filter(id => id !== semillero.id); // Deselect if already selected
         }
       });
     }
   };
 
   const getSemilleroNombre = (id) => {
-    const semillero = semilleros.find((semillero) => semillero.id === id);
+    const semillero = semilleros.find(semillero => semillero.id === id);
     return semillero ? semillero.nombre_semillero : "";
   };
 
@@ -164,21 +156,14 @@ function Crear_Usuario_Admin() {
                   onChange={handleRolChange}
                   className="form-add-user-container__col1__input"
                 >
-                  <option value="instructor_investigador">
-                    Instructor Investigador
-                  </option>
-                  <option value="aprendiz_investigador">
-                    Aprendiz Investigador
-                  </option>
+                  <option value="instructor_investigador">Instructor Investigador</option>
+                  <option value="aprendiz_investigador">Aprendiz Investigador</option>
                   <option value="lider_semillero">Lider Semillero</option>
                   <option value="cordinador">Coordinador</option>
                 </select>
               </div>
               <form className="form-add-user-container" onSubmit={handleSubmit}>
-                <label
-                  htmlFor="documento"
-                  className="form-add-user-container__col1__label"
-                >
+                <label htmlFor="documento" className="form-add-user-container__col1__label">
                   Número de Documento <p className="rojo-required">*</p>
                 </label>
                 <input
@@ -189,10 +174,7 @@ function Crear_Usuario_Admin() {
                   onChange={handleChange}
                 />
 
-                <label
-                  htmlFor="name"
-                  className="form-add-user-container__col1__label"
-                >
+                <label htmlFor="name" className="form-add-user-container__col1__label">
                   Nombres <p className="rojo-required">*</p>
                 </label>
                 <input
@@ -202,10 +184,7 @@ function Crear_Usuario_Admin() {
                   className="form-add-user-container__col1__input"
                   onChange={handleChange}
                 />
-                <label
-                  htmlFor="last_names"
-                  className="form-add-user-container__col1__label"
-                >
+                <label htmlFor="last_names" className="form-add-user-container__col1__label">
                   Apellidos <p className="rojo-required">*</p>
                 </label>
                 <input
@@ -215,10 +194,7 @@ function Crear_Usuario_Admin() {
                   className="form-add-user-container__col1__input"
                   onChange={handleChange}
                 />
-                <label
-                  htmlFor="telefono"
-                  className="form-add-user-container__col1__label"
-                >
+                <label htmlFor="telefono" className="form-add-user-container__col1__label">
                   Teléfono <p className="rojo-required">*</p>
                 </label>
                 <input
@@ -228,10 +204,7 @@ function Crear_Usuario_Admin() {
                   className="form-add-user-container__col1__input"
                   onChange={handleChange}
                 />
-                <label
-                  htmlFor="email"
-                  className="form-add-user-container__col1__label"
-                >
+                <label htmlFor="email" className="form-add-user-container__col1__label">
                   Email <p className="rojo-required">*</p>
                 </label>
                 <input
@@ -241,10 +214,7 @@ function Crear_Usuario_Admin() {
                   className="form-add-user-container__col1__input"
                   onChange={handleChange}
                 />
-                <label
-                  htmlFor="semillero"
-                  className="form-add-user-container__col1__label"
-                >
+                <label htmlFor="semillero" className="form-add-user-container__col1__label">
                   Semillero <p className="rojo-required">*</p>
                 </label>
                 <input
@@ -253,11 +223,7 @@ function Crear_Usuario_Admin() {
                   name="semillero"
                   className="form-add-user-container__col1__input cursor-pointer"
                   placeholder="Presiona para seleccionar un semillero"
-                  value={
-                    semillerosSeleccionados
-                      .map(getSemilleroNombre)
-                      .join(", ") || ""
-                  }
+                  value={semillerosSeleccionados.map(getSemilleroNombre).join(", ") || ""}
                   onClick={openModalSemilleros}
                   readOnly
                 />
@@ -276,9 +242,7 @@ function Crear_Usuario_Admin() {
                   overlayClassName="overlay-Modal-programFormacion"
                 >
                   <div className="modal-program-content">
-                    <h2 className="text-2xl font-bold">
-                      Seleccione un semillero
-                    </h2>
+                    <h2 className="text-2xl font-bold">Seleccione un semillero</h2>
                     {semilleros.length > 0 ? (
                       <ul>
                         {semilleros.map((semillero) => (
@@ -286,12 +250,8 @@ function Crear_Usuario_Admin() {
                             <label>
                               <input
                                 type="checkbox"
-                                checked={semillerosSeleccionados.includes(
-                                  semillero.id
-                                )}
-                                onChange={(e) =>
-                                  seleccionarSemillero(e, semillero)
-                                }
+                                checked={semillerosSeleccionados.includes(semillero.id)}
+                                onChange={(e) => seleccionarSemillero(e, semillero)}
                               />
                               {semillero.id} - {semillero.nombre_semillero}
                             </label>
@@ -304,20 +264,13 @@ function Crear_Usuario_Admin() {
                     <button onClick={closeModalSemilleros}>Cerrar</button>
                   </div>
                 </Modal>
-                <label
-                  hidden
-                  htmlFor="rol"
-                  className="form-add-user-container__col1__label"
-                >
+                <label hidden htmlFor="rol" className="form-add-user-container__col1__label">
                   Rol de Usuario <p className="rojo-required">*</p>
                 </label>
                 <input type="hidden" id="rol" name="rol" value={rolUsuario} />
                 {mostrarCamposAprendiz && (
                   <Fragment>
-                    <label
-                      htmlFor="programa_formacion"
-                      className="form-add-user-container__col1__label"
-                    >
+                    <label htmlFor="programa_formacion" className="form-add-user-container__col1__label">
                       Programa de Formación <p className="rojo-required">*</p>
                     </label>
                     <input
@@ -338,10 +291,7 @@ function Crear_Usuario_Admin() {
                       onChange={handleChange}
                     />
 
-                    <label
-                      htmlFor="ficha"
-                      className="form-add-user-container__col1__label"
-                    >
+                    <label htmlFor="ficha" className="form-add-user-container__col1__label">
                       Número de Ficha <p className="rojo-required">*</p>
                     </label>
                     <input
@@ -354,12 +304,8 @@ function Crear_Usuario_Admin() {
                       readOnly
                     />
 
-                    <label
-                      htmlFor="inicio_lectiva"
-                      className="form-add-user-container__col1__label"
-                    >
-                      Inicio Lectiva De La Ficha{" "}
-                      <p className="rojo-required">*</p>
+                    <label htmlFor="inicio_lectiva" className="form-add-user-container__col1__label">
+                      Inicio Lectiva De La Ficha <p className="rojo-required">*</p>
                     </label>
                     <input
                       type="date"
@@ -371,10 +317,7 @@ function Crear_Usuario_Admin() {
                       readOnly
                     />
 
-                    <label
-                      htmlFor="finalizacion_lectiva"
-                      className="form-add-user-container__col1__label"
-                    >
+                    <label htmlFor="finalizacion_lectiva" className="form-add-user-container__col1__label">
                       Fin Lectiva De La Ficha <p className="rojo-required">*</p>
                     </label>
                     <input
@@ -394,18 +337,13 @@ function Crear_Usuario_Admin() {
                       overlayClassName="overlay-Modal-programFormacion"
                     >
                       <div className="modal-program-content">
-                        <h2 className="text-2xl font-bold">
-                          Seleccione un programa de formación
-                        </h2>
+                        <h2 className="text-2xl font-bold">Seleccione un programa de formación</h2>
                         {programasFormacion.length > 0 ? (
                           <ul>
                             {programasFormacion.map((programa) => (
                               <li key={programa.id}>
-                                <button
-                                  onClick={() => seleccionarPrograma(programa)}
-                                >
-                                  {programa.ficha} -{" "}
-                                  {programa.nombre_programa_formacion}
+                                <button onClick={() => seleccionarPrograma(programa)}>
+                                  {programa.ficha} - {programa.nombre_programa_formacion}
                                 </button>
                               </li>
                             ))}
@@ -419,7 +357,7 @@ function Crear_Usuario_Admin() {
                 )}
                 <div className="user-add-btns">
                   <button type="submit" className="btn-crear-usuario">
-                    {loading ? <span className="spinner"></span> : "Crear"}
+                    Crear
                   </button>
 
                   <Link to={"../usuarios-getAll"}>
