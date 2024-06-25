@@ -70,74 +70,74 @@ function Crear_Programa_Formacion_ins_invg() {
 
               <form className="form-add-program-container-instructor" onSubmit={handleSubmit}>
 
-                <label className="form-add-program-container__col1__label-instructor">
+                <label className="form-add-program-container-label-instructor">
                   Número de Ficha<p className="rojo-required">*</p>
                 </label>
                 <input
                   type="number"
-                  className="form-add-program-container__col1__input-instructor"
+                  className="form-add-program-container-input-instructor"
                   name="ficha"
                   onChange={handleChange}
                 />
 
                 <label
                   htmlFor="nombre"
-                  className="form-add-program-container__col1__label-instructor"
+                  className="form-add-program-container-label-instructor"
                 >
                   Nombre del Programa de Formación<p className="rojo-required">*</p>
                 </label>
                 <input
                   type="text"
                   id="nombre"
-                  className="form-add-program-container__col1__input-instructor"
+                  className="form-add-program-container-input-instructor"
                   name="nombre_programa_formacion"
                   onChange={handleChange}
                 />
 
                 <label
                   htmlFor="version"
-                  className="form-add-program-container__col1__label-instructor"
+                  className="form-add-program-container-label-instructor"
                 >
                   Versión del Programa de Formación<p className="rojo-required">*</p>
                 </label>
                 <input
                   type="text"
                   id="version"
-                  className="form-add-program-container__col1__input-instructor"
+                  className="form-add-program-container-input-instructor"
                   name="version_programa_formacion"
                   onChange={handleChange}
                 />
 
                 <label
                   htmlFor="codigo"
-                  className="form-add-program-container__col1__label-instructor"
+                  className="form-add-program-container-label-instructor"
                 >
                   Código del Programa de Formación<p className="rojo-required">*</p>
                 </label>
                 <input
                   type="text"
                   id="codigo"
-                  className="form-add-program-container__col1__input-instructor"
+                  className="form-add-program-container-input-instructor"
                   name="codigo_programa_formacion"
                   onChange={handleChange}
                 />
 
-                <label className="form-add-program-container__col1__label-instructor">
+                <label className="form-add-program-container-label-instructor">
                   Fecha de Inicio Lectiva<p className="rojo-required">*</p>
                 </label>
                 <input
                   type="date"
-                  className="form-add-program-container__col1__input-instructor"
+                  className="form-add-program-container-input-instructor"
                   name="inicio_lectiva"
                   onChange={handleChange}
                 />
 
-                <label className="form-add-program-container__col1__label-instructor">
+                <label className="form-add-program-container-label-instructor">
                   Fecha Fin Lectiva<p className="rojo-required">*</p>
                 </label>
                 <input
                   type="date"
-                  className="form-add-program-container__col1__input-instructor"
+                  className="form-add-program-container-input-instructor"
                   name="fin_lectiva"
                   onChange={handleChange}
                 />
@@ -148,7 +148,7 @@ function Crear_Programa_Formacion_ins_invg() {
                   </button>
 
                   <Link to={"../visualizar-programa-formacion"}>
-                    <button type="button" className="btn-cancelar-evento">
+                    <button type="button" className="btn-cancelar-program">
                       Cancelar
                     </button>
                   </Link>

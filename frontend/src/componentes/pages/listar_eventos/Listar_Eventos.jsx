@@ -202,10 +202,8 @@ function Listar_Eventos() {
                 ))
               ) : (
                 <tr>
-                  <td colSpan={8}>
-                    <p className="text-center mt-20 font-bold">
-                      No se han encontrado eventos
-                    </p>
+                  <td colSpan={10}>
+                    <p className="text-center mt-20 font-bold">No se han encontrado eventos</p>
                   </td>
                 </tr>
               )}

@@ -18,29 +18,42 @@ import clienteAxios from "../../../config/axios";
 function ListarUsuarios() {
   const { userProfile } = useAuth();
 
-    const SemilleroID = userProfile ? userProfile.semillero : null;
-  
-    const [usuarios, setUsuarios] = useState([]);
-  
-    useEffect(() => {
-      // Definición de una función asincrónica para obtener los usuarios del semillero
-      const ObtenerusuariosSemillero = async () => {
-        try {
-            // Realiza una solicitud GET a la API para obtener los usuarios del semillero
-            const res = await clienteAxios.get(`/usuarios/`);
-            // Actualiza el estado de los usuarios con los datos obtenidos de la solicitud
-            setUsuarios(res.data);
-          
-        } catch (error) {
-          // Manejo de errores: si ocurre algún error en la solicitud, se muestra en la consola
-          console.error('Error al obtener los usuarios del Semillero:', error);
-        }
+  const SemilleroID = userProfile ? userProfile.semillero : null;
+
+  const [usuarios, setUsuarios] = useState([]);
+  const [filtrarUsuarios, setFiltrarUsuarios] = useState([]);
+
+  useEffect(() => {
+    // Definición de una función asincrónica para obtener los usuarios del semillero
+    const ObtenerusuariosSemillero = async () => {
+      try {
+        // Realiza una solicitud GET a la API para obtener los usuarios del semillero
+        const res = await clienteAxios.get(`/usuarios/`);
+        // Actualiza el estado de los usuarios con los datos obtenidos de la solicitud
+        const usuarios = res.data
+        setUsuarios(usuarios);
+        setFiltrarUsuarios(usuarios)
+
+      } catch (error) {
+        // Manejo de errores: si ocurre algún error en la solicitud, se muestra en la consola
+        console.error('Error al obtener los usuarios del Semillero:', error);
       }
-    
-      // Llama a la función ObtenerusuariosSemillero una vez que el componente se monta o cuando SemilleroID cambia
-      ObtenerusuariosSemillero();
-    }, []); // Dependencia que indica cuándo debe ejecutarse el efecto nuevamente
-  
+    }
+
+    // Llama a la función ObtenerusuariosSemillero una vez que el componente se monta o cuando SemilleroID cambia
+    ObtenerusuariosSemillero();
+  }, []); // Dependencia que indica cuándo debe ejecutarse el efecto nuevamente
+
+  const handleFilter = (query) => {
+    const filtered = usuarios.filter(
+      (usuarios) =>
+        usuarios.name.toLowerCase().includes(query.toLowerCase()) ||
+        usuarios.documento.toLowerCase().includes(query.toLowerCase()) ||
+        usuarios.rol.toLowerCase().includes(query.toLowerCase())
+    );
+    setFiltrarUsuarios(filtered);
+  };
+
 
   const exportToExcel = () => {
     const wb = XLSX.utils.book_new();
@@ -81,7 +94,12 @@ function ListarUsuarios() {
                 clase={"btn-blanco btn-blanco--modify btn-verde"}
                 onClick={exportToExcel}
               />
-              <Search text={"Buscar usuarios"} />
+              <Search
+                text={"Buscar usuarios"}
+                onFilter={handleFilter}
+                data={usuarios}
+              />
+
               <BotonVerdeAñadir
                 icon={<IoPersonAddSharp />}
                 text={"Crear Usuario"}
@@ -103,30 +121,38 @@ function ListarUsuarios() {
                 </tr>
               </thead>
               <tbody>
-                {usuarios.map((usuarios, index) => (
-                  <tr key={index} className="user-table__row">
-                    <td className="user-table__cell">{usuarios.name}</td>
-                    <td className="user-table__cell">{usuarios.last_names}</td>
-                    <td className="user-table__cell">{usuarios.documento}</td>
-                    <td className="user-table__cell">{usuarios.rol}</td>
-                    <td className="user-table__cell">
-                      <div className="user-table__cell__buttons">
-                        <Link
-                          to={'../usuario'}
-                        >
-                          <LiaEyeSolid className="user-table__cell__btn" />
-                        </Link>
+                {filtrarUsuarios.length > 0 ? (
+                  filtrarUsuarios.map((usuarios, index) => (
+                    <tr key={index} className="user-table__row">
+                      <td className="user-table__cell">{usuarios.name}</td>
+                      <td className="user-table__cell">{usuarios.last_names}</td>
+                      <td className="user-table__cell">{usuarios.documento}</td>
+                      <td className="user-table__cell">{usuarios.rol}</td>
+                      <td className="user-table__cell">
+                        <div className="user-table__cell__buttons">
+                          <Link
+                            to={'../usuario'}
+                          >
+                            <LiaEyeSolid className="user-table__cell__btn" />
+                          </Link>
 
-                        <Link to={"/lider_semillero/users-update"}>
-                          <FaRegEdit className="user-table__cell__btn" />
-                        </Link>
-                        <Link>
-                          <IoTrashOutline className="user-table__cell__btn" />
-                        </Link>
-                      </div>
+                          <Link to={"/lider_semillero/users-update"}>
+                            <FaRegEdit className="user-table__cell__btn" />
+                          </Link>
+                          <Link>
+                            <IoTrashOutline className="user-table__cell__btn" />
+                          </Link>
+                        </div>
+                      </td>
+                    </tr>
+                  ))
+                ) : (
+                  <tr>
+                    <td colSpan={10}>
+                      <p className="text-center mt-20 font-bold">No se han encontrado usuarios</p>
                     </td>
                   </tr>
-                ))}
+                )}
               </tbody>
             </table>
           }

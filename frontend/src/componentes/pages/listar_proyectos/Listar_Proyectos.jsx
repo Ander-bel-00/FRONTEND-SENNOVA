@@ -95,8 +95,8 @@ function Listar_Proyectos() {
   };
 
   const handleFilter = (query) => {
-    const filtered = proyectosSemillero.filter((project) => 
-      project.nombre_proyecto.toLowerCase().includes(query.toLowerCase()) || 
+    const filtered = proyectosSemillero.filter((project) =>
+      project.nombre_proyecto.toLowerCase().includes(query.toLowerCase()) ||
       project.descripcion_proyecto.toLowerCase().includes(query.toLowerCase())
     );
     setFilteredProyectos(filtered);
@@ -108,10 +108,31 @@ function Listar_Proyectos() {
         <Header_ToolBar
           Header_Tools={
             <Fragment>
-              <BotonBlanco icon={<FaFileArrowUp />} text={"Reporte"} clase={"btn-blanco btn-blanco--modify btn-verde"} onClick={exportToExcel} />
-              <Search text={"Buscar proyecto"} onFilter={handleFilter} data={proyectosSemillero} />
-              <BotonBlanco icon={<LuCalendarDays />} text={"Ir al Cronograma"} link={"../cronograma-proyectos"} clase={"btn-blanco btn-blanco--modify btn-azul"} />
-              <BotonVerdeAñadir icon={<AiOutlinePlus />} text={"Crear Proyecto"} link={"../crear-proyecto"} />
+              <BotonBlanco 
+                icon={<FaFileArrowUp />} 
+                text={"Reporte"} 
+                clase={"btn-blanco btn-blanco--modify btn-verde"} 
+                onClick={exportToExcel} 
+              />
+
+              <BotonBlanco 
+                icon={<LuCalendarDays />} 
+                text={"Ir al Cronograma"} 
+                link={"../cronograma-proyectos"} 
+                clase={"btn-blanco btn-blanco--modify btn-azul"} 
+              />
+
+              <Search 
+                text={"Buscar proyecto"} 
+                onFilter={handleFilter} 
+                data={proyectosSemillero} 
+              />
+
+              <BotonVerdeAñadir 
+                icon={<AiOutlinePlus />} 
+                text={"Crear Proyecto"} 
+                link={"../crear-proyecto"} 
+              />
             </Fragment>
           }
         />
@@ -129,26 +150,34 @@ function Listar_Proyectos() {
                 </tr>
               </thead>
               <tbody>
-                {filteredProyectos.map((list) => (
-                  <tr key={list.id} className="list-project-admin-table__tr">
-                    <td className="list-project-admin-table__td">{list.codigo}</td>
-                    <td className="list-project-admin-table__td">{list.nombre_proyecto}</td>
-                    <td className="list-project-admin-table__td">{list.fecha_inicio}</td>
-                    <td className="list-project-admin-table__td">{list.fecha_fin}</td>
-                    <td className="list-project-admin-table__td">{list.descripcion_proyecto}</td>
-                    <td className="list-project-admin-table__td">
-                      <div className="list-project-admin-table__td__btns">
-                        <Link to={`../visualizar-proyecto/${list.id}`}>
-                          <LiaEyeSolid className="list-project-admin-table__td__btn" />
-                        </Link>
-                        <Link to={`../actualizar-proyecto/${list.id}`}>
-                          <FaRegEdit className="list-project-admin-table__td__btn" />
-                        </Link>
-                        <IoTrashOutline className="list-project-admin-table__td__btn cursor-pointer" onClick={() => suspenderProyecto(list.id)} />
-                      </div>
+                {filteredProyectos.length > 0 ? (
+                  filteredProyectos.map((list) => (
+                    <tr key={list.id} className="list-project-admin-table__tr">
+                      <td className="list-project-admin-table__td">{list.codigo}</td>
+                      <td className="list-project-admin-table__td">{list.nombre_proyecto}</td>
+                      <td className="list-project-admin-table__td">{list.fecha_inicio}</td>
+                      <td className="list-project-admin-table__td">{list.fecha_fin}</td>
+                      <td className="list-project-admin-table__td">{list.descripcion_proyecto}</td>
+                      <td className="list-project-admin-table__td">
+                        <div className="list-project-admin-table__td__btns">
+                          <Link to={`../visualizar-proyecto/${list.id}`}>
+                            <LiaEyeSolid className="list-project-admin-table__td__btn" />
+                          </Link>
+                          <Link to={`../actualizar-proyecto/${list.id}`}>
+                            <FaRegEdit className="list-project-admin-table__td__btn" />
+                          </Link>
+                          <IoTrashOutline className="list-project-admin-table__td__btn cursor-pointer" onClick={() => suspenderProyecto(list.id)} />
+                        </div>
+                      </td>
+                    </tr>
+                  ))
+                ) : (
+                  <tr>
+                    <td colSpan={6}>
+                      <p className="text-center mt-20 font-bold">No se han encontrado proyectos</p>
                     </td>
                   </tr>
-                ))}
+                )}
               </tbody>
             </table>
           }

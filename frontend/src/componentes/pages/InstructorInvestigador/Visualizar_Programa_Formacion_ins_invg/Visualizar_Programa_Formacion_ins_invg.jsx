@@ -11,12 +11,16 @@ import Search from "../../../common/Search";
 
 function Visualizar_Programa_Formacion_ins_invg() {
   const [visualizarPrograma, setVisualizarPrograma] = useState([]);
+  const [filtrarPrograma, setFiltrarPrograma] = useState([]);
 
   useEffect(() => {
     const getProgramasDeFormacion = async () => {
       try {
         const res = await clienteAxios.get('/programaformacion/');
-        setVisualizarPrograma(res.data);
+        const programa = res.data 
+        setVisualizarPrograma(programa);
+        setFiltrarPrograma(programa)
+
       } catch (error) {
         console.log('Error al obtener todos los programas de formación', error);
       }
@@ -24,6 +28,15 @@ function Visualizar_Programa_Formacion_ins_invg() {
 
     getProgramasDeFormacion();
   }, []);
+  
+  const handleFilter = (query) => {
+    const filtered = visualizarPrograma.filter(
+      (programa) =>
+        programa.nombre_programa_formacion.toLowerCase().includes(query.toLowerCase()) ||
+        programa.version_programa_formacion.toLowerCase().includes(query.toLowerCase()) 
+    );
+    setFiltrarPrograma(filtered);
+  };
 
   return (
     <div className="main-container__contenedor-hijo">
@@ -38,8 +51,8 @@ function Visualizar_Programa_Formacion_ins_invg() {
           
           <Search 
               text={"Buscar Programa"}
-              // onFilter={handleFilter}
-              // data={listarEventos} 
+              onFilter={handleFilter}
+              data={visualizarPrograma} 
           />
 
           <BotonVerdeAñadir 
@@ -66,16 +79,24 @@ function Visualizar_Programa_Formacion_ins_invg() {
             </thead>
 
             <tbody>
-              {visualizarPrograma.map((visualizar) => (
-              <tr className="list-visualize-table-instructor__tr"key={visualizar.id}>
-                <td className= "list-visualize-table-instructor__td" > {visualizar.codigo_programa_formacion} </td>
-                <td className= "list-visualize-table-instructor__td" > {visualizar.nombre_programa_formacion} </td>
-                <td className= "list-visualize-table-instructor__td" > {visualizar.version_programa_formacion } </td>
-                <td className= "list-visualize-table-instructor__td" > {visualizar.ficha} </td>
-                <td className= "list-visualize-table-instructor__td" > {visualizar.inicio_lectiva} </td>
-                <td className= "list-visualize-table-instructor__td" > {visualizar.fin_lectiva} </td>
-              </tr>
-              ))}
+              {filtrarPrograma.length > 0 ? (
+                filtrarPrograma.map((visualizar) => (
+                  <tr className="list-visualize-table-instructor__tr" key={visualizar.id}>
+                    <td className="list-visualize-table-instructor__td"> {visualizar.codigo_programa_formacion} </td>
+                    <td className="list-visualize-table-instructor__td"> {visualizar.nombre_programa_formacion} </td>
+                    <td className="list-visualize-table-instructor__td"> {visualizar.version_programa_formacion} </td>
+                    <td className="list-visualize-table-instructor__td"> {visualizar.ficha} </td>
+                    <td className="list-visualize-table-instructor__td"> {visualizar.inicio_lectiva} </td>
+                    <td className="list-visualize-table-instructor__td"> {visualizar.fin_lectiva} </td>
+                  </tr>
+                ))
+              ) : (
+                <tr>
+                  <td colSpan={6}>
+                    <p className="text-center mt-20 font-bold">No se han encontrado programas de formación</p>
+                  </td>
+                </tr>
+              )}
             </tbody>
           </table>
         }

@@ -56,7 +56,7 @@ function Listar_Actividad_Instructor_Investigador() {
     );
     setfiltrarActividades(filtered);
   };
-  
+
 
 
 
@@ -98,8 +98,8 @@ function Listar_Actividad_Instructor_Investigador() {
                 clase={"btn-blanco btn-blanco--modify btn-azul"}
               />
 
-              <Search 
-                text={"Buscar Actividades"} 
+              <Search
+                text={"Buscar Actividades"}
                 onFilter={handleFilter}
                 data={listarActividades}
               />
@@ -141,41 +141,34 @@ function Listar_Actividad_Instructor_Investigador() {
                 </tr>
               </thead>
               <tbody>
-                {filtrarActividades.map((actividades) => (
-                  <tr
-                    key={actividades.id}
-                    className="list-activity-instructor-content-table-tr"
-                  >
-                    <td className="list-activity-instructor-content-table-td">
-                      {actividades.nombre_actividad}
-                    </td>
-                    <td className="list-activity-instructor-content-table-td">
-                      {actividades.tarea}
-                    </td>
-                    <td className="list-activity-instructor-content-table-td">
-                      {actividades.fecha_inicio}
-                    </td>
-                    <td className="list-activity-instructor-content-table-td">
-                      {actividades.fecha_fin}
-                    </td>
-                    <td className="list-activity-instructor-content-table-td">
-                      {actividades.resultado}
-                    </td>
-                    <td className="list-activity-instructor-content-table-td">
-                      {actividades.responsable_actividad}
-                    </td>
-                    
-                    <td className="list-activity-instructor-content-table__td">
-                      <div className="list-activity-instructor-content-table__td__btns">
-                        <Link
-                          to={`../visualizar-actividad/`}
-                        >
-                          <LiaEyeSolid className="list-activity-instructor-content-table__td__btn" />
-                        </Link>
-                      </div>
+                {filtrarActividades > 0 ? (
+                  filtrarActividades.map((actividades) => (
+                    <tr key={actividades.id} className="list-activity-instructor-content-table-tr">
+                      <td className="list-activity-instructor-content-table-td">{actividades.nombre_actividad}</td>
+                      <td className="list-activity-instructor-content-table-td">{actividades.tarea}</td>
+                      <td className="list-activity-instructor-content-table-td">{actividades.fecha_inicio}</td>
+                      <td className="list-activity-instructor-content-table-td">{actividades.fecha_fin}</td>
+                      <td className="list-activity-instructor-content-table-td">{actividades.resultado}</td>
+                      <td className="list-activity-instructor-content-table-td">{actividades.responsable_actividad}</td>
+                      <td className="list-activity-instructor-content-table__td">
+
+                        <div className="list-activity-instructor-content-table__td__btns">
+                          <Link
+                            to={`../visualizar-actividad/`}
+                          >
+                            <LiaEyeSolid className="list-activity-instructor-content-table__td__btn" />
+                          </Link>
+                        </div>
+                      </td>
+                    </tr>
+                  ))
+                ) : (
+                  <tr>
+                    <td colSpan={10}>
+                      <p className="text-center mt-20 font-bold">No se han encontrado actividades</p>
                     </td>
                   </tr>
-                ))}
+                )}
               </tbody>
             </table>
           }

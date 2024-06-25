@@ -138,7 +138,7 @@ function Listar_Proyectos_Instructor_Investigador() {
                 link={"/instructor-investigador/cronograma"}
                 clase={"btn-blanco btn-blanco--modify btn-azul"}
               />
-              
+
               <Search
                 text={"Buscar proyecto"}
                 onFilter={handleFilter}
@@ -174,32 +174,30 @@ function Listar_Proyectos_Instructor_Investigador() {
                 </tr>
               </thead>
               <tbody>
-                {filteredProyectos.map((list, index) => (
-                  <tr key={index} className="list-project-admin-table__tr">
-                    <td className="list-project-admin-table__td">
-                      {list.codigo}
-                    </td>
-                    <td className="list-project-admin-table__td">
-                      {list.nombre_proyecto}
-                    </td>
-                    <td className="list-project-admin-table__td">
-                      {list.fecha_inicio}
-                    </td>
-                    <td className="list-project-admin-table__td">
-                      {list.fecha_fin}
-                    </td>
-                    <td className="list-project-admin-table__td">
-                      {list.descripcion_proyecto}
-                    </td>
-                    <td className="list-project-admin-table__td">
-                      <div className="list-project-admin-table__td__btns">
-                        <Link to={`../visualizar-proyecto/${list.id}`}>
-                          <LiaEyeSolid className="list-project-admin-table__td__btn" />
-                        </Link>
-                      </div>
+                {filteredProyectos.length > 0 ? (
+                  filteredProyectos.map((list, index) => (
+                    <tr key={index} className="list-project-admin-table__tr">
+                      <td className="list-project-admin-table__td">{list.codigo}</td>
+                      <td className="list-project-admin-table__td">{list.nombre_proyecto}</td>
+                      <td className="list-project-admin-table__td">{list.fecha_inicio}</td>
+                      <td className="list-project-admin-table__td">{list.fecha_fin}</td>
+                      <td className="list-project-admin-table__td">{list.descripcion_proyecto}</td>
+                      <td className="list-project-admin-table__td">
+                        <div className="list-project-admin-table__td__btns">
+                          <Link to={`../visualizar-proyecto/${list.id}`}>
+                            <LiaEyeSolid className="list-project-admin-table__td__btn" />
+                          </Link>
+                        </div>
+                      </td>
+                    </tr>
+                  ))
+                ) : (
+                  <tr>
+                    <td colSpan={6}>
+                      <p className="text-center mt-20 font-bold">No se han encontrado proyectos</p>
                     </td>
                   </tr>
-                ))}
+                )}
               </tbody>
             </table>
           }

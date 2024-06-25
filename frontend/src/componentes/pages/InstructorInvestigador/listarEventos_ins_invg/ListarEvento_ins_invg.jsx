@@ -33,7 +33,7 @@ function ListarEvento_ins_invg() {
         // Obtener información de los semilleros
         const semilleroPromises = events.map(async (event) => {
           const semilleroRes = await clienteAxios.get(
-            `/semilleros/${event.semillero}/` 
+            `/semilleros/${event.semillero}/`
           );
           return {
             semilleroId: event.semillero,
@@ -54,7 +54,7 @@ function ListarEvento_ins_invg() {
       }
     };
     getEventoSemillero(); // función que indica iniciar todo, es decir obtener las actividades
-  }, []); 
+  }, []);
 
   const suspenderLosEventos = async (eventosId) => {
     try {
@@ -103,27 +103,27 @@ function ListarEvento_ins_invg() {
       <Header_ToolBar
         Header_Tools={
           <Fragment>
-            <BotonBlanco 
-              icon={<FaFileArrowUp />} 
-              text={"Reporte"} 
-              clase={'btn-blanco btn-blanco--modify btn-verde'} 
+            <BotonBlanco
+              icon={<FaFileArrowUp />}
+              text={"Reporte"}
+              clase={'btn-blanco btn-blanco--modify btn-verde'}
             />
-            
-            <BotonBlanco 
-              icon={<LuCalendarDays />} 
-              text={"Ir al Cronograma"} 
-              clase={'btn-blanco btn-blanco--modify btn-azul'} 
+
+            <BotonBlanco
+              icon={<LuCalendarDays />}
+              text={"Ir al Cronograma"}
+              clase={'btn-blanco btn-blanco--modify btn-azul'}
             />
-            
-            <Search 
+
+            <Search
               text={"Buscar Eventos"}
               onFilter={handleFilter}
-              data={listarEventos} 
+              data={listarEventos}
             />
-            
-            <BotonVerdeAñadir 
-              icon={<IoAdd />} 
-              text={"Crear evento"} 
+
+            <BotonVerdeAñadir
+              icon={<IoAdd />}
+              text={"Crear evento"}
               link={"../crear-eventos"}
             />
 
@@ -149,34 +149,42 @@ function ListarEvento_ins_invg() {
               </tr>
             </thead>
             <tbody>
-              {filtrarEventos.map((evento) => (
-                <tr className="list-events-table-instructor__tr" key={evento.id}>
-                  <td className="list-events-table-instructor__td">{evento.nombre_evento}</td>
-                  <td className="list-events-table-instructor__td">{evento.tipo_de_evento}</td>
-                  <td className="list-events-table-instructor__td">{evento.fecha_inicio}</td>
-                  <td className="list-events-table-instructor__td">{evento.fecha_fin}</td>
-                  <td className="list-events-table-instructor__td">{evento.cantidad_parcticipantes}</td>
-                  <td className="list-events-table-instructor__td">{evento.nombre_ponente}</td>
-                  <td className="list-events-table-instructor__td">{evento.lugar_evento}</td>
-                  <td className="list-events-table-instructor__td">{informacionSemillero[evento.semillero]}</td>
-                  <td className="list-events-table-instructor__td">{evento.evidencia}</td>
-                  <td className="list-events-table-instructor__td">
-                  
-                    <div className="list-events-table-instructor__td__btns">
-                    <Link to={`../visualizar-evento/`}> {/* falta el id del evento */}
-                        <LiaEye className="list-events-table-instructor__td__btn" />
-                      </Link>
-                      <Link to={`../actualizar-eventos/`}> {/* falta el id del evento */}
-                        <FaRegEdit className="list-events-table-instructor__td__btn" />
-                      </Link>
-                      <Link>
-                        <IoTrashOutline className="list-events-table-instructor__td__btn" onClick={() => suspenderLosEventos(evento.id)}/>
-                      </Link>
-                    </div>
+              {filtrarEventos.length > 0 ? (
+                filtrarEventos.map((evento) => (
+                  <tr className="list-events-table-instructor__tr" key={evento.id}>
+                    <td className="list-events-table-instructor__td">{evento.nombre_evento}</td>
+                    <td className="list-events-table-instructor__td">{evento.tipo_de_evento}</td>
+                    <td className="list-events-table-instructor__td">{evento.fecha_inicio}</td>
+                    <td className="list-events-table-instructor__td">{evento.fecha_fin}</td>
+                    <td className="list-events-table-instructor__td">{evento.cantidad_parcticipantes}</td>
+                    <td className="list-events-table-instructor__td">{evento.nombre_ponente}</td>
+                    <td className="list-events-table-instructor__td">{evento.lugar_evento}</td>
+                    <td className="list-events-table-instructor__td">{informacionSemillero[evento.semillero]}</td>
+                    <td className="list-events-table-instructor__td">{evento.evidencia}</td>
+                    <td className="list-events-table-instructor__td">
 
+                      <div className="list-events-table-instructor__td__btns">
+                        <Link to={`../visualizar-evento/`}> {/* falta el id del evento */}
+                          <LiaEye className="list-events-table-instructor__td__btn" />
+                        </Link>
+                        <Link to={`../actualizar-eventos/`}> {/* falta el id del evento */}
+                          <FaRegEdit className="list-events-table-instructor__td__btn" />
+                        </Link>
+                        <Link>
+                          <IoTrashOutline className="list-events-table-instructor__td__btn" onClick={() => suspenderLosEventos(evento.id)} />
+                        </Link>
+                      </div>
+
+                    </td>
+                  </tr>
+                ))
+              ) : (
+                <tr>
+                  <td colSpan={10}>
+                    <p className="text-center mt-20 font-bold">No se han encontrado eventos</p>
                   </td>
                 </tr>
-              ))}
+              )}
             </tbody>
           </table>
         }
