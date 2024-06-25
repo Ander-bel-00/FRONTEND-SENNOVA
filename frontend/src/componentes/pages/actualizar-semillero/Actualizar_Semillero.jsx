@@ -23,7 +23,7 @@ function Actualizar_Semillero() {
     lineas_investigacion_declaradas: "",
     sectores_apicacion: "",
     estado_semillero: "",
-  })
+  });
 
   // Función para realizar una solicitud a la api y traer los datos del semillero por su id.
   const  consultarApi = async () => {
@@ -57,12 +57,12 @@ function Actualizar_Semillero() {
 
       Swal.fire({
         icon: "success",
-        title: "El semilero ha sido actualizad0",
+        title: "El semilero ha sido actualizado",
         text: "La información del semillero ha sido actualizado correctamente.",
         showCancelButton: false,
         confirmButtonText: "Aceptar",
       }).then((result) => {
-        return navigate("../listar-semillero");
+        return navigate("../");
       });
     } catch (error) {
       console.error("Error al actualizar los datos del semillero", error);

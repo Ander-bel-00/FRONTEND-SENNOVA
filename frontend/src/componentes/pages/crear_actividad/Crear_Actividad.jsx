@@ -6,15 +6,17 @@ import BotonReturn from "../../common/BotonReturn";
 import Caja_formularios from "../../common/Caja_formularios";
 import Swal from "sweetalert2";
 import { useAuth } from "../../../context/AuthContext";
+import clienteAxios from "../../../config/axios";
 
 function Crear_Actividad() {
   const { userProfile } = useAuth();
   const navigate = useNavigate();
 
-  const SemilleroID = userProfile ? userProfile.semillero : "";
+  // Obtener el SemilleroID del userProfile
+  const SemilleroID = userProfile ? userProfile.semillero : [];
 
   const [formNewActivitySemillero, setFormNewActivitySemillero] = useState({
-    semillero: SemilleroID,
+    semillero: SemilleroID.length > 0 ? SemilleroID[0] : null, // Asignar el primer valor del array o null si no hay valores
     nombre_actividad: "",
     tarea: "",
     fecha_inicio: "",
@@ -22,6 +24,7 @@ function Crear_Actividad() {
     resultado: "",
     responsable_actividad: "",
   });
+
 
   const handleChange = (e) => {
     // e.target se refiere al elemento html de donde vienen los valores(name. value)
@@ -83,80 +86,80 @@ function Crear_Actividad() {
               >
                 <label
                   htmlFor="nombre-actividad"
-                  className="form-create-activity-admin-content__col1__label"
+                  className="form-create-activity-content__col1__label"
                 >
-                  Nombre de la Actividad <p className="rojo-required">*</p>
+                  Nombre de la Actividad<p className="rojo-required">*</p>
                 </label>
                 <input
                   type="text"
                   id="nombre-actividad"
-                  className="form-create-activity-admin-content__col1__input"
+                  className="form-create-activity-content__col1__input"
                   name="nombre_actividad"
                   onChange={handleChange}
                 />
                 <label
                   htmlFor="fecha-entrega-actividad"
-                  className="form-create-activity-admin-content__col1__label"
+                  className="form-create-activity-content__col1__label"
                 >
                   Fecha Inicio <p className="rojo-required">*</p>
                 </label>
                 <input
                   type="date"
                   id="fecha-entrega-actividad"
-                  className="form-create-activity-admin-content__col1__input"
+                  className="form-create-activity-content__col1__input"
                   name="fecha_inicio"
                   onChange={handleChange}
                 />
                 <label
                   htmlFor="fecha-entrega-actividad"
-                  className="form-create-activity-admin-content__col1__label"
+                  className="form-create-activity-content__col1__label"
                 >
                   Fecha final <p className="rojo-required">*</p>
                 </label>
                 <input
                   type="date"
                   id="fecha-entrega-actividad"
-                  className="form-create-activity-admin-content__col1__input"
+                  className="form-create-activity-content__col1__input"
                   name="fecha_fin"
                   onChange={handleChange}
                 />
 
                 <label
                   htmlFor="tarea-actividad"
-                  className="form-create-activity-admin-content__col1__label"
+                  className="form-create-activity-content__col1__label"
                 >
                   Tarea <p className="rojo-required">*</p>
                 </label>
                 <input
                   type="text"
                   id="tarea-actividad"
-                  className="form-create-activity-admin-content__col1__input"
+                  className="form-create-activity-content__col1__input"
                   name="tarea"
                   onChange={handleChange}
                 />
                 <label
                   htmlFor="resultado-actividad"
-                  className="form-create-activity-admin-content__col1__label"
+                  className="form-create-activity-content__col1__label"
                 >
                   Resultado <p className="rojo-required">*</p>
                 </label>
                 <input
                   type="text"
                   id="resultado-actividad"
-                  className="form-create-activity-admin-content__col1__input"
+                  className="form-create-activity-content__col1__input"
                   name="resultado"
                   onChange={handleChange}
                 />
                 <label
                   htmlFor="responsable-actividad"
-                  className="form-create-activity-admin-content__col1__label"
+                  className="form-create-activity-content__col1__label"
                 >
                   Responsable de la Actividad <p className="rojo-required">*</p>
                 </label>
                 <input
                   type="text"
                   id="responsable-actividad"
-                  className="form-create-activity-admin-content__col1__input"
+                  className="form-create-activity-content__col1__input"
                   name="responsable_actividad"
                   onChange={handleChange}
                 />

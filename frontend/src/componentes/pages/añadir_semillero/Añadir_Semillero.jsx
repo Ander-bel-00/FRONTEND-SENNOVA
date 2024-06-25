@@ -92,7 +92,7 @@ function Añadir_Semillero() {
                     htmlFor="nombre-del-semillero"
                     className="form-add-semillero-content__col1__label"
                   >
-                    Nombre del semillero <p className="text-red-600">*</p>
+                    Nombre del semillero<p className="text-red-600">*</p>
                   </label>
                   <input
                     type="text"
@@ -223,7 +223,7 @@ function Añadir_Semillero() {
                   </label>
                   <select 
                    className="form-add-semillero-content__col1__input"
-                   name="estado_semilleros"
+                   name="estado_semillero"
                    onChange={handleChange}
                   >
                     <option selected>Seleccione el estado del semillero</option>

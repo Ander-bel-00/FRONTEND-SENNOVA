@@ -30,53 +30,71 @@ function Listar_Actividad() {
 
         // Obtener información de los semilleros
         const semilleroPromises = activities.map(async (activity) => {
-          const semilleroRes = await clienteAxios.get(`/semilleros/${activity.semillero}/`);
-          return { semilleroId: activity.semillero, nombre_semillero: semilleroRes.data.nombre_semillero };
+          if (!activity.semillero) {
+            console.warn(
+              `Actividad con ID ${activity.id} no tiene semillero asignado.`
+            );
+            return null;
+          }
+
+          const semilleroRes = await clienteAxios.get(
+            `/semilleros/${activity.semillero}/`
+          );
+          return {
+            semilleroId: activity.semillero,
+            nombre_semillero: semilleroRes.data.nombre_semillero,
+          };
         });
 
-        const semilleros = await Promise.all(semilleroPromises);
+        const semilleros = (await Promise.all(semilleroPromises)).filter(
+          Boolean
+        );
         const semilleroMap = semilleros.reduce((map, semillero) => {
           map[semillero.semilleroId] = semillero.nombre_semillero;
           return map;
         }, {});
 
         setSemilleroInfo(semilleroMap);
-
       } catch (error) {
         console.error("Error al obtener las actividades del Semillero:", error);
       }
     };
+
     Obteneractividadsemilleros();
   }, []);
 
-  const suspenderActividad = async (actividadId) => {
+  const suspenderActividades = async (actividadesID) => {
     try {
       const result = await Swal.fire({
-        title: "Estás seguro de suspender la Actividad?",
+        title: "Estás seguro de suspender la actividad?",
         text: "Esta acción no se puede revertir",
         icon: "warning",
         showCancelButton: true,
         confirmButtonColor: "#3085d6",
         cancelButtonColor: "#d33",
-        confirmButtonText: "Si, suspender la Actividad",
+        confirmButtonText: "Si, suspender la actividad",
       });
 
       if (result.isConfirmed) {
-        await clienteAxios.delete(`/activity-semillero/${actividadId}/`);
+        await clienteAxios.delete(`/activity-semillero/${actividadesID}/`);
         Swal.fire({
-          title: "Actividad suspendido",
-          text: "La Actividad ha sido suspendida exitosamente.",
+          title: "Actividad suspendida",
+          text: "La actividad se ha sido suspendido exitosamente.",
           icon: "success",
         });
-        setListActivitys((prev) => prev.filter((actividad) => actividad.id !== actividadId));
-        setFilteredActivitys((prev) => prev.filter((actividad) => actividad.id !== actividadId));
+        setListActivitys((prev) =>
+          prev.filter((actividad) => actividad.id !== actividadesID)
+        );
+        setFilteredActivitys((prev) =>
+          prev.filter((actividad) => actividad.id !== actividadesID)
+        );
       }
     } catch (error) {
-      console.log("Hubo un error al intentar suspender la Actividad", error);
+      console.log("Hubo un error al intentar suspender la actividad", error);
       Swal.fire({
         icon: "error",
         title: "Hubo un error",
-        text: "Ocurrió un error al intentar suspender la Actividad",
+        text: "Ocurrió un error al intentar suspender la actividad",
       });
     }
   };
@@ -86,7 +104,9 @@ function Listar_Actividad() {
       (activity) =>
         activity.nombre_actividad.toLowerCase().includes(query.toLowerCase()) ||
         activity.tarea.toLowerCase().includes(query.toLowerCase()) ||
-        activity.responsable_actividad.toLowerCase().includes(query.toLowerCase())
+        activity.responsable_actividad
+          .toLowerCase()
+          .includes(query.toLowerCase())
     );
     setFilteredActivitys(filtered);
   };
@@ -107,6 +127,7 @@ function Listar_Actividad() {
                 icon={<LuCalendarDays />}
                 text={"Ir al Cronograma"}
                 clase={"btn-blanco btn-blanco--modify btn-azul"}
+                link={"../cronograma"}
               />
 
               <Search
@@ -148,6 +169,9 @@ function Listar_Actividad() {
                     Responsable de la Actividad
                   </th>
                   <th className="list-activity-admin-content__table__tr__th">
+                    Semillero
+                  </th>
+                  <th className="list-activity-admin-content__table__tr__th">
                     Acciones
                   </th>
                 </tr>
@@ -177,21 +201,22 @@ function Listar_Actividad() {
                       <td className="list-activity-admin-content-table-td">
                         {actividad.responsable_actividad}
                       </td>
-                      
+                      <td className="list-activity-admin-content-table-td">
+                        {semilleroInfo[actividad.semillero] || "No asignado"}
+                      </td>
                       <td className="list-activity-admin-content-table__td">
                         <div className="list-activity-admin-content-table__td__btns">
-                          <Link
-                            to={`../visualizar-actividad/${actividad.id}`}
-                          >
+                          <Link to={`../visualizar-actividad/${actividad.id}`}>
                             <LiaEyeSolid className="list-activity-admin-content-table__td__btn" />
                           </Link>
-                          <Link
-                            to={`../actualizar-actividad/${actividad.id}`}
-                          >
+                          <Link to={`../actualizar-actividad/${actividad.id}`}>
                             <FaRegEdit className="list-activity-admin-content-table__td__btn" />
                           </Link>
                           <Link>
-                            <IoTrashOutline className="list-activity-admin-content-table__td__btn" onClick={() => suspenderActividad(actividad.id)} />
+                            <IoTrashOutline
+                              className="list-activity-admin-content-table__td__btn"
+                              onClick={() => suspenderActividades(actividad.id)}
+                            />
                           </Link>
                         </div>
                       </td>

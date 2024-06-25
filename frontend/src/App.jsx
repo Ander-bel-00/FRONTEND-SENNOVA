@@ -934,7 +934,7 @@ function App() {
                     />
 
                     <Route
-                      path="/visualizar-evento"
+                      path="/visualizar-evento/:id"
                       element={
                         <main className="main-container">
                           <Visualizar_Evento_apr_invg />

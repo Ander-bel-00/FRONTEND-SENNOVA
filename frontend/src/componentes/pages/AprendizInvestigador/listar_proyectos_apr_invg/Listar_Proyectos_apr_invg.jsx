@@ -11,30 +11,55 @@ import { Link } from "react-router-dom";
 import * as XLSX from "xlsx";
 import { useAuth } from "../../../../context/AuthContext";
 import clienteAxios from "../../../../config/axios";
+import Modal from "react-modal";
+
 
 
 function Listar_Proyectos_apr_invg() {
   const {userProfile} = useAuth();
 
-  const SemilleroID = userProfile ? userProfile.semillero : null;
-
+  const [semilleros, setSemilleros] = useState([]);
+  const [selectedSemilleroID, setSelectedSemilleroID] = useState(null);
   const [proyectosSemillero, setProyectosSemillero] = useState([]);
+  const [filteredProyectos, setFilteredProyectos] = useState([]);
+  const [isModalOpen, setIsModalOpen] = useState(true);
+
+  useEffect(() => {
+    const obtenerSemilleros = async () => {
+      try {
+        const res = await clienteAxios.get("/lista-semilleros/");
+        setSemilleros(res.data);
+      } catch (error) {
+        console.error("Error al obtener los semilleros", error);
+      }
+    };
+
+    obtenerSemilleros();
+  }, []);
 
   useEffect(() => {
     const obtenerProyectosSemillero = async () => {
       try {
-        if (SemilleroID) {
-          const res = await clienteAxios.get("/proyectos/");
+        if (selectedSemilleroID) {
+          const res = await clienteAxios.get(
+            `/semillero/${selectedSemilleroID}/proyectos/`
+          );
           setProyectosSemillero(res.data);
+          setFilteredProyectos(res.data); // Inicialmente muestra todos los proyectos
         }
       } catch (error) {
-        console.error('Error al obtener los proyectos del semillero', error);
+        console.error("Error al obtener los proyectos del semillero", error);
       }
-    }
-    obtenerProyectosSemillero();
-  }, [SemilleroID]);
-  
+    };
 
+    obtenerProyectosSemillero();
+  }, [selectedSemilleroID]);
+
+  const handleSelectSemillero = (id) => {
+    setSelectedSemilleroID(id);
+    setIsModalOpen(false); // Cierra el modal solo cuando se selecciona un semillero
+  };
+  
   const exportToExcel = () => {
     const wb = XLSX.utils.book_new();
     const wsData = [
@@ -42,12 +67,14 @@ function Listar_Proyectos_apr_invg() {
         "Nombre del Proyecto",
         "Fecha Inicio del Proyecto",
         "Fecha Fin del Proyecto",
+        "Codigo SGPS",
         "Descripción del Proyecto",
       ],
-      ...proyectosSemillero.map((proyect) => [
+      ...filteredProyectos.map((proyect) => [
         proyect.nombre_proyecto,
         proyect.fecha_inicio,
         proyect.fecha_fin,
+        proyect.codigo_sgps,
         proyect.descripcion_proyecto,
       ]),
     ];
@@ -60,6 +87,7 @@ function Listar_Proyectos_apr_invg() {
       { width: 40 },
       { width: 40 },
       { width: 40 },
+      { width: 40 },
     ];
 
     // Genera el archivo Excel
@@ -67,18 +95,50 @@ function Listar_Proyectos_apr_invg() {
     XLSX.writeFile(wb, "proyectos.xlsx");
   };
 
+  const handleFilter = (query) => {
+    const filtered = proyectosSemillero.filter(
+      (project) =>
+        project.nombre_proyecto.toLowerCase().includes(query.toLowerCase()) ||
+        project.descripcion_proyecto.toLowerCase().includes(query.toLowerCase())
+    );
+    setFilteredProyectos(filtered);
+  };
+
   return (
     <Fragment>
+      <Modal
+        isOpen={isModalOpen}
+        onRequestClose={() => {
+          if (selectedSemilleroID) {
+            setIsModalOpen(false);
+          }
+        }}
+        className="modal-admin-semilleros"
+        overlayClassName="modal-overlay"
+      >
+        <h2>Seleccione un Semillero</h2>
+        <ul>
+          {semilleros.map((semillero) => (
+            <li key={semillero.id} onClick={() => handleSelectSemillero(semillero.id)}>
+              {semillero.nombre_semillero}
+            </li>
+          ))}
+        </ul>
+      </Modal>
       <div className="main-container__contenedor-hijo">
         <Header_ToolBar
           Header_Tools={
             <Fragment>
               <BotonBlanco icon={<FaFileArrowUp />} text={"Reporte"} clase={'btn-blanco btn-blanco--modify btn-verde'} onClick={exportToExcel}/>
-              <Search text={"Buscar proyecto"} />
+              <Search text={"Buscar proyecto"}
+               onFilter={handleFilter} 
+               data={proyectosSemillero}
+              />
                <BotonBlanco
                  icon={<LuCalendarDays />}
                  text={"Ir al Cronograma"}
                  clase={'btn-blanco btn-blanco--modify btn-azul'} 
+                 link={"../cronograma-proyectos"}
                />
             </Fragment>
           }
@@ -104,7 +164,7 @@ function Listar_Proyectos_apr_invg() {
                 </tr>
               </thead>
               <tbody>
-                {proyectosSemillero.map((list, index) => (
+                {filteredProyectos.map((list, index) => (
                   <tr key={index} className="list-project-table__tr">
                     <td className="list-project-table__td">
                       {list.nombre_proyecto}

@@ -179,16 +179,6 @@ function Actualizar_Eventos_Admin() {
                     defaultValue={eventosInfo.fecha_fin}
                   />
                 </div>
-                <div>
-                  <input
-                    type="text"
-                    className="form-vs-evento-container__input-admin"
-                    name="semillero"
-                    defaultValue={eventosInfo.semillero}
-                    onChange={handleChange}
-                    hidden
-                  />
-                </div>
 
                 <div className="form-vs-event-btns-admin">
                   <button

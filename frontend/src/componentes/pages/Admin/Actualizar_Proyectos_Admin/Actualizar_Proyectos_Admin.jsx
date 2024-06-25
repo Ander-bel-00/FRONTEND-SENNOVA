@@ -141,7 +141,7 @@ function Actualizar_Proyectos_Admin() {
                     defaultValue={proyectoData.semillero}
                   />
                   <label
-                    htmlFor="descripción-del-proyecto"
+                    htmlFor="descripcion-del-proyecto"
                     className="form-add-pryect-admin-container__col1__label"
                   >
                     Descripción del Proyecto <p className="text-red-600">*</p>
@@ -176,7 +176,7 @@ function Actualizar_Proyectos_Admin() {
                     Fecha Fin del Proyecto <p className="text-red-600">*</p>
                   </label>
                   <input
-                  name="fecha_fin"
+                    name="fecha_fin"
                     type="date"
                     id="fecha-fin-del-proyecto"
                     className="form-update-proyects-admin-content__col1__input"

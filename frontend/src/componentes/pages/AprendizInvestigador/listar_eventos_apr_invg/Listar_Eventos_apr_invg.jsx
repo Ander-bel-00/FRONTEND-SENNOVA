@@ -79,6 +79,7 @@ function Listar_Eventos_apr_invg() {
               icon={<LuCalendarDays />}
               text={"Ir al Cronograma"}
               clase={"btn-blanco btn-blanco--modify btn-azul"}
+              link={"../cronograma"}
             />
             <Search
               text={"Buscar Eventos"}

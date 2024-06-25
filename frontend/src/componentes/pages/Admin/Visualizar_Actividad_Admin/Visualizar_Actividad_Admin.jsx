@@ -1,9 +1,9 @@
 import { IoAdd, IoTrashOutline } from "react-icons/io5";
 import { IoIosReturnLeft } from "react-icons/io";
 import { FaSearch } from "react-icons/fa";
-import { Fragment } from "react";
+import { Fragment, useEffect, useState } from "react";
 import { FaRegEdit } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import Caja_Blanca from "../../../common/Caja_Blanca";
 import Header_ToolBar from "../../../common/Header_ToolBar";
 import BotonBlanco from "../../../common/BotonReporte";
@@ -18,25 +18,34 @@ import clienteAxios from "../../../../config/axios";
 import Swal from "sweetalert2";
 
 function Visualizar_Actividad_Admin() {
-  const Contenido = [
-    {
-      nombre: "Carlos",
-      tarea: "programación",
-      fecha: "17 marzo 2024",
-      resultado: "El mejor",
-      producto: "carro",
-      responsable: "Anderson",
-    },
-    {
-      nombre: "Carlos",
-      tarea: "programación",
-      fecha: "17 marzo 2024",
-      resultado: "El mejor",
-      producto: "carro",
-      responsable: "Anderson",
-    },
-  ];
+  const { id } =  useParams();
+  const [actividad, setActividad] = useState({});
+  const [contenido, setContenido] = useState([]);
 
+  useEffect(() => {
+    const getActividad = async () => {
+      try {
+        const response = await clienteAxios.get(`/activity-project/${id}/`);
+        setActividad(response.data);
+        console.log(response.data)
+      } catch (error) {
+        console.log("Error al obtener la actividad del proyecto", error)
+      }
+    }
+
+    const getContenido = async () => {
+      try {
+        const response = await clienteAxios.get(`/activity-semillero/${id}/`);
+        setContenido(response.data);
+        console.log(response.data)
+      } catch (error) {
+        console.error("Error al obtener las actividades del semillero", error);
+      }
+    }
+    getActividad();
+    getContenido()
+  }, [id]);
+ 
   // se agrego la parte del generar reporte en un archivo excel
   const exportToExcel = () => {
     const wb = XLSX.utils.book_new();
@@ -151,31 +160,25 @@ function Visualizar_Actividad_Admin() {
               </tr>
             </thead>
             <tbody>
-              {Contenido.map((Contenidos, index) => (
-                <tr className="vis-actividad-table__tr-admin" key={index}>
+              {contenido.map((Contenidos) => (
+                <tr className="vis-actividad-table__tr-admin" key={Contenidos.id}>
                   <td className="vis-actividad-table__td-admin">
-                    {" "}
                     {Contenidos.nombre}
                   </td>
                   <td className="vis-actividad-table__td-admin">
-                    {" "}
-                    {Contenidos.tarea}{" "}
+                    {Contenidos.tarea}
                   </td>
                   <td className="vis-actividad-table__td-admin">
-                    {" "}
-                    {Contenidos.fecha}{" "}
+                    {Contenidos.fecha}
                   </td>
                   <td className="vis-actividad-table__td-admin">
-                    {" "}
-                    {Contenidos.resultado}{" "}
+                    {Contenidos.resultado}
                   </td>
                   <td className="vis-actividad-table__td-admin">
-                    {" "}
-                    {Contenidos.producto}{" "}
+                    {Contenidos.producto}
                   </td>
                   <td className="vis-actividad-table__td-admin">
-                    {" "}
-                    {Contenidos.responsable}{" "}
+                    {Contenidos.responsable}
                   </td>
                   <td className="vis-actividad-table__td-admin">
                     <div className="vis-actividad-table__td__btns-admin">
