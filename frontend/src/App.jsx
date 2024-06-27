@@ -274,7 +274,7 @@ function App() {
                     />
 
                     <Route
-                      path="/users-update"
+                      path="/users-update/:id"
                       element={
                         <main className="main-container">
                           <ModificarUsuario />
@@ -313,13 +313,13 @@ function App() {
                       path="/listar-eventos"
                       element={
                         <main className="main-container">
-                          <Listar_Eventos />
+                          <Listar_Eventos_Admin />
                         </main>
                       }
                     />
 
                     <Route
-                      path="/visualizar-evento:id"
+                      path="/visualizar-evento/:id"
                       element={
                         <main className="main-container">
                           <Visualizar_Evento_Admin />
@@ -580,7 +580,7 @@ function App() {
                     />
 
                     <Route
-                      path="/visualizar-evento"
+                      path="/visualizar-evento/:id"
                       element={
                         <main className="main-container">
                           <Visualizar_Evento />
@@ -699,7 +699,7 @@ function App() {
                     />
 
                     <Route
-                      path="/visualizar-evento"
+                      path="/visualizar-evento/:id"
                       element={
                         <main className="main-container">
                           <Visualizar_Evento_ins_invg />
@@ -923,7 +923,7 @@ function App() {
                     />
 
                     <Route
-                      path="/visualizar-evento"
+                      path="/visualizar-evento/:id"
                       element={
                         <main className="main-container">
                           <Visualizar_Evento_apr_invg />

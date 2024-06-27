@@ -10,6 +10,8 @@ import Swal from "sweetalert2";
 function Actualizar_Eventos_Admin() {
   const { id } = useParams();
   const navigate = useNavigate();
+
+  
   const [eventosInfo, setEventosInfo] = useState({
     nombre_evento: "",
     tipo_de_evento: "",

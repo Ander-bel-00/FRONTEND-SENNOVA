@@ -116,7 +116,7 @@ function Listar_Usuarios_Admin() {
                             <LiaEyeSolid className="user-table__cell__btn" />
                           </Link>
   
-                          <Link to={"../users-update"}>
+                          <Link to={`../users-update/${user.id}`}>
                             <FaRegEdit className="user-table__cell__btn" />
                           </Link>
                           <Link>

@@ -1,7 +1,7 @@
 import { IoAdd, IoTrashOutline } from "react-icons/io5";
 import { IoIosReturnLeft } from "react-icons/io";
 import { FaSearch } from "react-icons/fa";
-import { Fragment } from "react";
+import { Fragment, useEffect, useState } from "react";
 import { FaEdit } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import Caja_Blanca from "../../../common/Caja_Blanca";
@@ -10,8 +10,36 @@ import BotonVerdeAñadir from "../../../common/BotonVerde";
 import Search from "../../../common/Search";
 import BotonReturn from "../../../common/BotonReturn";
 import "./css/Visualizar_Evento_Admin.css";
+import { useParams } from "react-router-dom";
+import clienteAxios from "../../../../config/axios";
 
-function Visualizar_Evento_Admin() {
+function Visualizar_Evento_Admin(props) {
+
+  //Obtenemos el prop que nos llega desde la url, por medio de userparams
+  const { id } = useParams();
+
+  console.log("Hola este es el id que llega", id);
+
+
+  const [eventos, setEventos] = useState([]);
+
+//hacemos una consulta a  la api 
+  useEffect(() => {
+    const obtenerEventos = async () => {
+
+      try {
+        const response = await clienteAxios.get(`/eventos/${id}/`)
+
+        console.log("estos son los eventos", response.data)
+        setEventos(response.data)
+
+      } catch (error) {
+        console.error("Uppps error", error)
+      }
+    }
+    obtenerEventos();
+  }, []);
+
   const Evento = [
     {
       nombre: "Carlos",
@@ -42,66 +70,22 @@ function Visualizar_Evento_Admin() {
                 icon={<IoIosReturnLeft />}
               />
             </div>
-            <Search icon={<FaSearch />} text={"Buscar Evento"} />
-            <BotonVerdeAñadir
+            {/* <BotonVerdeAñadir
               icon={<IoAdd />}
               text={"Crear Evento"}
               link={"/admin/crear-eventos"}
-            />
+            /> */}
           </Fragment>
         }
       />
 
-      <Caja_Blanca
-        content={
-          <table className="vis-event-table-admin">
-            <thead>
-              <tr className="vis-event-table__tr-admin">
-                <th className="vis-event-table__th-admin">Nombre </th>
-                <th className="vis-event-table__th-admin">Fecha de Inicio</th>
-                <th className="vis-event-table__th-admin">Fecha de Fin</th>
-                <th className="vis-event-table__th-admin">
-                  Cantidad de Participantes
-                </th>
-                <th className="vis-event-table__th-admin">Lugar</th>
-                <th className="vis-event-table__th-admin">Tipo</th>
-                <th className="vis-event-table__th-admin">Acciones</th>
-              </tr>
-            </thead>
-            <tbody>
-              {Evento.map((Contenido, index) => (
-                <tr className="vis-event-table__tr-admin" key={index}>
-                  <td className="vis-event-table__td-admin"> {Contenido.nombre}</td>
-                  <td className="vis-event-table__td-admin">
-                    {" "}
-                    {Contenido.fecha_inicio}{" "}
-                  </td>
-                  <td className="vis-event-table__td-admin">
-                    {" "}
-                    {Contenido.fecha_fin}{" "}
-                  </td>
-                  <td className="vis-event-table__td-admin">
-                    {" "}
-                    {Contenido.cantidad}{" "}
-                  </td>
-                  <td className="vis-event-table__td-admin"> {Contenido.lugar} </td>
-                  <td className="vis-event-table__td-admin"> {Contenido.tipo} </td>
-                  <td className="vis-event-table__td-admin">
-                    <div className="vis-actividad-table__td__btns-admin">
-                      <Link to={"/admin/actualizar-eventos"}>
-                        <FaEdit className="vis-actividad-table__td__btn-admin" />
-                      </Link>
-                      <Link>
-                        <IoTrashOutline className="vis-actividad-table__td__btn-admin" />
-                      </Link>
-                    </div>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        }
-      />
+    
+
+      <div>
+        <p>Estos son los eventos</p>
+        <h>{eventos.nombre_evento}</h>
+      </div>
+
     </div>
   );
 }
