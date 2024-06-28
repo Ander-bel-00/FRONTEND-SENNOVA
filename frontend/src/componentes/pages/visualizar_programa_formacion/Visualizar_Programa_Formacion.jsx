@@ -68,28 +68,28 @@ function Visualizar_Programa_Formacion() {
 
       <Caja_Blanca
         content={
-          <table className="list-visualize-table">
+          <table className="list-visualize-table-lider">
             <thead>
-              <tr className="list-visualize-table__tr">
-                <th className="list-visualize-table__th" >Código</th>
-                <th className="list-visualize-table__th" >Versión</th>
-                <th className="list-visualize-table__th" >Nombre</th>
-                <th className="list-visualize-table__th" >Número de Ficha</th>
-                <th className="list-visualize-table__th" >Inicio Lectiva</th>
-                <th className="list-visualize-table__th" >Fin Lectiva</th>
+              <tr className="list-visualize-table-lider__tr">
+                <th className="list-visualize-table-lider__th" >Código</th>
+                <th className="list-visualize-table-lider__th" >Versión</th>
+                <th className="list-visualize-table-lider__th" >Nombre</th>
+                <th className="list-visualize-table-lider__th" >Número de Ficha</th>
+                <th className="list-visualize-table-lider__th" >Inicio Lectiva</th>
+                <th className="list-visualize-table-lider__th" >Fin Lectiva</th>
               </tr>
             </thead>
 
             <tbody>
               {filtrarPrograma.length > 0 ? (
                 filtrarPrograma.map(programa => (
-                  <tr className="list-visualize-table__tr" key={programa.id}>
-                    <td className="list-visualize-table__td"> {programa.codigo_programa_formacion} </td>
-                    <td className="list-visualize-table__td" > {programa.version_programa_formacion} </td>
-                    <td className="list-visualize-table__td" > {programa.nombre_programa_formacion} </td>
-                    <td className="list-visualize-table__td" > {programa.ficha} </td>
-                    <td className="list-visualize-table__td" > {programa.inicio_lectiva} </td>
-                    <td className="list-visualize-table__td" > {programa.fin_lectiva} </td>
+                  <tr className="list-visualize-table-lider__tr" key={programa.id}>
+                    <td className="list-visualize-table-lider__td"> {programa.codigo_programa_formacion} </td>
+                    <td className="list-visualize-table-lider__td" > {programa.version_programa_formacion} </td>
+                    <td className="list-visualize-table-lider__td" > {programa.nombre_programa_formacion} </td>
+                    <td className="list-visualize-table-lider__td" > {programa.ficha} </td>
+                    <td className="list-visualize-table-lider__td" > {programa.inicio_lectiva} </td>
+                    <td className="list-visualize-table-lider__td" > {programa.fin_lectiva} </td>
                   </tr>
                 ))
               ) : (

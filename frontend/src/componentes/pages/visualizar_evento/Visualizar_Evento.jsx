@@ -10,17 +10,12 @@ import BotonVerdeAñadir from "../../common/BotonVerde";
 import Search from "../../common/Search";
 import BotonReturn from "../../common/BotonReturn";
 import "./css/Visualizar_Evento.css";
+import BotonBlanco from "../../common/BotonReporte";
+import { FaFileArrowUp } from "react-icons/fa6";
+import { CiCalendar } from "react-icons/ci";
 
 function Visualizar_Evento() {
   const Evento = [
-    {
-      nombre: "Carlos",
-      fecha_inicio: "17 marzo 2024",
-      fecha_fin: "17 marzo 2024",
-      cantidad: 5,
-      lugar: "La hermosa",
-      tipo: "Ponente",
-    },
     {
       nombre: "Carlos",
       fecha_inicio: "17 marzo 2024",
@@ -39,11 +34,21 @@ function Visualizar_Evento() {
             <div className="btn-vs-evento">
               <BotonReturn icon={<GiReturnArrow />} />
             </div>
-            <Search icon={<FaSearch />} text={"Buscar Evento"} />
+            <BotonBlanco
+              icon={<FaFileArrowUp/>}
+              text={"Reporte"}
+              clase={"btn-blanco btn-blanco--modify btn-verde"}
+            />
+            <BotonBlanco
+              icon={<CiCalendar />}
+              text={"calendario"}
+              clase={"btn-blanco btn-blanco--modify btn-azul"}
+            />
+
             <BotonVerdeAñadir
               icon={<IoAdd />}
-              text={"Crear Evento"}
-              link={"/lider-semillero/Crear-eventos"}
+              text={"Editar Evento"}
+              // link={"/lider-semillero/actualizar-eventos"}
             />
           </Fragment>
         }

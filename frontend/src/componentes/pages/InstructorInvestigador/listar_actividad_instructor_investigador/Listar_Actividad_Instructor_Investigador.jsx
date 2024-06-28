@@ -35,7 +35,7 @@ function Listar_Actividad_Instructor_Investigador() {
         const semilleros = await Promise.all(semilleroPromises);
         const semilleroMap = semilleros.reduce((map, semillero) => {
           map[semillero.semilleroId] = semillero.nombre_semillero;
-          return map;
+          return map;  
         }, {});
 
         setSemilleroInformacion(semilleroMap);
@@ -56,28 +56,6 @@ function Listar_Actividad_Instructor_Investigador() {
     );
     setfiltrarActividades(filtered);
   };
-
-
-
-
-  // const invgActividades = [
-  //   {
-  //     nombre: "Desarrollo",
-  //     tarea: "Codificar",
-  //     fecha: "25 de Julio de 2024",
-  //     resultado: "Sistema funcional",
-  //     producto: "Proyecto web",
-  //     responsable: "Arnold",
-  //   },
-  //   {
-  //     nombre: "Desarrollo",
-  //     tarea: "Codificar",
-  //     fecha: "25 de Julio de 2024",
-  //     resultado: "Sistema funcional",
-  //     producto: "Proyecto web",
-  //     responsable: "Arnold",
-  //   },
-  // ];
 
   return (
     <Fragment>
@@ -117,31 +95,18 @@ function Listar_Actividad_Instructor_Investigador() {
             <table className="list-activity-instructor-content-table">
               <thead>
                 <tr className="list-activity-instructor-content-table-tr">
-                  <th className="list-activity-instructor-content__table__tr__th">
-                    Nombre Actividad
-                  </th>
-                  <th className="list-activity-instructor-content__table__tr__th">
-                    Tarea
-                  </th>
-                  <th className="list-activity-instructor-content__table__tr__th">
-                    Fecha Inicio
-                  </th>
-                  <th className="list-activity-instructor-content__table__tr__th">
-                    Fecha Fin
-                  </th>
-                  <th className="list-activity-instructor-content__table__tr__th">
-                    Resultado
-                  </th>
-                  <th className="list-activity-instructor-content__table__tr__th">
-                    Responsable de la Actividad
-                  </th>
-                  <th className="list-activity-instructor-content__table__tr__th">
-                    Acción
+                  <th className="list-activity-instructor-content__table__tr__th">Nombre Actividad</th>
+                  <th className="list-activity-instructor-content__table__tr__th">Tarea</th>
+                  <th className="list-activity-instructor-content__table__tr__th">Fecha Inicio</th>
+                  <th className="list-activity-instructor-content__table__tr__th">Fecha Fin</th>
+                  <th className="list-activity-instructor-content__table__tr__th">Resultado</th>
+                  <th className="list-activity-instructor-content__table__tr__th">Responsable de la Actividad</th>
+                  <th className="list-activity-instructor-content__table__tr__th">Acción
                   </th>
                 </tr>
               </thead>
               <tbody>
-                {filtrarActividades > 0 ? (
+                {filtrarActividades.length > 0 ? (
                   filtrarActividades.map((actividades) => (
                     <tr key={actividades.id} className="list-activity-instructor-content-table-tr">
                       <td className="list-activity-instructor-content-table-td">{actividades.nombre_actividad}</td>
@@ -153,9 +118,7 @@ function Listar_Actividad_Instructor_Investigador() {
                       <td className="list-activity-instructor-content-table__td">
 
                         <div className="list-activity-instructor-content-table__td__btns">
-                          <Link
-                            to={`../visualizar-actividad/`}
-                          >
+                          <Link to={`../visualizar-actividad/`}>
                             <LiaEyeSolid className="list-activity-instructor-content-table__td__btn" />
                           </Link>
                         </div>

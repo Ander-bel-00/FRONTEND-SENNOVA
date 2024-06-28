@@ -164,10 +164,10 @@ function ListarEvento_ins_invg() {
                     <td className="list-events-table-instructor__td">
 
                       <div className="list-events-table-instructor__td__btns">
-                        <Link to={`../visualizar-evento/`}> {/* falta el id del evento */}
+                        <Link to={`../visualizar-evento/`}>   {/* falta el id del evento */}
                           <LiaEye className="list-events-table-instructor__td__btn" />
                         </Link>
-                        <Link to={`../actualizar-eventos/`}> {/* falta el id del evento */}
+                        <Link to={`../actualizar-eventos/${evento.id}`}>
                           <FaRegEdit className="list-events-table-instructor__td__btn" />
                         </Link>
                         <Link>

@@ -138,35 +138,36 @@ function Listar_Proyectos() {
         />
         <Caja_Blanca
           content={
-            <table className="list-project-admin-table">
-              <thead className="list-project-admin-table__thead">
-                <tr className="list-project-admin-table__tr">
-                  <th className="list-project-admin-table__th">Código SGPS</th>
-                  <th className="list-project-admin-table__th">Nombre del Proyecto</th>
-                  <th className="list-project-admin-table__th">Fecha Inicio del Proyecto</th>
-                  <th className="list-project-admin-table__th">Fecha Fin del Proyecto</th>
-                  <th className="list-project-admin-table__th">Descripción del Proyecto</th>
-                  <th className="list-project-admin-table__th">Acciones</th>
+            <table className="list-project-table-lider">
+              <thead className="list-project-table-lider__thead">
+                <tr className="list-project-table-lider__tr">
+                  <th className="list-project-table-lider__th">Código SGPS</th>
+                  <th className="list-project-table-lider__th">Nombre del Proyecto</th>
+                  <th className="list-project-table-lider__th">Fecha Inicio del Proyecto</th>
+                  <th className="list-project-table-lider__th">Fecha Fin del Proyecto</th>
+                  <th className="list-project-table-lider__th">Descripción del Proyecto</th>
+                  <th className="list-project-table-lider__th">Acciones</th>
                 </tr>
               </thead>
               <tbody>
                 {filteredProyectos.length > 0 ? (
                   filteredProyectos.map((list) => (
-                    <tr key={list.id} className="list-project-admin-table__tr">
-                      <td className="list-project-admin-table__td">{list.codigo}</td>
-                      <td className="list-project-admin-table__td">{list.nombre_proyecto}</td>
-                      <td className="list-project-admin-table__td">{list.fecha_inicio}</td>
-                      <td className="list-project-admin-table__td">{list.fecha_fin}</td>
-                      <td className="list-project-admin-table__td">{list.descripcion_proyecto}</td>
-                      <td className="list-project-admin-table__td">
-                        <div className="list-project-admin-table__td__btns">
+                    <tr key={list.id} className="list-project-table-lider__tr">
+                      <td className="list-project-table-lider__td">{list.codigo}</td>
+                      <td className="list-project-table-lider__td">{list.nombre_proyecto}</td>
+                      <td className="list-project-table-lider__td">{list.fecha_inicio}</td>
+                      <td className="list-project-table-lider__td">{list.fecha_fin}</td>
+                      <td className="list-project-table-lider__td">{list.descripcion_proyecto}</td>
+                      <td className="list-project-table-lider__td">
+                        
+                        <div className="list-project-table-lider__td__btns">
                           <Link to={`../visualizar-proyecto/${list.id}`}>
-                            <LiaEyeSolid className="list-project-admin-table__td__btn" />
+                            <LiaEyeSolid className="list-project-table-lider__td__btn" />
                           </Link>
                           <Link to={`../actualizar-proyecto/${list.id}`}>
-                            <FaRegEdit className="list-project-admin-table__td__btn" />
+                            <FaRegEdit className="list-project-table-lider__td__btn" />
                           </Link>
-                          <IoTrashOutline className="list-project-admin-table__td__btn cursor-pointer" onClick={() => suspenderProyecto(list.id)} />
+                          <IoTrashOutline className="list-project-table-lider__td__btn cursor-pointer" onClick={() => suspenderProyecto(list.id)} />
                         </div>
                       </td>
                     </tr>

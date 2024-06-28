@@ -54,11 +54,10 @@ function Visualizar_Actividad() {
               text={"calendario"}
               clase={"btn-blanco btn-blanco--modify btn-azul"}
             />
-            <Search icon={<FaSearch />} text={"Buscar Actividades"} />
             <BotonVerdeAñadir
               icon={<IoAdd />}
-              text={"Añadir Actividad"}
-              link={"/lider-semillero/crear-actividad"}
+              text={"Editar Actividad"}
+              // link={"/lider-semillero/actualizar-actividad"}
             />
           </Fragment>
         }

@@ -21,15 +21,7 @@ function Visualizar_Actividad_ins_invg() {
       resultado: "El mejor",
       producto: "carro",
       responsable: "Anderson",
-    },
-    {
-      nombre: "Arias",
-      tarea: "programación",
-      fecha: "17 marzo 2024",
-      resultado: "El mejor",
-      producto: "carro",
-      responsable: "Anderson",
-    },
+    }
   ];
 
   return (
@@ -51,14 +43,10 @@ function Visualizar_Actividad_ins_invg() {
               text={"Ir al Cronograma"} 
               clase={'btn-blanco btn-blanco--modify btn-azul'} />
 
-            <Search 
-              icon={<FaSearch />} 
-              text={"Buscar Actividades"} />
-
             <BotonVerdeAñadir 
               icon={<AiOutlinePlus />} 
-              text={"Añadir Actividad"}
-              link={'/instructor_investigador/crear-actividad'} 
+              text={"Editar Actividad"}
+              // link={'/instructor_investigador/actualizar-actividad'} 
             />
             
           </Fragment>
@@ -75,38 +63,18 @@ function Visualizar_Actividad_ins_invg() {
                 <th className="vis-actividad-table-instructor__th">Fecha</th>
                 <th className="vis-actividad-table-instructor__th">Resultado</th>
                 <th className="vis-actividad-table-instructor__th">Producto</th>
-                <th className="vis-actividad-table-instructor__th">
-                  Responsable de la Actividad
-                </th>
+                <th className="vis-actividad-table-instructor__th">Responsable de la Actividad</th>
               </tr>
             </thead>
             <tbody>
               {Contenido.map((Contenidos, index) => (
                 <tr className="vis-actividad-table-instructor__tr" key={index}>
-                  <td className="vis-actividad-table-instructor__td">
-                    {" "}
-                    {Contenidos.nombre}
-                  </td>
-                  <td className="vis-actividad-table-instructor__td">
-                    {" "}
-                    {Contenidos.tarea}{" "}
-                  </td>
-                  <td className="vis-actividad-table-instructor__td">
-                    {" "}
-                    {Contenidos.fecha}{" "}
-                  </td>
-                  <td className="vis-actividad-table-instructor__td">
-                    {" "}
-                    {Contenidos.resultado}{" "}
-                  </td>
-                  <td className="vis-actividad-table-instructor__td">
-                    {" "}
-                    {Contenidos.producto}{" "}
-                  </td>
-                  <td className="vis-actividad-table-instructor__td">
-                    {" "}
-                    {Contenidos.responsable}{" "}
-                  </td>
+                  <td className="vis-actividad-table-instructor__td">{" "}{Contenidos.nombre}</td>
+                  <td className="vis-actividad-table-instructor__td">{" "}{Contenidos.tarea}{" "}</td>
+                  <td className="vis-actividad-table-instructor__td">{" "}{Contenidos.fecha}{" "}</td>
+                  <td className="vis-actividad-table-instructor__td">{" "}{Contenidos.resultado}{" "}</td>
+                  <td className="vis-actividad-table-instructor__td">{" "}{Contenidos.producto}{" "}</td>
+                  <td className="vis-actividad-table-instructor__td">{" "}{Contenidos.responsable}{" "}</td>
                 </tr>
               ))}
             </tbody>

@@ -617,7 +617,7 @@ function App() {
                     />
 
                     <Route
-                      path="/actualizar-eventos"
+                      path="/actualizar-eventos/:id"
                       element={
                         <main className="main-container">
                           <Actualizar_Eventos />
@@ -755,7 +755,7 @@ function App() {
                     />
 
                     <Route
-                      path="/actualizar-eventos"
+                      path="/actualizar-eventos/:id"
                       element={
                         <main className="main-container">
                           <Actualizar_Eventos_ins_invg />

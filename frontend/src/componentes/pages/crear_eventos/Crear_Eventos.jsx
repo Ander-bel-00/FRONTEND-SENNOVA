@@ -137,7 +137,7 @@ function Crear_Eventos() {
                 <input
                   type="number"
                   className="form-add-event-container__input"
-                  name="cantidad_participantes"
+                  name="cantidad_parcticipantes"
                   onChange={handleChange}
                 />
 

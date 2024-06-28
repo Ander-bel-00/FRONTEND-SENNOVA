@@ -10,6 +10,7 @@ import BotonReturn from "../../../common/BotonReturn";
 import "./css/Visualizar_Evento_ins_invg.css";
 import BotonBlanco from "../../../common/BotonReporte";
 import { FaFileArrowUp } from "react-icons/fa6";
+import { LuCalendarDays } from "react-icons/lu";
 
 function Visualizar_Evento_ins_invg() {
   const Evento = [
@@ -20,15 +21,7 @@ function Visualizar_Evento_ins_invg() {
       cantidad: 5,
       lugar: "La hermosa",
       tipo: "Asistente",
-    },
-    {
-      nombre: "Matias",
-      fecha_inicio: "17 marzo 2024",
-      fecha_fin: "17 marzo 2024",
-      cantidad: 5,
-      lugar: "La hermosa",
-      tipo: "Ponente",
-    },
+    }
   ];
 
   return (
@@ -40,19 +33,20 @@ function Visualizar_Evento_ins_invg() {
               <BotonReturn icon={<GiReturnArrow />} />
             </div>
 
-            <BotonBlanco 
-            icon={<FaFileArrowUp />} 
-            text={"Reporte"} 
-            clase={'btn-blanco btn-blanco--modify btn-verde'} />
+            <BotonBlanco
+              icon={<FaFileArrowUp />}
+              text={"Reporte"}
+              clase={'btn-blanco btn-blanco--modify btn-verde'} />
 
-            <Search 
-              icon={<FaSearch />} 
-              text={"Buscar Evento"} />
+            <BotonBlanco
+              icon={<LuCalendarDays />}
+              text={"Ir al Cronograma"}
+              clase={'btn-blanco btn-blanco--modify btn-azul'} />
 
             <BotonVerdeAñadir
               icon={<IoAdd />}
               text={"Editar Evento"}
-              link={"/instructor_investigador/Crear-eventos"}
+            // link={"/instructor_investigador/actualizar-eventos"}
             />
           </Fragment>
         }
@@ -64,13 +58,9 @@ function Visualizar_Evento_ins_invg() {
             <thead>
               <tr className="vis-event-table-instructor__tr">
                 <th className="vis-event-table-instructor__th">Nombre </th>
-                <th className="vis-event-table-instructor__th">
-                  Fecha de Inicio
-                </th>
+                <th className="vis-event-table-instructor__th">Fecha de Inicio</th>
                 <th className="vis-event-table-instructor__th">Fecha de Fin</th>
-                <th className="vis-event-table-instructor__th">
-                  Cantidad de Participantes
-                </th>
+                <th className="vis-event-table-instructor__th">Cantidad de Participantes</th>
                 <th className="vis-event-table-instructor__th">Lugar</th>
                 <th className="vis-event-table-instructor__th">Tipo</th>
               </tr>
@@ -78,29 +68,12 @@ function Visualizar_Evento_ins_invg() {
             <tbody>
               {Evento.map((Contenido, index) => (
                 <tr className="vis-event-table-instructor__tr" key={index}>
-                  <td className="vis-event-table-instructor__td">
-                    {" "}
-                    {Contenido.nombre}
-                  </td>
-                  <td className="vis-event-table-instructor__td">
-                    {" "}
-                    {Contenido.fecha_inicio}{" "}
-                  </td>
-                  <td className="vis-event-table-instructor__td">
-                    {" "}
-                    {Contenido.fecha_fin}{" "}
-                  </td>
-                  <td className="vis-event-table-instructor__td">
-                    {" "}
-                    {Contenido.cantidad}{" "}
-                  </td>
-                  <td className="vis-event-table-instructor__td">
-                    {" "}
-                    {Contenido.lugar}{" "}
-                  </td>
-                  <td className="vis-event-table-instructor__td">
-                    {" "}
-                    {Contenido.tipo}{" "}
+                  <td className="vis-event-table-instructor__td">{" "}{Contenido.nombre}</td>
+                  <td className="vis-event-table-instructor__td">{" "}{Contenido.fecha_inicio}{" "}</td>
+                  <td className="vis-event-table-instructor__td">{" "}{Contenido.fecha_fin}{" "}</td>
+                  <td className="vis-event-table-instructor__td">{" "}{Contenido.cantidad}{" "}</td>
+                  <td className="vis-event-table-instructor__td">{" "}{Contenido.lugar}{" "}</td>
+                  <td className="vis-event-table-instructor__td">{" "}{Contenido.tipo}{" "}
                   </td>
                 </tr>
               ))}

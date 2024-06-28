@@ -13,8 +13,6 @@ import { Link } from "react-router-dom";
 import * as XLSX from "xlsx";
 import clienteAxios from "../../../../config/axios";
 import { useAuth } from "../../../../context/AuthContext";
-import { FaRegEdit } from "react-icons/fa";
-import { IoTrashOutline } from "react-icons/io5";
 
 function Listar_Proyectos_Instructor_Investigador() {
   const { userProfile } = useAuth();
@@ -74,42 +72,6 @@ function Listar_Proyectos_Instructor_Investigador() {
     XLSX.writeFile(wb, "proyectos.xlsx");
   };
 
-  // const suspenderProyecto = async (projectId) => {
-  //   try {
-  //     const result = await Swal.fire({
-  //       title: "Estás seguro de suspender el Proyecto?",
-  //       text: "Esta acción no se puede revertir",
-  //       icon: "warning",
-  //       showCancelButton: true,
-  //       confirmButtonColor: "#3085d6",
-  //       cancelButtonColor: "#d33",
-  //       confirmButtonText: "Si, suspender el Proyecto",
-  //     });
-
-  //     if (result.isConfirmed) {
-  //       await clienteAxios.delete(`/proyectos/${projectId}/`);
-  //       Swal.fire({
-  //         title: "Proyecto suspendido",
-  //         text: "El proyecto ha sido suspendido exitosamente.",
-  //         icon: "success",
-  //       });
-  //       setProyectosSemillero((prev) =>
-  //         prev.filter((project) => project.id !== projectId)
-  //       );
-  //       setFilteredProyectos((prev) =>
-  //         prev.filter((project) => project.id !== projectId)
-  //       );
-  //     }
-  //   } catch (error) {
-  //     console.log("Hubo un error al intentar suspender el proyecto", error);
-  //     Swal.fire({
-  //       icon: "error",
-  //       title: "Hubo un error",
-  //       text: "Ocurrió un error al intentar suspender el proyecto",
-  //     });
-  //   }
-  // };
-
   const handleFilter = (query) => {
     const filtered = proyectosSemillero.filter(
       (project) =>
@@ -144,6 +106,7 @@ function Listar_Proyectos_Instructor_Investigador() {
                 onFilter={handleFilter}
                 data={proyectosSemillero}
               />
+
               <BotonVerdeAñadir
                 icon={<AiOutlinePlus />}
                 text={"Crear Proyecto"}
@@ -154,38 +117,38 @@ function Listar_Proyectos_Instructor_Investigador() {
         />
         <Caja_Blanca
           content={
-            <table className="list-project-admin-table">
-              <thead className="list-project-admin-table__thead">
-                <tr className="list-project-admin-table__tr">
-                  <th className="list-project-admin-table__th">Código SGPS</th>
-                  <th className="list-project-admin-table__th">
+            <table className="list-project-instructor-table">
+              <thead className="list-project-instructor-table__thead">
+                <tr className="list-project-instructor-table__tr">
+                  <th className="list-project-instructor-table__th">Código SGPS</th>
+                  <th className="list-project-instructor-table__th">
                     Nombre del Proyecto
                   </th>
-                  <th className="list-project-admin-table__th">
+                  <th className="list-project-instructor-table__th">
                     Fecha Inicio del Proyecto
                   </th>
-                  <th className="list-project-admin-table__th">
+                  <th className="list-project-instructor-table__th">
                     Fecha Fin del Proyecto
                   </th>
-                  <th className="list-project-admin-table__th">
+                  <th className="list-project-instructor-table__th">
                     Descripción del Proyecto
                   </th>
-                  <th className="list-project-admin-table__th">Acciones</th>
+                  <th className="list-project-instructor-table__th">Acciones</th>
                 </tr>
               </thead>
               <tbody>
                 {filteredProyectos.length > 0 ? (
                   filteredProyectos.map((list, index) => (
-                    <tr key={index} className="list-project-admin-table__tr">
-                      <td className="list-project-admin-table__td">{list.codigo}</td>
-                      <td className="list-project-admin-table__td">{list.nombre_proyecto}</td>
-                      <td className="list-project-admin-table__td">{list.fecha_inicio}</td>
-                      <td className="list-project-admin-table__td">{list.fecha_fin}</td>
-                      <td className="list-project-admin-table__td">{list.descripcion_proyecto}</td>
-                      <td className="list-project-admin-table__td">
-                        <div className="list-project-admin-table__td__btns">
+                    <tr key={index} className="list-project-instructor-table__tr">
+                      <td className="list-project-instructor-table__td">{list.codigo}</td>
+                      <td className="list-project-instructor-table__td">{list.nombre_proyecto}</td>
+                      <td className="list-project-instructor-table__td">{list.fecha_inicio}</td>
+                      <td className="list-project-instructor-table__td">{list.fecha_fin}</td>
+                      <td className="list-project-instructor-table__td">{list.descripcion_proyecto}</td>
+                      <td className="list-project-instructor-table__td">
+                        <div className="list-project-instructor-table__td__btns">
                           <Link to={`../visualizar-proyecto/${list.id}`}>
-                            <LiaEyeSolid className="list-project-admin-table__td__btn" />
+                            <LiaEyeSolid className="list-project-instructor-table__td__btn" />
                           </Link>
                         </div>
                       </td>

@@ -91,9 +91,6 @@ function Listar_Eventos() {
     }
   };
 
-
-
-
   const handleFilter = (query) => {
     const filtered = ListEventos.filter(
       (event) =>
@@ -135,66 +132,45 @@ function Listar_Eventos() {
 
       <Caja_Blanca
         content={
-          <table className="list-events-table-admin">
+          <table className="list-events-table-lider">
             <thead>
-              <tr className="list-events-table__tr-admin">
-                <th className="list-events-table__th-admin">Nombre</th>
-                <th className="list-events-table__th-admin">Tipo de Evento</th>
-                <th className="list-events-table__th-admin">Fecha Inicio</th>
-                <th className="list-events-table__th-admin">Fecha Fin</th>
-                <th className="list-events-table__th-admin">
-                  Cantidad Participantes
-                </th>
-                <th className="list-events-table__th-admin">Ponente</th>
-                <th className="list-events-table__th-admin">Lugar</th>
-                <th className="list-events-table__th-admin">Semillero</th>
-                <th className="list-events-table__th-admin">
-                  Evidencia del Evento
-                </th>
-                <th className="list-events-table__th-admin">Acciones</th>
+              <tr className="list-events-table__tr-lider">
+                <th className="list-events-table__th-lider">Nombre</th>
+                <th className="list-events-table__th-lider">Tipo de Evento</th>
+                <th className="list-events-table__th-lider">Fecha Inicio</th>
+                <th className="list-events-table__th-lider">Fecha Fin</th>
+                <th className="list-events-table__th-lider">Cantidad Participantes</th>
+                <th className="list-events-table__th-lider">Ponente</th>
+                <th className="list-events-table__th-lider">Lugar</th>
+                <th className="list-events-table__th-lider">Semillero</th>
+                <th className="list-events-table__th-lider">Evidencia del Evento</th>
+                <th className="list-events-table__th-lider">Acciones</th>
               </tr>
             </thead>
             <tbody>
               {FilteredEvents.length > 0 ? (
                 FilteredEvents.map((evento) => (
-                  <tr className="list-events-table__tr-admin" key={evento.id}>
-                    <td className="list-events-table__td-admin">
-                      {evento.nombre_evento}
-                    </td>
-                    <td className="list-events-table__td-admin">
-                      {evento.tipo_de_evento}
-                    </td>
-                    <td className="list-events-table__td-admin">
-                      {evento.fecha_inicio}
-                    </td>
-                    <td className="list-events-table__td-admin">
-                      {evento.fecha_fin}
-                    </td>
-                    <td className="list-events-table__td-admin">
-                      {evento.cantidad_parcticipantes}
-                    </td>
-                    <td className="list-events-table__td-admin">
-                      {evento.nombre_ponente}
-                    </td>
-                    <td className="list-events-table__td-admin">
-                      {evento.lugar_evento}
-                    </td>
-                    <td className="list-events-table__td-admin">
-                    {semilleroInfo[evento.semillero]}
-                    </td>
-                    <td className="list-events-table__td-admin">
-                      {evento.evidencia}
-                    </td>
-                    <td className="list-events-table__td-admin">
-                      <div className="list-events-table__td__btns-admin">
+                  <tr className="list-events-table__tr-lider" key={evento.id}>
+                    <td className="list-events-table__td-lider">{evento.nombre_evento}</td>
+                    <td className="list-events-table__td-lider">{evento.tipo_de_evento}</td>
+                    <td className="list-events-table__td-lider">{evento.fecha_inicio}</td>
+                    <td className="list-events-table__td-lider">{evento.fecha_fin}</td>
+                    <td className="list-events-table__td-lider">{evento.cantidad_parcticipantes}</td>
+                    <td className="list-events-table__td-lider">{evento.nombre_ponente}</td>
+                    <td className="list-events-table__td-lider">{evento.lugar_evento}</td>
+                    <td className="list-events-table__td-lider">{semilleroInfo[evento.semillero]}</td>
+                    <td className="list-events-table__td-lider">{evento.evidencia}</td>
+                    <td className="list-events-table__td-lider">
+
+                      <div className="list-events-table__td__btns-lider">
                         <Link to={`../visualizar-evento/`}>
-                          <LiaEye className="list-events-table__td__btn-admin" />
+                          <LiaEye className="list-events-table__td__btn-lider" />
                         </Link>
-                        <Link to={`../actualizar-eventos/`}>
-                          <FaRegEdit className="list-events-table__td__btn-admin" />
+                        <Link to={`../actualizar-eventos/${evento.id}`}>
+                          <FaRegEdit className="list-events-table__td__btn-lider" />
                         </Link>
                         <Link>
-                          <IoTrashOutline className="list-events-table__td__btn-admin" onClick={() => suspenderEventos(evento.id)}/>
+                          <IoTrashOutline className="list-events-table__td__btn-lider" onClick={() => suspenderEventos(evento.id)}/>
                         </Link>
                       </div>
                     </td>

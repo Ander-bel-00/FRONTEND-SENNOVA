@@ -125,73 +125,39 @@ function Listar_Actividad() {
         />
         <Caja_Blanca
           content={
-            <table className="list-activity-admin-content-table">
+            <table className="list-activity-content-lider-table">
               <thead>
-                <tr className="list-activity-admin-content-table-tr">
-                  <th className="list-activity-admin-content__table__tr__th">
-                    Nombre Actividad
-                  </th>
-                  <th className="list-activity-admin-content__table__tr__th">
-                    Tarea
-                  </th>
-                  <th className="list-activity-admin-content__table__tr__th">
-                    Fecha de Inicio
-                  </th>
-                  <th className="list-activity-admin-content__table__tr__th">
-                    Fecha de Fin
-                  </th>
-                  <th className="list-activity-admin-content__table__tr__th">
-                    Resultado
-                  </th>
-
-                  <th className="list-activity-admin-content__table__tr__th">
-                    Responsable de la Actividad
-                  </th>
-                  <th className="list-activity-admin-content__table__tr__th">
-                    Acciones
-                  </th>
+                <tr className="list-activity-content-lider-table-tr">
+                  <th className="list-activity-content-lider__table__tr__th">Nombre Actividad</th>
+                  <th className="list-activity-content-lider__table__tr__th">Tarea</th>
+                  <th className="list-activity-content-lider__table__tr__th">Fecha de Inicio</th>
+                  <th className="list-activity-content-lider__table__tr__th">Fecha de Fin</th>
+                  <th className="list-activity-content-lider__table__tr__th">Resultado</th>
+                  <th className="list-activity-content-lider__table__tr__th">Responsable de la Actividad</th>
+                  <th className="list-activity-content-lider__table__tr__th">Acciones</th>
                 </tr>
               </thead>
               <tbody>
                 {filteredActivitys.length > 0 ? (
                   filteredActivitys.map((actividad) => (
-                    <tr
-                      key={actividad.id}
-                      className="list-activity-admin-content-table-tr"
-                    >
-                      <td className="list-activity-admin-content-table-td">
-                        {actividad.nombre_actividad}
-                      </td>
-                      <td className="list-activity-admin-content-table-td">
-                        {actividad.tarea}
-                      </td>
-                      <td className="list-activity-admin-content-table-td">
-                        {actividad.fecha_inicio}
-                      </td>
-                      <td className="list-activity-admin-content-table-td">
-                        {actividad.fecha_fin}
-                      </td>
-                      <td className="list-activity-admin-content-table-td">
-                        {actividad.resultado}
-                      </td>
-                      <td className="list-activity-admin-content-table-td">
-                        {actividad.responsable_actividad}
-                      </td>
-                      
-                      <td className="list-activity-admin-content-table__td">
-                        <div className="list-activity-admin-content-table__td__btns">
-                          <Link
-                            to={`../visualizar-actividad/${actividad.id}`}
-                          >
-                            <LiaEyeSolid className="list-activity-admin-content-table__td__btn" />
+                    <tr key={actividad.id} className="list-activity-content-lider-table-tr">
+                      <td className="list-activity-content-lider-table-td">{actividad.nombre_actividad}</td>
+                      <td className="list-activity-content-lider-table-td">{actividad.tarea}</td>
+                      <td className="list-activity-content-lider-table-td">{actividad.fecha_inicio}</td>
+                      <td className="list-activity-content-lider-table-td">{actividad.fecha_fin}</td>
+                      <td className="list-activity-content-lider-table-td">{actividad.resultado}</td>
+                      <td className="list-activity-content-lider-table-td">{actividad.responsable_actividad}</td>
+                      <td className="list-activity-content-lider-table__td">
+
+                        <div className="list-activity-content-lider-table__td__btns">
+                          <Link to={`../visualizar-actividad/${actividad.id}`}>
+                            <LiaEyeSolid className="list-activity-content-lider-table__td__btn" />
                           </Link>
-                          <Link
-                            to={`../actualizar-actividad/${actividad.id}`}
-                          >
-                            <FaRegEdit className="list-activity-admin-content-table__td__btn" />
+                          <Link to={`../actualizar-actividad/${actividad.id}`}>
+                            <FaRegEdit className="list-activity-content-lider-table__td__btn" />
                           </Link>
                           <Link>
-                            <IoTrashOutline className="list-activity-admin-content-table__td__btn" onClick={() => suspenderActividad(actividad.id)} />
+                            <IoTrashOutline className="list-activity-content-lider-table__td__btn" onClick={() => suspenderActividad(actividad.id)} />
                           </Link>
                         </div>
                       </td>
@@ -200,9 +166,7 @@ function Listar_Actividad() {
                 ) : (
                   <tr>
                     <td colSpan={8}>
-                      <p className="text-center mt-20 font-bold">
-                        No se han encontrado actividades
-                      </p>
+                      <p className="text-center mt-20 font-bold">No se han encontrado actividades</p>
                     </td>
                   </tr>
                 )}
