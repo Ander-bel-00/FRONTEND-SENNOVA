@@ -1,10 +1,4 @@
-.create-activity-title{
-    font-size: 2rem;
-    text-align: center;
-
-}
-
-.create-activity-box{
+.create-activity-lider{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -14,7 +8,12 @@
     padding-bottom: 2rem;
 }
 
-.form-create-activity-content{
+.create-activity-title-lider{
+    font-size: 2rem;
+    text-align: center;
+}
+
+.form-create-activity-content-lider{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -22,13 +21,13 @@
     margin-top: 1rem;
 }
 
-.form-create-activity-content__col1__label{
+.form-create-activity-content-label-lider{
     font-weight: 400;
     display: flex;
     gap: 5px;
 }
 
-.form-create-activity-content__col1__input{
+.form-create-activity-content-input-lider{
     width: 100%;
     background-color: var(--bg-inputs);
     border-radius: 6px;
@@ -40,7 +39,7 @@
 
 
 
-.btns-crear-actividad{
+.btns-crear-actividad-lider{
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -49,7 +48,7 @@
     margin-top: 2rem;
 }
 
-.btn-create-actividad{
+.btn-create-actividad-lider{
     background-color: var(--boton-crear-color);
     width: 15rem;
     padding: 8px;
@@ -59,11 +58,11 @@
     font-size: 21px;
 }
 
-.btn-create-actividad:hover{
+.btn-create-actividad-lider:hover{
    background-color: var( --btn-update-bg-hover);
 }
 
-.btn-cancelar-actividad{
+.btn-cancelar-actividad-lider{
     background-color: var(--boton-cacelar-color);
     width: 15rem;
     height: 45px;
@@ -74,11 +73,11 @@
     font-size: 21px;
 }
 
-.btn-cancelar-actividad:hover{
+.btn-cancelar-actividad-lider:hover{
     background-color: var(--boton-cacelar-bg-hover);
 }
 
 
-.btn-return-actividad {
+.btn-return-actividad-lider {
     z-index: 2;
 }

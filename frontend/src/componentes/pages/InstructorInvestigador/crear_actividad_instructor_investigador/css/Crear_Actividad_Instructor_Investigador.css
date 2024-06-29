@@ -1,9 +1,4 @@
-.create-activity-instructor-title{
-    font-size: 2rem;
-    text-align: center;
-}
-
-.create-activity-instructor-box{
+.create-activity-instructor {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -13,8 +8,13 @@
     padding-bottom: 2rem;
 }
 
+.create-activity-instructor-title {
+    font-size: 2rem;
+    text-align: center;
+}
 
-.form-create-activity-instructor-content{
+
+.form-create-activity-instructor-content {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -22,13 +22,13 @@
     margin-top: 1rem;
 }
 
-.form-create-activity-instructor-content__col1__label{
+.form-create-activity-instructor-content-label {
     font-weight: 400;
     display: flex;
     gap: 5px;
 }
 
-.form-create-activity-instructor-content__col1__input{
+.form-create-activity-instructor-content-input {
     width: 100%;
     background-color: var(--bg-inputs);
     border-radius: 6px;
@@ -40,7 +40,7 @@
 
 
 
-.btns-instructor-actividad{
+.btns-instructor-actividad {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -49,32 +49,32 @@
     margin-top: 2rem;
 }
 
-.btn-crear-instructor-actividad{
+.btn-crear-instructor-actividad {
     background-color: var(--boton-crear-color);
     width: 15rem;
     padding: 8px;
     border-radius: 8px;
-    box-shadow: 0px 4px 11px 1px rgba(129,122,122,0.73);
+    box-shadow: 0px 4px 11px 1px rgba(129, 122, 122, 0.73);
     color: var(--text-btn-color);
     font-size: 21px;
 }
 
-.btn-crear-instructor-actividad:hover{
-    background-color: var( --btn-update-bg-hover);
+.btn-crear-instructor-actividad:hover {
+    background-color: var(--btn-update-bg-hover);
 }
 
-.btn-cancelar-instructor-actividad{
+.btn-cancelar-instructor-actividad {
     background-color: var(--boton-cacelar-color);
     width: 15rem;
     height: 45px;
     border-radius: 8px;
-    box-shadow: 0px 4px 11px 1px rgba(129,122,122,0.73);
+    box-shadow: 0px 4px 11px 1px rgba(129, 122, 122, 0.73);
     top: 1rem;
     color: var(--text-btn-color);
     font-size: 21px;
 }
 
-.btn-cancelar-instructor-actividad:hover{
+.btn-cancelar-instructor-actividad:hover {
     background-color: var(--boton-cacelar-bg-hover);
 }
 

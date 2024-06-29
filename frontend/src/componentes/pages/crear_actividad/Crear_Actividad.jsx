@@ -1,5 +1,4 @@
 import React, { Fragment, useState } from "react";
-import "./css/Crear_Actividad.css";
 import { GiReturnArrow } from "react-icons/gi";
 import { Link, useNavigate } from "react-router-dom";
 import BotonReturn from "../../common/BotonReturn";
@@ -7,6 +6,7 @@ import Caja_formularios from "../../common/Caja_formularios";
 import Swal from "sweetalert2";
 import { useAuth } from "../../../context/AuthContext";
 import clienteAxios from "../../../config/axios";
+import "./css/Crear_Actividad.css";
 
 function Crear_Actividad() {
   const { userProfile } = useAuth();
@@ -14,6 +14,7 @@ function Crear_Actividad() {
 
   const SemilleroID = userProfile ? userProfile.semillero : [];
 
+  const [loading, setLoading] = useState(false)
   const [formNewActivitySemillero, setFormNewActivitySemillero] = useState({
     semillero: SemilleroID.length > 0 ? SemilleroID[0] : null,
     nombre_actividad: "",
@@ -31,6 +32,7 @@ function Crear_Actividad() {
   };
 
   const handleSubmit = async (e) => {
+    setLoading(true)
     e.preventDefault();
     const fieldEmpty = Object.values(formNewActivitySemillero).some(
       (value) => value === ""
@@ -66,112 +68,114 @@ function Crear_Actividad() {
         icon: "error",
         confirmButtonText: "Aceptar",
       });
+    } finally {
+      setLoading(false)
     }
   };
 
   return (
     <Fragment>
       <div className="main-container__contenedor-hijo">
-        <div className="btn-return-actividad">
+        <div className="btn-return-actividad-lider">
           <BotonReturn icon={<GiReturnArrow />} />
         </div>
         <Caja_formularios
           info={
-            <div className="create-activity-box">
-              <h3 className="create-activity-title">
+            <div className="create-activity-lider">
+              <h3 className="create-activity-title-lider">
                 Crear Actividad
               </h3>
               <form
-                className="form-create-activity-content"
+                className="form-create-activity-content-lider"
                 onSubmit={handleSubmit}
               >
                 <label
                   htmlFor="nombre-actividad"
-                  className="form-create-activity-content__col1__label"
+                  className="form-create-activity-content-label-lider"
                 >
                   Nombre de la Actividad <p className="rojo-required">*</p>
                 </label>
                 <input
                   type="text"
                   id="nombre-actividad"
-                  className="form-create-activity-content__col1__input"
+                  className="form-create-activity-content-input-lider"
                   name="nombre_actividad"
-                  onChange={handleChange}
-                />
-                <label
-                  htmlFor="fecha-entrega-actividad"
-                  className="form-create-activity-content__col1__label"
-                >
-                  Fecha de Inicio <p className="rojo-required">*</p>
-                </label>
-                <input
-                  type="date"
-                  id="fecha-entrega-actividad"
-                  className="form-create-activity-content__col1__input"
-                  name="fecha_inicio"
-                  onChange={handleChange}
-                />
-                <label
-                  htmlFor="fecha-entrega-actividad"
-                  className="form-create-activity-content__col1__label"
-                >
-                  Fecha de fin <p className="rojo-required">*</p>
-                </label>
-                <input
-                  type="date"
-                  id="fecha-entrega-actividad"
-                  className="form-create-activity-content__col1__input"
-                  name="fecha_fin"
                   onChange={handleChange}
                 />
 
                 <label
                   htmlFor="tarea-actividad"
-                  className="form-create-activity-content__col1__label"
+                  className="form-create-activity-content-label-lider"
                 >
                   Tarea <p className="rojo-required">*</p>
                 </label>
                 <input
                   type="text"
                   id="tarea-actividad"
-                  className="form-create-activity-content__col1__input"
+                  className="form-create-activity-content-input-lider"
                   name="tarea"
                   onChange={handleChange}
                 />
                 <label
                   htmlFor="resultado-actividad"
-                  className="form-create-activity-content__col1__label"
+                  className="form-create-activity-content-label-lider"
                 >
                   Resultado <p className="rojo-required">*</p>
                 </label>
                 <input
                   type="text"
                   id="resultado-actividad"
-                  className="form-create-activity-content__col1__input"
+                  className="form-create-activity-content-input-lider"
                   name="resultado"
                   onChange={handleChange}
                 />
                 <label
                   htmlFor="responsable-actividad"
-                  className="form-create-activity-content__col1__label"
+                  className="form-create-activity-content-label-lider"
                 >
                   Responsable de la Actividad <p className="rojo-required">*</p>
                 </label>
                 <input
                   type="text"
                   id="responsable-actividad"
-                  className="form-create-activity-content__col1__input"
+                  className="form-create-activity-content-input-lider"
                   name="responsable_actividad"
                   onChange={handleChange}
                 />
+                <label
+                  htmlFor="fecha-entrega-actividad"
+                  className="form-create-activity-content-label-lider"
+                >
+                  Fecha de Inicio <p className="rojo-required">*</p>
+                </label>
+                <input
+                  type="date"
+                  id="fecha-entrega-actividad"
+                  className="form-create-activity-content-input-lider"
+                  name="fecha_inicio"
+                  onChange={handleChange}
+                />
+                <label
+                  htmlFor="fecha-entrega-actividad"
+                  className="form-create-activity-content-label-lider"
+                >
+                  Fecha de fin <p className="rojo-required">*</p>
+                </label>
+                <input
+                  type="date"
+                  id="fecha-entrega-actividad"
+                  className="form-create-activity-content-input-lider"
+                  name="fecha_fin"
+                  onChange={handleChange}
+                />
 
-                <div className="btns-crear-actividad">
-                  <button className="btn-create-actividad" type="submit">
-                    Crear
+                <div className="btns-crear-actividad-lider">
+                  <button type="submit" className="btn-create-actividad-lider">
+                    {loading ? <span className="spinner"></span> : "Crear"}
                   </button>
                   <Link to={"../listar-actividad"}>
                     <button
-                      className="btn-cancelar-actividad"
+                      className="btn-cancelar-actividad-lider"
                       type="button"
                     >
                       Cancelar

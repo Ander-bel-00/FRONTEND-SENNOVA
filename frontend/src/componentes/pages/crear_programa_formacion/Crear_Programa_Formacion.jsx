@@ -68,82 +68,79 @@ function Crear_Programa_Formacion() {
       <Caja_formularios
         info={
           <Fragment>
-            <div className="inputBoxes">
-              <h3 className="inputBoxes__titlecaja">
+            <div className="inputBoxes-lider">
+              <h3 className="inputBoxes-title-lider">
                 Crear Programa de formación
               </h3>
-              <form className="inputBoxes__olderbox" onSubmit={handleSubmit}>
-                <label className="unputBoxes__label">
+              <form className="inputBoxes-olderbox-lider" onSubmit={handleSubmit}>
+                <label className="unputBoxes-label-lider">
                   Código Programa de formación<p className="rojo-required">*</p>
                 </label>
                 <input
                   type="number"
-                  className="unputBoxes__input"
+                  className="unputBoxes-input-lider"
                   name="codigo_programa_formacion"
                   onChange={handleChange}
                 />
 
-                <label className="unputBoxes__label">
+                <label className="unputBoxes-label-lider">
                   Versión Programa de formación
                   <p className="rojo-required">*</p>
                 </label>
                 <input
                   type="text"
-                  className="unputBoxes__input"
+                  className="unputBoxes-input-lider"
                   name="version_programa_formacion"
                   onChange={handleChange}
                 />
 
-                <label className="unputBoxes__label">
+                <label className="unputBoxes-label-lider">
                   Nombre Programa de formación<p className="rojo-required">*</p>
                 </label>
                 <input
                   type="text"
-                  className="unputBoxes__input"
+                  className="unputBoxes-input-lider"
                   name="nombre_programa_formacion"
                   onChange={handleChange}
                 />
                 <div />
 
-                <label className="unputBoxes__label">
+                <label className="unputBoxes-label-lider">
                   Número de Ficha<p className="rojo-required">*</p>
                 </label>
                 <input
                   type="number"
-                  className="unputBoxes__input"
+                  className="unputBoxes-input-lider"
                   name="ficha"
                   onChange={handleChange}
                 />
 
-                <label className="unputBoxes__label">
+                <label className="unputBoxes-label-lider">
                   Fecha de Inicio Lectiva<p className="rojo-required">*</p>
                 </label>
                 <input
                   type="date"
-                  className="unputBoxes__input"
+                  className="unputBoxes-input-lider"
                   name="inicio_lectiva"
                   onChange={handleChange}
                 />
 
-                <label className="unputBoxes__label">
+                <label className="unputBoxes-label-lider">
                   Fecha Fin Lectiva<p className="rojo-required">*</p>
                 </label>
                 <input
                   type="date"
-                  className="unputBoxes__input"
+                  className="unputBoxes-input-lider"
                   name="fin_lectiva"
                   onChange={handleChange}
                 />
 
-                <div className="buttonsCreating">
-                  <button
-                    className="buttonsCreating__crear--green"
-                    type="submit"
-                  >
+                <div className="buttonsCreating-lider">
+                  <button className="buttonsCreating-crear-lider" type="submit">
                     {loading ? <span className="spinner"></span> : "Crear"}
                   </button>
                   <Link to={"../visualizar-programa-formacion"}>
-                    <button className="buttonsCreating__cancelar" type="button">
+                    <button className="buttonsCreating-cancelar-lider" type="button">
                       Cancelar
                     </button>
                   </Link>

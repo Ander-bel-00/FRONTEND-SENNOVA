@@ -44,17 +44,6 @@ function ListarUsuarios() {
     ObtenerusuariosSemillero();
   }, []); // Dependencia que indica cuándo debe ejecutarse el efecto nuevamente
 
-  const handleFilter = (query) => {
-    const filtered = usuarios.filter(
-      (usuarios) =>
-        usuarios.name.toLowerCase().includes(query.toLowerCase()) ||
-        usuarios.documento.toLowerCase().includes(query.toLowerCase()) ||
-        usuarios.rol.toLowerCase().includes(query.toLowerCase())
-    );
-    setFiltrarUsuarios(filtered);
-  };
-
-
   const exportToExcel = () => {
     const wb = XLSX.utils.book_new();
     const wsData = [
@@ -80,6 +69,16 @@ function ListarUsuarios() {
     // Genera el archivo Excel
     XLSX.utils.book_append_sheet(wb, ws, "Usuarios");
     XLSX.writeFile(wb, "usuarios.xlsx");
+  };
+
+  const handleFilter = (query) => {
+    const filtered = usuarios.filter(
+      (usuarios) =>
+        usuarios.name.toLowerCase().includes(query.toLowerCase()) ||
+        usuarios.documento.toLowerCase().includes(query.toLowerCase()) ||
+        usuarios.rol.toLowerCase().includes(query.toLowerCase())
+    );
+    setFiltrarUsuarios(filtered);
   };
 
   return (

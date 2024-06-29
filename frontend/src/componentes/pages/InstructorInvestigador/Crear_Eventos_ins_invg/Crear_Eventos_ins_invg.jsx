@@ -14,6 +14,7 @@ function Crear_Eventos_ins_invg() {
 
   const SemilleroID = userProfile ? userProfile.semillero : [];
 
+  const [loading, setLoading] = useState(false)
   const [nuevoSemillero, setNuevoSemillero] = useState({
     semillero: SemilleroID.length > 0 ? SemilleroID[0] : null,
     nombre_evento: "",
@@ -32,6 +33,7 @@ function Crear_Eventos_ins_invg() {
   };
 
   const handleSubmit = async (e) => {
+    setLoading(true)
     e.preventDefault();
     const fieldEmpty = Object.values(nuevoSemillero).some(
       (value) => value === ""
@@ -68,6 +70,8 @@ function Crear_Eventos_ins_invg() {
         icon: "error",
         confirmButtonText: "Aceptar",
       });
+    } finally {
+      setLoading(false)
     }
   };
 
@@ -169,7 +173,7 @@ return (
 
               <div className="btns-crear-evento-instructor">
                 <button type="submit" className="btnEvents__crear--green-instructor">
-                  Crear
+                  {loading ? <span className="spinner"></span>: "Crear"}
                 </button>
 
                 <Link to={"../listar-eventos"}>

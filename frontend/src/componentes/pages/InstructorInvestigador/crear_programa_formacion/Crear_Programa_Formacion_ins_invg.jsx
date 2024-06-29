@@ -10,6 +10,7 @@ import clienteAxios from "../../../../config/axios";
 
 function Crear_Programa_Formacion_ins_invg() {
 
+  const [loading, setLoading] = useState(false)
   const [formularioNewPrograma, setFormularioNewPrograma] = useState({});
   const navigate = useNavigate();
 
@@ -19,6 +20,7 @@ function Crear_Programa_Formacion_ins_invg() {
   };
 
   const handleSubmit = async (event) => {
+    setLoading(true);
     event.preventDefault();
     // Verificar si algún campo está vacío
     const anyFieldEmpty = Object.values(formularioNewPrograma).some((value) => value === '');
@@ -51,6 +53,8 @@ function Crear_Programa_Formacion_ins_invg() {
         icon: "warning",
         confirmButtonText: "Aceptar",
       });
+    } finally {
+      setLoading(false)
     }
   };
 
@@ -64,7 +68,7 @@ function Crear_Programa_Formacion_ins_invg() {
         info={
           <Fragment>
             <div className=" main-form-program-instructor">
-              <h2 className="text-center create-program-title-instructor">
+              <h2 className="create-program-title-instructor">
                 Crear Programa de Formación
               </h2>
 
@@ -144,7 +148,7 @@ function Crear_Programa_Formacion_ins_invg() {
 
                 <div className="btns-crear-program">
                   <button className="btn-crear-program" type="submit">
-                    Crear
+                    {loading ? <span className="spinner"></span> : "Crear" }
                   </button>
 
                   <Link to={"../visualizar-programa-formacion"}>

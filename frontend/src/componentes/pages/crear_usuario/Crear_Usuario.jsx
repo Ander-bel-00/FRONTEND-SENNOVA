@@ -113,20 +113,18 @@ function Crear_Usuario() {
 
   return (
     <div className="main-container__contenedor-hijo">
-      <div className="btn-return-usuarios">
         <BotonReturn icon={<GiReturnArrow />} />
-      </div>
       <Caja_formularios
         info={
           <Fragment>
-            <div className="user-add-main">
-              <h2 className="text-center user-add-title">Crear Investigador</h2>
+            <div className="user-add-main-lider">
+              <h2 className="user-add-title-lider">Crear Investigador</h2>
               <div className="rol-selection">
                 <select
                   id="rol-usuario"
                   value={rolUsuario}
                   onChange={handleRolChange}
-                  className="form-add-user-container__col1__input"
+                  className="form-add-user-container-input-lider"
                 >
                   <option value="instructor_investigador">
                     Instructor Investigador
@@ -139,7 +137,7 @@ function Crear_Usuario() {
               <form className="form-add-user-container" onSubmit={handleSubmit}>
                 <label
                   htmlFor="documento"
-                  className="form-add-user-container__col1__label"
+                  className="form-add-user-container-label-lider"
                 >
                   Número de Documento <p className="rojo-required">*</p>
                 </label>
@@ -147,13 +145,13 @@ function Crear_Usuario() {
                   type="text"
                   name="documento"
                   id="documento"
-                  className="form-add-user-container__col1__input"
+                  className="form-add-user-container-input-lider"
                   onChange={handleChange}
                 />
 
                 <label
                   htmlFor="name"
-                  className="form-add-user-container__col1__label"
+                  className="form-add-user-container-label-lider"
                 >
                   Nombres <p className="rojo-required">*</p>
                 </label>
@@ -161,12 +159,12 @@ function Crear_Usuario() {
                   type="text"
                   id="name"
                   name="name"
-                  className="form-add-user-container__col1__input"
+                  className="form-add-user-container-input-lider"
                   onChange={handleChange}
                 />
                 <label
                   htmlFor="last_names"
-                  className="form-add-user-container__col1__label"
+                  className="form-add-user-container-label-lider"
                 >
                   Apellidos <p className="rojo-required">*</p>
                 </label>
@@ -174,12 +172,12 @@ function Crear_Usuario() {
                   type="text"
                   name="last_names"
                   id="last_names"
-                  className="form-add-user-container__col1__input"
+                  className="form-add-user-container-input-lider"
                   onChange={handleChange}
                 />
                 <label
                   htmlFor="telefono"
-                  className="form-add-user-container__col1__label"
+                  className="form-add-user-container-label-lider"
                 >
                   Teléfono <p className="rojo-required">*</p>
                 </label>
@@ -187,12 +185,12 @@ function Crear_Usuario() {
                   type="number"
                   name="telefono"
                   id="telefono"
-                  className="form-add-user-container__col1__input"
+                  className="form-add-user-container-input-lider"
                   onChange={handleChange}
                 />
                 <label
                   htmlFor="email"
-                  className="form-add-user-container__col1__label"
+                  className="form-add-user-container-label-lider"
                 >
                   Email <p className="rojo-required">*</p>
                 </label>
@@ -200,12 +198,12 @@ function Crear_Usuario() {
                   type="email"
                   name="email"
                   id="email"
-                  className="form-add-user-container__col1__input"
+                  className="form-add-user-container-input-lider"
                   onChange={handleChange}
                 />
                 <label
                   htmlFor="semillero"
-                  className="form-add-user-container__col1__label"
+                  className="form-add-user-container-label-lider"
                   hidden
                 >
                   Semillero <p className="rojo-required">*</p>
@@ -214,7 +212,7 @@ function Crear_Usuario() {
                   type="number"
                   name="semillero"
                   id="semillero"
-                  className="form-add-user-container__col1__input"
+                  className="form-add-user-container-input-lider"
                   onChange={handleChange}
                   value={SemilleroID}
                   readOnly
@@ -223,7 +221,7 @@ function Crear_Usuario() {
                 <label
                   hidden
                   htmlFor="rol"
-                  className="form-add-user-container__col1__label"
+                  className="form-add-user-container-label-lider"
                 >
                   Rol de Usuario <p className="rojo-required">*</p>
                 </label>
@@ -234,7 +232,7 @@ function Crear_Usuario() {
                   <Fragment>
                     <label
                       htmlFor="programa_formacion"
-                      className="form-add-user-container__col1__label"
+                      className="form-add-user-container-label-lider"
                     >
                       Programa de Formación <p className="rojo-required">*</p>
                     </label>
@@ -242,7 +240,7 @@ function Crear_Usuario() {
                       type="text"
                       id="programa_formacion"
                       name="programa_formacion"
-                      className="form-add-user-container__col1__input cursor-pointer"
+                      className="form-add-user-container-input-lider cursor-pointer"
                       placeholder="Presiona para seleccionar un programa de formación"
                       value={nombreProgramaSeleccionado || ""}
                       onClick={openModal}
@@ -258,7 +256,7 @@ function Crear_Usuario() {
 
                     <label
                       htmlFor="ficha"
-                      className="form-add-user-container__col1__label"
+                      className="form-add-user-container-label-lider"
                     >
                       Número de Ficha <p className="rojo-required">*</p>
                     </label>
@@ -266,7 +264,7 @@ function Crear_Usuario() {
                       type="number"
                       id="ficha"
                       name="ficha"
-                      className="form-add-user-container__col1__input"
+                      className="form-add-user-container-input-lider"
                       value={formDataUser.ficha || ""}
                       onChange={handleChange}
                       readOnly
@@ -274,7 +272,7 @@ function Crear_Usuario() {
 
                     <label
                       htmlFor="inicio_lectiva"
-                      className="form-add-user-container__col1__label"
+                      className="form-add-user-container-label-lider"
                     >
                       Inicio Lectiva De La Ficha{" "}
                       <p className="rojo-required">*</p>
@@ -283,7 +281,7 @@ function Crear_Usuario() {
                       type="date"
                       id="inicio_lectiva"
                       name="inicio_lectiva"
-                      className="form-add-user-container__col1__input"
+                      className="form-add-user-container-input-lider"
                       value={formDataUser.inicio_lectiva || ""}
                       onChange={handleChange}
                       readOnly
@@ -291,7 +289,7 @@ function Crear_Usuario() {
 
                     <label
                       htmlFor="finalizacion_lectiva"
-                      className="form-add-user-container__col1__label"
+                      className="form-add-user-container-label-lider"
                     >
                       Fin Lectiva De La Ficha <p className="rojo-required">*</p>
                     </label>
@@ -299,7 +297,7 @@ function Crear_Usuario() {
                       type="date"
                       id="finalizacion_lectiva"
                       name="finalizacion_lectiva"
-                      className="form-add-user-container__col1__input"
+                      className="form-add-user-container-input-lider"
                       value={formDataUser.finalizacion_lectiva || ""}
                       onChange={handleChange}
                       readOnly
@@ -335,13 +333,13 @@ function Crear_Usuario() {
                     </Modal>
                   </Fragment>
                 )}
-                <div className="user-add-btns">
-                  <button type="submit" className="btn-crear-usuario">
+                <div className="user-add-btns-lider">
+                  <button type="submit" className="btn-crear-usuario-lider">
                     {loading ? <span className="spinner"></span> : "Crear"}
                   </button>
 
                   <Link to={"/lider_semillero/usuarios-getAll"}>
-                    <button type="button" className="btn-cancelar-usuario">
+                    <button type="button" className="btn-cancelar-usuario-lider">
                       Cancelar
                     </button>
                   </Link>

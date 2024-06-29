@@ -6,7 +6,7 @@ import BotonReturn from "../../common/BotonReturn";
 import { useAuth } from "../../../context/AuthContext";
 import Swal from "sweetalert2";
 import clienteAxios from "../../../config/axios";
-import { GiReturnArrow } from "react-icons/gi";
+import { GiFingernail, GiReturnArrow } from "react-icons/gi";
 
 function Crear_Eventos() {
   
@@ -15,6 +15,7 @@ function Crear_Eventos() {
 
   const SemilleroID = userProfile ? userProfile.semillero : [];
 
+  const [loading, setLoading] = useState(false)
   const [newEventSemillero, setNewEventSemillero] = useState({
     semillero: SemilleroID.length > 0 ? SemilleroID[0] : null,
     nombre_evento: "",
@@ -33,6 +34,7 @@ function Crear_Eventos() {
   };
 
   const handleSubmit = async (e) => {
+    setLoading(true)
     e.preventDefault();
     const fieldEmpty = Object.values(newEventSemillero).some(
       (value) => value === ""
@@ -69,6 +71,8 @@ function Crear_Eventos() {
         icon: "error",
         confirmButtonText: "Aceptar",
       });
+    } finally {
+      setLoading(false)
     }
   };
 
@@ -81,26 +85,26 @@ function Crear_Eventos() {
         info={
           <Fragment>
             {/* Formulario y caja */}
-            <div className="mainsBoxes">
-              <h3 className="mainsBoxes__tile">Crear Eventos</h3>
+            <div className="mainsBoxes-lider">
+              <h3 className="mainsBoxes-title-lider">Crear Eventos</h3>
 
-              <form className="form-add-event-container" onSubmit={handleSubmit}>
+              <form className="form-add-event-container-lider" onSubmit={handleSubmit}>
 
-                <label className="form-add-event-container__label">
+                <label className="form-add-event-container__label-lider">
                   Nombre del evento <p className="rojo-required">*</p>
                 </label>
                 <input
                   type="text"
-                  className="form-add-event-container__input"
+                  className="form-add-event-container__input-lider"
                   name="nombre_evento"
                   onChange={handleChange}
                 />
 
-                <label className="form-add-event-container__label-admin">
+                <label className="form-add-event-container__label-lider">
                   Tipo de Evento <p className="rojo-required">*</p>
                 </label>
                 <select
-                  className="form-add-event-container__input-admin"
+                  className="form-add-event-container__input-lider"
                   name="tipo_de_evento"
                   onChange={handleChange}
                 >
@@ -111,72 +115,72 @@ function Crear_Eventos() {
 
 
 
-                <label className="form-add-event-container__label">
+                <label className="form-add-event-container__label-lider">
                   Fecha de Inicio del Evento <p className="rojo-required">*</p>
                 </label>
                 <input
                   type="date"
-                  className="form-add-event-container__input"
+                  className="form-add-event-container__input-lider"
                   name="fecha_inicio"
                   onChange={handleChange}
                 />
 
-                <label className="form-add-event-container__label">
+                <label className="form-add-event-container__label-lider">
                   Fecha de Fin del Evento <p className="rojo-required">*</p>
                 </label>
                 <input
                   type="date"
-                  className="form-add-event-container__input"
+                  className="form-add-event-container__input-lider"
                   name="fecha_fin"
                   onChange={handleChange}
                 />
 
-                <label className="form-add-event-container__label">
+                <label className="form-add-event-container__label-lider">
                   Cantidad de participantes <p className="rojo-required">*</p>
                 </label>
                 <input
                   type="number"
-                  className="form-add-event-container__input"
+                  className="form-add-event-container__input-lider"
                   name="cantidad_parcticipantes"
                   onChange={handleChange}
                 />
 
-                <label className="form-add-event-container__label-admin">
+                <label className="form-add-event-container__label-lider">
                   Nombre del Ponente <p className="rojo-required">*</p>
                 </label>
                 <input
                   type="text"
-                  className="form-add-event-container__input-admin"
+                  className="form-add-event-container__input-lider"
                   name="nombre_ponente"
                   onChange={handleChange}
                 />
 
-                <label className="form-add-event-container__label">
+                <label className="form-add-event-container__label-lider">
                   Lugar del Evento <p className="rojo-required">*</p>
                 </label>
                 <input
                   type="text"
-                  className="form-add-event-container__input"
+                  className="form-add-event-container__input-lider"
                   name="lugar_evento"
                   onChange={handleChange}
                 />
 
                 <input
                   type="text"
-                  className="form-add-event-container__input-admin"
+                  className="form-add-event-container__input-lider"
                   name="semillero"
                   onChange={handleChange}
                   value={newEventSemillero.semillero}
                   hidden
                 />
 
-                <div className="btns-crear-evento">
-                  <button type="submit" className="btnEvents__crear--green">
-                    Crear
+                <div className="btns-evento-lider">
+                  <button type="submit" className="btn-crear-lider">
+                    {loading ? <span className="spinner"></span> : "Crear"}
                   </button>
 
                   <Link to={"../listar-eventos"}>
-                    <button type="button" className="btnEvents__cancelar">
+                    <button type="button" className="btn-cancelar-lider">
                       Cancelar
                     </button>
                   </Link>

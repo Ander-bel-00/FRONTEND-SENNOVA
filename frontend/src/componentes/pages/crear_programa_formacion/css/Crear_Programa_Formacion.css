@@ -1,9 +1,12 @@
-.mainsTitles{
-    text-align: center;
-    font-weight: bold;
-    font-size: 30px;
+.inputBoxes-olderbox-lider{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 80%;
+    margin-top: 1rem;  
 }
-.inputBoxes{
+
+.inputBoxes-lider{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -12,45 +15,34 @@
     padding-top: 2rem;
     padding-bottom: 2rem;
 }
-.inputBoxes__titlecaja{
-    font-size: 30px;
+
+.inputBoxes-title-lider{
+    font-size: 2rem;
     text-align: center;
-    padding: 1rem;
 }
 
 
-.unputBoxes__label{
+.unputBoxes-label-lider{
+    font-weight: 400;
+    padding-top: 12px;
     display: flex;
-    text-wrap: nowrap;
-    width: 25%;
+    align-items: center;
     gap: 5px;
-
 }
 
-.unputBoxes__input{
+.unputBoxes-input-lider{
     width: 100%;
+    background-color: var(--bg-inputs);
     border-radius: 6px;
     padding: 8px;
     margin-top: 8px;
     margin-bottom: 10px;
     box-shadow: var(--box-shadow-inputs);
-    background-color: var(--bg-inputs);
 }
 
 
-.add-event-btn-return:hover{
-    transform: scale(1.09);
-}
 
-
-.inputBoxes__olderbox{
-    width: 80%;
-    padding-top: 2rem;
-   
-}
-
-
-.buttonsCreating{
+.buttonsCreating-lider{
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -59,24 +51,7 @@
     margin-top: 2rem;
 }
 
-/* Botones principales */
-.buttonsCreating__cancelar {
-    background-color: var(--boton-cacelar-color);
-    width: 15rem;
-    height: 45px;
-    border-radius: 8px;
-    box-shadow: 0px 4px 11px 1px rgba(129,122,122,0.73);
-    top: 1rem;
-    color: var(--text-btn-color);
-    font-size: 21px;
-}
-
-.buttonsCreating__cancelar:hover{
-    background-color: var(--boton-cacelar-bg-hover);
-}
-
-
-.buttonsCreating__crear--green{
+.buttonsCreating-crear-lider{
     background-color: var(--boton-crear-color);
     width: 15rem;
     height: 45px;
@@ -87,6 +62,24 @@
     font-size: 21px;
 }
 
-.buttonsCreating__crear--green:hover{
+.buttonsCreating-crear-lider:hover{
     background-color: var(--boton-crear-bg-hover);
 }
+
+.buttonsCreating-cancelar-lider {
+    background-color: var(--boton-cacelar-color);
+    width: 15rem;
+    height: 45px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 11px 1px rgba(129,122,122,0.73);
+    top: 1rem;
+    color: var(--text-btn-color);
+    font-size: 21px;
+}
+
+.buttonsCreating-cancelar-lider:hover{
+    background-color: var(--boton-cacelar-bg-hover);
+}
+
+
+

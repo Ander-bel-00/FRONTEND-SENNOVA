@@ -1,9 +1,4 @@
-.mainsBoxes__tile{
-    font-size: 2rem;
-    text-align: center;
-}
-
-.mainsBoxes{
+.mainsBoxes-lider{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -13,7 +8,12 @@
     padding-bottom: 2rem;
 }
 
-.form-add-event-container{
+.mainsBoxes-title-lider{
+    font-size: 2rem;
+    text-align: center;
+}
+
+.form-add-event-container-lider{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -22,13 +22,13 @@
 }
 
 
-.form-add-event-container__label{
+.form-add-event-container__label-lider{
     font-weight: 400;
     display: flex;
     gap: 5px;
 }
 
-.form-add-event-container__input{
+.form-add-event-container__input-lider{
     width: 100%;
     background-color: var(--bg-inputs);
     border-radius: 6px;
@@ -38,17 +38,9 @@
     box-shadow: var(--box-shadow-inputs);
 }
 
-.form-add-event-container__label-select{
-    display: block;
-    font-weight: 400;
-    padding-top: 12px;
-}
-
-
-
 /* Botones principales */
 
-.btns-crear-evento{
+.btns-evento-lider{
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -58,7 +50,7 @@
 }
 
 
-.btnEvents__cancelar{
+.btn-cancelar-lider{
     background-color: var(--boton-cacelar-color);
     width: 15rem;
     height: 45px;
@@ -69,12 +61,12 @@
     font-size: 21px;
 }
 
-.btnEvents__cancelar:hover{
+.btn-cancelar-lider:hover{
     background-color: var(--boton-cacelar-bg-hover);
 }
 
 
-.btnEvents__crear--green{
+.btn-crear-lider{
     background-color: var(--boton-crear-color);
     width: 15rem;
     height: 45px;
@@ -85,12 +77,9 @@
     font-size: 21px;
 }
 
-.btnEvents__crear--green:hover{
+.btn-crear-lider:hover{
     background-color: var(--boton-crear-bg-hover);
 }
 
-.add-creat-btn-return {
-    z-index: 2;
-}
 
 

@@ -1,11 +1,11 @@
 import React, { Fragment, useState } from "react";
-import "./css/Crear_Proyecto_Instructor_Investigador.css";
 import Caja_formularios from "../../../common/Caja_formularios";
 import BotonReturn from "../../../common/BotonReturn";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../../../../context/AuthContext";
 import Swal from "sweetalert2";
 import clienteAxios from "../../../../config/axios";
+import "./css/Crear_Proyecto_Instructor_Investigador.css";
 
 function Crear_Proyecto_Instructor_Investigador() {
   const { userProfile } = useAuth();
@@ -13,8 +13,9 @@ function Crear_Proyecto_Instructor_Investigador() {
 
   // Obtener el SemilleroID del userProfile
   const SemilleroID = userProfile ? userProfile.semillero : [];
-  
+
   // Inicializar el estado del formulario
+  const [loading, setLoading] = useState(false)
   const [nuevoProyecto, setNuevoProyecto] = useState({
     semillero: SemilleroID.length > 0 ? SemilleroID[0] : null, // Asignar el primer valor del array o null si no hay valores
     nombre_proyecto: "",
@@ -31,6 +32,7 @@ function Crear_Proyecto_Instructor_Investigador() {
   };
 
   const handleSubmit = async (e) => {
+    setLoading(true)
     e.preventDefault();
 
     try {
@@ -52,6 +54,8 @@ function Crear_Proyecto_Instructor_Investigador() {
         icon: "error",
         confirmButtonText: "Aceptar",
       });
+    } finally {
+      setLoading(false)
     }
   };
 
@@ -173,7 +177,9 @@ function Crear_Proyecto_Instructor_Investigador() {
                   />
 
                   <div className="btns-crear-instructor-projecto">
-                    <button type="submit" className="btn-crear-instructor-projecto">Crear</button>
+                    <button type="submit" className="btn-crear-instructor-projecto">
+                      {loading ? <span className="spinner"></span> : "Crear"}
+                    </button>
                     <Link to={"../listar-proyectos"}>
                       <button type="submit" className="btn-cancelar-instructor-proyecto">Cancelar</button>
                     </Link>
