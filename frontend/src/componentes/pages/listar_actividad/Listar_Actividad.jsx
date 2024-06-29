@@ -30,22 +30,36 @@ function Listar_Actividad() {
 
         // Obtener información de los semilleros
         const semilleroPromises = activities.map(async (activity) => {
-          const semilleroRes = await clienteAxios.get(`/semilleros/${activity.semillero}/`);
-          return { semilleroId: activity.semillero, nombre_semillero: semilleroRes.data.nombre_semillero };
+          if (!activity.semillero) {
+            console.warn(
+              `Actividad con ID ${activity.id} no tiene semillero asignado.`
+            );
+            return null;
+          }
+
+          const semilleroRes = await clienteAxios.get(
+            `/semilleros/${activity.semillero}/`
+          );
+          return {
+            semilleroId: activity.semillero,
+            nombre_semillero: semilleroRes.data.nombre_semillero,
+          };
         });
 
-        const semilleros = await Promise.all(semilleroPromises);
+        const semilleros = (await Promise.all(semilleroPromises)).filter(
+          Boolean
+        );
         const semilleroMap = semilleros.reduce((map, semillero) => {
           map[semillero.semilleroId] = semillero.nombre_semillero;
           return map;
         }, {});
 
         setSemilleroInfo(semilleroMap);
-
       } catch (error) {
         console.error("Error al obtener las actividades del Semillero:", error);
       }
     };
+
     Obteneractividadsemilleros();
   }, []);
 
@@ -86,7 +100,9 @@ function Listar_Actividad() {
       (activity) =>
         activity.nombre_actividad.toLowerCase().includes(query.toLowerCase()) ||
         activity.tarea.toLowerCase().includes(query.toLowerCase()) ||
-        activity.responsable_actividad.toLowerCase().includes(query.toLowerCase())
+        activity.responsable_actividad
+          .toLowerCase()
+          .includes(query.toLowerCase())
     );
     setFilteredActivitys(filtered);
   };
@@ -107,6 +123,7 @@ function Listar_Actividad() {
                 icon={<LuCalendarDays />}
                 text={"Ir al Cronograma"}
                 clase={"btn-blanco btn-blanco--modify btn-azul"}
+                link={"../cronograma"}
               />
 
               <Search

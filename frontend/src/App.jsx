@@ -83,6 +83,7 @@ import Asignar_Horas_Admin from "./componentes/pages/Coordinador/Asignar_Horas_A
 import Visualizar_Horas_Admin from "./componentes/pages/Coordinador/Visualizar_Horas_Admin/Visualizar_Horas_Admin";
 import Visualizar_Actividad_Admin from "./componentes/pages/Admin/Visualizar_Actividad_Admin/Visualizar_Actividad_Admin";
 import Cronograma_Admin from "./componentes/pages/Admin/Cronograma_Admin/Cronograma_Admin";
+import Crear_Proyectos_Admin from "./componentes/pages/Admin/Crear_Proyectos_Admin/Crear_Proyectos_Admin";
 
 function App() {
   const { isAuthenticated, userRole, handleLogout } = useAuth();
@@ -274,7 +275,7 @@ function App() {
                     />
 
                     <Route
-                      path="/users-update"
+                      path="/users-update/:id"
                       element={
                         <main className="main-container">
                           <ModificarUsuario />
@@ -313,13 +314,13 @@ function App() {
                       path="/listar-eventos"
                       element={
                         <main className="main-container">
-                          <Listar_Eventos_Admin/>
+                          <Listar_Eventos_Admin />
                         </main>
                       }
                     />
 
                     <Route
-                      path="/visualizar-evento:id"
+                      path="/visualizar-evento/:id"
                       element={
                         <main className="main-container">
                           <Visualizar_Evento_Admin />
@@ -373,7 +374,7 @@ function App() {
                       path="/crear-proyecto"
                       element={
                         <main className="main-container">
-                          <Crear_Proyecto />
+                          <Crear_Proyectos_Admin />
                         </main>
                       }
                     />
@@ -492,7 +493,7 @@ function App() {
                       path="/usuarios-getAll"
                       element={
                         <main className="main-container">
-                          <ListarUsuarios />
+                          <Listar_Usuarios_Admin />
                         </main>
                       }
                     />
@@ -507,7 +508,7 @@ function App() {
                     />
 
                     <Route
-                      path="/users-update"
+                      path="/users-update/:id"
                       element={
                         <main className="main-container">
                           <ModificarUsuario />
@@ -608,7 +609,7 @@ function App() {
                     />
 
                     <Route
-                      path="/visualizar-evento"
+                      path="/visualizar-evento/:id"
                       element={
                         <main className="main-container">
                           <Visualizar_Evento />
@@ -729,7 +730,7 @@ function App() {
                     />
 
                     <Route
-                      path="/visualizar-evento"
+                      path="/visualizar-evento/:id"
                       element={
                         <main className="main-container">
                           <Visualizar_Evento_ins_invg />
@@ -962,7 +963,7 @@ function App() {
                     />
 
                     <Route
-                      path="/visualizar-evento"
+                      path="/visualizar-evento/:id"
                       element={
                         <main className="main-container">
                           <Visualizar_Evento_apr_invg />

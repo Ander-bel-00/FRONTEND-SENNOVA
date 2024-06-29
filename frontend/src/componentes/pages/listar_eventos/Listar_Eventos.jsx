@@ -57,8 +57,6 @@ function Listar_Eventos() {
     ObtenerEventoSemillero(); // función que indica iniciar todo, es decir obtener las actividades
   }, []); // el efecto nunca va a depender de nada cuando este [] (depende de algo cuando se encuentere el id)
 
-
-
   const suspenderEventos = async (eventosId) => {
     try {
       const result = await Swal.fire({
@@ -114,6 +112,7 @@ function Listar_Eventos() {
             <BotonBlanco
               icon={<LuCalendarDays />}
               text={"Ir al Cronograma"}
+              link={"../cronograma"}
               clase={"btn-blanco btn-blanco--modify btn-azul"}
             />
             <Search
